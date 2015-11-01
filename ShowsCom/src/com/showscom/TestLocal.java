@@ -76,9 +76,7 @@ public class TestLocal {
             			.add(Restrictions.eq("nom", nom))
             			.list();
         		
-        		if (listL.size() > 0) {
-        			System.out.println("El local amb nom " + nom + " ja existeix");
-        		}
+        		if (listL.size() > 0) System.out.println("El local amb nom " + nom + " ja existeix");
         		else {
 	        		System.out.println("Introdueix l'adreca:");
 	        		String adreca = scan.nextLine();
@@ -105,9 +103,7 @@ public class TestLocal {
     	        	System.out.print(local.toString());
     	        	++i;
                 }
-    	        if(list.size() == 0) {
-    	        	System.out.println("No hi ha cap Local");
-    	        }
+    	        if(list.size() == 0) System.out.println("No hi ha cap Local");
             }
             else if(op == '3') {
             	// Consultar un local per nom
@@ -122,11 +118,9 @@ public class TestLocal {
             	
     	        for (Local local : list) {
     	        	System.out.print(local.toString());
-                    
                 }
-    	        if(list.size() == 0) {
-    	        	System.out.println("El local amb nom " + nom + " no existeix");
-    	        }
+    	        
+    	        if(list.size() == 0) System.out.println("El local amb nom " + nom + " no existeix");
             }
             else if(op == '4') {
             	// Afegir un seient
@@ -138,9 +132,7 @@ public class TestLocal {
         		System.out.println("Introdueix la columna:");
         		int columna = Integer.parseInt(scan.nextLine());
         		
-        		if (fila < 1 || columna < 1) {
-        			System.out.println("Fila o Columna invalides (F, C > 1)");
-        		}
+        		if (fila < 1 || columna < 1) System.out.println("Fila o Columna invalides (F, C > 1)");
         		else {
 	        		System.out.println("Introdueix el nom del local:");
 	        		String nomLocal = scan.nextLine();
@@ -151,17 +143,13 @@ public class TestLocal {
 	            			.add(Restrictions.eq("seientPK.nomLocal", nomLocal))
 	            			.list();
 	        		
-	        		if (listS.size() > 0) {
-	        			System.out.println("El Seient amb fila " + fila + " columna " + columna + " al local " + nomLocal + " ja existeix");
-	        		}
+	        		if (listS.size() > 0) System.out.println("El Seient amb fila " + fila + " columna " + columna + " al local " + nomLocal + " ja existeix");
 	        		else {
 		        		List<Local> listL = session.createCriteria(Local.class)
 		        				.add(Restrictions.eq("nom", nomLocal))
 		        				.list();
 		        		
-		        		if(listL.size() == 0) {
-		        			System.out.println("El local amb nom " + nomLocal + " no existeix");
-		        		}
+		        		if(listL.size() == 0) System.out.println("El local amb nom " + nomLocal + " no existeix");
 		        		else {
 		        			Local local = listL.get(0);
 		        			SeientPK seientPK = new SeientPK(fila, columna, nomLocal);
@@ -185,9 +173,7 @@ public class TestLocal {
                     System.out.print(seient.toString());
                     ++i;
                 }
-    	        if(list.size() == 0) {
-    	        	System.out.println("No hi ha cap Seient");
-    	        }
+    	        if(list.size() == 0) System.out.println("No hi ha cap Seient");
             }
             else if(op == '6') {
             	// Consultar un seient per nom del local
@@ -204,13 +190,9 @@ public class TestLocal {
                     System.out.print(seient.toString());
                     ++i;
                 }
-    	        if(list.size() == 0) {
-    	        	System.out.println("No hi ha cap Seient al local " + nom);
-    	        }
+    	        if(list.size() == 0) System.out.println("No hi ha cap Seient al local " + nom);
             }
-            else {
-            	System.out.println("Opcio no valida");
-            }
+            else System.out.println("Opcio no valida");
             
             //session.getTransaction().commit();
 
