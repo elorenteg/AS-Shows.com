@@ -26,7 +26,7 @@ public class TestLocal {
 		System.out.println("==================================================");
 		System.out.println("== Sistema d'enregistrament de Locals i Seients ==");
 		System.out.println("==================================================");
-        System.out.println("Escull una opció:");
+        System.out.println("Escull una opcio:");
         System.out.println("1 - Afegir un local");
         System.out.println("2 - Consultar tots els locals");
         System.out.println("3 - Consultar un local per nom");
@@ -35,10 +35,6 @@ public class TestLocal {
         System.out.println("6 - Consultar un seient per nom del local");
         System.out.println("0 - Sortir");
     }
-	
-	public static void configuration() {
-		
-	}
 
 	public static void main(String[] args) throws SecurityException, IllegalStateException, RollbackException, HeuristicMixedException, HeuristicRollbackException, SystemException {
 		Scanner scan = new Scanner(System.in);
@@ -84,7 +80,7 @@ public class TestLocal {
         			System.out.println("El local amb nom " + nom + " ja existeix");
         		}
         		else {
-	        		System.out.println("Introdueix l'adreça:");
+	        		System.out.println("Introdueix l'adreca:");
 	        		String adreca = scan.nextLine();
 	        		local.setAdreca(adreca);
 	        		
@@ -204,7 +200,6 @@ public class TestLocal {
             	
             	int i = 1;
     	        for (Seient seient : list) {
-    	        	SeientPK seientPK = seient.getSeientPK();
                     System.out.println("SEIENT " + i);
                     System.out.print(seient.toString());
                     ++i;
@@ -214,7 +209,7 @@ public class TestLocal {
     	        }
             }
             else {
-            	System.out.println("Opció no vàlida");
+            	System.out.println("Opcio no valida");
             }
             
             //session.getTransaction().commit();
