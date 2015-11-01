@@ -25,7 +25,7 @@ public class Seient {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "local", referencedColumnName = "nom")
+	//@JoinColumn(name = "local", referencedColumnName = "nom")
 	public Local getLocal() {
 		return local;
 	}

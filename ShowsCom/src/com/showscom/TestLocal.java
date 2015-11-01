@@ -11,6 +11,8 @@ import javax.transaction.SystemException;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -21,9 +23,9 @@ import org.hibernate.tool.hbm2ddl.SchemaExport;
 public class TestLocal {
 	
 	public static void menu() {
-		System.out.println("=============================================================");
-		System.out.println("==      Sistema d'enregistrament de Locals i Seients       ==");
-		System.out.println("=============================================================");
+		System.out.println("==================================================");
+		System.out.println("== Sistema d'enregistrament de Locals i Seients ==");
+		System.out.println("==================================================");
         System.out.println("Escull una opció:");
         System.out.println("1 - Afegir un local");
         System.out.println("2 - Consultar tots els locals");
@@ -31,7 +33,6 @@ public class TestLocal {
         System.out.println("4 - Afegir un seient");
         System.out.println("5 - Consultar tots els seients");
         System.out.println("6 - Consultar un seient per nom del local");
-        System.out.println("7 - Consultar un seient per fila i columna");
         System.out.println("0 - Sortir");
     }
 	
@@ -95,7 +96,10 @@ public class TestLocal {
             }
             else if(op == '2') {
             	// Consultar tots els locals
-            	List<Local> list = session.createCriteria(Local.class).list();
+            	List<Local> list = session.createCriteria(Local.class)
+            			.setFetchMode("lineItems", FetchMode.JOIN)
+                        .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
+            			.list();
             	
             	System.out.println("Locals disponibles al sistema Shows.com");
             	
@@ -116,6 +120,8 @@ public class TestLocal {
             	
             	List<Local> list = session.createCriteria(Local.class)
             			.add(Restrictions.eq("nom", nom))
+            			.setFetchMode("lineItems", FetchMode.JOIN)
+                        .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
             			.list();
             	
     	        for (Local local : list) {
@@ -136,33 +142,38 @@ public class TestLocal {
         		System.out.println("Introdueix la columna:");
         		int columna = Integer.parseInt(scan.nextLine());
         		
-        		System.out.println("Introdueix el nom del local:");
-        		String nomLocal = scan.nextLine();
-        		
-        		List<Seient> listS = session.createCriteria(Seient.class)
-            			.add(Restrictions.eq("seientPK.fila", fila))
-            			.add(Restrictions.eq("seientPK.columna", columna))
-            			.add(Restrictions.eq("seientPK.nomLocal", nomLocal))
-            			.list();
-        		
-        		if (listS.size() > 0) {
-        			System.out.println("El Seient amb fila " + fila + " columna " + columna + " al local " + nomLocal + " ja existeix");
+        		if (fila < 1 || columna < 1) {
+        			System.out.println("Fila o Columna invalides (F, C > 1)");
         		}
         		else {
-	        		List<Local> listL = session.createCriteria(Local.class)
-	        				.add(Restrictions.eq("nom", nomLocal))
-	        				.list();
+	        		System.out.println("Introdueix el nom del local:");
+	        		String nomLocal = scan.nextLine();
 	        		
-	        		if(listL.size() == 0) {
-	        			System.out.println("El local amb nom " + nomLocal + " ja existeix");
+	        		List<Seient> listS = session.createCriteria(Seient.class)
+	            			.add(Restrictions.eq("seientPK.fila", fila))
+	            			.add(Restrictions.eq("seientPK.columna", columna))
+	            			.add(Restrictions.eq("seientPK.nomLocal", nomLocal))
+	            			.list();
+	        		
+	        		if (listS.size() > 0) {
+	        			System.out.println("El Seient amb fila " + fila + " columna " + columna + " al local " + nomLocal + " ja existeix");
 	        		}
 	        		else {
-	        			Local local = listL.get(0);
-	        			SeientPK seientPK = new SeientPK(fila, columna, nomLocal);
-	        			seient.setSeientPK(seientPK);
-	        			seient.setLocal(local);
-	        		
-	        			session.save(seient);
+		        		List<Local> listL = session.createCriteria(Local.class)
+		        				.add(Restrictions.eq("nom", nomLocal))
+		        				.list();
+		        		
+		        		if(listL.size() == 0) {
+		        			System.out.println("El local amb nom " + nomLocal + " no existeix");
+		        		}
+		        		else {
+		        			Local local = listL.get(0);
+		        			SeientPK seientPK = new SeientPK(fila, columna, nomLocal);
+		        			seient.setSeientPK(seientPK);
+		        			seient.setLocal(local);
+		        		
+		        			session.save(seient);
+		        		}
 	        		}
         		}
             }
@@ -202,27 +213,6 @@ public class TestLocal {
     	        	System.out.println("No hi ha cap Seient al local " + nom);
     	        }
             }
-            else if(op == '7') {
-            	// Consultar un seient per fila
-            	System.out.println("Introdueix la fila del seient:");
-            	int fila = Integer.parseInt(scan.nextLine());
-            	
-            	List<Seient> list = session.createCriteria(Seient.class)
-            			.add(Restrictions.eq("seientPK.fila", fila))
-            			.list();
-            	
-            	System.out.println("Seients a la fila " + fila);
-            	
-            	int i = 1;
-    	        for (Seient seient : list) {
-                    System.out.println("SEIENT " + i);
-                    System.out.print(seient.toString());
-                    ++i;
-                }
-    	        if(list.size() == 0) {
-    	        	System.out.println("No hi ha cap Seient a la fila " + fila);
-    	        }
-            }
             else {
             	System.out.println("Opció no vàlida");
             }
@@ -233,22 +223,4 @@ public class TestLocal {
 		}
 		scan.close();
 	}
-}
-
-class Typetester {
-    void printType(byte x) {
-        System.out.println(x + " is an byte");
-    }
-    void printType(int x) {
-        System.out.println(x + " is an int");
-    }
-    void printType(float x) {
-        System.out.println(x + " is an float");
-    }
-    void printType(double x) {
-        System.out.println(x + " is an double");
-    }
-    void printType(char x) {
-        System.out.println(x + " is an char");
-    }
 }

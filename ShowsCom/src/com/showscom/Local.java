@@ -53,8 +53,9 @@ public class Local {
         
         int i = 1;
         for (Seient seient : seients) {
-            s += "SEIENT " + i + "\n";
-            s += seient.toString();
+            s += "  " + "SEIENT " + i + "\n";
+            s += "    " + "Fila " + seient.getSeientPK().getFila() + "\n";
+            s += "    " + "Columna " + seient.getSeientPK().getColumna() + "\n";
             ++i;
         }
         
