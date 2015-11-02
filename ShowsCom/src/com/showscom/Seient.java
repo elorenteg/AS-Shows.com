@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Seient")
+@Table(name = "Seient10")
 public class Seient {
 
 	private SeientPK seientPK;
@@ -25,7 +25,7 @@ public class Seient {
 	}
 
 	@ManyToOne
-	//@JoinColumn(name = "local", referencedColumnName = "nom")
+	@JoinColumn(name = "local", referencedColumnName = "nom")
 	public Local getLocal() {
 		return local;
 	}
@@ -35,9 +35,10 @@ public class Seient {
 	}
 	
 	public String toString() {
-        String s = "  Fila: " + getSeientPK().getFila() + "\n";
-        s += "  Columna: " + getSeientPK().getFila() + "\n";
-        s += "  Local: " + getSeientPK().getNomLocal() + "\n";
-		return s;
+		String s = ">> Fila: " + seientPK.getFila() + "\n";
+        s += ">> Columna: " + seientPK.getColumna() + "\n";
+        s += ">> NomLocal: " + seientPK.getNomLocal() + "\n";
+        
+        return s;
 	}
 }

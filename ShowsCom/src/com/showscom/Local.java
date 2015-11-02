@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Local")
+@Table(name = "Local10")
 public class Local {
 
 	private String nom;
@@ -48,14 +48,14 @@ public class Local {
 	}
 	
 	public String toString() {
-        String s = "  Nom: " + getNom() + "\n";
-        s += "  Adreca: " + getAdreca() + "\n";
+        String s = ">> Nom: " + getNom() + "\n";
+        s += ">> Adreca: " + getAdreca() + "\n";
         
         int i = 1;
         for (Seient seient : seients) {
-            s += "  " + "SEIENT " + i + "\n";
-            s += "    " + "Fila " + seient.getSeientPK().getFila() + "\n";
-            s += "    " + "Columna " + seient.getSeientPK().getColumna() + "\n";
+        	s += ">> SEIENT " + i + "\n";
+            s += ">> >> Fila: " + seient.getSeientPK().getFila() + "\n";
+            s += ">> >> Columna: " + seient.getSeientPK().getColumna() + "\n";
             ++i;
         }
         

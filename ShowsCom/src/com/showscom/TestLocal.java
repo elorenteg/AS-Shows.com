@@ -95,12 +95,10 @@ public class TestLocal {
                         .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
             			.list();
             	
-            	System.out.println("Locals disponibles al sistema Shows.com");
-            	
             	int i = 1;
     	        for (Local local : list) {
     	        	System.out.println("LOCAL " + i);
-    	        	System.out.print(local.toString());
+    	        	System.out.println(local.toString());
     	        	++i;
                 }
     	        if(list.size() == 0) System.out.println("No hi ha cap Local");
@@ -117,7 +115,8 @@ public class TestLocal {
             			.list();
             	
     	        for (Local local : list) {
-    	        	System.out.print(local.toString());
+    	        	System.out.println("LOCAL");
+    	        	System.out.println(local.toString());
                 }
     	        
     	        if(list.size() == 0) System.out.println("El local amb nom " + nom + " no existeix");
@@ -165,13 +164,11 @@ public class TestLocal {
             	// Consultar tots els seients
             	List<Seient> list = session.createCriteria(Seient.class).list();
             	
-            	System.out.println("Seients disponibles al sistema Shows.com");
-            	
             	int i = 1;
     	        for (Seient seient : list) {
-                    System.out.println("SEIENT " + i);
-                    System.out.print(seient.toString());
-                    ++i;
+    	        	System.out.println("SEIENT " + i);
+    	        	System.out.println(seient.toString());
+    	        	++i;
                 }
     	        if(list.size() == 0) System.out.println("No hi ha cap Seient");
             }
@@ -186,9 +183,9 @@ public class TestLocal {
             	
             	int i = 1;
     	        for (Seient seient : list) {
-                    System.out.println("SEIENT " + i);
-                    System.out.print(seient.toString());
-                    ++i;
+    	        	System.out.println("SEIENT " + i);
+    	        	System.out.println(seient.toString());
+    	        	++i;
                 }
     	        if(list.size() == 0) System.out.println("No hi ha cap Seient al local " + nom);
             }
