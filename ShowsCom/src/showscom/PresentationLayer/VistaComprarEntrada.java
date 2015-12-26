@@ -18,6 +18,7 @@ public class VistaComprarEntrada extends JFrame {
 	public VistaComprarEntrada(final CtrlPresComprarEntrada ctrlPres) {
 		this.ctrlPres = ctrlPres;
 		initComponents();
+		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
 
@@ -29,8 +30,8 @@ public class VistaComprarEntrada extends JFrame {
 		panellPagam = new PanellPagament(ctrlPres);
 		panellFi = new PanellFi(ctrlPres);
 
-		setMinimumSize(new Dimension(600,600));
-		setPreferredSize(new Dimension(600,600));
+		setMinimumSize(new Dimension(900,650));
+		setPreferredSize(new Dimension(900,650));
 		getContentPane().setLayout(new CardLayout());
 		getContentPane().add(panellIni,  "Inici");
 		getContentPane().add(panellEsp,  "Espectacle");
