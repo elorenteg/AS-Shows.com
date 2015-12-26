@@ -18,7 +18,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 public class TestLocal {
 	
