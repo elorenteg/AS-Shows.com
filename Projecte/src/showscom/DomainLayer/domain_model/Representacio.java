@@ -53,4 +53,9 @@ public class Representacio {
 	public boolean esEstrena() {
 		return false;
 	}
+
+	public void reservarSeients(Object seients) {
+		// TODO hacer mediante CtrlSeientsEnRepresentacio
+		
+	}
 }

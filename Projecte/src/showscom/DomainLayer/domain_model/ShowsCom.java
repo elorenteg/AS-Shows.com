@@ -9,6 +9,7 @@ public class ShowsCom {
 	private float comissio;
 	private Moneda divisa;
 	private List<Moneda> canvis;
+	private int venudes;
 	
 	/* Un Constructor privat preve que una altra classe
 	 * instancii la classe
@@ -58,6 +59,10 @@ public class ShowsCom {
 
 	public void setCanvis(List<Moneda> canvis) {
 		this.canvis = canvis;
+	}
+	
+	public int incrementaVenudes() {
+		return venudes++;
 	}
 
 	public static void setInstance(ShowsCom instance) {
