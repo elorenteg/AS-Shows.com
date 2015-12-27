@@ -7,6 +7,8 @@ import showscom.DomainLayer.domain_model.Entrada;
 import showscom.DomainLayer.domain_model.ShowsCom;
 import showscom.DomainLayer.exceptions.DONoHiHaEspectacles;
 import showscom.DomainLayer.exceptions.DONoHiHaRepresentacions;
+import showscom.DomainLayer.exceptions.DOPagamentNoAutoritzat;
+import showscom.DomainLayer.exceptions.DOServeiNoDisponible;
 import showscom.DomainLayer.factories.CtrlUseCaseFactory;
 
 public class CtrlDomComprarEntrada {
@@ -38,7 +40,7 @@ public class CtrlDomComprarEntrada {
 		return llista;
 	}
 	
-	public void pagament(String dni, int codiB, String numCompte) {
+	public void pagament(String dni, int codiB, String numCompte) throws DOPagamentNoAutoritzat, DOServeiNoDisponible {
 		ShowsCom showsCom = ShowsCom.getInstance();
 		int c = showsCom.getCodiBanc();
 		String n = showsCom.getNumeroCompte();
@@ -49,5 +51,4 @@ public class CtrlDomComprarEntrada {
 		// Representacio r = ctrlRepresentacio.getRepresentacio(sessio, nomL);
 		// Entrada entrada = new Entrada(Integer.toString(v), dni, nombreEspectadors, new Date(), preuTotal, r, seients);		
 	}
-
 }

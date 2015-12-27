@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
 import showscom.DomainLayer.domain_controllers.CtrlDomComprarEntrada;
 import showscom.DomainLayer.exceptions.DONoHiHaEspectacles;
 import showscom.DomainLayer.exceptions.DONoHiHaRepresentacions;
+import showscom.DomainLayer.exceptions.DOPagamentNoAutoritzat;
+import showscom.DomainLayer.exceptions.DOServeiNoDisponible;
 
 public class CtrlPresComprarEntrada {
 	CtrlDomComprarEntrada ctrlDom;
@@ -60,6 +62,18 @@ public class CtrlPresComprarEntrada {
 	
 	public void prComboObtePreuMoneda() {}
 	
-	public void prContPagament(String dni, int codiB, String numCompte) {}
+	public void prContPagament(String dni, int codiB, String numCompte) {
+		try {
+			ctrlDom.pagament(dni, codiB, numCompte);
+			// TODO mostraMissatgeFinal en vez de Finalitza
+			vistaPres.mostraMissatgeFinalitza("Pagament realitzat correctament, podrà recollor les seves entrades a la seva entitat bancària");
+		}
+		catch(DOServeiNoDisponible e) {
+			vistaPres.mostraMissatgeEndarrera("El servei no està disponible o no autoritza el pagament");
+		}
+		catch(DOPagamentNoAutoritzat e) {
+			vistaPres.mostraMissatgeEndarrera("El pagament no s'autoritza");
+		}
+	}
 	
 }
