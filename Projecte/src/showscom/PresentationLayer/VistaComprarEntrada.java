@@ -79,4 +79,15 @@ public class VistaComprarEntrada extends JFrame {
 
 		panellRepr.mostraRepresentacions(llista);
 	}
+	
+	public void mostraPagament(float preu, List<String> divises) {
+		panellIni.setVisible(false);
+		panellEsp.setVisible(false);
+		panellRepr.setVisible(false);
+		panellSeients.setVisible(false);
+		panellPagam.setVisible(true);
+		panellFi.setVisible(false);
+
+		panellPagam.mostraPagament(preu, divises);
+	}
 }
