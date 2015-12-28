@@ -90,4 +90,14 @@ public class VistaComprarEntrada extends JFrame {
 
 		panellPagam.mostraPagament(preu, divises);
 	}
+	
+	public void mostraFinalitza() {
+		panellIni.setVisible(false);
+		panellEsp.setVisible(false);
+		panellRepr.setVisible(false);
+		panellSeients.setVisible(false);
+		panellPagam.setVisible(false);
+		panellFi.setVisible(true);
+	}
+	
 }
