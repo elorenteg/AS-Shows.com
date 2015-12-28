@@ -181,8 +181,26 @@ public class PanellPagament extends JPanel {
 	}
 	
 	private void prContinua(ActionEvent evt) {
-		// TODO obtener datos de los campos
-		ctrlPres.prContPagament("UnDNI", 100, "UnNumeroCompte");
+		String DNI = textFieldDNI.getText();
+		if (DNI == null) {
+			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el DNI"); // TODO comprovar DNI valido? (\d{8})([-]?)([A-Z]{1})
+			return;
+		}
+		
+		int codiBanc;
+		try {
+			codiBanc = Integer.parseInt(textFieldCodiBanc.getText());
+		} catch (NumberFormatException e) {
+			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el Codi del banc o no és vàlid");
+			return;
+	    }
+		
+		String numCompte = textFieldNumCompte.getText();
+		if (numCompte == null) {
+			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el Número de compte");
+			return;
+		}
+		ctrlPres.prContPagament(DNI, codiBanc, numCompte);
 	}
 	
 	private void prCancela(ActionEvent evt) {
