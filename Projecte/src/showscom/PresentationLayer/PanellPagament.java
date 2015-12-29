@@ -1,8 +1,10 @@
 package showscom.PresentationLayer;
 
+import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.GroupLayout;
@@ -29,7 +31,7 @@ public class PanellPagament extends JPanel {
 	public PanellPagament(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres) {
 		this.ctrlPres = ctrlPres;
 		this.vistaPres = vistaPres;
-		//initComponents();
+		// initComponents(preu, divises);
 		this.setVisible(true);
 	}
 	
@@ -37,6 +39,7 @@ public class PanellPagament extends JPanel {
 	private void initComponents(float preu, List<String> divises) {
 		
 		JLabel labelPreu = new JLabel("Preu total:");
+		labelPreu.setFont(new Font("originalfont", Font.PLAIN, 16));
 		
 		textFieldPreu = new JTextField();
 		textFieldPreu.setEditable(false);
@@ -47,16 +50,19 @@ public class PanellPagament extends JPanel {
 		for(String divisa: divises) comboBoxDivises.addItem(divisa);
 		
 		JLabel labelDNI = new JLabel("DNI:");
+		labelDNI.setFont(new Font("originalfont", Font.PLAIN, 16));
 		
 		textFieldDNI = new JTextField();
 		textFieldDNI.setColumns(10);
 		
 		JLabel labelCodiBanc = new JLabel("Codi banc:");
+		labelCodiBanc.setFont(new Font("originalfont", Font.PLAIN, 16));
 		
 		textFieldCodiBanc = new JTextField();
 		textFieldCodiBanc.setColumns(10);
 		
-		JLabel labelNumCompte = new JLabel("Núm. Compte");
+		JLabel labelNumCompte = new JLabel("Núm. Compte:");
+		labelNumCompte.setFont(new Font("originalfont", Font.PLAIN, 16));
 		
 		textFieldNumCompte = new JTextField();
 		textFieldNumCompte.setColumns(10);
@@ -90,33 +96,32 @@ public class PanellPagament extends JPanel {
 		setLayout(new GridBagLayout());
 		
 		GroupLayout layout = new GroupLayout(this);
+		this.setLayout(layout);
 		layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(GroupLayout.Alignment.CENTER, layout.createSequentialGroup()
-						.addGap(200, 200, 200)
+						.addGap(200)
 						.addComponent(btnContinua)
 						.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 						.addComponent(btnCancela)
-						.addGap(200, 200, 200))
+						.addGap(200))
 						
-				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-						.addGroup(layout.createSequentialGroup()
+				.addGroup(layout.createSequentialGroup()
+						.addGap(225)
+						.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
 								.addComponent(labelPreu)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(textFieldPreu)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(comboBoxDivises))
-						.addGroup(layout.createSequentialGroup()
 								.addComponent(labelDNI)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(textFieldDNI))
-						.addGroup(layout.createSequentialGroup()
 								.addComponent(labelCodiBanc)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(textFieldCodiBanc))
-						.addGroup(layout.createSequentialGroup()
-								.addComponent(labelNumCompte)
-								.addPreferredGap(ComponentPlacement.RELATED)
-								.addComponent(textFieldNumCompte)))
+								.addComponent(labelNumCompte))
+						.addGap(25)
+						.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+								.addGroup(layout.createSequentialGroup()
+										.addComponent(textFieldPreu)
+										.addGap(50)
+										.addComponent(comboBoxDivises))
+								.addComponent(textFieldDNI)
+								.addComponent(textFieldCodiBanc)
+								.addComponent(textFieldNumCompte))
+						.addGap(225))
 						
 						
 				.addGroup(layout.createParallelGroup(GroupLayout.Alignment.CENTER)
@@ -143,7 +148,7 @@ public class PanellPagament extends JPanel {
 		layout.setVerticalGroup(
 	            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
 	            .addGroup(layout.createSequentialGroup()
-	        		.addGap(50, 50, 50)
+	        		.addGap(50)
 	                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 	                    .addComponent(labelEspec)
 	                    .addComponent(labelRepres)
@@ -159,15 +164,15 @@ public class PanellPagament extends JPanel {
 	                		.addComponent(labelPreu)
 	                		.addComponent(textFieldPreu)
 	                		.addComponent(comboBoxDivises))
-	                .addPreferredGap(ComponentPlacement.RELATED)
+	                .addPreferredGap(ComponentPlacement.RELATED, 25, 25)
 	                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 	                		.addComponent(labelDNI)
 	                		.addComponent(textFieldDNI))
-	                .addPreferredGap(ComponentPlacement.RELATED)
+	                .addPreferredGap(ComponentPlacement.RELATED, 25, 25)
 	                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 	                		.addComponent(labelCodiBanc)
 	                		.addComponent(textFieldCodiBanc))
-	                .addPreferredGap(ComponentPlacement.RELATED)
+	                .addPreferredGap(ComponentPlacement.RELATED, 25, 25)
 	                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 	                		.addComponent(labelNumCompte)
 	                		.addComponent(textFieldNumCompte))	                
@@ -175,7 +180,7 @@ public class PanellPagament extends JPanel {
 	                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 	                        .addComponent(btnContinua)
 	                        .addComponent(btnCancela))
-	                .addGap(50, 50, 50)
+	                .addGap(50)
 	                .addContainerGap())
 	        );
 	}

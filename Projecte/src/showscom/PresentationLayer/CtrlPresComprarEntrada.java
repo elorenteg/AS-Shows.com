@@ -65,8 +65,7 @@ public class CtrlPresComprarEntrada {
 	public void prContPagament(String dni, int codiB, String numCompte) {
 		try {
 			ctrlDom.pagament(dni, codiB, numCompte);
-			// TODO mostraMissatgeFinal en vez de Finalitza
-			vistaPres.mostraMissatgeFinalitza("Pagament realitzat correctament, podrà recollor les seves entrades a la seva entitat bancària");
+			vistaPres.mostraFinalitza();
 		}
 		catch(DOServeiNoDisponible e) {
 			vistaPres.mostraMissatgeEndarrera("El servei no està disponible o no autoritza el pagament");
