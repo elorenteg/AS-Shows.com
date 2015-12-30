@@ -38,6 +38,15 @@ public class CtrlDomComprarEntrada {
 
 		return llista;
 	}
+	
+	public List<Object> obteOcupacio(String nomL, String sessio, int nombreEspectadors) {
+		CtrlUseCaseFactory ctrlUseCaseFact = CtrlUseCaseFactory.getInstance();
+		CtrlConsultarOcupacio ctrlConsOcup = ctrlUseCaseFact.getCtrlConsultarOcupacio();
+		List<Object> llista = ctrlConsOcup.consultaOcupacio(nomL,sessio,nombreEspectadors);
+		this.nomL=nomL;
+		this.nombreEspectadors=nombreEspectadors;	
+		return llista;
+	}
 
 	public void pagament(String dni, int codiB, String numCompte) throws DOPagamentNoAutoritzat, DOServeiNoDisponible {
 		ShowsCom showsCom = ShowsCom.getInstance();
