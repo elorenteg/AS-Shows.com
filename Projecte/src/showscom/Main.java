@@ -1,6 +1,6 @@
 package showscom;
 
-import showscom.PresentationLayer.CtrlPresComprarEntrada;
+import showscom.presentationLayer.CtrlPresComprarEntrada;
 
 public class Main {
 	
