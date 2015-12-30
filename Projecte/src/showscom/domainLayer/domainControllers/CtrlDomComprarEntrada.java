@@ -43,8 +43,8 @@ public class CtrlDomComprarEntrada {
 		CtrlUseCaseFactory ctrlUseCaseFact = CtrlUseCaseFactory.getInstance();
 		CtrlConsultarOcupacio ctrlConsOcup = ctrlUseCaseFact.getCtrlConsultarOcupacio();
 		List<Object> llista = ctrlConsOcup.consultaOcupacio(nomL,sessio,nombreEspectadors);
-		this.nomL=nomL;
-		this.nombreEspectadors=nombreEspectadors;	
+		this.nomL = nomL;
+		this.nombreEspectadors = nombreEspectadors;
 		return llista;
 	}
 
