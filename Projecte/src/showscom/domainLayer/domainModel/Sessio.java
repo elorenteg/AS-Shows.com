@@ -3,6 +3,8 @@ package showscom.domainLayer.domainModel;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -21,6 +23,7 @@ public class Sessio {
 
 	@Id
 	@Column(name = "sessio")
+	@Enumerated(EnumType.STRING)
 	public TipusSessio getSessio() {
 		return sessio;
 	}
