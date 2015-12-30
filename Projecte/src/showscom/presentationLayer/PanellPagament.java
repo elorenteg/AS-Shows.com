@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigInteger;
 import java.util.List;
 
 import javax.swing.GroupLayout;
@@ -67,7 +68,7 @@ public class PanellPagament extends JPanel {
 		textFieldCodiBanc = new JTextField();
 		textFieldCodiBanc.setColumns(10);
 
-		JLabel labelNumCompte = new JLabel("N�m. Compte:");
+		JLabel labelNumCompte = new JLabel("Núm. Compte:");
 		labelNumCompte.setFont(new Font("originalfont", Font.PLAIN, 16));
 
 		textFieldNumCompte = new JTextField();
@@ -80,7 +81,7 @@ public class PanellPagament extends JPanel {
 			}
 		});
 
-		btnCancela = new JButton("Cancel�la");
+		btnCancela = new JButton("Cancel·la");
 		btnCancela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				prCancela(evt);
@@ -88,11 +89,11 @@ public class PanellPagament extends JPanel {
 		});
 
 		JLabel labelEspec = new JLabel("Espectacles");
-		JLabel labelRepres = new JLabel("Representaci�");
+		JLabel labelRepres = new JLabel("Representació");
 		JLabel labelSeients = new JLabel("Seients");
 		JLabel labelPagam = new JLabel("Pagament");
 		labelPagam.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
-		JLabel labelConfirm = new JLabel("Confirmaci�");
+		JLabel labelConfirm = new JLabel("Confirmació");
 		JLabel labelSep1 = new JLabel(">>");
 		JLabel labelSep2 = new JLabel(">>");
 		JLabel labelSep3 = new JLabel(">>");
@@ -159,27 +160,69 @@ public class PanellPagament extends JPanel {
 	private void prContinua(ActionEvent evt) {
 		String DNI = textFieldDNI.getText();
 		if (DNI == null) {
-			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el DNI"); // TODO
-																			// comprovar
-																			// DNI
-																			// valido?
-																			// (\d{8})([-]?)([A-Z]{1})
+			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el DNI");
 			return;
 		}
+		
+		DNI = DNI.replaceAll("[\\s\\-]", "");
+		if (DNI.length() > 9) {
+			vistaPres.mostraMissatgeEndarrera("La grandària del DNI és incorrecte");
+			return;
+		}
+		
+		int valorDNI;
+		try {
+			valorDNI = Integer.parseInt(DNI.substring(0, DNI.length()-1));
+		} catch (NumberFormatException e) {
+			vistaPres.mostraMissatgeEndarrera("El format del DNI no és correcte");
+			return;
+		}
+		
+		String letrasDNI = "TRWAGMYFPDXBNJZSQVHLCKE";
+		if (letrasDNI.charAt(valorDNI%23) != DNI.charAt(DNI.length()-1)) {
+			vistaPres.mostraMissatgeEndarrera("La lletra del DNI no és correcta");
+			return;
+		}
+		
+		
 
 		int codiBanc;
 		try {
 			codiBanc = Integer.parseInt(textFieldCodiBanc.getText());
 		} catch (NumberFormatException e) {
-			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el Codi del banc o no �s v�lid");
+			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el Codi del banc o no és vàlid");
 			return;
 		}
+		
+		
 
 		String numCompte = textFieldNumCompte.getText();
 		if (numCompte == null) {
-			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el N�mero de compte");
+			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el Número de compte");
 			return;
 		}
+		
+		
+		String newAccountNumber = numCompte.replaceAll("\\s","");
+        	if (newAccountNumber.length() < 15 || newAccountNumber.length() > 34) {
+        		vistaPres.mostraMissatgeEndarrera("La grandària del Número de compte és incorrecte");
+			return;
+        	}
+        
+	        newAccountNumber = newAccountNumber.substring(4) + newAccountNumber.substring(0, 4);        
+	        StringBuilder numericAccountNumber = new StringBuilder();
+	        for (int i = 0; i < newAccountNumber.length(); i++) {
+	            	numericAccountNumber.append(Character.getNumericValue(newAccountNumber.charAt(i)));
+	        }
+	
+	        BigInteger ibanNumber = new BigInteger(numericAccountNumber.toString());
+	        if (ibanNumber.mod(new BigInteger("97")).intValue() != 1) {
+	        	vistaPres.mostraMissatgeEndarrera("El Número de compte no és correcte");
+			return;
+	        };
+		
+		
+		
 		ctrlPres.prContPagament(DNI, codiBanc, numCompte);
 	}
 
