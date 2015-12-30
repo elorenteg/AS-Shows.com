@@ -2,6 +2,8 @@ package showscom.PresentationLayer;
 
 import java.awt.CardLayout;
 import java.awt.Dimension;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -15,7 +17,7 @@ public class VistaComprarEntrada extends JFrame {
 	private PanellSeients panellSeients;
 	private PanellPagament panellPagam;
 	private PanellFi panellFi;
-	
+
 	public VistaComprarEntrada(final CtrlPresComprarEntrada ctrlPres) {
 		this.ctrlPres = ctrlPres;
 		initComponents();
@@ -24,80 +26,67 @@ public class VistaComprarEntrada extends JFrame {
 	}
 
 	private void initComponents() {
-		panellIni = new PanellInici(ctrlPres, this);
-		panellEsp = new PanellEspectacle(ctrlPres, this);
-		panellRepr = new PanellRepresentacio(ctrlPres, this);
-		panellSeients = new PanellSeients(ctrlPres, this);
-		panellPagam = new PanellPagament(ctrlPres, this);
-		panellFi = new PanellFi(ctrlPres, this);
-
-		setMinimumSize(new Dimension(900,650));
-		setPreferredSize(new Dimension(900,650));
+		setMinimumSize(new Dimension(900, 650));
+		setPreferredSize(new Dimension(900, 650));
 		getContentPane().setLayout(new CardLayout());
-		getContentPane().add(panellIni,  "Inici");
-		getContentPane().add(panellEsp,  "Espectacle");
-		getContentPane().add(panellRepr,  "Represetacio");
-		getContentPane().add(panellSeients,  "Seients");
-		getContentPane().add(panellPagam,  "Pagament");
-		getContentPane().add(panellFi,  "Confirmacio");
-		
+
+		panellIni = new PanellInici(ctrlPres, this);
+		getContentPane().add(panellIni, "Inici");
+
 		pack();
+
+		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent we) {
+				ctrlPres.prCancela();
+			}
+		});
 	}
 
 	public void mostraMissatgeFinalitza(String text) {
-		Object[] choices = {"Finalitza"};
+		Object[] choices = { "Finalitza" };
 		Object defaultChoice = choices[0];
-		JOptionPane.showOptionDialog(this, text, "Atenció", JOptionPane.ERROR_MESSAGE, JOptionPane.ERROR_MESSAGE, null,choices, defaultChoice);
+		JOptionPane.showOptionDialog(this, text, "Atenció", JOptionPane.ERROR_MESSAGE, JOptionPane.ERROR_MESSAGE, null,
+				choices, defaultChoice);
 		ctrlPres.prFinalitza();
 	}
 
 	public void mostraMissatgeEndarrera(String text) {
-		Object[] choices = {"Endarrera"};
+		Object[] choices = { "Endarrera" };
 		Object defaultChoice = choices[0];
-		JOptionPane.showOptionDialog(this, text, "Atenció", JOptionPane.ERROR_MESSAGE, JOptionPane.ERROR_MESSAGE, null,choices, defaultChoice);
+		JOptionPane.showOptionDialog(this, text, "Atenció", JOptionPane.ERROR_MESSAGE, JOptionPane.ERROR_MESSAGE, null,
+				choices, defaultChoice);
 		ctrlPres.prEndarrera();
 	}
-	
+
 	public void mostraEspectacles(List<String> espectacles) {
+		panellEsp = new PanellEspectacle(ctrlPres, this, espectacles);
+		getContentPane().add(panellEsp, "Espectacle");
 		panellIni.setVisible(false);
 		panellEsp.setVisible(true);
-		panellRepr.setVisible(false);
-		panellSeients.setVisible(false);
-		panellPagam.setVisible(false);
-		panellFi.setVisible(false);
-		
-		panellEsp.mostraEspectacles(espectacles);
 	}
-	
+
 	public void mostraRepresentacions(List<Object> llista) {
-		panellIni.setVisible(false);
+		panellRepr = new PanellRepresentacio(ctrlPres, this, llista);
+		getContentPane().add(panellRepr, "Representacio");
 		panellEsp.setVisible(false);
 		panellRepr.setVisible(true);
-		panellSeients.setVisible(false);
-		panellPagam.setVisible(false);
-		panellFi.setVisible(false);
-
-		panellRepr.mostraRepresentacions(llista);
 	}
-	
+
 	public void mostraPagament(float preu, List<String> divises) {
-		panellIni.setVisible(false);
+		panellPagam = new PanellPagament(ctrlPres, this, preu, divises);
+		getContentPane().add(panellPagam, "Pagament");
+		// panellSeients.setVisible(false);
 		panellEsp.setVisible(false);
-		panellRepr.setVisible(false);
-		panellSeients.setVisible(false);
 		panellPagam.setVisible(true);
-		panellFi.setVisible(false);
-
-		panellPagam.mostraPagament(preu, divises);
 	}
-	
+
 	public void mostraFinalitza() {
-		panellIni.setVisible(false);
-		panellEsp.setVisible(false);
-		panellRepr.setVisible(false);
-		panellSeients.setVisible(false);
+		panellFi = new PanellFi(ctrlPres, this);
+		getContentPane().add(panellFi, "Confirmacio");
 		panellPagam.setVisible(false);
 		panellFi.setVisible(true);
 	}
-	
+
 }

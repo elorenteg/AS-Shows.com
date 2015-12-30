@@ -16,6 +16,11 @@ public class PanellRepresentacio extends JPanel {
 	public PanellRepresentacio(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres) {
 	}
 
+	public PanellRepresentacio(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaComprarEntrada,
+			List<Object> llista) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void mostraRepresentacions(List<Object> llista) {
 		//initComponents(llista);
 	}
