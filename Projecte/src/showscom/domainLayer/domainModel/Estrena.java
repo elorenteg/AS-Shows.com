@@ -5,8 +5,8 @@ import java.util.Date;
 public class Estrena extends Representacio {
 	private int recarrec;
 
-	public Estrena(float preu, Date data, int nombreSeientsLliures) {
-		super(preu, data, nombreSeientsLliures);
+	public Estrena(Sessio sessio, Local local, float preu, Date data, int nombreSeientsLliures) {
+		super(sessio, local, preu, data, nombreSeientsLliures);
 	}
 
 	public int getRecarrec() {

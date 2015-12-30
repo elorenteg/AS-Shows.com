@@ -13,6 +13,7 @@
 		<mapping class="showscom.domainLayer.domainModel.Espectacle" />
 		<mapping class="showscom.domainLayer.domainModel.Local" />
 		<mapping class="showscom.domainLayer.domainModel.Representacio" />
+		<mapping class="showscom.domainLayer.domainModel.RepresentacioPK" />
 		<mapping class="showscom.domainLayer.domainModel.Estrena" />
 		<mapping class="showscom.domainLayer.domainModel.Seient" />
 		<mapping class="showscom.domainLayer.domainModel.SeientEnRepresentacio" />
