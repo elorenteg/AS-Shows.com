@@ -1,6 +1,7 @@
 package showscom.dataLayer.sessionFactory;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
 public class SessionFactoryAdapter {
@@ -9,7 +10,7 @@ public class SessionFactoryAdapter {
 	
 	static {
 		try {
-			sessionFact = new Configuration().configure().buildSessionFactory();
+			sessionFact = new AnnotationConfiguration().configure().buildSessionFactory();
 		}
 		catch(Throwable e) {
 			System.err.println("Initial SessionFactory creation failed " + e);
