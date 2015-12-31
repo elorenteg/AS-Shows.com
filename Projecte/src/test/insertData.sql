@@ -4,9 +4,9 @@ DELETE FROM Sessio;
 DELETE FROM Espectacle;
 DELETE FROM Local;
 
-INSERT INTO Sessio VALUES('mati');
-INSERT INTO Sessio VALUES('tarda');
-INSERT INTO Sessio VALUES('nit');
+INSERT INTO Sessio VALUES('MATI');
+INSERT INTO Sessio VALUES('TARDA');
+INSERT INTO Sessio VALUES('NIT');
 
 INSERT INTO Espectacle VALUES('Lago de los cisnes', 10);
 INSERT INTO Espectacle VALUES('Giselle', 10);
@@ -29,5 +29,5 @@ INSERT INTO Local VALUES('Teatre Lliure de Gràcia', 'C/ del Monseny, 47');
 INSERT INTO Local VALUES('Almeria Teatre', 'C/ Sant Lluís, 64');
 INSERT INTO Local VALUES('Teatre Club Capitol', 'Les Rambles, 138');
 
-INSERT INTO Representacio VALUES('Gran Teatre del Liceu', 'nit', '26/01/2012', 100, 50, 'Cisne negro', 'Gran Teatre del Liceu', 'nit');
-INSERT INTO Representacio VALUES('Gran Teatre del Liceu', 'mati', '26/01/2012', 100, 50, 'Cenicienta', 'Gran Teatre del Liceu', 'nit');
+INSERT INTO Representacio VALUES('Gran Teatre del Liceu', 'NIT', '26/01/2012', 100, 50, 'Cisne negro', 'Gran Teatre del Liceu', 'NIT');
+INSERT INTO Representacio VALUES('Gran Teatre del Liceu', 'MATI', '26/01/2012', 100, 50, 'Cenicienta', 'Gran Teatre del Liceu', 'NIT');

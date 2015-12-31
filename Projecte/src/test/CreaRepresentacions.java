@@ -11,7 +11,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
-import org.postgresql.jdbc2.EscapedFunctions;
 
 import showscom.dataLayer.sessionFactory.SessionFactoryAdapter;
 import showscom.domainLayer.domainModel.Espectacle;
@@ -24,6 +23,7 @@ public class CreaRepresentacions {
 
 	private final static SessionFactory sessionFactory = SessionFactoryAdapter.getSessionFactory();
 
+	@SuppressWarnings("unchecked")
 	private static Sessio creaSessio(TipusSessio tipusSessio) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
@@ -52,6 +52,7 @@ public class CreaRepresentacions {
 		return sessio;
 	}
 
+	@SuppressWarnings("unchecked")
 	private static Espectacle creaEspectacle(String titol, int participants) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
@@ -80,6 +81,7 @@ public class CreaRepresentacions {
 		return espectacle;
 	}
 
+	@SuppressWarnings("unchecked")
 	private static Local creaLocal(String nom, String adreca) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
@@ -108,6 +110,7 @@ public class CreaRepresentacions {
 		return local;
 	}
 
+	@SuppressWarnings("unchecked")
 	private static Representacio creaRepresentacio(Sessio sessio, Local local, float preu, Date data,
 			int nombreSeientsLliures) {
 		Session session = sessionFactory.openSession();
