@@ -68,7 +68,7 @@ public class PanellPagament extends JPanel {
 		textFieldCodiBanc = new JTextField();
 		textFieldCodiBanc.setColumns(10);
 
-		JLabel labelNumCompte = new JLabel("NÃºm. Compte:");
+		JLabel labelNumCompte = new JLabel("Núm. Compte:");
 		labelNumCompte.setFont(new Font("originalfont", Font.PLAIN, 16));
 
 		textFieldNumCompte = new JTextField();
@@ -81,7 +81,7 @@ public class PanellPagament extends JPanel {
 			}
 		});
 
-		btnCancela = new JButton("CancelÂ·la");
+		btnCancela = new JButton("Cancel·la");
 		btnCancela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				prCancela(evt);
@@ -89,11 +89,11 @@ public class PanellPagament extends JPanel {
 		});
 
 		JLabel labelEspec = new JLabel("Espectacles");
-		JLabel labelRepres = new JLabel("RepresentaciÃ³");
+		JLabel labelRepres = new JLabel("Representació");
 		JLabel labelSeients = new JLabel("Seients");
 		JLabel labelPagam = new JLabel("Pagament");
 		labelPagam.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
-		JLabel labelConfirm = new JLabel("ConfirmaciÃ³");
+		JLabel labelConfirm = new JLabel("Confirmació");
 		JLabel labelSep1 = new JLabel(">>");
 		JLabel labelSep2 = new JLabel(">>");
 		JLabel labelSep3 = new JLabel(">>");

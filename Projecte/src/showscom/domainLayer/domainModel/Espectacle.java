@@ -57,17 +57,17 @@ public class Espectacle {
 		this.representacions = representacions;
 	}
 
-	public List<Object> obteInformacio(Date data) {
-		List<Object> rs = new ArrayList<Object>();
+	public List<TuplaRepr> obteInformacio(Date data) {
+		List<TuplaRepr> rs = new ArrayList<TuplaRepr>();
 
 		for (Representacio r : representacions) {
 			Date dataR = r.getData();
 			if (data.equals(dataR)) {
-				Object info = r.obteInformacio();
+				TuplaRepr info = r.obteInformacio();
 				rs.add(info);
 			}
 		}
 
-		return null;
+		return rs;
 	}
 }

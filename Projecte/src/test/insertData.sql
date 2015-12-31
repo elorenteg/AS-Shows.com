@@ -29,5 +29,7 @@ INSERT INTO Local VALUES('Teatre Lliure de Gràcia', 'C/ del Monseny, 47');
 INSERT INTO Local VALUES('Almeria Teatre', 'C/ Sant Lluís, 64');
 INSERT INTO Local VALUES('Teatre Club Capitol', 'Les Rambles, 138');
 
-INSERT INTO Representacio VALUES('Gran Teatre del Liceu', 'NIT', '26/01/2012', 100, 50, 'Cisne negro', 'Gran Teatre del Liceu', 'NIT');
-INSERT INTO Representacio VALUES('Gran Teatre del Liceu', 'MATI', '26/01/2012', 100, 50, 'Cenicienta', 'Gran Teatre del Liceu', 'NIT');
+INSERT INTO Representacio VALUES('Gran Teatre del Liceu', 'NIT', '26/01/2016', 100, 50, 'Cisne negro', 'Gran Teatre del Liceu', 'NIT');
+INSERT INTO Representacio VALUES('Gran Teatre del Liceu', 'TARDA', '26/01/2016', 100, 50, 'Cisne negro', 'Gran Teatre del Liceu', 'TARDA');
+INSERT INTO Representacio VALUES('Teatre Nacional de Catalunya', 'MATI', '26/01/2016', 100, 50, 'Cisne negro', 'Teatre Nacional de Catalunya', 'MATI');
+INSERT INTO Representacio VALUES('Gran Teatre del Liceu', 'MATI', '26/01/2016', 100, 50, 'Cenicienta', 'Gran Teatre del Liceu', 'NIT');

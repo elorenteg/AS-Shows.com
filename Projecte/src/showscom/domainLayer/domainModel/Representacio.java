@@ -1,6 +1,8 @@
 package showscom.domainLayer.domainModel;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -102,12 +104,14 @@ public class Representacio {
 		this.titolEspectacle = titolEspectacle;
 	}
 
-	public Object obteInformacio() {
-		Object tupla = null;
-
-		String tipSessio = sessio.getSessio().toString();
-		String nomLocal = local.getNom();
-		boolean esEstrena = esEstrena();
+	public TuplaRepr obteInformacio() {
+		TuplaRepr tupla = new TuplaRepr();
+		
+		tupla.setSessio(sessio.getSessio().name());
+		tupla.setLocal(local.getNom());
+		tupla.setNombreSeientsLliures(nombreSeientsLliures);
+		tupla.setEsEstrena(esEstrena());
+		tupla.setPreu(preu);
 
 		return tupla;
 	}

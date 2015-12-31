@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import showscom.domainLayer.domainModel.ShowsCom;
+import showscom.domainLayer.domainModel.TuplaRepr;
 import showscom.domainLayer.exceptions.DONoHiHaEspectacles;
 import showscom.domainLayer.exceptions.DONoHiHaRepresentacions;
 import showscom.domainLayer.exceptions.DOPagamentNoAutoritzat;
@@ -25,10 +26,10 @@ public class CtrlDomComprarEntrada {
 		return ctrlConsRepr.consultaEspectacles();
 	}
 
-	public List<Object> obteRepresentacions(String titol, Date data) throws DONoHiHaRepresentacions {
+	public List<TuplaRepr> obteRepresentacions(String titol, Date data) throws DONoHiHaRepresentacions {
 		CtrlUseCaseFactory ctrlUseCaseFact = CtrlUseCaseFactory.getInstance();
 		CtrlConsultarRepresentacions ctrlConsRepr = ctrlUseCaseFact.getCtrlConsultarRepresentacions();
-		List<Object> llista = ctrlConsRepr.consultaRepresentacions(titol, data);
+		List<TuplaRepr> llista = ctrlConsRepr.consultaRepresentacions(titol, data);
 
 		if (llista.isEmpty()) {
 			throw new DONoHiHaRepresentacions();

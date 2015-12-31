@@ -7,6 +7,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import showscom.domainLayer.domainControllers.CtrlDomComprarEntrada;
+import showscom.domainLayer.domainModel.TuplaRepr;
 import showscom.domainLayer.exceptions.DONoHiHaEspectacles;
 import showscom.domainLayer.exceptions.DONoHiHaRepresentacions;
 import showscom.domainLayer.exceptions.DOPagamentNoAutoritzat;
@@ -49,7 +50,14 @@ public class CtrlPresComprarEntrada {
 
 	public void prContObteRepresentacions(String titol, Date data) {
 		try {
-			List<Object> llista = ctrlDom.obteRepresentacions(titol, data);
+			List<TuplaRepr> llista = ctrlDom.obteRepresentacions(titol, data);
+
+			// Solo para probar que obtiene la informacion
+			for (TuplaRepr tr : llista) {
+				System.out.println(tr.getSessio() + " - " + tr.getLocal() + " - " + tr.getNombreSeientsLliures() + " - "
+						+ tr.getEsEstrena() + " - " + tr.getPreu());
+			}
+
 			// vistaPres.mostraRepresentacions(llista);
 			List<String> divises = new ArrayList<>();
 			divises.add("GBP");
