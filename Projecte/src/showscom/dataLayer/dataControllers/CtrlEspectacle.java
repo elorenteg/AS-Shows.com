@@ -6,11 +6,9 @@ import java.util.Map;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
 
 import showscom.dataLayer.exceptions.CDEspectacleNoExisteix;
 import showscom.dataLayer.sessionFactory.SessionFactoryAdapter;

@@ -3,7 +3,6 @@ package showscom.domainLayer.domainControllers;
 import java.util.Date;
 import java.util.List;
 
-import showscom.dataLayer.exceptions.CDRepresentacioNoExisteix;
 import showscom.domainLayer.domainModel.ShowsCom;
 import showscom.domainLayer.domainModel.TuplaRepr;
 import showscom.domainLayer.domainModel.TuplaSeientLl;

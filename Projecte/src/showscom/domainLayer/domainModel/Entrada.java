@@ -3,24 +3,19 @@ package showscom.domainLayer.domainModel;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-
-@Entity
-@Table(name = "Entrada")
+//@Entity
+//@Table(name = "Entrada")
 public class Entrada {
-	@Id
+	//@Id
 	private String identificador;
-	@Column(name="dniClient")
+	//@Column(name="dniClient")
 	private String dniClient;
-	@Column(name="nombreEspectadors")
+	//@Column(name="nombreEspectadors")
 	private int nombreEspectadors;
-	@Column(name="data")
+	//@Column(name="data")
 	private Date data;
-	@Column(name = "preu")
+	//@Column(name = "preu")
 	private float preu;
 	// TODO indicar sólo guardamos sessio i nomLocal de representació
 	private Representacio representacio;

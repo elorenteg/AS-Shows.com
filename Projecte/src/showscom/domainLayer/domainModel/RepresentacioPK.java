@@ -7,19 +7,23 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class RepresentacioPK implements Serializable {
+	@Column(name = "tipusSessio")
 	String sessio;
+	@Column(name = "nomLocal")
 	String nomLocal;
+	@Column(name = "titolE")
+	private String titolEspectacle;
 
 	public RepresentacioPK() {
 	}
 
-	public RepresentacioPK(String sessio, String nomLocal) {
+	public RepresentacioPK(String sessio, String nomLocal, String titolE) {
 		super();
 		this.sessio = sessio;
 		this.nomLocal = nomLocal;
+		this.titolEspectacle = titolE;
 	}
 
-	@Column(name = "tipusSessio")
 	public String getSessio() {
 		return sessio;
 	}
@@ -28,12 +32,19 @@ public class RepresentacioPK implements Serializable {
 		this.sessio = sessio;
 	}
 
-	@Column(name = "nomLocal")
 	public String getNomLocal() {
 		return nomLocal;
 	}
 
 	public void setNomLocal(String nomLocal) {
 		this.nomLocal = nomLocal;
+	}
+
+	public String getTitolEspectacle() {
+		return titolEspectacle;
+	}
+
+	public void setTitolEspectacle(String titolEspectacle) {
+		this.titolEspectacle = titolEspectacle;
 	}
 }

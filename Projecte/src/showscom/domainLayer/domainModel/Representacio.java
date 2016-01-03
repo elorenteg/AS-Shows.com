@@ -5,17 +5,23 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import showscom.domainLayer.exceptions.DOSeientsNoDisp;
 
 @Entity
-@Table(name = "Representacio")
+@Table(name = "Representacio")//, uniqueConstraints = @UniqueConstraint(columnNames = { "tipusSessio", "nomLocal" }) )
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Representacio {
 	@Column(name = "preu")
 	private float preu;
@@ -29,17 +35,14 @@ public class Representacio {
 	@ManyToOne
 	@JoinColumn(name = "local", referencedColumnName = "nom")
 	private Local local;
-
 	@Id
 	@Embedded
 	private RepresentacioPK representacioPK;
-	@Column(name = "titolE")
-	private String titolEspectacle;
 
 	public Representacio() {
 	}
 
-	public Representacio(Sessio sessio, Local local, float preu, Date data, int nombreSeientsLliures) {
+	public Representacio(Sessio sessio, Local local, String titolEsp, float preu, Date data, int nombreSeientsLliures) {
 		super();
 		this.sessio = sessio;
 		this.local = local;
@@ -47,7 +50,7 @@ public class Representacio {
 		this.data = data;
 		this.nombreSeientsLliures = nombreSeientsLliures;
 
-		this.representacioPK = new RepresentacioPK(sessio.getSessio().name(), local.getNom());
+		this.representacioPK = new RepresentacioPK(sessio.getSessio().name(), local.getNom(), titolEsp);
 	}
 
 	public float getPreu() {
@@ -96,14 +99,6 @@ public class Representacio {
 
 	public void setRepresentacioPK(RepresentacioPK representacioPK) {
 		this.representacioPK = representacioPK;
-	}
-
-	public String getTitolEspectacle() {
-		return titolEspectacle;
-	}
-
-	public void setTitolEspectacle(String titolEspectacle) {
-		this.titolEspectacle = titolEspectacle;
 	}
 
 	public TuplaRepr obteInformacio() {

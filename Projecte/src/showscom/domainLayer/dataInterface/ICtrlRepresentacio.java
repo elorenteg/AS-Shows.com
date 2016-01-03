@@ -2,7 +2,6 @@ package showscom.domainLayer.dataInterface;
 
 import java.util.List;
 
-
 import showscom.dataLayer.exceptions.CDRepresentacioNoExisteix;
 import showscom.domainLayer.domainModel.Representacio;
 

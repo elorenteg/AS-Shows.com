@@ -2,10 +2,8 @@ package showscom.domainLayer.domainControllers;
 
 import java.util.List;
 
-import showscom.dataLayer.exceptions.CDEspectacleNoExisteix;
 import showscom.dataLayer.exceptions.CDRepresentacioNoExisteix;
 import showscom.domainLayer.dataInterface.ICtrlRepresentacio;
-import showscom.domainLayer.domainModel.Espectacle;
 import showscom.domainLayer.domainModel.Representacio;
 import showscom.domainLayer.domainModel.TuplaSeientLl;
 import showscom.domainLayer.exceptions.DOSeientsNoDisp;

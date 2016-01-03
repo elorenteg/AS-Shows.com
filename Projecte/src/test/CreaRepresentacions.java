@@ -14,6 +14,7 @@ import org.hibernate.criterion.Restrictions;
 
 import showscom.dataLayer.sessionFactory.SessionFactoryAdapter;
 import showscom.domainLayer.domainModel.Espectacle;
+import showscom.domainLayer.domainModel.Estrena;
 import showscom.domainLayer.domainModel.Local;
 import showscom.domainLayer.domainModel.Representacio;
 import showscom.domainLayer.domainModel.Sessio;
@@ -111,7 +112,7 @@ public class CreaRepresentacions {
 	}
 
 	@SuppressWarnings("unchecked")
-	private static Representacio creaRepresentacio(Sessio sessio, Local local, float preu, Date data,
+	private static Representacio creaRepresentacio(Sessio sessio, Local local, String titolE, float preu, Date data,
 			int nombreSeientsLliures) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
@@ -124,7 +125,7 @@ public class CreaRepresentacions {
 					.add(Restrictions.eq("representacioPK.sessio", sessio.getSessio().name()))
 					.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 			if (listRepr.size() == 0) {
-				representacio = new Representacio(sessio, local, preu, data, nombreSeientsLliures);
+				representacio = new Representacio(sessio, local, titolE, preu, data, nombreSeientsLliures);
 				session.save(representacio);
 			} else {
 				System.out.println("Representacio ja esta a la BD");
@@ -142,6 +143,38 @@ public class CreaRepresentacions {
 		return representacio;
 	}
 
+	@SuppressWarnings("unchecked")
+	private static Estrena creaEstrena(Sessio sessio, Local local, String titolE, float preu, Date data,
+			int nombreSeientsLliures, int recarrec) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = null;
+		Estrena estrena = null;
+
+		try {
+			tx = session.beginTransaction();
+			List<Estrena> listEstr = session.createCriteria(Estrena.class)
+					.add(Restrictions.eq("representacioPK.sessio", sessio.getSessio().name()))
+					.add(Restrictions.eq("representacioPK.nomLocal", local.getNom()))
+					.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+			if (listEstr.size() == 0) {
+				estrena = new Estrena(sessio, local, titolE, preu, data, nombreSeientsLliures, recarrec);
+				session.save(estrena);
+			} else {
+				System.out.println("Representacio ja esta a la BD");
+				estrena = listEstr.get(0);
+			}
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+		return estrena;
+	}
+
 	public static void main(String args[]) throws ParseException {
 		Sessio ses = creaSessio(TipusSessio.MATI);
 		if (ses != null)
@@ -155,10 +188,21 @@ public class CreaRepresentacions {
 		if (loc != null)
 			System.out.println(loc.getNom() + " " + loc.getAdreca());
 
+		Local loc2 = creaLocal("disgor2", "travessera");
+		if (loc2 != null)
+			System.out.println(loc2.getNom() + " " + loc2.getAdreca());
+
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		Date d = sdf.parse("21/12/2012");
-		Representacio repr = creaRepresentacio(ses, loc, 9.80f, d, 100);
+		Representacio repr = creaRepresentacio(ses, loc, esp.getTitol(), 9.80f, d, 100);
 		if (repr != null)
-			System.out.println(repr.getPreu() + " " + repr.getData() + " " + repr.getNombreSeientsLliures());
+			System.out.println(repr.getRepresentacioPK().getSessio() + " " + repr.getRepresentacioPK().getNomLocal()
+					+ " " + repr.getRepresentacioPK().getTitolEspectacle() + " " +repr.getPreu() + " " + repr.getData() + " " + repr.getNombreSeientsLliures());
+
+		Estrena estr = creaEstrena(ses, loc2, esp.getTitol(), 9.80f, d, 100, 10);
+		if (estr != null)
+			System.out.println(estr.getRepresentacioPK().getSessio() + " " + estr.getRepresentacioPK().getNomLocal()
+					+ " " + estr.getRepresentacioPK().getTitolEspectacle() + " " + estr.getPreu() + " " + estr.getData()
+					+ " " + estr.getNombreSeientsLliures() + " " + estr.getRecarrec());
 	}
 }
