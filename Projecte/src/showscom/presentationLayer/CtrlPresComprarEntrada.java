@@ -27,7 +27,7 @@ public class CtrlPresComprarEntrada {
 	}
 
 	public void prEndarrera() {
-		// TODO:
+		// no fa res
 	}
 
 	public void prCancela() {
@@ -57,21 +57,41 @@ public class CtrlPresComprarEntrada {
 				System.out.println(tr.getSessio() + " - " + tr.getLocal() + " - " + tr.getNombreSeientsLliures() + " - "
 						+ tr.getEsEstrena() + " - " + tr.getPreu());
 			}
-
-			// vistaPres.mostraRepresentacions(llista);
-			List<String> divises = new ArrayList<>();
-			divises.add("GBP");
-			divises.add("USD");
-			vistaPres.mostraPagament(10, divises);
+			vistaPres.mostraRepresentacions(llista);
 		} catch (DONoHiHaRepresentacions e) {
 			vistaPres.mostraMissatgeEndarrera("No hi ha cap representació disponible");
 		}
 	}
 
 	public void prContObteOcupacio() {
+
+		List<Integer> l1 = new ArrayList<>();
+		l1.add(1);
+		l1.add(1);
+		List<Integer> l2 = new ArrayList<>();
+		l2.add(1);
+		l2.add(2);
+		List<Integer> l3 = new ArrayList<>();
+		l3.add(2);
+		l3.add(1);
+		List<Integer> l4 = new ArrayList<>();
+		l4.add(2);
+		l4.add(2);
+		List<Object> llista2 = new ArrayList<>();
+		llista2.add(l1);
+		llista2.add(l2);
+		llista2.add(l3);
+		llista2.add(l4);
+
+		vistaPres.mostraOcupacio(llista2);
 	}
 
 	public void prContSeleccionarSeients() {
+		// vistaPres.mostraRepresentacions(llista);
+		List<String> divises = new ArrayList<>();
+		divises.add("GBP");
+		divises.add("USD");
+		vistaPres.mostraPagament(10, divises);
 	}
 
 	public void prComboObtePreuMoneda() {

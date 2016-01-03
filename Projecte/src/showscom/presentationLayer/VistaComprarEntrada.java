@@ -9,6 +9,8 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import showscom.domainLayer.domainModel.TuplaRepr;
+
 public class VistaComprarEntrada extends JFrame {
 	private CtrlPresComprarEntrada ctrlPres;
 	private PanellInici panellIni;
@@ -67,18 +69,31 @@ public class VistaComprarEntrada extends JFrame {
 		panellEsp.setVisible(true);
 	}
 
-	public void mostraRepresentacions(List<Object> llista) {
+	public void mostraRepresentacions(List<TuplaRepr> llista) {
 		panellRepr = new PanellRepresentacio(ctrlPres, this, llista);
 		getContentPane().add(panellRepr, "Representacio");
 		panellEsp.setVisible(false);
 		panellRepr.setVisible(true);
 	}
 
+	public void mostraOcupacio(List<Object> llista) {
+		panellSeients = new PanellSeients(ctrlPres, this, llista);
+		getContentPane().add(panellSeients, "Seients");
+		panellRepr.setVisible(false);
+		panellSeients.setVisible(true);
+	}
+
 	public void mostraPagament(float preu, List<String> divises) {
+
+		// List<String> divises = new ArrayList<>();
+		// divises.add("GBP");
+		// divises.add("USD");
+		// vistaPres.mostraPagament(10, divises);
+
 		panellPagam = new PanellPagament(ctrlPres, this, preu, divises);
 		getContentPane().add(panellPagam, "Pagament");
-		// panellSeients.setVisible(false);
-		panellEsp.setVisible(false);
+		panellSeients.setVisible(false);
+		// panellEsp.setVisible(false);
 		panellPagam.setVisible(true);
 	}
 

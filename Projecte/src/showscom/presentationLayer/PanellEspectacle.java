@@ -37,12 +37,6 @@ public class PanellEspectacle extends JPanel {
 	private JTable table;
 	private JDatePanelImpl datePanel;
 
-	public PanellEspectacle(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres) {
-		this.ctrlPres = ctrlPres;
-		this.vistaPres = vistaPres;
-		this.setVisible(true);
-	}
-
 	public PanellEspectacle(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, List<String> espectacles) {
 		this.ctrlPres = ctrlPres;
 		this.vistaPres = vistaPres;
