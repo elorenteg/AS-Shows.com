@@ -25,7 +25,7 @@ CREATE TABLE Espectacle
   CONSTRAINT espectacle_pkey PRIMARY KEY (titol)
 );
 
-CREATE TABLE Representacio
+CREATE TABLE representacio
 (
   noml character varying(255) NOT NULL,
   sessio character varying(255) NOT NULL,
@@ -43,7 +43,8 @@ CREATE TABLE Representacio
   CONSTRAINT fk26128fd0e94353e FOREIGN KEY (noml)
       REFERENCES local (nom) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT representacio_sessio_noml_key UNIQUE (sessio, noml)
+  CONSTRAINT representacio_sessio_noml_key UNIQUE (sessio, noml),
+  CONSTRAINT representacio_check CHECK (preu > 0::double precision AND nseientslliures >= 0)
 );
 
 CREATE TABLE Estrena

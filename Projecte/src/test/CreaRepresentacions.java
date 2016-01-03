@@ -10,6 +10,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.annotations.GenerationTime;
 import org.hibernate.criterion.Restrictions;
 
 import showscom.dataLayer.sessionFactory.SessionFactoryAdapter;
@@ -198,18 +199,24 @@ public class CreaRepresentacions {
 		Representacio repr = creaRepresentacio(ses, loc, esp.getTitol(), 9.80f, d, 100);
 		if (repr != null)
 			System.out.println(repr.getRepresentacioPK().getSessio() + " " + repr.getRepresentacioPK().getNomLocal()
-					+ " " + repr.getRepresentacioPK().getTitolEspectacle() + " " +repr.getPreu() + " " + repr.getData() + " " + repr.getNombreSeientsLliures());
-		
+					+ " " + repr.getRepresentacioPK().getTitolEspectacle() + " " + repr.getPreu() + " " + repr.getData()
+					+ " " + repr.getNombreSeientsLliures());
+
 		Representacio repr2 = creaRepresentacio(ses, loc2, esp.getTitol(), 9.80f, d, 100);
 		Espectacle esp2 = creaEspectacle("Lago de los cisnes 2", 10);
 		Representacio repr3 = creaRepresentacio(ses, loc, esp2.getTitol(), 9.80f, d, 100);
-		
+		System.out.println(repr3.getRepresentacioPK().getSessio() + " " + repr3.getRepresentacioPK().getNomLocal() + " "
+				+ repr3.getRepresentacioPK().getTitolEspectacle() + " " + repr3.getPreu() + " " + repr3.getData() + " "
+				+ repr3.getNombreSeientsLliures() + " " + repr3.getSessio().getSessio().name() + " " + repr3.getLocal().getNom());
+
 		/*
-		Estrena estr = creaEstrena(ses, loc2, esp.getTitol(), 9.80f, d, 100, 10);
-		if (estr != null)
-			System.out.println(estr.getRepresentacioPK().getSessio() + " " + estr.getRepresentacioPK().getNomLocal()
-					+ " " + estr.getRepresentacioPK().getTitolEspectacle() + " " + estr.getPreu() + " " + estr.getData()
-					+ " " + estr.getNombreSeientsLliures() + " " + estr.getRecarrec());
-					*/
+		 * Estrena estr = creaEstrena(ses, loc2, esp.getTitol(), 9.80f, d, 100,
+		 * 10); if (estr != null)
+		 * System.out.println(estr.getRepresentacioPK().getSessio() + " " +
+		 * estr.getRepresentacioPK().getNomLocal() + " " +
+		 * estr.getRepresentacioPK().getTitolEspectacle() + " " + estr.getPreu()
+		 * + " " + estr.getData() + " " + estr.getNombreSeientsLliures() + " " +
+		 * estr.getRecarrec());
+		 */
 	}
 }

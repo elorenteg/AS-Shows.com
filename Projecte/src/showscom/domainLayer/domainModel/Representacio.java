@@ -17,11 +17,14 @@ import javax.persistence.MapKey;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.annotations.Check;
+
 import showscom.domainLayer.exceptions.DOSeientsNoDisp;
 
 @Entity
 @Table(name = "Representacio", uniqueConstraints = @UniqueConstraint(columnNames = { "sessio", "nomL" }) )
 @Inheritance(strategy = InheritanceType.JOINED)
+@Check(constraints = "preu > 0 AND nSeientsLliures >= 0")
 public class Representacio implements Serializable {
 	@Column(name = "preu")
 	private float preu;
