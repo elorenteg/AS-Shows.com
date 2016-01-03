@@ -1,6 +1,7 @@
 package showscom.domainLayer.domainModel;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,7 +25,7 @@ public class Entrada {
 	// TODO indicar sólo guardamos sessio i nomLocal de representació
 	private Representacio representacio;
 	
-	public Entrada(String identificador, String dni, int nombreEspectadors, Date dAvui, float preuTotal, Representacio r, Object seients) {
+	public Entrada(String identificador, String dni, int nombreEspectadors, Date dAvui, float preuTotal, Representacio r, List<TuplaSeientLl> seients) {
 		super();
 		this.identificador = identificador;
 		dniClient = dni;
@@ -33,7 +34,6 @@ public class Entrada {
 		preu = preuTotal;
 		representacio = r;
 		representacio.reservarSeients(seients);
-		// TODO seients type 
 	}
 	
 }

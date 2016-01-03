@@ -122,8 +122,14 @@ public class Representacio {
 		return false;
 	}
 
-	public void reservarSeients(Object seients) {
+	public void reservarSeients(List <TuplaSeientLl> seients) {
 		// TODO hacer mediante CtrlSeientsEnRepresentacio
+		String nom = this.local.getNom();
+		TipusSessio sessio = this.sessio.getSessio();
+		for (TuplaSeientLl aux: seients) {
+			// SeientEnRepresentacio seient = obte (nom, sessio, aux.getFila(), aux.getColumna());
+			// seient.ocupat();
+		}
 
 	}
 	

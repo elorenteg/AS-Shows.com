@@ -31,14 +31,11 @@ public class SeientEnRepresentacio {
 		this.estat = Estat.OCUPAT;
 	}
 	
-	public Object getSeient() {
-		// TODO pasar fila y columna
-		Object tupla = null;
-		
-		int fila = seient.getFila();
-		int columna = seient.getColumna();
-				
-		return null;		
+	public TuplaSeientLl getSeient() {
+		TuplaSeientLl tupla = new TuplaSeientLl();
+		tupla.setFila(seient.getFila());
+		tupla.setColumna(seient.getColumna());
+		return tupla;		
 	}
 
 }
