@@ -5,6 +5,7 @@ import java.util.List;
 
 import showscom.domainLayer.domainModel.ShowsCom;
 import showscom.domainLayer.domainModel.TuplaRepr;
+import showscom.domainLayer.domainModel.TuplaSeientLl;
 import showscom.domainLayer.exceptions.DONoHiHaEspectacles;
 import showscom.domainLayer.exceptions.DONoHiHaRepresentacions;
 import showscom.domainLayer.exceptions.DOPagamentNoAutoritzat;
@@ -40,10 +41,10 @@ public class CtrlDomComprarEntrada {
 		return llista;
 	}
 	
-	public List<Object> obteOcupacio(String nomL, String sessio, int nombreEspectadors) {
+	public List<TuplaSeientLl> obteOcupacio(String nomL, String sessio, int nombreEspectadors) {
 		CtrlUseCaseFactory ctrlUseCaseFact = CtrlUseCaseFactory.getInstance();
 		CtrlConsultarOcupacio ctrlConsOcup = ctrlUseCaseFact.getCtrlConsultarOcupacio();
-		List<Object> llista = ctrlConsOcup.consultaOcupacio(nomL,sessio,nombreEspectadors);
+		List<TuplaSeientLl> llista = ctrlConsOcup.consultaOcupacio(nomL,sessio,nombreEspectadors);
 		this.nomL = nomL;
 		this.nombreEspectadors = nombreEspectadors;
 		return llista;
