@@ -196,7 +196,7 @@ public class CreaRepresentacions {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		Date d = sdf.parse("21/12/2012");
-		Representacio repr = creaRepresentacio(ses, loc, esp.getTitol(), 9.80f, d, 100);
+		Representacio repr = creaRepresentacio(ses, loc, "Lago de los cisnes", 9.80f, d, 100);
 		if (repr != null)
 			System.out.println(repr.getRepresentacioPK().getSessio() + " " + repr.getRepresentacioPK().getNomLocal()
 					+ " " + repr.getRepresentacioPK().getTitolEspectacle() + " " + repr.getPreu() + " " + repr.getData()

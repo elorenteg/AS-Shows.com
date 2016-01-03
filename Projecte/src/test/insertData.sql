@@ -25,7 +25,7 @@ CREATE TABLE Espectacle
   CONSTRAINT espectacle_pkey PRIMARY KEY (titol)
 );
 
-CREATE TABLE representacio
+CREATE TABLE Representacio
 (
   noml character varying(255) NOT NULL,
   sessio character varying(255) NOT NULL,
@@ -56,7 +56,8 @@ CREATE TABLE Estrena
   CONSTRAINT estrena_pkey PRIMARY KEY (noml, sessio, titole),
   CONSTRAINT fkce3498cc6a820c4 FOREIGN KEY (noml, sessio, titole)
       REFERENCES representacio (noml, sessio, titole) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT estrena_recarrec_check CHECK (recarrec > 0)
 );
 
 INSERT INTO Sessio VALUES('MATI');
