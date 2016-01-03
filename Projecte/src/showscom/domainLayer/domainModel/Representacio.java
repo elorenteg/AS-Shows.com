@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import showscom.domainLayer.exceptions.DOSeientsNoDisp;
+
 @Entity
 @Table(name = "Representacio")
 public class Representacio {
@@ -123,5 +125,12 @@ public class Representacio {
 	public void reservarSeients(Object seients) {
 		// TODO hacer mediante CtrlSeientsEnRepresentacio
 
+	}
+	
+	public List<TuplaSeientLl> obteSeientsLliures(int nombreEspectadors)throws DOSeientsNoDisp {
+		if (this.nombreSeientsLliures<nombreEspectadors) throw new DOSeientsNoDisp();
+		List<TuplaSeientLl>oc = new ArrayList<TuplaSeientLl>();
+		////codi////
+		return oc;
 	}
 }
