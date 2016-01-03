@@ -29,20 +29,6 @@ public class CtrlConsultarRepresentacions {
 		}
 
 		return titols;
-
-		// List<String> list = new ArrayList<String>();
-		// list.add("Lago de los Cisnes");
-		// list.add("Giselle");
-		// list.add("Romeo y Julieta");
-		// list.add("Cascanueces");
-		// list.add("Cisne Negro");
-		// list.add("Cenicienta");
-		// list.add("Don Quijote");
-		// list.add("La Bella Durmiente");
-		// list.add("Sueño de una noche de verano");
-		// list.add("La Bailarina del Templo");
-		// throw new DONoHiHaEspectacles();
-		// return list;
 	}
 
 	public List<TuplaRepr> consultaRepresentacions(String titol, Date data) throws DONoHiHaRepresentacions {
@@ -57,14 +43,6 @@ public class CtrlConsultarRepresentacions {
 		}
 
 		return info;
-
-		// throw new DONoHiHaRepresentacions();
-		// return new ArrayList<Object>();
-
-		// List<Object> list = new ArrayList<Object>();
-		// list.add("Cascanueces");
-		// list.add("Cisne negro");
-		// return list;
 	}
 
 }

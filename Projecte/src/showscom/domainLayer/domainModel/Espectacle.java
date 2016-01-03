@@ -15,8 +15,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Espectacle")
 public class Espectacle {
+	@Id
+	@Column(name = "titol")
 	private String titol;
+	@Column(name = "participants")
 	private int participants;
+	@Column(name = "representacions")
+	@OneToMany(targetEntity = Representacio.class, mappedBy = "titolEspectacle", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Representacio> representacions;
 
 	public Espectacle() {
@@ -28,8 +33,6 @@ public class Espectacle {
 		this.participants = participants;
 	}
 
-	@Id
-	@Column(name = "titol")
 	public String getTitol() {
 		return titol;
 	}
@@ -38,7 +41,6 @@ public class Espectacle {
 		this.titol = titol;
 	}
 
-	@Column(name = "participants")
 	public int getParticipants() {
 		return participants;
 	}
@@ -47,8 +49,6 @@ public class Espectacle {
 		this.participants = participants;
 	}
 
-	@Column(name = "representacions")
-	@OneToMany(targetEntity = Representacio.class, mappedBy = "titolEspectacle", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	public List<Representacio> getRepresentacions() {
 		return representacions;
 	}

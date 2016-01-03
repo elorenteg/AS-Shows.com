@@ -13,9 +13,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Local")
 public class Local {
+	@Id
+	@Column(name = "nom")
 	private String nom;
+	@Column(name = "adreca")
 	private String adreca;
-
+	@Column(name = "representacions")
+	@OneToMany(targetEntity = Representacio.class, mappedBy = "local", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Representacio> representacions;
 
 	public Local() {
@@ -27,8 +31,6 @@ public class Local {
 		this.adreca = adreca;
 	}
 
-	@Id
-	@Column(name = "nom")
 	public String getNom() {
 		return nom;
 	}
@@ -37,7 +39,6 @@ public class Local {
 		this.nom = nom;
 	}
 
-	@Column(name = "adreca")
 	public String getAdreca() {
 		return adreca;
 	}
@@ -46,8 +47,6 @@ public class Local {
 		this.adreca = adreca;
 	}
 
-	@Column(name = "representacions")
-	@OneToMany(targetEntity = Representacio.class, mappedBy = "local", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	public List<Representacio> getRepresentacions() {
 		return representacions;
 	}

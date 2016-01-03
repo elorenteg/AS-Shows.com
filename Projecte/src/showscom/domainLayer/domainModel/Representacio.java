@@ -17,13 +17,23 @@ import showscom.domainLayer.exceptions.DOSeientsNoDisp;
 @Entity
 @Table(name = "Representacio")
 public class Representacio {
+	@Column(name = "preu")
 	private float preu;
+	@Column(name = "data")
 	private Date data;
+	@Column(name = "nSeientsLliures")
 	private int nombreSeientsLliures;
+	@ManyToOne
+	@JoinColumn(name = "sessio", referencedColumnName = "sessio")
 	private Sessio sessio;
+	@ManyToOne
+	@JoinColumn(name = "local", referencedColumnName = "nom")
 	private Local local;
 
+	@Id
+	@Embedded
 	private RepresentacioPK representacioPK;
+	@Column(name = "titolE")
 	private String titolEspectacle;
 
 	public Representacio() {
@@ -40,7 +50,6 @@ public class Representacio {
 		this.representacioPK = new RepresentacioPK(sessio.getSessio().name(), local.getNom());
 	}
 
-	@Column(name = "preu")
 	public float getPreu() {
 		return preu;
 	}
@@ -49,7 +58,6 @@ public class Representacio {
 		this.preu = preu;
 	}
 
-	@Column(name = "data")
 	public Date getData() {
 		return data;
 	}
@@ -58,7 +66,6 @@ public class Representacio {
 		this.data = data;
 	}
 
-	@Column(name = "nSeientsLliures")
 	public int getNombreSeientsLliures() {
 		return nombreSeientsLliures;
 	}
@@ -67,8 +74,6 @@ public class Representacio {
 		this.nombreSeientsLliures = nombreSeientsLliures;
 	}
 
-	@ManyToOne
-	@JoinColumn(name = "sessio", referencedColumnName = "sessio")
 	public Sessio getSessio() {
 		return sessio;
 	}
@@ -77,8 +82,6 @@ public class Representacio {
 		this.sessio = sessio;
 	}
 
-	@ManyToOne
-	@JoinColumn(name = "local", referencedColumnName = "nom")
 	public Local getLocal() {
 		return local;
 	}
@@ -87,8 +90,6 @@ public class Representacio {
 		this.local = local;
 	}
 
-	@Id
-	@Embedded
 	public RepresentacioPK getRepresentacioPK() {
 		return representacioPK;
 	}
@@ -97,7 +98,6 @@ public class Representacio {
 		this.representacioPK = representacioPK;
 	}
 
-	@Column(name = "titolE")
 	public String getTitolEspectacle() {
 		return titolEspectacle;
 	}
@@ -108,7 +108,7 @@ public class Representacio {
 
 	public TuplaRepr obteInformacio() {
 		TuplaRepr tupla = new TuplaRepr();
-		
+
 		tupla.setSessio(sessio.getSessio().name());
 		tupla.setLocal(local.getNom());
 		tupla.setNombreSeientsLliures(nombreSeientsLliures);
@@ -122,21 +122,23 @@ public class Representacio {
 		return false;
 	}
 
-	public void reservarSeients(List <TuplaSeientLl> seients) {
+	public void reservarSeients(List<TuplaSeientLl> seients) {
 		// TODO hacer mediante CtrlSeientsEnRepresentacio
 		String nom = this.local.getNom();
 		TipusSessio sessio = this.sessio.getSessio();
-		for (TuplaSeientLl aux: seients) {
-			// SeientEnRepresentacio seient = obte (nom, sessio, aux.getFila(), aux.getColumna());
+		for (TuplaSeientLl aux : seients) {
+			// SeientEnRepresentacio seient = obte (nom, sessio, aux.getFila(),
+			// aux.getColumna());
 			// seient.ocupat();
 		}
 
 	}
-	
-	public List<TuplaSeientLl> obteSeientsLliures(int nombreEspectadors)throws DOSeientsNoDisp {
-		if (this.nombreSeientsLliures<nombreEspectadors) throw new DOSeientsNoDisp();
-		List<TuplaSeientLl>oc = new ArrayList<TuplaSeientLl>();
-		////codi////
+
+	public List<TuplaSeientLl> obteSeientsLliures(int nombreEspectadors) throws DOSeientsNoDisp {
+		if (this.nombreSeientsLliures < nombreEspectadors)
+			throw new DOSeientsNoDisp();
+		List<TuplaSeientLl> oc = new ArrayList<TuplaSeientLl>();
+		//// codi////
 		return oc;
 	}
 }

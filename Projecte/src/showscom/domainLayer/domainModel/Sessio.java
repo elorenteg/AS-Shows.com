@@ -10,6 +10,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Sessio")
 public class Sessio {
+	@Id
+	@Column(name = "sessio")
+	@Enumerated(EnumType.STRING)
 	private TipusSessio sessio;
 
 	public Sessio() {
@@ -20,9 +23,6 @@ public class Sessio {
 		this.sessio = sessio;
 	}
 
-	@Id
-	@Column(name = "sessio")
-	@Enumerated(EnumType.STRING)
 	public TipusSessio getSessio() {
 		return sessio;
 	}

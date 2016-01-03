@@ -3,12 +3,14 @@ package showscom.domainLayer.domainControllers;
 import java.util.Date;
 import java.util.List;
 
+import showscom.dataLayer.exceptions.CDRepresentacioNoExisteix;
 import showscom.domainLayer.domainModel.ShowsCom;
 import showscom.domainLayer.domainModel.TuplaRepr;
 import showscom.domainLayer.domainModel.TuplaSeientLl;
 import showscom.domainLayer.exceptions.DONoHiHaEspectacles;
 import showscom.domainLayer.exceptions.DONoHiHaRepresentacions;
 import showscom.domainLayer.exceptions.DOPagamentNoAutoritzat;
+import showscom.domainLayer.exceptions.DOSeientsNoDisp;
 import showscom.domainLayer.exceptions.DOServeiNoDisponible;
 import showscom.domainLayer.factories.CtrlUseCaseFactory;
 
@@ -41,7 +43,7 @@ public class CtrlDomComprarEntrada {
 		return llista;
 	}
 	
-	public List<TuplaSeientLl> obteOcupacio(String nomL, String sessio, int nombreEspectadors) {
+	public List<TuplaSeientLl> obteOcupacio(String nomL, String sessio, int nombreEspectadors) throws DOSeientsNoDisp {
 		CtrlUseCaseFactory ctrlUseCaseFact = CtrlUseCaseFactory.getInstance();
 		CtrlConsultarOcupacio ctrlConsOcup = ctrlUseCaseFact.getCtrlConsultarOcupacio();
 		List<TuplaSeientLl> llista = ctrlConsOcup.consultaOcupacio(nomL,sessio,nombreEspectadors);
