@@ -9,7 +9,7 @@ import showscom.domainLayer.factories.CtrlDataFactory;
 
 public class CtrlConsultarOcupacio {
 
-	public List<TuplaSeientLl> consultaOcupacio(String nomL, String sessio, int nombreEspectadors) {
+	public List<TuplaSeientLl> consultaOcupacio(String nomL, String sessio, int nombreEspectadors) throws CDRepresentacioNoExisteix, DOSeientsNoDisp {
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		ICtrlRepresentacio ctrlRepr = ctrlDataFact.getCtrlRepresentacio();
 		Representacio r = ctrlRepr.getRepresentacio(nomL, sessio);
