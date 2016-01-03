@@ -1,5 +1,6 @@
 package showscom.domainLayer.domainModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Espectacle")
-public class Espectacle {
+public class Espectacle implements Serializable {
 	@Id
 	@Column(name = "titol")
 	private String titol;

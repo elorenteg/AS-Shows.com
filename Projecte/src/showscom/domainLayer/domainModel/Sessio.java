@@ -1,5 +1,7 @@
 package showscom.domainLayer.domainModel;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Sessio")
-public class Sessio {
+public class Sessio implements Serializable {
 	@Id
 	@Column(name = "sessio")
 	@Enumerated(EnumType.STRING)

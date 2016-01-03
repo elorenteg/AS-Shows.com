@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Estrena")
-@PrimaryKeyJoinColumns({ @PrimaryKeyJoinColumn(name = "nomLocal"), @PrimaryKeyJoinColumn(name = "tipusSessio"),
+@PrimaryKeyJoinColumns({ @PrimaryKeyJoinColumn(name = "nomL"), @PrimaryKeyJoinColumn(name = "sessio"),
 		@PrimaryKeyJoinColumn(name = "titolE") })
 public class Estrena extends Representacio {
 	@Column(name = "recarrec")

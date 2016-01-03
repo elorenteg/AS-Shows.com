@@ -1,12 +1,11 @@
 package showscom.domainLayer.domainModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,15 +13,16 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapKey;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 import showscom.domainLayer.exceptions.DOSeientsNoDisp;
 
 @Entity
-@Table(name = "Representacio")//, uniqueConstraints = @UniqueConstraint(columnNames = { "tipusSessio", "nomLocal" }) )
+@Table(name = "Representacio", uniqueConstraints = @UniqueConstraint(columnNames = { "sessio", "nomL" }) )
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Representacio {
+public class Representacio implements Serializable {
 	@Column(name = "preu")
 	private float preu;
 	@Column(name = "data")
@@ -30,10 +30,10 @@ public class Representacio {
 	@Column(name = "nSeientsLliures")
 	private int nombreSeientsLliures;
 	@ManyToOne
-	@JoinColumn(name = "sessio", referencedColumnName = "sessio")
+	@JoinColumn(name = "sessio", referencedColumnName = "sessio", insertable = false, updatable = false)
 	private Sessio sessio;
 	@ManyToOne
-	@JoinColumn(name = "local", referencedColumnName = "nom")
+	@JoinColumn(name = "nomL", referencedColumnName = "nom", insertable = false, updatable = false)
 	private Local local;
 	@Id
 	@Embedded

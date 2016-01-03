@@ -17,6 +17,7 @@ import showscom.domainLayer.domainModel.Espectacle;
 import showscom.domainLayer.domainModel.Estrena;
 import showscom.domainLayer.domainModel.Local;
 import showscom.domainLayer.domainModel.Representacio;
+import showscom.domainLayer.domainModel.RepresentacioPK;
 import showscom.domainLayer.domainModel.Sessio;
 import showscom.domainLayer.domainModel.TipusSessio;
 
@@ -198,11 +199,17 @@ public class CreaRepresentacions {
 		if (repr != null)
 			System.out.println(repr.getRepresentacioPK().getSessio() + " " + repr.getRepresentacioPK().getNomLocal()
 					+ " " + repr.getRepresentacioPK().getTitolEspectacle() + " " +repr.getPreu() + " " + repr.getData() + " " + repr.getNombreSeientsLliures());
-
+		
+		Representacio repr2 = creaRepresentacio(ses, loc2, esp.getTitol(), 9.80f, d, 100);
+		Espectacle esp2 = creaEspectacle("Lago de los cisnes 2", 10);
+		Representacio repr3 = creaRepresentacio(ses, loc, esp2.getTitol(), 9.80f, d, 100);
+		
+		/*
 		Estrena estr = creaEstrena(ses, loc2, esp.getTitol(), 9.80f, d, 100, 10);
 		if (estr != null)
 			System.out.println(estr.getRepresentacioPK().getSessio() + " " + estr.getRepresentacioPK().getNomLocal()
 					+ " " + estr.getRepresentacioPK().getTitolEspectacle() + " " + estr.getPreu() + " " + estr.getData()
 					+ " " + estr.getNombreSeientsLliures() + " " + estr.getRecarrec());
+					*/
 	}
 }

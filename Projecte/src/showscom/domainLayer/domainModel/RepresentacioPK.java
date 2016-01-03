@@ -7,9 +7,9 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class RepresentacioPK implements Serializable {
-	@Column(name = "tipusSessio")
+	@Column(name = "sessio")
 	String sessio;
-	@Column(name = "nomLocal")
+	@Column(name = "nomL")
 	String nomLocal;
 	@Column(name = "titolE")
 	private String titolEspectacle;
