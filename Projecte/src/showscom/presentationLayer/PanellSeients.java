@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PanellSeients extends JPanel {
+	private static final long serialVersionUID = 1L;
+	
 	private CtrlPresComprarEntrada ctrlPres;
 	private VistaComprarEntrada vistaPres;
 	
@@ -29,12 +31,11 @@ public class PanellSeients extends JPanel {
 		this.setVisible(true);
 	}
 
-	@SuppressWarnings("serial")
 	private void initComponents(int maxFila, int maxColumna, List<Object> seients) {
 		System.out.println("Max fila: " + maxFila);
 		System.out.println("Max columna: " + maxColumna);
 		System.out.println("Seients disp: " + seients);
-		MyCanvas canvas = new MyCanvas(vistaPres.getWidth(), vistaPres.getHeight(), maxFila, maxColumna, seients);
+		canvas = new MyCanvas(vistaPres.getWidth(), vistaPres.getHeight(), maxFila, maxColumna, seients);
 		canvas.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				int x = e.getX();
@@ -108,7 +109,7 @@ public class PanellSeients extends JPanel {
 	}
 
 	private void prContinua(ActionEvent evt) {
-
+		List<Object> seientsAssignats = canvas.getSeientsAssignats();
 		ctrlPres.prContSeleccionarSeients();
 	}
 

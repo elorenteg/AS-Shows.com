@@ -13,6 +13,8 @@ import javax.swing.JPanel;
 import showscom.domainLayer.domainModel.TuplaRepr;
 
 public class PanellRepresentacio extends JPanel {
+	private static final long serialVersionUID = 1L;
+	
 	private CtrlPresComprarEntrada ctrlPres;
 	private VistaComprarEntrada vistaPres;
 
@@ -26,7 +28,6 @@ public class PanellRepresentacio extends JPanel {
 		this.setVisible(true);
 	}
 
-	@SuppressWarnings("serial")
 	private void initComponents(List<TuplaRepr> infoRepr) {
 
 		btnContinua = new javax.swing.JButton();
@@ -92,7 +93,6 @@ public class PanellRepresentacio extends JPanel {
 	}
 
 	private void prContinua(ActionEvent evt) {
-
 		ctrlPres.prContObteOcupacio();
 	}
 

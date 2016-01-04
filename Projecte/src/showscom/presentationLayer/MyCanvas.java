@@ -2,19 +2,14 @@ package showscom.presentationLayer;
 
 import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontMetrics;
 import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.PaintContext;
-import java.awt.Rectangle;
-import java.awt.Shape;
-import java.awt.image.ImageObserver;
-import java.text.AttributedCharacterIterator;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MyCanvas extends Canvas {
+	private static final long serialVersionUID = 1L;
+
 	private int amplada;
 	private int altura;
 	private int maxFila;
@@ -31,18 +26,17 @@ public class MyCanvas extends Canvas {
 		this.maxColumna = maxColumna;
 		this.seientsLliures = seients;
 		this.seientsAssignats = new ArrayList<>();
-		// setBackground(Color.GRAY);
 
 		int marginX = 200;
-		int marginY = 150;
+		int marginY = 130;
 		System.out.println("JPANEL: " + width + "x" + height);
-		System.out.println("CANVAS-X: " + marginX + "x" + (width - 2 * marginX));
-		System.out.println("CANVAS-Y: " + marginY + "x" + 2 * marginY);
+		System.out.println("CANVAS-X: " + marginX + "-" + (width - 2 * marginX));
+		System.out.println("CANVAS-Y: " + marginY + "-" + 2 * marginY);
 
 		this.amplada = width - 2 * marginX;
-		this.altura = 300;
+		this.altura = 350;
 
-		setBounds(marginX, 150, amplada, altura);
+		setBounds(marginX, marginY, amplada, altura);
 	}
 
 	public void paint(Graphics g) {
@@ -52,13 +46,11 @@ public class MyCanvas extends Canvas {
 		g.drawLine(amplada - 1, 0, amplada - 1, altura - 1);
 		g.drawLine(0, altura - 1, amplada - 1, altura - 1);
 
-		int xSeient = (amplada - (wSeient * maxFila + sep * (maxFila - 1))) / 2;
+		int ySeient = (altura - (hSeient * maxFila + sep * (maxFila - 1))) / 2;
 		for (int f = 0; f < maxFila; ++f) {
-			int ySeient = (altura - (hSeient * maxColumna + sep * (maxColumna - 1))) / 2;
+			int xSeient = (amplada - (wSeient * maxColumna + sep * (maxColumna - 1))) / 2;
 			for (int c = 0; c < maxColumna; ++c) {
-				List<Integer> seient = new ArrayList<>();
-				seient.add(f);
-				seient.add(c);
+				List<Integer> seient = Arrays.asList(f, c);
 
 				Color color = Color.GREEN;
 				if (seientsAssignats.contains(seient))
@@ -67,10 +59,32 @@ public class MyCanvas extends Canvas {
 					color = Color.LIGHT_GRAY;
 				g.setColor(color);
 
-				g.fillRoundRect(xSeient, ySeient, wSeient, hSeient, 3, 3);
-				ySeient += hSeient + sep;
+				g.fillRoundRect(xSeient, ySeient, hSeient, wSeient, 3, 3);
+				xSeient += wSeient + sep;
 			}
-			xSeient += wSeient + sep;
+			ySeient += hSeient + sep;
+		}
+
+		int yLab = (altura - (hSeient * maxFila + sep * (maxFila - 1))) / 2 + 12;
+		int xLab = (amplada - (wSeient * maxColumna + sep * (maxColumna - 1))) / 2 - 17;
+		for (int f = 0; f < maxFila; ++f) {
+			int aux = 0;
+			if (f <= 9)
+				aux = 6;
+			g.setColor(Color.BLACK);
+			g.drawString(Integer.toString(f), xLab + aux, yLab);
+			yLab += hSeient + sep;
+		}
+
+		yLab = (altura - (hSeient * maxFila + sep * (maxFila - 1))) / 2 - 4;
+		xLab = (amplada - (wSeient * maxColumna + sep * (maxColumna - 1))) / 2;
+		for (int c = 0; c < maxColumna; ++c) {
+			int aux = 0;
+			if (c <= 9)
+				aux = 4;
+			g.setColor(Color.BLACK);
+			g.drawString(Integer.toString(c), xLab + aux, yLab);
+			xLab += wSeient + sep;
 		}
 
 		int wPantalla = 220;
@@ -105,38 +119,36 @@ public class MyCanvas extends Canvas {
 	}
 
 	void refresh(int xClicked, int yClicked) {
-		int xMin = (amplada - (wSeient * maxFila + sep * (maxFila - 1))) / 2;
-		int yMin = (altura - (hSeient * maxColumna + sep * (maxColumna - 1))) / 2;
-		if (xClicked >= xMin && xClicked < amplada - xMin && yClicked >= yMin && yClicked < altura - yMin) {
+		int yMin = (altura - (hSeient * maxFila + sep * (maxFila - 1))) / 2;
+		int xMin = (amplada - (wSeient * maxColumna + sep * (maxColumna - 1))) / 2;
+		if (yClicked >= yMin && yClicked < altura - yMin && xClicked >= xMin && xClicked < amplada - xMin) {
 			System.out.println("Area vàlida: " + xClicked + " " + yClicked);
 
 			System.out.println((xClicked - xMin));
-			System.out.println((wSeient + sep));
-			int f = (xClicked - xMin)/(wSeient + sep);
-			int c = (yClicked - yMin)/(hSeient + sep);
+			System.out.println((hSeient + sep));
+			int f = (yClicked - yMin) / (hSeient + sep);
+			int c = (xClicked - xMin) / (wSeient + sep);
 			System.out.println("Seient: " + f + " " + c);
 
-			List<Integer> seient = new ArrayList<>();
-			seient.add(f);
-			seient.add(c);
+			List<Integer> seient = Arrays.asList(f, c);
 			if (seientsLliures.contains(seient)) {
-				if(!seientsAssignats.contains(seient)) {
+				if (!seientsAssignats.contains(seient)) {
 					System.out.println("S'asigna el seient: " + f + " " + c);
 					seientsAssignats.add(seient);
-				}
-				else {
+				} else {
 					System.out.println("Es desasigna el seient: " + f + " " + c);
-					//int index = seientsAssignats.indexOf(seient);
 					seientsAssignats.remove(seient);
 				}
 				paint(this.getGraphics());
 			} else {
 				System.out.println("Seient NO disponible: " + f + " " + c);
 			}
-		}
-		else {
+		} else {
 			System.out.println("Àrea NO vàlida: " + xClicked + " " + yClicked);
 		}
+	}
 
+	public List<Object> getSeientsAssignats() {
+		return seientsAssignats;
 	}
 }

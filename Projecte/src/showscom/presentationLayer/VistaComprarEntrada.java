@@ -12,6 +12,8 @@ import javax.swing.JOptionPane;
 import showscom.domainLayer.domainModel.TuplaRepr;
 
 public class VistaComprarEntrada extends JFrame {
+	private static final long serialVersionUID = 1L;
+	
 	private CtrlPresComprarEntrada ctrlPres;
 	private PanellInici panellIni;
 	private PanellEspectacle panellEsp;
@@ -84,16 +86,9 @@ public class VistaComprarEntrada extends JFrame {
 	}
 
 	public void mostraPagament(float preu, List<String> divises) {
-
-		// List<String> divises = new ArrayList<>();
-		// divises.add("GBP");
-		// divises.add("USD");
-		// vistaPres.mostraPagament(10, divises);
-
 		panellPagam = new PanellPagament(ctrlPres, this, preu, divises);
 		getContentPane().add(panellPagam, "Pagament");
 		panellSeients.setVisible(false);
-		// panellEsp.setVisible(false);
 		panellPagam.setVisible(true);
 	}
 

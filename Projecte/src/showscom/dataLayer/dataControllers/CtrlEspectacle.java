@@ -77,7 +77,7 @@ public class CtrlEspectacle implements ICtrlEspectacle {
 		return exist;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public List<Espectacle> getAllEspectacles() {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;

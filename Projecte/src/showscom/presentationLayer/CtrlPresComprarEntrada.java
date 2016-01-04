@@ -1,6 +1,7 @@
 package showscom.presentationLayer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -64,27 +65,21 @@ public class CtrlPresComprarEntrada {
 	}
 
 	public void prContObteOcupacio() {
-		
-		int maxFila = 15;
-		int maxColumna = 10;
 
-		List<Integer> l1 = new ArrayList<>();
-		l1.add(1);
-		l1.add(1);
-		List<Integer> l2 = new ArrayList<>();
-		l2.add(1);
-		l2.add(2);
-		List<Integer> l3 = new ArrayList<>();
-		l3.add(2);
-		l3.add(1);
-		List<Integer> l4 = new ArrayList<>();
-		l4.add(2);
-		l4.add(2);
-		List<Object> llista2 = new ArrayList<>();
-		llista2.add(l1);
-		llista2.add(l2);
-		llista2.add(l3);
-		llista2.add(l4);
+		int maxFila = 11;
+		int maxColumna = 15;
+
+		List<Object> llista2 = Arrays.asList(Arrays.asList(0, 0), Arrays.asList(0, 1), Arrays.asList(0, 2),
+				Arrays.asList(0, 3), Arrays.asList(0, 4), Arrays.asList(0, 5), Arrays.asList(0, 6), Arrays.asList(0, 7),
+				Arrays.asList(1, 0), Arrays.asList(1, 1), Arrays.asList(1, 2), Arrays.asList(1, 3), Arrays.asList(1, 4),
+				Arrays.asList(1, 5), Arrays.asList(1, 6), Arrays.asList(1, 7), Arrays.asList(2, 0), Arrays.asList(2, 1),
+				Arrays.asList(2, 2), Arrays.asList(2, 3), Arrays.asList(2, 4), Arrays.asList(2, 5), Arrays.asList(2, 6),
+				Arrays.asList(2, 7), Arrays.asList(3, 0), Arrays.asList(3, 1), Arrays.asList(3, 2), Arrays.asList(3, 3),
+				Arrays.asList(3, 4), Arrays.asList(3, 5), Arrays.asList(3, 6), Arrays.asList(3, 7), Arrays.asList(4, 0),
+				Arrays.asList(4, 1), Arrays.asList(4, 2), Arrays.asList(4, 3), Arrays.asList(4, 4), Arrays.asList(4, 5),
+				Arrays.asList(4, 6), Arrays.asList(4, 7), Arrays.asList(5, 0), Arrays.asList(5, 1), Arrays.asList(5, 2),
+				Arrays.asList(5, 3), Arrays.asList(5, 4), Arrays.asList(5, 5), Arrays.asList(5, 6),
+				Arrays.asList(5, 7));
 
 		vistaPres.mostraOcupacio(maxFila, maxColumna, llista2);
 	}

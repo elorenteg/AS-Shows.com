@@ -10,10 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PanellFi extends JPanel {
+	private static final long serialVersionUID = 1L;
+	
 	private CtrlPresComprarEntrada ctrlPres;
 	private VistaComprarEntrada vistaPres;
 	
-	private JPanel panel;
 	private JLabel label1;
 	private JLabel label2;
 	private JButton btnFinalitza;
@@ -36,8 +37,6 @@ public class PanellFi extends JPanel {
 	}
 		                      
 	private void initComponents() {
-		panel = new JPanel();
-		
         label1 = new JLabel(); label1.setText("Pagament realitzat correctament"); label1.setFont(new Font("originalfont", Font.PLAIN, 16));
         label2 = new JLabel(); label2.setText("Podrà recollir les seves entrades a la seva entitat bancària"); label2.setFont(new Font("originalfont", Font.PLAIN, 16));
         

@@ -16,6 +16,8 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class PanellPagament extends JPanel {
+	private static final long serialVersionUID = 1L;
+	
 	private CtrlPresComprarEntrada ctrlPres;
 	private VistaComprarEntrada vistaPres;
 
