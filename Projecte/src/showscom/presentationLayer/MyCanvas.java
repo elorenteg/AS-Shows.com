@@ -55,14 +55,6 @@ public class MyCanvas extends Canvas {
 			for (int c = 0; c < maxColumna; ++c) {
 				TuplaSeient seient = new TuplaSeient(f, c);
 
-				/*
-				 * Color color = Color.GREEN; if
-				 * ((Collections.frequency(seientsAssignats, seient)) > 1) color
-				 * = Color.YELLOW; else if
-				 * (!((Collections.frequency(seientsLliures, seient)) > 1))
-				 * color = Color.LIGHT_GRAY; g.setColor(color);
-				 */
-
 				Color color = Color.GREEN;
 				if (seientsAssignats.contains(seient))
 					color = Color.YELLOW;
@@ -135,24 +127,37 @@ public class MyCanvas extends Canvas {
 		if (yClicked >= yMin && yClicked < altura - yMin && xClicked >= xMin && xClicked < amplada - xMin) {
 			System.out.println("Area vàlida: " + xClicked + " " + yClicked);
 
-			System.out.println((xClicked - xMin));
-			System.out.println((hSeient + sep));
-			int f = (yClicked - yMin) / (hSeient + sep);
-			int c = (xClicked - xMin) / (wSeient + sep);
-			System.out.println("Seient: " + f + " " + c);
+			double ff = (double) (yClicked - yMin) / (hSeient + sep);
+			double cc = (double) (xClicked - xMin) / (wSeient + sep);
 
-			TuplaSeient seient = new TuplaSeient(f, c);
-			if (seientsLliures.contains(seient)) {
-				if (!seientsAssignats.contains(seient)) {
-					System.out.println("S'asigna el seient: " + f + " " + c);
-					seientsAssignats.add(seient);
+			double decF = ff - Math.floor(ff);
+			double decC = cc - Math.floor(cc);
+			double decFdins = (double) wSeient / (wSeient + sep);
+			double decCdins = (double) hSeient / (hSeient + sep);
+
+			System.out.println("DEC-F: " + ff + " " + decF + " " + decFdins);
+			System.out.println("DEC-C: " + cc + " " + decC + " " + decCdins);
+
+			if (decF <= decFdins && decC <= decCdins) {
+				int f = (yClicked - yMin) / (hSeient + sep);
+				int c = (xClicked - xMin) / (wSeient + sep);
+				System.out.println("Seient: " + f + " " + c);
+
+				TuplaSeient seient = new TuplaSeient(f, c);
+				if (seientsLliures.contains(seient)) {
+					if (!seientsAssignats.contains(seient)) {
+						System.out.println("S'asigna el seient: " + f + " " + c);
+						seientsAssignats.add(seient);
+					} else {
+						System.out.println("Es desasigna el seient: " + f + " " + c);
+						seientsAssignats.remove(seient);
+					}
+					paint(this.getGraphics());
 				} else {
-					System.out.println("Es desasigna el seient: " + f + " " + c);
-					seientsAssignats.remove(seient);
+					System.out.println("Seient NO disponible: " + f + " " + c);
 				}
-				paint(this.getGraphics());
 			} else {
-				System.out.println("Seient NO disponible: " + f + " " + c);
+				System.out.println("Àrea vàlida, però no seient");
 			}
 		} else {
 			System.out.println("Àrea NO vàlida: " + xClicked + " " + yClicked);
