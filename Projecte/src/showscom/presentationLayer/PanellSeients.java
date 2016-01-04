@@ -1,8 +1,11 @@
 package showscom.presentationLayer;
 
+import java.awt.BorderLayout;
+import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,16 +32,11 @@ import net.sourceforge.jdatepicker.impl.UtilDateModel;
 public class PanellSeients extends JPanel {
 	private CtrlPresComprarEntrada ctrlPres;
 	private VistaComprarEntrada vistaPres;
+	
+	private MyCanvas canvas;
 
 	private JButton btnContinua;
 	private JButton btnCancela;
-
-	/**
-	 * Create the panel.
-	 */
-	public PanellSeients() {
-
-	}
 
 	public PanellSeients(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, List<Object> seients) {
 		this.ctrlPres = ctrlPres;
@@ -50,6 +48,8 @@ public class PanellSeients extends JPanel {
 	@SuppressWarnings("serial")
 	private void initComponents(List<Object> seients) {
 		System.out.println(seients);
+		MyCanvas canvas = new MyCanvas(vistaPres.getWidth(), vistaPres.getHeight(), seients);
+		this.add(canvas, BorderLayout.CENTER);
 
 		btnContinua = new javax.swing.JButton();
 		btnContinua.setText("Continua");
@@ -112,7 +112,7 @@ public class PanellSeients extends JPanel {
 				.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(btnContinua).addComponent(btnCancela)).addGap(50, 50, 50).addContainerGap()));
 	}
-	
+
 	private void prContinua(ActionEvent evt) {
 
 		ctrlPres.prContSeleccionarSeients();

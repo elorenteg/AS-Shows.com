@@ -19,13 +19,6 @@ public class PanellRepresentacio extends JPanel {
 	private JButton btnContinua;
 	private JButton btnCancela;
 
-	/**
-	 * Create the panel.
-	 */
-	public PanellRepresentacio() {
-
-	}
-
 	public PanellRepresentacio(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, List<TuplaRepr> infoRepr) {
 		this.ctrlPres = ctrlPres;
 		this.vistaPres = vistaPres;
