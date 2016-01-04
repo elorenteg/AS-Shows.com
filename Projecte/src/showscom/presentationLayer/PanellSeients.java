@@ -1,33 +1,17 @@
 package showscom.presentationLayer;
 
 import java.awt.BorderLayout;
-import java.awt.Canvas;
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
-import javax.swing.table.JTableHeader;
-
-import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
-import net.sourceforge.jdatepicker.impl.UtilDateModel;
 
 public class PanellSeients extends JPanel {
 	private CtrlPresComprarEntrada ctrlPres;
@@ -51,6 +35,14 @@ public class PanellSeients extends JPanel {
 		System.out.println("Max columna: " + maxColumna);
 		System.out.println("Seients disp: " + seients);
 		MyCanvas canvas = new MyCanvas(vistaPres.getWidth(), vistaPres.getHeight(), maxFila, maxColumna, seients);
+		canvas.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				int x = e.getX();
+				int y = e.getY();
+				
+				canvas.refresh(x,y);
+			}
+		});
 		this.add(canvas, BorderLayout.CENTER);
 
 		btnContinua = new javax.swing.JButton();

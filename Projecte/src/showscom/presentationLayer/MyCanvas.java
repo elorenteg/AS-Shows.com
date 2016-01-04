@@ -2,7 +2,15 @@ package showscom.presentationLayer;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.PaintContext;
+import java.awt.Rectangle;
+import java.awt.Shape;
+import java.awt.image.ImageObserver;
+import java.text.AttributedCharacterIterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +21,10 @@ public class MyCanvas extends Canvas {
 	private int maxColumna;
 	private List<Object> seientsLliures;
 	private List<Object> seientsAssignats;
+
+	private int wSeient = 15;
+	private int hSeient = 15;
+	private int sep = 5;
 
 	public MyCanvas(int width, int height, int maxFila, int maxColumna, List<Object> seients) {
 		this.maxFila = maxFila;
@@ -39,10 +51,6 @@ public class MyCanvas extends Canvas {
 		g.drawLine(0, 0, 0, altura - 1);
 		g.drawLine(amplada - 1, 0, amplada - 1, altura - 1);
 		g.drawLine(0, altura - 1, amplada - 1, altura - 1);
-
-		int wSeient = 15;
-		int hSeient = 15;
-		int sep = 5;
 
 		int xSeient = (amplada - (wSeient * maxFila + sep * (maxFila - 1))) / 2;
 		for (int f = 0; f < maxFila; ++f) {
@@ -94,5 +102,41 @@ public class MyCanvas extends Canvas {
 		g.fillRoundRect(xLlegenda, yLlegenda, wSeient, hSeient, 3, 3);
 		g.setColor(Color.BLACK);
 		g.drawString("No disponible", xLlegenda + wSeient + 5, yLlegenda + hSeient - 3);
+	}
+
+	void refresh(int xClicked, int yClicked) {
+		int xMin = (amplada - (wSeient * maxFila + sep * (maxFila - 1))) / 2;
+		int yMin = (altura - (hSeient * maxColumna + sep * (maxColumna - 1))) / 2;
+		if (xClicked >= xMin && xClicked < amplada - xMin && yClicked >= yMin && yClicked < altura - yMin) {
+			System.out.println("Area vàlida: " + xClicked + " " + yClicked);
+
+			System.out.println((xClicked - xMin));
+			System.out.println((wSeient + sep));
+			int f = (xClicked - xMin)/(wSeient + sep);
+			int c = (yClicked - yMin)/(hSeient + sep);
+			System.out.println("Seient: " + f + " " + c);
+
+			List<Integer> seient = new ArrayList<>();
+			seient.add(f);
+			seient.add(c);
+			if (seientsLliures.contains(seient)) {
+				if(!seientsAssignats.contains(seient)) {
+					System.out.println("S'asigna el seient: " + f + " " + c);
+					seientsAssignats.add(seient);
+				}
+				else {
+					System.out.println("Es desasigna el seient: " + f + " " + c);
+					//int index = seientsAssignats.indexOf(seient);
+					seientsAssignats.remove(seient);
+				}
+				paint(this.getGraphics());
+			} else {
+				System.out.println("Seient NO disponible: " + f + " " + c);
+			}
+		}
+		else {
+			System.out.println("Àrea NO vàlida: " + xClicked + " " + yClicked);
+		}
+
 	}
 }
