@@ -102,6 +102,19 @@ public class Representacio implements Serializable {
 	public void setRepresentacioPK(RepresentacioPK representacioPK) {
 		this.representacioPK = representacioPK;
 	}
+	
+	public String toString() {
+		String s = "";
+		s += "PK.sessio: " + representacioPK.getSessio() + "\n";
+		s += "PK.local: " + representacioPK.getNomLocal() + "\n";
+		s += "PK.espectacle: " + representacioPK.getTitolEspectacle() + "\n";
+		s += "sessio: " + getSessio().getSessio().name() + "\n";
+		s += "local: " + getLocal().getNom() + "\n";
+		s += "preu: " + getPreu() + "\n";
+		s += "data: " + getData() + "\n";
+		s += "nSeientsLliures: " + getNombreSeientsLliures() + "\n";
+		return s;
+	}
 
 	public TuplaRepr obteInformacio() {
 		TuplaRepr tupla = new TuplaRepr();

@@ -70,4 +70,5 @@ INSERT INTO Espectacle VALUES('Cisne negro 2', 10);
 INSERT INTO Local VALUES('Gran Teatre del Liceu', 'Les Rambles, 51-59');
 
 INSERT INTO Representacio VALUES('Gran Teatre del Liceu', 'MATI', 'Cisne negro', '26/01/2016', 100, 50);
-INSERT INTO Estrena VALUES(0, 'Gran Teatre del Liceu', 'MATI', 'Cisne negro');
+
+UPDATE Representacio SET sessio='NIT'
