@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import showscom.domainLayer.domainModel.TuplaRepr;
+import showscom.domainLayer.domainModel.TuplaSeient;
 
 public class VistaComprarEntrada extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -78,8 +79,8 @@ public class VistaComprarEntrada extends JFrame {
 		panellRepr.setVisible(true);
 	}
 
-	public void mostraOcupacio(int maxFila, int maxColumna, List<Object> llista) {
-		panellSeients = new PanellSeients(ctrlPres, this, maxFila, maxColumna, llista);
+	public void mostraOcupacio(int maxFila, int maxColumna, List<TuplaSeient> seientsLliures) {
+		panellSeients = new PanellSeients(ctrlPres, this, maxFila, maxColumna, seientsLliures);
 		getContentPane().add(panellSeients, "Seients");
 		panellRepr.setVisible(false);
 		panellSeients.setVisible(true);

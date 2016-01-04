@@ -5,7 +5,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+
+import showscom.domainLayer.domainModel.TuplaSeient;
 
 public class MyCanvas extends Canvas {
 	private static final long serialVersionUID = 1L;
@@ -14,14 +17,14 @@ public class MyCanvas extends Canvas {
 	private int altura;
 	private int maxFila;
 	private int maxColumna;
-	private List<Object> seientsLliures;
-	private List<Object> seientsAssignats;
+	private List<TuplaSeient> seientsLliures;
+	private List<TuplaSeient> seientsAssignats;
 
 	private int wSeient = 15;
 	private int hSeient = 15;
 	private int sep = 5;
 
-	public MyCanvas(int width, int height, int maxFila, int maxColumna, List<Object> seients) {
+	public MyCanvas(int width, int height, int maxFila, int maxColumna, List<TuplaSeient> seients) {
 		this.maxFila = maxFila;
 		this.maxColumna = maxColumna;
 		this.seientsLliures = seients;
@@ -50,7 +53,15 @@ public class MyCanvas extends Canvas {
 		for (int f = 0; f < maxFila; ++f) {
 			int xSeient = (amplada - (wSeient * maxColumna + sep * (maxColumna - 1))) / 2;
 			for (int c = 0; c < maxColumna; ++c) {
-				List<Integer> seient = Arrays.asList(f, c);
+				TuplaSeient seient = new TuplaSeient(f, c);
+
+				/*
+				 * Color color = Color.GREEN; if
+				 * ((Collections.frequency(seientsAssignats, seient)) > 1) color
+				 * = Color.YELLOW; else if
+				 * (!((Collections.frequency(seientsLliures, seient)) > 1))
+				 * color = Color.LIGHT_GRAY; g.setColor(color);
+				 */
 
 				Color color = Color.GREEN;
 				if (seientsAssignats.contains(seient))
@@ -130,7 +141,7 @@ public class MyCanvas extends Canvas {
 			int c = (xClicked - xMin) / (wSeient + sep);
 			System.out.println("Seient: " + f + " " + c);
 
-			List<Integer> seient = Arrays.asList(f, c);
+			TuplaSeient seient = new TuplaSeient(f, c);
 			if (seientsLliures.contains(seient)) {
 				if (!seientsAssignats.contains(seient)) {
 					System.out.println("S'asigna el seient: " + f + " " + c);
@@ -148,7 +159,7 @@ public class MyCanvas extends Canvas {
 		}
 	}
 
-	public List<Object> getSeientsAssignats() {
+	public List<TuplaSeient> getSeientsAssignats() {
 		return seientsAssignats;
 	}
 }

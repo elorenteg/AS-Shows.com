@@ -31,8 +31,8 @@ public class SeientEnRepresentacio {
 		this.estat = Estat.OCUPAT;
 	}
 	
-	public TuplaSeientLl getSeient() {
-		TuplaSeientLl tupla = new TuplaSeientLl();
+	public TuplaSeient getSeient() {
+		TuplaSeient tupla = new TuplaSeient();
 		tupla.setFila(seient.getFila());
 		tupla.setColumna(seient.getColumna());
 		return tupla;		

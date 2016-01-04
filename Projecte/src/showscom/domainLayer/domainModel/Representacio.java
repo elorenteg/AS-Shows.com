@@ -119,11 +119,11 @@ public class Representacio implements Serializable {
 		return false;
 	}
 
-	public void reservarSeients(List<TuplaSeientLl> seients) {
+	public void reservarSeients(List<TuplaSeient> seients) {
 		// TODO hacer mediante CtrlSeientsEnRepresentacio
 		String nom = this.local.getNom();
 		TipusSessio sessio = this.sessio.getSessio();
-		for (TuplaSeientLl aux : seients) {
+		for (TuplaSeient aux : seients) {
 			// SeientEnRepresentacio seient = obte (nom, sessio, aux.getFila(),
 			// aux.getColumna());
 			// seient.ocupat();
@@ -131,10 +131,10 @@ public class Representacio implements Serializable {
 
 	}
 
-	public List<TuplaSeientLl> obteSeientsLliures(int nombreEspectadors) throws DOSeientsNoDisp {
+	public List<TuplaSeient> obteSeientsLliures(int nombreEspectadors) throws DOSeientsNoDisp {
 		if (this.nombreSeientsLliures < nombreEspectadors)
 			throw new DOSeientsNoDisp();
-		List<TuplaSeientLl> oc = new ArrayList<TuplaSeientLl>();
+		List<TuplaSeient> oc = new ArrayList<TuplaSeient>();
 		//// codi////
 		return oc;
 	}

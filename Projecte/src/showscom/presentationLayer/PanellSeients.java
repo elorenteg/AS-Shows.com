@@ -13,35 +13,38 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import showscom.domainLayer.domainModel.TuplaSeient;
+
 public class PanellSeients extends JPanel {
 	private static final long serialVersionUID = 1L;
-	
+
 	private CtrlPresComprarEntrada ctrlPres;
 	private VistaComprarEntrada vistaPres;
-	
+
 	private MyCanvas canvas;
 
 	private JButton btnContinua;
 	private JButton btnCancela;
 
-	public PanellSeients(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, int maxFila, int maxColumna, List<Object> seients) {
+	public PanellSeients(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, int maxFila, int maxColumna,
+			List<TuplaSeient> seientsLliures) {
 		this.ctrlPres = ctrlPres;
 		this.vistaPres = vistaPres;
-		initComponents(maxFila, maxColumna, seients);
+		initComponents(maxFila, maxColumna, seientsLliures);
 		this.setVisible(true);
 	}
 
-	private void initComponents(int maxFila, int maxColumna, List<Object> seients) {
+	private void initComponents(int maxFila, int maxColumna, List<TuplaSeient> seientsLliures) {
 		System.out.println("Max fila: " + maxFila);
 		System.out.println("Max columna: " + maxColumna);
-		System.out.println("Seients disp: " + seients);
-		canvas = new MyCanvas(vistaPres.getWidth(), vistaPres.getHeight(), maxFila, maxColumna, seients);
+		System.out.println("Seients disp: " + seientsLliures);
+		canvas = new MyCanvas(vistaPres.getWidth(), vistaPres.getHeight(), maxFila, maxColumna, seientsLliures);
 		canvas.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				int x = e.getX();
 				int y = e.getY();
-				
-				canvas.refresh(x,y);
+
+				canvas.refresh(x, y);
 			}
 		});
 		this.add(canvas, BorderLayout.CENTER);
@@ -109,7 +112,7 @@ public class PanellSeients extends JPanel {
 	}
 
 	private void prContinua(ActionEvent evt) {
-		List<Object> seientsAssignats = canvas.getSeientsAssignats();
+		List<TuplaSeient> seientsAssignats = canvas.getSeientsAssignats();
 		ctrlPres.prContSeleccionarSeients();
 	}
 

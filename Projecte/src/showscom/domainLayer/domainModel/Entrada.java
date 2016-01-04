@@ -20,7 +20,7 @@ public class Entrada {
 	// TODO indicar sólo guardamos sessio i nomLocal de representació
 	private Representacio representacio;
 	
-	public Entrada(String identificador, String dni, int nombreEspectadors, Date dAvui, float preuTotal, Representacio r, List<TuplaSeientLl> seients) {
+	public Entrada(String identificador, String dni, int nombreEspectadors, Date dAvui, float preuTotal, Representacio r, List<TuplaSeient> seients) {
 		super();
 		this.identificador = identificador;
 		dniClient = dni;
