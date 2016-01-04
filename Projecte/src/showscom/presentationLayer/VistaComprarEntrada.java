@@ -76,8 +76,8 @@ public class VistaComprarEntrada extends JFrame {
 		panellRepr.setVisible(true);
 	}
 
-	public void mostraOcupacio(List<Object> llista) {
-		panellSeients = new PanellSeients(ctrlPres, this, llista);
+	public void mostraOcupacio(int maxFila, int maxColumna, List<Object> llista) {
+		panellSeients = new PanellSeients(ctrlPres, this, maxFila, maxColumna, llista);
 		getContentPane().add(panellSeients, "Seients");
 		panellRepr.setVisible(false);
 		panellSeients.setVisible(true);

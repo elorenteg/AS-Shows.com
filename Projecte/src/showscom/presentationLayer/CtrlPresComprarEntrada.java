@@ -64,6 +64,9 @@ public class CtrlPresComprarEntrada {
 	}
 
 	public void prContObteOcupacio() {
+		
+		int maxFila = 15;
+		int maxColumna = 10;
 
 		List<Integer> l1 = new ArrayList<>();
 		l1.add(1);
@@ -83,7 +86,7 @@ public class CtrlPresComprarEntrada {
 		llista2.add(l3);
 		llista2.add(l4);
 
-		vistaPres.mostraOcupacio(llista2);
+		vistaPres.mostraOcupacio(maxFila, maxColumna, llista2);
 	}
 
 	public void prContSeleccionarSeients() {

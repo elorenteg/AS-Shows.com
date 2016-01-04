@@ -38,17 +38,19 @@ public class PanellSeients extends JPanel {
 	private JButton btnContinua;
 	private JButton btnCancela;
 
-	public PanellSeients(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, List<Object> seients) {
+	public PanellSeients(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, int maxFila, int maxColumna, List<Object> seients) {
 		this.ctrlPres = ctrlPres;
 		this.vistaPres = vistaPres;
-		initComponents(seients);
+		initComponents(maxFila, maxColumna, seients);
 		this.setVisible(true);
 	}
 
 	@SuppressWarnings("serial")
-	private void initComponents(List<Object> seients) {
-		System.out.println(seients);
-		MyCanvas canvas = new MyCanvas(vistaPres.getWidth(), vistaPres.getHeight(), seients);
+	private void initComponents(int maxFila, int maxColumna, List<Object> seients) {
+		System.out.println("Max fila: " + maxFila);
+		System.out.println("Max columna: " + maxColumna);
+		System.out.println("Seients disp: " + seients);
+		MyCanvas canvas = new MyCanvas(vistaPres.getWidth(), vistaPres.getHeight(), maxFila, maxColumna, seients);
 		this.add(canvas, BorderLayout.CENTER);
 
 		btnContinua = new javax.swing.JButton();
