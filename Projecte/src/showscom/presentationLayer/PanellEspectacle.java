@@ -28,7 +28,7 @@ import net.sourceforge.jdatepicker.impl.UtilDateModel;
 
 public class PanellEspectacle extends JPanel {
 	private static final long serialVersionUID = 1L;
-	
+
 	private CtrlPresComprarEntrada ctrlPres;
 	private VistaComprarEntrada vistaPres;
 

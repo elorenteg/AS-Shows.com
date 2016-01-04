@@ -205,7 +205,8 @@ public class CreaRepresentacions {
 		Representacio repr3 = creaRepresentacio(ses, loc, esp2.getTitol(), 9.80f, d, 100);
 		System.out.println(repr3.getRepresentacioPK().getSessio() + " " + repr3.getRepresentacioPK().getNomLocal() + " "
 				+ repr3.getRepresentacioPK().getTitolEspectacle() + " " + repr3.getPreu() + " " + repr3.getData() + " "
-				+ repr3.getNombreSeientsLliures() + " " + repr3.getSessio().getSessio().name() + " " + repr3.getLocal().getNom());
+				+ repr3.getNombreSeientsLliures() + " " + repr3.getSessio().getSessio().name() + " "
+				+ repr3.getLocal().getNom());
 
 		/*
 		 * Estrena estr = creaEstrena(ses, loc2, esp.getTitol(), 9.80f, d, 100,

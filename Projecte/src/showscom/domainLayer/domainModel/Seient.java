@@ -3,7 +3,7 @@ package showscom.domainLayer.domainModel;
 public class Seient {
 	private int fila;
 	private int columna;
-	
+
 	public Seient(int fila, int columna) {
 		super();
 		this.fila = fila;

@@ -41,11 +41,11 @@ public class CtrlDomComprarEntrada {
 
 		return llista;
 	}
-	
+
 	public List<TuplaSeient> obteOcupacio(String nomL, String sessio, int nombreEspectadors) throws DOSeientsNoDisp {
 		CtrlUseCaseFactory ctrlUseCaseFact = CtrlUseCaseFactory.getInstance();
 		CtrlConsultarOcupacio ctrlConsOcup = ctrlUseCaseFact.getCtrlConsultarOcupacio();
-		List<TuplaSeient> llista = ctrlConsOcup.consultaOcupacio(nomL,sessio,nombreEspectadors);
+		List<TuplaSeient> llista = ctrlConsOcup.consultaOcupacio(nomL, sessio, nombreEspectadors);
 		this.nomL = nomL;
 		this.nombreEspectadors = nombreEspectadors;
 		return llista;

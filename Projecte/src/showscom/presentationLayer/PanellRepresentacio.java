@@ -14,14 +14,15 @@ import showscom.domainLayer.domainModel.TuplaRepr;
 
 public class PanellRepresentacio extends JPanel {
 	private static final long serialVersionUID = 1L;
-	
+
 	private CtrlPresComprarEntrada ctrlPres;
 	private VistaComprarEntrada vistaPres;
 
 	private JButton btnContinua;
 	private JButton btnCancela;
 
-	public PanellRepresentacio(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, List<TuplaRepr> infoRepr) {
+	public PanellRepresentacio(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres,
+			List<TuplaRepr> infoRepr) {
 		this.ctrlPres = ctrlPres;
 		this.vistaPres = vistaPres;
 		initComponents(infoRepr);

@@ -15,9 +15,9 @@ public class CtrlDataFactory {
 
 	private CtrlDataFactory() {
 		ctrlEsp = new CtrlEspectacle();
-		//ctrlRepr = new CtrlRepresentacio();
-		//ctrlSeientRepr = new CtrlSeientEnRepresentacio();
-		//ctrlEnt = new CtrlEntrada();
+		// ctrlRepr = new CtrlRepresentacio();
+		// ctrlSeientRepr = new CtrlSeientEnRepresentacio();
+		// ctrlEnt = new CtrlEntrada();
 	}
 
 	public static CtrlDataFactory getInstance() {

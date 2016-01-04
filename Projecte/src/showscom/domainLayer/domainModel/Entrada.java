@@ -3,24 +3,24 @@ package showscom.domainLayer.domainModel;
 import java.util.Date;
 import java.util.List;
 
-
 //@Entity
 //@Table(name = "Entrada")
 public class Entrada {
-	//@Id
+	// @Id
 	private String identificador;
-	//@Column(name="dniClient")
+	// @Column(name="dniClient")
 	private String dniClient;
-	//@Column(name="nombreEspectadors")
+	// @Column(name="nombreEspectadors")
 	private int nombreEspectadors;
-	//@Column(name="data")
+	// @Column(name="data")
 	private Date data;
-	//@Column(name = "preu")
+	// @Column(name = "preu")
 	private float preu;
 	// TODO indicar sólo guardamos sessio i nomLocal de representació
 	private Representacio representacio;
-	
-	public Entrada(String identificador, String dni, int nombreEspectadors, Date dAvui, float preuTotal, Representacio r, List<TuplaSeient> seients) {
+
+	public Entrada(String identificador, String dni, int nombreEspectadors, Date dAvui, float preuTotal,
+			Representacio r, List<TuplaSeient> seients) {
 		super();
 		this.identificador = identificador;
 		dniClient = dni;
@@ -30,6 +30,5 @@ public class Entrada {
 		representacio = r;
 		representacio.reservarSeients(seients);
 	}
-	
-}
 
+}

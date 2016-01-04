@@ -14,7 +14,7 @@ import showscom.domainLayer.domainModel.TuplaSeient;
 
 public class VistaComprarEntrada extends JFrame {
 	private static final long serialVersionUID = 1L;
-	
+
 	private CtrlPresComprarEntrada ctrlPres;
 	private PanellInici panellIni;
 	private PanellEspectacle panellEsp;

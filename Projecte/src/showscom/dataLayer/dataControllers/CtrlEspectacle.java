@@ -104,7 +104,7 @@ public class CtrlEspectacle implements ICtrlEspectacle {
 		} finally {
 			session.close();
 		}
-		
+
 		return listEsp;
 	}
 }

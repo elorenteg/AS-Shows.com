@@ -17,7 +17,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class PanellPagament extends JPanel {
 	private static final long serialVersionUID = 1L;
-	
+
 	private CtrlPresComprarEntrada ctrlPres;
 	private VistaComprarEntrada vistaPres;
 
@@ -165,28 +165,26 @@ public class PanellPagament extends JPanel {
 			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el DNI");
 			return;
 		}
-		
+
 		DNI = DNI.replaceAll("[\\s\\-]", "");
 		if (DNI.length() > 9) {
 			vistaPres.mostraMissatgeEndarrera("La grandària del DNI és incorrecte");
 			return;
 		}
-		
+
 		int valorDNI;
 		try {
-			valorDNI = Integer.parseInt(DNI.substring(0, DNI.length()-1));
+			valorDNI = Integer.parseInt(DNI.substring(0, DNI.length() - 1));
 		} catch (NumberFormatException e) {
 			vistaPres.mostraMissatgeEndarrera("El format del DNI no és correcte");
 			return;
 		}
-		
+
 		String letrasDNI = "TRWAGMYFPDXBNJZSQVHLCKE";
-		if (letrasDNI.charAt(valorDNI%23) != DNI.charAt(DNI.length()-1)) {
+		if (letrasDNI.charAt(valorDNI % 23) != DNI.charAt(DNI.length() - 1)) {
 			vistaPres.mostraMissatgeEndarrera("La lletra del DNI no és correcta");
 			return;
 		}
-		
-		
 
 		int codiBanc;
 		try {
@@ -195,36 +193,32 @@ public class PanellPagament extends JPanel {
 			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el Codi del banc o no és vàlid");
 			return;
 		}
-		
-		
 
 		String numCompte = textFieldNumCompte.getText();
 		if (numCompte == null) {
 			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el Número de compte");
 			return;
 		}
-		
-		
-		String newAccountNumber = numCompte.replaceAll("\\s","");
-        	if (newAccountNumber.length() < 15 || newAccountNumber.length() > 34) {
-        		vistaPres.mostraMissatgeEndarrera("La grandària del Número de compte és incorrecte");
+
+		String newAccountNumber = numCompte.replaceAll("\\s", "");
+		if (newAccountNumber.length() < 15 || newAccountNumber.length() > 34) {
+			vistaPres.mostraMissatgeEndarrera("La grandària del Número de compte és incorrecte");
 			return;
-        	}
-        
-	        newAccountNumber = newAccountNumber.substring(4) + newAccountNumber.substring(0, 4);        
-	        StringBuilder numericAccountNumber = new StringBuilder();
-	        for (int i = 0; i < newAccountNumber.length(); i++) {
-	            	numericAccountNumber.append(Character.getNumericValue(newAccountNumber.charAt(i)));
-	        }
-	
-	        BigInteger ibanNumber = new BigInteger(numericAccountNumber.toString());
-	        if (ibanNumber.mod(new BigInteger("97")).intValue() != 1) {
-	        	vistaPres.mostraMissatgeEndarrera("El Número de compte no és correcte");
+		}
+
+		newAccountNumber = newAccountNumber.substring(4) + newAccountNumber.substring(0, 4);
+		StringBuilder numericAccountNumber = new StringBuilder();
+		for (int i = 0; i < newAccountNumber.length(); i++) {
+			numericAccountNumber.append(Character.getNumericValue(newAccountNumber.charAt(i)));
+		}
+
+		BigInteger ibanNumber = new BigInteger(numericAccountNumber.toString());
+		if (ibanNumber.mod(new BigInteger("97")).intValue() != 1) {
+			vistaPres.mostraMissatgeEndarrera("El Número de compte no és correcte");
 			return;
-	        };
-		
-		
-		
+		}
+		;
+
 		ctrlPres.prContPagament(DNI, codiBanc, numCompte);
 	}
 

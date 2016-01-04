@@ -1,7 +1,5 @@
 package showscom.domainLayer.domainModel;
 
-import org.hibernate.annotations.Tuplizers;
-
 public class TuplaSeient {
 	private int fila;
 	private int columna;

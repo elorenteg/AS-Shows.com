@@ -10,12 +10,13 @@ public class ShowsCom {
 	private Moneda divisa;
 	private List<Moneda> canvis;
 	private int venudes;
-	
-	/* Un Constructor privat preve que una altra classe
-	 * instancii la classe
+
+	/*
+	 * Un Constructor privat preve que una altra classe instancii la classe
 	 */
-	private ShowsCom() {}
-	
+	private ShowsCom() {
+	}
+
 	/* Metode estatic 'instance' */
 	public static ShowsCom getInstance() {
 		return instance;
@@ -60,7 +61,7 @@ public class ShowsCom {
 	public void setCanvis(List<Moneda> canvis) {
 		this.canvis = canvis;
 	}
-	
+
 	public int incrementaVenudes() {
 		return venudes++;
 	}
