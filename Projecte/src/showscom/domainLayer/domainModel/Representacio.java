@@ -37,6 +37,9 @@ public class Representacio implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "nomL", referencedColumnName = "nom", insertable = false, updatable = false)
 	private Local local;
+	
+	private List<SeientEnRepresentacio> seientsEnRepresentacio;
+	
 	@Id
 	@Embedded
 	private RepresentacioPK representacioPK;
@@ -148,7 +151,15 @@ public class Representacio implements Serializable {
 		if (this.nombreSeientsLliures < nombreEspectadors)
 			throw new DOSeientsNoDisp();
 		List<TuplaSeient> oc = new ArrayList<TuplaSeient>();
-		//// codi////
+		for(SeientEnRepresentacio s_r : seientsEnRepresentacio){
+			boolean b = s_r.getEstat().equals("lliure");
+			if(b){
+				TuplaSeient tupla = new TuplaSeient();
+				tupla.setColumna(s_r.getColumna());
+				tupla.setFila(s_r.getFila());
+				oc.add(tupla);
+			}
+		}
 		return oc;
 	}
 }
