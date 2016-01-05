@@ -3,6 +3,10 @@ package showscom.domainLayer.domainControllers;
 import java.util.Date;
 import java.util.List;
 
+import showscom.dataLayer.exceptions.CDLocalNoExisteix;
+import showscom.domainLayer.dataInterface.ICtrlLocal;
+import showscom.domainLayer.domainModel.Local;
+import showscom.domainLayer.domainModel.Seient;
 import showscom.domainLayer.domainModel.ShowsCom;
 import showscom.domainLayer.domainModel.TuplaRepr;
 import showscom.domainLayer.domainModel.TuplaSeient;
@@ -11,6 +15,7 @@ import showscom.domainLayer.exceptions.DONoHiHaRepresentacions;
 import showscom.domainLayer.exceptions.DOPagamentNoAutoritzat;
 import showscom.domainLayer.exceptions.DOSeientsNoDisp;
 import showscom.domainLayer.exceptions.DOServeiNoDisponible;
+import showscom.domainLayer.factories.CtrlDataFactory;
 import showscom.domainLayer.factories.CtrlUseCaseFactory;
 
 public class CtrlDomComprarEntrada {
@@ -49,6 +54,25 @@ public class CtrlDomComprarEntrada {
 		this.nomL = nomL;
 		this.nombreEspectadors = nombreEspectadors;
 		return llista;
+	}
+	
+	public TuplaSeient obteMarges(String nomL) throws CDLocalNoExisteix {
+		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
+		ICtrlLocal ctrlLocal = ctrlDataFact.getCtrlLocal();
+		Local l = ctrlLocal.getLocal(nomL);
+		List<Seient>seients = l.getSeients();
+		int maxCol=0;
+		int maxFila=0;
+		for(Seient s: seients){
+			int col = s.getColumna();
+			int fila = s.getFila();
+			if(col>maxCol) maxCol = col;
+			if(fila>maxFila) maxFila = fila;
+		}
+		TuplaSeient tupla = new TuplaSeient();
+		tupla.setFila(maxFila);
+		tupla.setColumna(maxCol);
+		return tupla;
 	}
 
 	public void pagament(String dni, int codiB, String numCompte) throws DOPagamentNoAutoritzat, DOServeiNoDisponible {
