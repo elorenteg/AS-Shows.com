@@ -16,7 +16,12 @@ public class Entrada {
 	private Date data;
 	// @Column(name = "preu")
 	private float preu;
-	// TODO indicar sólo guardamos sessio i nomLocal de representació
+	/* @ManyToOne
+	@JoinColumns({
+		@JoinColumn(name = "sessio", referencedColumnName = "sessio"),
+		@JoinColumn(name = "nomL", referencedColumnName = "nomL"),
+		@JoinColumn(name = "titolE", referencedColumnName = "titolE")
+	}) */
 	private Representacio representacio;
 
 	public Entrada(String identificador, String dni, int nombreEspectadors, Date dAvui, float preuTotal,
