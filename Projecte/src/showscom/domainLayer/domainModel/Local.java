@@ -21,7 +21,9 @@ public class Local {
 	@Column(name = "representacions")
 	@OneToMany(targetEntity = Representacio.class, mappedBy = "local", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Representacio> representacions;
-
+	
+	private List<Seient> seients;
+	
 	public Local() {
 	}
 
@@ -53,6 +55,14 @@ public class Local {
 
 	public void setRepresentacions(List<Representacio> representacions) {
 		this.representacions = representacions;
+	}
+	
+	public List<Seient> getSeients() {
+		return seients;
+	}
+
+	public void setSeients(List<Seient> seients) {
+		this.seients = seients;
 	}
 
 }
