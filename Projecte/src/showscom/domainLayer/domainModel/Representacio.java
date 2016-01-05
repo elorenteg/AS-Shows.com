@@ -106,6 +106,15 @@ public class Representacio implements Serializable {
 		this.representacioPK = representacioPK;
 	}
 	
+	public List<SeientEnRepresentacio> getSeientsEnRepresentacio() {
+		return seientsEnRepresentacio;
+	}
+
+	public void setSeientsEnRepresentacio(List<SeientEnRepresentacio> seientsEnRepresentacio) {
+		this.seientsEnRepresentacio = seientsEnRepresentacio;
+	}
+
+	
 	public String toString() {
 		String s = "";
 		s += "PK.sessio: " + representacioPK.getSessio() + "\n";
