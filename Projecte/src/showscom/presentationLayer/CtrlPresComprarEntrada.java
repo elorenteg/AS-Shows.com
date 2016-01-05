@@ -7,12 +7,14 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import showscom.dataLayer.exceptions.CDLocalNoExisteix;
 import showscom.domainLayer.domainControllers.CtrlDomComprarEntrada;
 import showscom.domainLayer.domainModel.TuplaRepr;
 import showscom.domainLayer.domainModel.TuplaSeient;
 import showscom.domainLayer.exceptions.DONoHiHaEspectacles;
 import showscom.domainLayer.exceptions.DONoHiHaRepresentacions;
 import showscom.domainLayer.exceptions.DOPagamentNoAutoritzat;
+import showscom.domainLayer.exceptions.DOSeientsNoDisp;
 import showscom.domainLayer.exceptions.DOServeiNoDisponible;
 
 public class CtrlPresComprarEntrada {
@@ -61,13 +63,12 @@ public class CtrlPresComprarEntrada {
 			}
 			vistaPres.mostraRepresentacions(llista);
 		} catch (DONoHiHaRepresentacions e) {
-			vistaPres.mostraMissatgeEndarrera("No hi ha cap representaciÛ disponible");
+			vistaPres.mostraMissatgeEndarrera("No hi ha cap representaci√≥ disponible");
 		}
 	}
 
-	public void prContObteOcupacio() {
-
-		int maxFila = 11;
+	public void prContObteOcupacio(String nomL, String sessio, int nombreEspectadors) {
+		/*int maxFila = 11;
 		int maxColumna = 15;
 
 		List<TuplaSeient> seientsLliures = Arrays.asList(new TuplaSeient(0, 0), new TuplaSeient(0, 1),
@@ -85,6 +86,18 @@ public class CtrlPresComprarEntrada {
 				new TuplaSeient(5, 6), new TuplaSeient(5, 7));
 
 		vistaPres.mostraOcupacio(maxFila, maxColumna, seientsLliures);
+		*/
+		try {
+			TuplaSeient marge = ctrlDom.obteMarges(nomL);
+			int maxFila = marge.getFila();
+			int maxColumna = marge.getColumna();
+			List<TuplaSeient> seientsLliures = ctrlDom.obteOcupacio(nomL, sessio, nombreEspectadors);
+			vistaPres.mostraOcupacio(maxFila, maxColumna, seientsLliures);
+		} catch (DOSeientsNoDisp e){
+			vistaPres.mostraMissatgeEndarrera("El nombre d'espectadors es m√©s gran que els seients disponibles");
+		} catch (CDLocalNoExisteix e){
+			//no s'executa
+		}
 	}
 
 	public void prContSeleccionarSeients() {
@@ -103,7 +116,7 @@ public class CtrlPresComprarEntrada {
 			ctrlDom.pagament(dni, codiB, numCompte);
 			vistaPres.mostraFinalitza();
 		} catch (DOServeiNoDisponible e) {
-			vistaPres.mostraMissatgeEndarrera("El servei no est‡ disponible o no autoritza el pagament");
+			vistaPres.mostraMissatgeEndarrera("El servei no est√† disponible o no autoritza el pagament");
 		} catch (DOPagamentNoAutoritzat e) {
 			vistaPres.mostraMissatgeEndarrera("El pagament no s'autoritza");
 		}
