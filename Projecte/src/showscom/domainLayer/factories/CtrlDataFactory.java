@@ -3,6 +3,7 @@ package showscom.domainLayer.factories;
 import showscom.dataLayer.dataControllers.CtrlEspectacle;
 import showscom.domainLayer.dataInterface.ICtrlEntrada;
 import showscom.domainLayer.dataInterface.ICtrlEspectacle;
+import showscom.domainLayer.dataInterface.ICtrlLocal;
 import showscom.domainLayer.dataInterface.ICtrlRepresentacio;
 import showscom.domainLayer.dataInterface.ICtrlSeientEnRepresentacio;
 
@@ -12,6 +13,7 @@ public class CtrlDataFactory {
 	private static ICtrlRepresentacio ctrlRepr;
 	private static ICtrlSeientEnRepresentacio ctrlSeientRepr;
 	private static ICtrlEntrada ctrlEnt;
+	private static ICtrlLocal ctrlLoc;
 
 	private CtrlDataFactory() {
 		ctrlEsp = new CtrlEspectacle();
@@ -38,6 +40,10 @@ public class CtrlDataFactory {
 
 	public static ICtrlEntrada getCtrlEntrada() {
 		return ctrlEnt;
+	}
+	
+	public ICtrlLocal getCtrlLocal() {
+		return ctrlLoc;
 	}
 
 }
