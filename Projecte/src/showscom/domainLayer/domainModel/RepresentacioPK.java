@@ -17,6 +17,12 @@ public class RepresentacioPK implements Serializable {
 	public RepresentacioPK() {
 	}
 
+	public RepresentacioPK(String sessio, String nomLocal) {
+		super();
+		this.sessio = sessio;
+		this.nomLocal = nomLocal;
+	}
+
 	public RepresentacioPK(String sessio, String nomLocal, String titolE) {
 		super();
 		this.sessio = sessio;

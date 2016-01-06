@@ -9,7 +9,7 @@ public interface ICtrlRepresentacio {
 
 	public Representacio getRepresentacio(String nomL, String sessio) throws CDRepresentacioNoExisteix;
 
-	public boolean existRepresentacio(String titol) throws CDRepresentacioNoExisteix;
+	public boolean existRepresentacio(String nomL, String sessio);
 
 	public List<Representacio> getAllRepresentacio();
 
