@@ -65,8 +65,6 @@ public class CtrlRepresentacio implements ICtrlRepresentacio {
 
 			if (listObj.size() == 1)
 				exist = true;
-			else
-				exist = false;
 			tx.commit();
 		} catch (HibernateException e) {
 			if (tx != null)
