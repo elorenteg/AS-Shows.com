@@ -37,7 +37,7 @@ public class Representacio implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "nomL", referencedColumnName = "nom", insertable = false, updatable = false)
 	private Local local;
-	
+	@OneToMany(targetEntity = SeientEnRepresentacio.class, mappedBy = "representacio", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<SeientEnRepresentacio> seientsEnRepresentacio;
 	
 	@Id
