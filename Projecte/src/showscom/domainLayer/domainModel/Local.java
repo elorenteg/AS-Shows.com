@@ -21,7 +21,7 @@ public class Local {
 	@Column(name = "representacions")
 	@OneToMany(targetEntity = Representacio.class, mappedBy = "local", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Representacio> representacions;
-	
+	@OneToMany(targetEntity = Seient.class, mappedBy = "local", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Seient> seients;
 	
 	public Local() {
