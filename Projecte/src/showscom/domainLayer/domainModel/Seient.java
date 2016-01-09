@@ -18,6 +18,10 @@ public class Seient {
 	@JoinColumn(name = "local", referencedColumnName = "nom", insertable = false, updatable = false)
 	private Local local;
 	
+	public Seient() {
+		// TODO creadora Seient
+	}
+	
 	public SeientPK getSeientPK() {
 		return seientPK;
 	}

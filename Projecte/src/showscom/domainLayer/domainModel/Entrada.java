@@ -3,25 +3,31 @@ package showscom.domainLayer.domainModel;
 import java.util.Date;
 import java.util.List;
 
-//@Entity
-//@Table(name = "Entrada")
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Entrada")
 public class Entrada {
-	// @Id
+	@Id
+	@Column(name = "idEnt")
 	private String identificador;
-	// @Column(name="dniClient")
+	@Column(name = "dniClient")
 	private String dniClient;
-	// @Column(name="nombreEspectadors")
+	@Column(name = "nombreEspectadors")
 	private int nombreEspectadors;
-	// @Column(name="data")
+	@Column(name = "data")
 	private Date data;
-	// @Column(name = "preu")
+	@Column(name = "preu")
 	private float preu;
-	/* @ManyToOne
-	@JoinColumns({
-		@JoinColumn(name = "sessio", referencedColumnName = "sessio"),
-		@JoinColumn(name = "nomL", referencedColumnName = "nomL"),
-		@JoinColumn(name = "titolE", referencedColumnName = "titolE")
-	}) */
+	@ManyToOne
+	@JoinColumns({ @JoinColumn(name = "sessio", referencedColumnName = "sessio"),
+			@JoinColumn(name = "nomL", referencedColumnName = "nomL"),
+			@JoinColumn(name = "titolE", referencedColumnName = "titolE") })
 	private Representacio representacio;
 
 	public Entrada(String identificador, String dni, int nombreEspectadors, Date dAvui, float preuTotal,
