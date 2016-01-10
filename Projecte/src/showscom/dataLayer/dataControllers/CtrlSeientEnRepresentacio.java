@@ -21,8 +21,7 @@ public class CtrlSeientEnRepresentacio implements ICtrlSeientEnRepresentacio {
 	private final SessionFactory sessionFactory = SessionFactoryAdapter.getSessionFactory();
 
 	@SuppressWarnings("unchecked")
-	public SeientEnRepresentacio getSeientEnRepresentacio(int fila, int columna, String nomL, String sessio,
-			String titolE) throws CDSeientEnRepresentacioNoExisteix {
+	public SeientEnRepresentacio getSeientEnRepresentacio(int fila, int columna, String nomL, String sessio) throws CDSeientEnRepresentacioNoExisteix {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 		SeientEnRepresentacio seient = null;
@@ -32,12 +31,12 @@ public class CtrlSeientEnRepresentacio implements ICtrlSeientEnRepresentacio {
 
 			String sql = "SELECT * FROM SeientEnRepresentacio WHERE SeientEnRepresentacio.noml = :nomL AND SeientEnRepresentacio.sessio = :sessio AND SeientEnRepresentacio.fila = :fila AND SeientEnRepresentacio.columna = :columna";
 			List<Object> listObj = session.createSQLQuery(sql).setParameter("nomL", nomL).setParameter("sessio", sessio)
-					.setParameter("titolE", titolE).setParameter("fila", fila).setParameter("columna", columna)
+					.setParameter("fila", fila).setParameter("columna", columna)
 					.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
 
 			if (listObj.size() == 1) {
 				seient = (SeientEnRepresentacio) session.get(SeientEnRepresentacio.class,
-						new SeientEnRepresentacioPK(fila, columna, nomL, sessio, titolE));
+						new SeientEnRepresentacioPK(fila, columna, nomL, sessio));
 			} else
 				throw new CDSeientEnRepresentacioNoExisteix();
 			tx.commit();
@@ -54,7 +53,7 @@ public class CtrlSeientEnRepresentacio implements ICtrlSeientEnRepresentacio {
 	}
 
 	@SuppressWarnings("unchecked")
-	public boolean existSeientEnRepresentacio(int fila, int columna, String nomL, String sessio, String titolE) {
+	public boolean existSeientEnRepresentacio(int fila, int columna, String nomL, String sessio) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 		boolean exist = false;
@@ -64,7 +63,7 @@ public class CtrlSeientEnRepresentacio implements ICtrlSeientEnRepresentacio {
 
 			String sql = "SELECT * FROM SeientEnRepresentacio WHERE SeientEnRepresentacio.noml = :nomL AND SeientEnRepresentacio.sessio = :sessio AND SeientEnRepresentacio.fila = :fila AND SeientEnRepresentacio.columna = :columna";
 			List<Object> listObj = session.createSQLQuery(sql).setParameter("nomL", nomL).setParameter("sessio", sessio)
-					.setParameter("titolE", titolE).setParameter("fila", fila).setParameter("columna", columna)
+					.setParameter("fila", fila).setParameter("columna", columna)
 					.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
 
 			if (listObj.size() == 1)
@@ -100,9 +99,8 @@ public class CtrlSeientEnRepresentacio implements ICtrlSeientEnRepresentacio {
 				int columna = (int) row.get("columna");
 				String nomL = row.get("noml").toString();
 				String sessio = row.get("sessio").toString();
-				String titolE = row.get("titolE").toString();
 				SeientEnRepresentacio seient = (SeientEnRepresentacio) session.get(SeientEnRepresentacio.class,
-						new SeientEnRepresentacioPK(fila, columna, nomL, sessio, titolE));
+						new SeientEnRepresentacioPK(fila, columna, nomL, sessio));
 				listSeients.add(seient);
 			}
 

@@ -10,12 +10,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import showscom.dataLayer.exceptions.CDEspectacleNoExisteix;
 import showscom.dataLayer.exceptions.CDLocalNoExisteix;
 import showscom.dataLayer.sessionFactory.SessionFactoryAdapter;
-import showscom.domainLayer.dataInterface.ICtrlEspectacle;
 import showscom.domainLayer.dataInterface.ICtrlLocal;
-import showscom.domainLayer.domainModel.Espectacle;
 import showscom.domainLayer.domainModel.Local;
 
 public class CtrlLocal implements ICtrlLocal {

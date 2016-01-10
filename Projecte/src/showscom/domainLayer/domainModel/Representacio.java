@@ -62,7 +62,6 @@ public class Representacio implements Serializable {
 		this.data = data;
 		this.nombreSeientsLliures = nombreSeientsLliures;
 
-		//this.representacioPK = new RepresentacioPK(sessio.getSessio().name(), local.getNom(), titolEsp);
 		this.representacioPK = new RepresentacioPK(sessio.getSessio().name(), local.getNom());
 		this.titolE = titolEsp;
 	}
@@ -114,17 +113,6 @@ public class Representacio implements Serializable {
 	public void setRepresentacioPK(RepresentacioPK representacioPK) {
 		this.representacioPK = representacioPK;
 	}
-	
-	
-
-	/*
-	 * public List<SeientEnRepresentacio> getSeientsEnRepresentacio() { return
-	 * seientsEnRepresentacio; }
-	 * 
-	 * public void setSeientsEnRepresentacio(List<SeientEnRepresentacio>
-	 * seientsEnRepresentacio) { this.seientsEnRepresentacio =
-	 * seientsEnRepresentacio; }
-	 */
 
 	public String getTitolE() {
 		return titolE;
@@ -146,8 +134,8 @@ public class Representacio implements Serializable {
 		String s = "";
 		s += "PK.sessio: " + representacioPK.getSessio() + "\n";
 		s += "PK.local: " + representacioPK.getNomLocal() + "\n";
-		//s += "PK.espectacle: " + representacioPK.getTitolEspectacle() + "\n";
-		s += "PK.espectacle: " +  getTitolE() + "\n";
+		// s += "PK.espectacle: " + representacioPK.getTitolEspectacle() + "\n";
+		s += "PK.espectacle: " + getTitolE() + "\n";
 		s += "sessio: " + getSessio().getSessio().name() + "\n";
 		s += "local: " + getLocal().getNom() + "\n";
 		s += "preu: " + getPreu() + "\n";

@@ -11,8 +11,6 @@ public class RepresentacioPK implements Serializable {
 	String sessio;
 	@Column(name = "nomL")
 	String nomLocal;
-	//@Column(name = "titolE")
-	//private String titolEspectacle;
 
 	public RepresentacioPK() {
 	}
@@ -39,14 +37,4 @@ public class RepresentacioPK implements Serializable {
 		this.nomLocal = nomLocal;
 	}
 
-	/*
-	public RepresentacioPK(String sessio, String nomLocal, String titolE) {
-		super();
-		this.sessio = sessio;
-		this.nomLocal = nomLocal;
-		this.titolEspectacle = titolE;
-	}
-	*/
-
-	
 }
