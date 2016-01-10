@@ -182,8 +182,3 @@ SELECT crea_seients('Teatre Club Capitol', 11, 15);
 INSERT INTO Entrada VALUES (1, '9/01/2016', '46477890L', 3, 10, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro');
 
 SELECT crea_seientsEnRepresentacio('Gran Teatre del Liceu', 'NIT', 'Cisne negro', 1, 11, 15);
-
---INSERT INTO SeientEnRepresentacio VALUES (1, 1, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro', 'OCUPAT', 1),
---	(1, 2, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro', 'OCUPAT', 1),
---	(1, 3, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro', 'OCUPAT', 1),
---	(1, 4, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro', 'OCUPAT', 1);

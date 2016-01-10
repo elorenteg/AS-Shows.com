@@ -69,4 +69,23 @@ public class Local {
 	public void setSeients(List<Seient> seients) {
 		this.seients = seients;
 	}
+
+	public TuplaSeient getMarges() {
+		TuplaSeient tupla = new TuplaSeient();
+
+		int maxCol = 0;
+		int maxFila = 0;
+		for (Seient s : seients) {
+			int col = s.getColumna();
+			int fila = s.getFila();
+			if (col > maxCol)
+				maxCol = col;
+			if (fila > maxFila)
+				maxFila = fila;
+		}
+		tupla.setFila(maxFila);
+		tupla.setColumna(maxCol);
+		
+		return tupla;
+	}
 }

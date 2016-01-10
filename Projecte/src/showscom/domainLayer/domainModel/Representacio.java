@@ -178,12 +178,11 @@ public class Representacio implements Serializable {
 
 		List<TuplaSeient> oc = new ArrayList<>();
 
-		for (SeientEnRepresentacio s_r : seientsEnRepresentacio) {
-			boolean esLliure = s_r.getEstat() == Estat.LLIURE;
-			if (esLliure) {
+		for (SeientEnRepresentacio seient : seientsEnRepresentacio) {
+			if (seient.esSeientLliure()) {
 				TuplaSeient tupla = new TuplaSeient();
-				tupla.setColumna(s_r.getColumna());
-				tupla.setFila(s_r.getFila());
+				tupla.setColumna(seient.getColumna());
+				tupla.setFila(seient.getFila());
 				oc.add(tupla);
 			}
 		}

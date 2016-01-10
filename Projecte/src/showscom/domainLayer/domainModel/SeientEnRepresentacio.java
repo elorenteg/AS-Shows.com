@@ -71,4 +71,8 @@ public class SeientEnRepresentacio {
 		return tupla;
 	}
 
+	public boolean esSeientLliure() {
+		return estat == Estat.LLIURE;
+	}
+
 }

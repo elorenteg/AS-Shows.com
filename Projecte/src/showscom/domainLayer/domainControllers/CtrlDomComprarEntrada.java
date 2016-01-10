@@ -58,6 +58,7 @@ public class CtrlDomComprarEntrada {
 		CtrlConsultarOcupacio ctrlConsOcup = ctrlUseCaseFact.getCtrlConsultarOcupacio();
 		List<TuplaSeient> llista = ctrlConsOcup.consultaOcupacio(nomL, sessio, nombreEspectadors);
 		this.nomL = nomL;
+		this.sessio = sessio;
 		this.nombreEspectadors = nombreEspectadors;
 		return llista;
 	}
@@ -66,20 +67,7 @@ public class CtrlDomComprarEntrada {
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		ICtrlLocal ctrlLocal = ctrlDataFact.getCtrlLocal();
 		Local l = ctrlLocal.getLocal(nomL);
-		List<Seient> seients = l.getSeients();
-		int maxCol = 0;
-		int maxFila = 0;
-		for (Seient s : seients) {
-			int col = s.getColumna();
-			int fila = s.getFila();
-			if (col > maxCol)
-				maxCol = col;
-			if (fila > maxFila)
-				maxFila = fila;
-		}
-		TuplaSeient tupla = new TuplaSeient();
-		tupla.setFila(maxFila);
-		tupla.setColumna(maxCol);
+		TuplaSeient tupla = l.getMarges();
 		return tupla;
 	}
 
