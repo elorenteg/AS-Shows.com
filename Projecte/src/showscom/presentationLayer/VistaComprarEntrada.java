@@ -9,6 +9,7 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import showscom.domainLayer.domainModel.Moneda;
 import showscom.domainLayer.domainModel.TuplaRepr;
 import showscom.domainLayer.domainModel.TuplaSeient;
 
@@ -86,7 +87,7 @@ public class VistaComprarEntrada extends JFrame {
 		panellSeients.setVisible(true);
 	}
 
-	public void mostraPagament(float preu, List<String> divises) {
+	public void mostraPagament(float preu, List<Moneda> divises) {
 		panellPagam = new PanellPagament(ctrlPres, this, preu, divises);
 		getContentPane().add(panellPagam, "Pagament");
 		panellSeients.setVisible(false);

@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import showscom.dataLayer.exceptions.CDLocalNoExisteix;
 import showscom.domainLayer.domainControllers.CtrlDomComprarEntrada;
+import showscom.domainLayer.domainModel.TuplaPreu;
 import showscom.domainLayer.domainModel.TuplaRepr;
 import showscom.domainLayer.domainModel.TuplaSeient;
 import showscom.domainLayer.exceptions.DONoHiHaEspectacles;
@@ -56,7 +57,7 @@ public class CtrlPresComprarEntrada {
 			List<TuplaRepr> llista = ctrlDom.obteRepresentacions(titol, data);
 			vistaPres.mostraRepresentacions(llista);
 		} catch (DONoHiHaRepresentacions e) {
-			vistaPres.mostraMissatgeEndarrera("No hi ha cap representaci√≥ disponible");
+			vistaPres.mostraMissatgeEndarrera("No hi ha cap representaciÛ disponible");
 		}
 	}
 
@@ -66,20 +67,15 @@ public class CtrlPresComprarEntrada {
 			int maxFila = marge.getFila();
 			int maxColumna = marge.getColumna();
 			List<TuplaSeient> seientsLliures = ctrlDom.obteOcupacio(nomL, sessio, nombreEspectadors);
-
 			vistaPres.mostraOcupacio(maxFila, maxColumna, seientsLliures);
 		} catch (DOSeientsNoDisp e) {
-			vistaPres.mostraMissatgeEndarrera("El nombre d'espectadors es m√©s gran que els seients disponibles");
-		} catch (CDLocalNoExisteix e) {
-			// no s'executa
+			vistaPres.mostraMissatgeEndarrera("El nombre d'espectadors es mÈs gran que els seients disponibles");
 		}
 	}
 
-	public void prContSeleccionarSeients() {
-		List<String> divises = new ArrayList<>();
-		divises.add("GBP");
-		divises.add("USD");
-		vistaPres.mostraPagament(10, divises);
+	public void prContSeleccionarSeients(List<TuplaSeient> seients) {
+		TuplaPreu tupla = ctrlDom.seleccionarSeients(seients);
+		vistaPres.mostraPagament(tupla.getPreu(), tupla.getCanvis());
 	}
 
 	public void prComboObtePreuMoneda() {
@@ -90,7 +86,7 @@ public class CtrlPresComprarEntrada {
 			ctrlDom.pagament(dni, codiB, numCompte);
 			vistaPres.mostraFinalitza();
 		} catch (DOServeiNoDisponible e) {
-			vistaPres.mostraMissatgeEndarrera("El servei no est√† disponible o no autoritza el pagament");
+			vistaPres.mostraMissatgeEndarrera("El servei no est‡ disponible o no autoritza el pagament");
 		} catch (DOPagamentNoAutoritzat e) {
 			vistaPres.mostraMissatgeEndarrera("El pagament no s'autoritza");
 		}

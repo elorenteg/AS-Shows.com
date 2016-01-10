@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import showscom.domainLayer.domainModel.Moneda;
+
 public class PanellPagament extends JPanel {
 	private static final long serialVersionUID = 1L;
 
@@ -37,14 +39,14 @@ public class PanellPagament extends JPanel {
 	}
 
 	public PanellPagament(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, float preu,
-			List<String> divises) {
+			List<Moneda> divises) {
 		this.ctrlPres = ctrlPres;
 		this.vistaPres = vistaPres;
 		initComponents(preu, divises);
 		this.setVisible(true);
 	}
 
-	private void initComponents(float preu, List<String> divises) {
+	private void initComponents(float preu, List<Moneda> divises) {
 
 		JLabel labelPreu = new JLabel("Preu total:");
 		labelPreu.setFont(new Font("originalfont", Font.PLAIN, 16));
@@ -55,8 +57,8 @@ public class PanellPagament extends JPanel {
 		textFieldPreu.setColumns(10);
 
 		comboBoxDivises = new JComboBox<String>();
-		for (String divisa : divises)
-			comboBoxDivises.addItem(divisa);
+		for (Moneda divisa : divises)
+			comboBoxDivises.addItem(divisa.name());
 
 		JLabel labelDNI = new JLabel("DNI:");
 		labelDNI.setFont(new Font("originalfont", Font.PLAIN, 16));

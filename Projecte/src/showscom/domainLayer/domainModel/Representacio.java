@@ -160,6 +160,10 @@ public class Representacio implements Serializable {
 		return false;
 	}
 
+	public int getRecarrec() {
+		return 0;
+	}
+
 	public void reservarSeients(List<TuplaSeient> seients) {
 		// TODO hacer mediante CtrlSeientsEnRepresentacio
 		String nom = this.local.getNom();

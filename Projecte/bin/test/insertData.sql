@@ -127,7 +127,7 @@ CREATE TABLE ShowsCom
   CONSTRAINT showscom_check CHECK (codibanc > 0 AND comissio > 0::double precision)
 );
 
-CREATE TABLE Canvis
+CREATE TABLE canvis
 (
   showscom_id integer NOT NULL,
   canvi character varying(255) NOT NULL,
@@ -182,3 +182,6 @@ SELECT crea_seients('Teatre Club Capitol', 11, 15);
 INSERT INTO Entrada VALUES (1, '9/01/2016', '46477890L', 3, 10, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro');
 
 SELECT crea_seientsEnRepresentacio('Gran Teatre del Liceu', 'NIT', 'Cisne negro', 1, 11, 15);
+
+INSERT INTO ShowsCom VALUES (1, '2100', '6', 'EUR', 'ES	11	2100	1111	11	11 1111 1111', 1);
+INSERT INTO Canvis VALUES (1, 'USD'), (1, 'GBP');

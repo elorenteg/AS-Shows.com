@@ -15,6 +15,9 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Check;
 import org.hibernate.annotations.CollectionOfElements;
 
+import showscom.dataLayer.dataControllers.CtrlShowsCom;
+import showscom.dataLayer.exceptions.CDShowsComNoExisteix;
+
 @Entity
 @Table(name = "ShowsCom")
 @Check(constraints = "codiBanc > 0 AND comissio > 0")
@@ -24,6 +27,7 @@ public class ShowsCom {
 	private int id;
 
 	private static ShowsCom instance = new ShowsCom();
+
 	@Column(name = "codiBanc")
 	private int codiBanc;
 	@Column(name = "nCompte")

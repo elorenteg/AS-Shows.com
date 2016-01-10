@@ -11,9 +11,10 @@ import showscom.domainLayer.dataInterface.ICtrlLocal;
 import showscom.domainLayer.dataInterface.ICtrlRepresentacio;
 import showscom.domainLayer.domainModel.Entrada;
 import showscom.domainLayer.domainModel.Local;
+import showscom.domainLayer.domainModel.Moneda;
 import showscom.domainLayer.domainModel.Representacio;
-import showscom.domainLayer.domainModel.Seient;
 import showscom.domainLayer.domainModel.ShowsCom;
+import showscom.domainLayer.domainModel.TuplaPreu;
 import showscom.domainLayer.domainModel.TuplaRepr;
 import showscom.domainLayer.domainModel.TuplaSeient;
 import showscom.domainLayer.exceptions.DONoHiHaEspectacles;
@@ -30,7 +31,7 @@ public class CtrlDomComprarEntrada {
 	private String sessio;
 	private String nomL;
 	private int nombreEspectadors;
-	private int preuTotal;
+	private float preuTotal;
 	private List<TuplaSeient> seients;
 
 	public List<String> obteEspectacles() throws DONoHiHaEspectacles {
@@ -53,6 +54,19 @@ public class CtrlDomComprarEntrada {
 		return llista;
 	}
 
+	public TuplaSeient obteMarges(String nomL) {
+		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
+		ICtrlLocal ctrlLocal = ctrlDataFact.getCtrlLocal();
+		Local l = null;
+		try {
+			l = ctrlLocal.getLocal(nomL);
+		} catch (CDLocalNoExisteix e) {
+			// Do nothing. Mai s'executa
+		}
+		TuplaSeient tupla = l.getMarges();
+		return tupla;
+	}
+
 	public List<TuplaSeient> obteOcupacio(String nomL, String sessio, int nombreEspectadors) throws DOSeientsNoDisp {
 		CtrlUseCaseFactory ctrlUseCaseFact = CtrlUseCaseFactory.getInstance();
 		CtrlConsultarOcupacio ctrlConsOcup = ctrlUseCaseFact.getCtrlConsultarOcupacio();
@@ -63,11 +77,31 @@ public class CtrlDomComprarEntrada {
 		return llista;
 	}
 
-	public TuplaSeient obteMarges(String nomL) throws CDLocalNoExisteix {
+	public TuplaPreu seleccionarSeients(List<TuplaSeient> seients) {
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
-		ICtrlLocal ctrlLocal = ctrlDataFact.getCtrlLocal();
-		Local l = ctrlLocal.getLocal(nomL);
-		TuplaSeient tupla = l.getMarges();
+		ICtrlRepresentacio ctrlRepr = ctrlDataFact.getCtrlRepresentacio();
+		Representacio repr = null;
+		try {
+			repr = ctrlRepr.getRepresentacio(nomL, sessio);
+		} catch (CDRepresentacioNoExisteix e) {
+			// Do nothing. Mai s'executa
+		}
+		TuplaPreu tupla = new TuplaPreu();
+		float preu = repr.getPreu();
+		int recarrec = repr.getRecarrec();
+
+		ShowsCom showsCom = ShowsCom.getInstance();
+		float comissio = showsCom.getComissio();
+		List<Moneda> canvis = showsCom.getCanvis();
+		
+		System.out.println(canvis.get(0).name() + " " + canvis.get(1).name());
+
+		tupla.setPreu(nombreEspectadors * (preu + comissio + recarrec));
+		tupla.setCanvis(canvis);
+		
+		this.seients = seients;
+		this.preuTotal = preu;
+
 		return tupla;
 	}
 

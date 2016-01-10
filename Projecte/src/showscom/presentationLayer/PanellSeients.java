@@ -110,7 +110,7 @@ public class PanellSeients extends JPanel {
 
 	private void prContinua(ActionEvent evt) {
 		List<TuplaSeient> seientsAssignats = canvas.getSeientsAssignats();
-		ctrlPres.prContSeleccionarSeients();
+		ctrlPres.prContSeleccionarSeients(seientsAssignats);
 	}
 
 	private void prCancela(ActionEvent evt) {
