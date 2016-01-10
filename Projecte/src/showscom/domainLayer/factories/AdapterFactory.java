@@ -9,16 +9,16 @@ public class AdapterFactory {
 	private static AdapterFactory instance = new AdapterFactory();
 	private static IBankServiceAdapter bankServiceAdap;
 	private static ICurrencyConvertorAdapter currencyConvertorAdap;
-	
+
 	private AdapterFactory() {
 		bankServiceAdap = new BankServiceAdapter();
 		currencyConvertorAdap = new CurrencyConvertorAdapter();
 	}
-	
+
 	public static IBankServiceAdapter getBankServiceAdapter() {
 		return bankServiceAdap;
 	}
-	
+
 	public static ICurrencyConvertorAdapter getCurrencyConvertorAdapter() {
 		return currencyConvertorAdap;
 	}

@@ -10,18 +10,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Seient")
 public class Seient {
-
 	@Id
 	@Embedded
 	private SeientPK seientPK;
 	@ManyToOne
 	@JoinColumn(name = "local", referencedColumnName = "nom", insertable = false, updatable = false)
 	private Local local;
-	
+
 	public Seient() {
-		// TODO creadora Seient
 	}
-	
+
 	public SeientPK getSeientPK() {
 		return seientPK;
 	}
@@ -29,19 +27,19 @@ public class Seient {
 	public void setSeientPK(SeientPK seientPK) {
 		this.seientPK = seientPK;
 	}
-	
+
 	public int getFila() {
 		return seientPK.getFila();
 	}
-	
+
 	public void setFila(int fila) {
 		seientPK.setFila(fila);
 	}
-	
+
 	public int getColumna() {
 		return seientPK.getColumna();
 	}
-	
+
 	public void setColumna(int columna) {
 		seientPK.setColumna(columna);
 	}

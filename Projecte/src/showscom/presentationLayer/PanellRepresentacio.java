@@ -94,7 +94,7 @@ public class PanellRepresentacio extends JPanel {
 	}
 
 	private void prContinua(ActionEvent evt) {
-		ctrlPres.prContObteOcupacio();
+		ctrlPres.prContObteOcupacio("string", "string", 1);
 	}
 
 	private void prCancela(ActionEvent evt) {

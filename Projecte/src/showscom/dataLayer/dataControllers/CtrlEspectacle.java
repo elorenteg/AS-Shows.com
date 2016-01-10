@@ -49,7 +49,7 @@ public class CtrlEspectacle implements ICtrlEspectacle {
 	}
 
 	@SuppressWarnings("unchecked")
-	public boolean existEspectacle(String titol) throws CDEspectacleNoExisteix {
+	public boolean existEspectacle(String titol) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 		boolean exist = false;
@@ -63,8 +63,7 @@ public class CtrlEspectacle implements ICtrlEspectacle {
 
 			if (listObj.size() == 1) {
 				exist = true;
-			} else
-				throw new CDEspectacleNoExisteix();
+			}
 			tx.commit();
 		} catch (HibernateException e) {
 			if (tx != null)

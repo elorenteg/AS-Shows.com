@@ -1,7 +1,6 @@
 package showscom.presentationLayer;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -68,35 +67,39 @@ public class CtrlPresComprarEntrada {
 	}
 
 	public void prContObteOcupacio(String nomL, String sessio, int nombreEspectadors) {
-		/*int maxFila = 11;
-		int maxColumna = 15;
-
-		List<TuplaSeient> seientsLliures = Arrays.asList(new TuplaSeient(0, 0), new TuplaSeient(0, 1),
-				new TuplaSeient(0, 2), new TuplaSeient(0, 3), new TuplaSeient(0, 4), new TuplaSeient(0, 5),
-				new TuplaSeient(0, 6), new TuplaSeient(0, 7), new TuplaSeient(1, 0), new TuplaSeient(1, 1),
-				new TuplaSeient(1, 2), new TuplaSeient(1, 3), new TuplaSeient(1, 4), new TuplaSeient(1, 5),
-				new TuplaSeient(1, 6), new TuplaSeient(1, 7), new TuplaSeient(2, 0), new TuplaSeient(2, 1),
-				new TuplaSeient(2, 2), new TuplaSeient(2, 3), new TuplaSeient(2, 4), new TuplaSeient(2, 5),
-				new TuplaSeient(2, 6), new TuplaSeient(2, 7), new TuplaSeient(3, 0), new TuplaSeient(3, 1),
-				new TuplaSeient(3, 2), new TuplaSeient(3, 3), new TuplaSeient(3, 4), new TuplaSeient(3, 5),
-				new TuplaSeient(3, 6), new TuplaSeient(3, 7), new TuplaSeient(4, 0), new TuplaSeient(4, 1),
-				new TuplaSeient(4, 2), new TuplaSeient(4, 3), new TuplaSeient(4, 4), new TuplaSeient(4, 5),
-				new TuplaSeient(4, 6), new TuplaSeient(4, 7), new TuplaSeient(5, 0), new TuplaSeient(5, 1),
-				new TuplaSeient(5, 2), new TuplaSeient(5, 3), new TuplaSeient(5, 4), new TuplaSeient(5, 5),
-				new TuplaSeient(5, 6), new TuplaSeient(5, 7));
-
-		vistaPres.mostraOcupacio(maxFila, maxColumna, seientsLliures);
-		*/
+		/*
+		 * int maxFila = 11; int maxColumna = 15;
+		 * 
+		 * List<TuplaSeient> seientsLliures = Arrays.asList(new TuplaSeient(0,
+		 * 0), new TuplaSeient(0, 1), new TuplaSeient(0, 2), new TuplaSeient(0,
+		 * 3), new TuplaSeient(0, 4), new TuplaSeient(0, 5), new TuplaSeient(0,
+		 * 6), new TuplaSeient(0, 7), new TuplaSeient(1, 0), new TuplaSeient(1,
+		 * 1), new TuplaSeient(1, 2), new TuplaSeient(1, 3), new TuplaSeient(1,
+		 * 4), new TuplaSeient(1, 5), new TuplaSeient(1, 6), new TuplaSeient(1,
+		 * 7), new TuplaSeient(2, 0), new TuplaSeient(2, 1), new TuplaSeient(2,
+		 * 2), new TuplaSeient(2, 3), new TuplaSeient(2, 4), new TuplaSeient(2,
+		 * 5), new TuplaSeient(2, 6), new TuplaSeient(2, 7), new TuplaSeient(3,
+		 * 0), new TuplaSeient(3, 1), new TuplaSeient(3, 2), new TuplaSeient(3,
+		 * 3), new TuplaSeient(3, 4), new TuplaSeient(3, 5), new TuplaSeient(3,
+		 * 6), new TuplaSeient(3, 7), new TuplaSeient(4, 0), new TuplaSeient(4,
+		 * 1), new TuplaSeient(4, 2), new TuplaSeient(4, 3), new TuplaSeient(4,
+		 * 4), new TuplaSeient(4, 5), new TuplaSeient(4, 6), new TuplaSeient(4,
+		 * 7), new TuplaSeient(5, 0), new TuplaSeient(5, 1), new TuplaSeient(5,
+		 * 2), new TuplaSeient(5, 3), new TuplaSeient(5, 4), new TuplaSeient(5,
+		 * 5), new TuplaSeient(5, 6), new TuplaSeient(5, 7));
+		 * 
+		 * vistaPres.mostraOcupacio(maxFila, maxColumna, seientsLliures);
+		 */
 		try {
 			TuplaSeient marge = ctrlDom.obteMarges(nomL);
 			int maxFila = marge.getFila();
 			int maxColumna = marge.getColumna();
 			List<TuplaSeient> seientsLliures = ctrlDom.obteOcupacio(nomL, sessio, nombreEspectadors);
 			vistaPres.mostraOcupacio(maxFila, maxColumna, seientsLliures);
-		} catch (DOSeientsNoDisp e){
+		} catch (DOSeientsNoDisp e) {
 			vistaPres.mostraMissatgeEndarrera("El nombre d'espectadors es més gran que els seients disponibles");
-		} catch (CDLocalNoExisteix e){
-			//no s'executa
+		} catch (CDLocalNoExisteix e) {
+			// no s'executa
 		}
 	}
 

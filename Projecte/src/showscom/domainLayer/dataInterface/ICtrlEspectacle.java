@@ -9,7 +9,7 @@ public interface ICtrlEspectacle {
 
 	public Espectacle getEspectacle(String titol) throws CDEspectacleNoExisteix;
 
-	public boolean existEspectacle(String titol) throws CDEspectacleNoExisteix;
+	public boolean existEspectacle(String titol);
 
 	public List<Espectacle> getAllEspectacles();
 

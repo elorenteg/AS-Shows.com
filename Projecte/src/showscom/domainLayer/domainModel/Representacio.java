@@ -20,6 +20,8 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.Check;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import showscom.domainLayer.exceptions.DOSeientsNoDisp;
 
@@ -41,8 +43,8 @@ public class Representacio implements Serializable {
 	@JoinColumn(name = "nomL", referencedColumnName = "nom", insertable = false, updatable = false)
 	private Local local;
 	@OneToMany(targetEntity = SeientEnRepresentacio.class, mappedBy = "representacio", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<SeientEnRepresentacio> seientsEnRepresentacio;
-	
 	@Id
 	@Embedded
 	private RepresentacioPK representacioPK;
@@ -108,7 +110,8 @@ public class Representacio implements Serializable {
 	public void setRepresentacioPK(RepresentacioPK representacioPK) {
 		this.representacioPK = representacioPK;
 	}
-	
+
+	/*
 	public List<SeientEnRepresentacio> getSeientsEnRepresentacio() {
 		return seientsEnRepresentacio;
 	}
@@ -116,8 +119,8 @@ public class Representacio implements Serializable {
 	public void setSeientsEnRepresentacio(List<SeientEnRepresentacio> seientsEnRepresentacio) {
 		this.seientsEnRepresentacio = seientsEnRepresentacio;
 	}
+	*/
 
-	
 	public String toString() {
 		String s = "";
 		s += "PK.sessio: " + representacioPK.getSessio() + "\n";
@@ -163,15 +166,17 @@ public class Representacio implements Serializable {
 		if (this.nombreSeientsLliures < nombreEspectadors)
 			throw new DOSeientsNoDisp();
 		List<TuplaSeient> oc = new ArrayList<TuplaSeient>();
-		for(SeientEnRepresentacio s_r : seientsEnRepresentacio){
+		/*
+		for (SeientEnRepresentacio s_r : seientsEnRepresentacio) {
 			boolean b = s_r.getEstat().equals("lliure");
-			if(b){
+			if (b) {
 				TuplaSeient tupla = new TuplaSeient();
 				tupla.setColumna(s_r.getColumna());
 				tupla.setFila(s_r.getFila());
 				oc.add(tupla);
 			}
 		}
+		*/
 		return oc;
 	}
 }

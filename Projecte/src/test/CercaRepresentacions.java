@@ -13,11 +13,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import showscom.dataLayer.sessionFactory.SessionFactoryAdapter;
-import showscom.domainLayer.domainModel.Espectacle;
-import showscom.domainLayer.domainModel.Local;
 import showscom.domainLayer.domainModel.Representacio;
-import showscom.domainLayer.domainModel.Sessio;
-import showscom.domainLayer.domainModel.TipusSessio;
 
 public class CercaRepresentacions {
 

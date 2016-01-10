@@ -7,16 +7,14 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class SeientPK implements Serializable {
-
 	@Column(name = "fila")
 	private int fila;
 	@Column(name = "columna")
 	private int columna;
 	@Column(name = "nomLocal")
 	private String nomLocal;
-	
+
 	public SeientPK() {
-		
 	}
 
 	public SeientPK(int fila, int columna, String nomLocal) {
@@ -41,7 +39,7 @@ public class SeientPK implements Serializable {
 	public void setColumna(int columna) {
 		this.columna = columna;
 	}
-	
+
 	public String getNomLocal() {
 		return nomLocal;
 	}
