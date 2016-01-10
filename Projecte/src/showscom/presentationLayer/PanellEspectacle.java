@@ -48,7 +48,7 @@ public class PanellEspectacle extends JPanel {
 
 	@SuppressWarnings("serial")
 	private void initComponents(List<String> espectacles) {
-		JLabel label1 = new JLabel("Selecciona un espectacle i una data");
+		JLabel label1 = new JLabel("Selecciona una representació");
 
 		scrollPane = new JScrollPane();
 		String[] columnNames = { "Títols" };
@@ -73,7 +73,6 @@ public class PanellEspectacle extends JPanel {
 		scrollPane.setViewportView(table);
 		scrollPane.setMaximumSize(new Dimension(250, 280));
 		scrollPane.setMinimumSize(new Dimension(250, 280));
-		// scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
 		UtilDateModel model = new UtilDateModel();
 		datePanel = new JDatePanelImpl(model);

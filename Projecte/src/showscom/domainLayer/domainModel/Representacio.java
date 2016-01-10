@@ -112,14 +112,13 @@ public class Representacio implements Serializable {
 	}
 
 	/*
-	public List<SeientEnRepresentacio> getSeientsEnRepresentacio() {
-		return seientsEnRepresentacio;
-	}
-
-	public void setSeientsEnRepresentacio(List<SeientEnRepresentacio> seientsEnRepresentacio) {
-		this.seientsEnRepresentacio = seientsEnRepresentacio;
-	}
-	*/
+	 * public List<SeientEnRepresentacio> getSeientsEnRepresentacio() { return
+	 * seientsEnRepresentacio; }
+	 * 
+	 * public void setSeientsEnRepresentacio(List<SeientEnRepresentacio>
+	 * seientsEnRepresentacio) { this.seientsEnRepresentacio =
+	 * seientsEnRepresentacio; }
+	 */
 
 	public String toString() {
 		String s = "";
@@ -167,16 +166,11 @@ public class Representacio implements Serializable {
 			throw new DOSeientsNoDisp();
 		List<TuplaSeient> oc = new ArrayList<TuplaSeient>();
 		/*
-		for (SeientEnRepresentacio s_r : seientsEnRepresentacio) {
-			boolean b = s_r.getEstat().equals("lliure");
-			if (b) {
-				TuplaSeient tupla = new TuplaSeient();
-				tupla.setColumna(s_r.getColumna());
-				tupla.setFila(s_r.getFila());
-				oc.add(tupla);
-			}
-		}
-		*/
+		 * for (SeientEnRepresentacio s_r : seientsEnRepresentacio) { boolean b
+		 * = s_r.getEstat().equals("lliure"); if (b) { TuplaSeient tupla = new
+		 * TuplaSeient(); tupla.setColumna(s_r.getColumna());
+		 * tupla.setFila(s_r.getFila()); oc.add(tupla); } }
+		 */
 		return oc;
 	}
 }

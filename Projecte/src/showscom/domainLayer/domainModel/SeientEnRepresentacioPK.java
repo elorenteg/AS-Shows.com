@@ -10,8 +10,8 @@ import javax.persistence.JoinColumns;
 @Embeddable
 public class SeientEnRepresentacioPK implements Serializable {
 	@JoinColumns({ @JoinColumn(name = "fila", referencedColumnName = "fila"),
-		@JoinColumn(name = "columna", referencedColumnName = "columna"),
-		@JoinColumn(name = "nomLocal", referencedColumnName = "nomLocal") })
+			@JoinColumn(name = "columna", referencedColumnName = "columna"),
+			@JoinColumn(name = "nomLocal", referencedColumnName = "nomLocal") })
 	private SeientPK seientPK;
 	@Column(name = "sessio")
 	private String sessio;

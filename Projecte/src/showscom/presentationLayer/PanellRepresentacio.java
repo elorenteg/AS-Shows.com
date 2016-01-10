@@ -1,5 +1,7 @@
 package showscom.presentationLayer;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
@@ -9,6 +11,11 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.JTableHeader;
 
 import showscom.domainLayer.domainModel.TuplaRepr;
 
@@ -21,6 +28,10 @@ public class PanellRepresentacio extends JPanel {
 	private JButton btnContinua;
 	private JButton btnCancela;
 
+	private JScrollPane scrollPane;
+	private JTable table;
+	private JTextField textField;
+
 	public PanellRepresentacio(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres,
 			List<TuplaRepr> infoRepr) {
 		this.ctrlPres = ctrlPres;
@@ -29,7 +40,43 @@ public class PanellRepresentacio extends JPanel {
 		this.setVisible(true);
 	}
 
+	@SuppressWarnings("serial")
 	private void initComponents(List<TuplaRepr> infoRepr) {
+		JLabel label1 = new JLabel("Selecciona un espectacle i una data");
+
+		scrollPane = new JScrollPane();
+		String[] columnNames = { "Local", "Sessió", "Seients", "Estrena", "Preu (EUR)" };
+		Object[][] data = new Object[infoRepr.size()][5];
+		for (int i = 0; i < infoRepr.size(); ++i) {
+			TuplaRepr tupla = infoRepr.get(i);
+			data[i][0] = tupla.getLocal();
+			data[i][1] = tupla.getSessio();
+			data[i][2] = tupla.getNombreSeientsLliures();
+			data[i][3] = tupla.getEsEstrena();
+			data[i][4] = tupla.getPreu();
+		}
+		table = new JTable(data, columnNames) {
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		Color headerColor = Color.decode("#99B4D1");
+		JTableHeader header = table.getTableHeader();
+		header.setBackground(headerColor);
+		header.setFont(new Font("originalfont", Font.BOLD, 12));
+		table.setShowGrid(false);
+		Color separatorColor = Color.decode("#C0C0C0");
+		table.setGridColor(separatorColor);
+		scrollPane.setViewportView(table);
+		scrollPane.setMaximumSize(new Dimension(650, 280));
+		scrollPane.setMinimumSize(new Dimension(650, 280));
+
+		JLabel label2 = new JLabel("Núm. d'espectadors:");
+		textField = new JTextField();
+		textField.setMaximumSize(new Dimension(100, 20));
+		textField.setMinimumSize(new Dimension(100, 20));
 
 		btnContinua = new javax.swing.JButton();
 		btnContinua.setText("Continua");
@@ -69,6 +116,13 @@ public class PanellRepresentacio extends JPanel {
 										javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnCancela).addGap(200, 200, 200))
 
+				.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+						.addGroup(layout.createSequentialGroup().addComponent(label1).addGap(450, 450, 450))
+						.addGap(52, 109, Short.MAX_VALUE)
+						.addGroup(layout.createSequentialGroup().addComponent(scrollPane))
+						.addGroup(layout.createSequentialGroup().addComponent(label2).addGap(20, 20, 20)
+								.addComponent(textField)))
+
 				.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER).addGroup(layout
 						.createSequentialGroup().addComponent(labelEspec)
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(labelSep1)
@@ -88,13 +142,38 @@ public class PanellRepresentacio extends JPanel {
 								.addComponent(labelPagam).addComponent(labelConfirm).addComponent(labelSep1)
 								.addComponent(labelSep2).addComponent(labelSep3).addComponent(labelSep4))
 				.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+				.addComponent(label1).addGap(10, 10, 10)
+				.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER).addComponent(scrollPane))
+				.addGap(10, 10, 10)
+				.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER).addComponent(label2)
+						.addComponent(textField))
 				.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
 				.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 						.addComponent(btnContinua).addComponent(btnCancela)).addGap(50, 50, 50).addContainerGap()));
 	}
 
 	private void prContinua(ActionEvent evt) {
-		ctrlPres.prContObteOcupacio("string", "string", 1);
+		String local = null;
+		String sessio = null;
+		int numEsp = -1;
+
+		int selRow = table.convertRowIndexToModel(table.getSelectedRow());
+		try {
+			local = (String) table.getModel().getValueAt(selRow, 0);
+			sessio = (String) table.getModel().getValueAt(selRow, 1);
+		} catch (Exception e) {
+			vistaPres.mostraMissatgeEndarrera("No s'ha seleccionat cap representació");
+			return;
+		}
+
+		try {
+			numEsp = Integer.parseInt(textField.getText());
+		} catch (Exception e) {
+			vistaPres.mostraMissatgeEndarrera("No s'ha introduït un nombre d'espectadors vàlid");
+			return;
+		}
+
+		ctrlPres.prContObteOcupacio(local, sessio, numEsp);
 	}
 
 	private void prCancela(ActionEvent evt) {
