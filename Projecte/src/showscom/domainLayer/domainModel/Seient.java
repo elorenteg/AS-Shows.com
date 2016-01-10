@@ -7,14 +7,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Check;
+
 @Entity
 @Table(name = "Seient")
+@Check(constraints = "fila >= 0 AND columna >= 0")
 public class Seient {
 	@Id
 	@Embedded
 	private SeientPK seientPK;
 	@ManyToOne
-	@JoinColumn(name = "local", referencedColumnName = "nom", insertable = false, updatable = false)
+	@JoinColumn(name = "nomL", referencedColumnName = "nom", insertable = false, updatable = false)
 	private Local local;
 
 	public Seient() {

@@ -1,14 +1,24 @@
+DROP TABLE IF EXISTS SeientEnRepresentacio;
+DROP TABLE IF EXISTS Entrada;
 DROP TABLE IF EXISTS Estrena;
 DROP TABLE IF EXISTS Representacio;
-DROP TABLE IF EXISTS Sessio;
+DROP TABLE IF EXISTS Seient;
 DROP TABLE IF EXISTS Local;
 DROP TABLE IF EXISTS Espectacle;
-
+DROP TABLE IF EXISTS Sessio;
 
 CREATE TABLE Sessio
 (
   sessio character varying(255) NOT NULL,
   CONSTRAINT sessio_pkey PRIMARY KEY (sessio)
+);
+
+CREATE TABLE Espectacle
+(
+  titol character varying(255) NOT NULL,
+  participants integer,
+  CONSTRAINT espectacle_pkey PRIMARY KEY (titol),
+  CONSTRAINT espectacle_participants_check CHECK (participants > 0)
 );
 
 CREATE TABLE Local
@@ -18,11 +28,16 @@ CREATE TABLE Local
   CONSTRAINT local_pkey PRIMARY KEY (nom)
 );
 
-CREATE TABLE Espectacle
+CREATE TABLE Seient
 (
-  titol character varying(255) NOT NULL,
-  participants integer,
-  CONSTRAINT espectacle_pkey PRIMARY KEY (titol)
+  columna integer NOT NULL,
+  fila integer NOT NULL,
+  noml character varying(255) NOT NULL,
+  CONSTRAINT seient_pkey PRIMARY KEY (columna, fila, noml),
+  CONSTRAINT fk9362c554e94353e FOREIGN KEY (noml)
+      REFERENCES local (nom) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT seient_check CHECK (fila >= 0 AND columna >= 0)
 );
 
 CREATE TABLE Representacio
@@ -59,6 +74,45 @@ CREATE TABLE Estrena
       ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT estrena_recarrec_check CHECK (recarrec > 0)
 );
+
+CREATE TABLE Entrada
+(
+  ident character varying(255) NOT NULL,
+  data timestamp without time zone,
+  dniclient character varying(255),
+  nespectadors integer,
+  preu real,
+  noml character varying(255),
+  sessio character varying(255),
+  titole character varying(255),
+  CONSTRAINT entrada_pkey PRIMARY KEY (ident),
+  CONSTRAINT fk45afe37c6a820c4 FOREIGN KEY (noml, sessio, titole)
+      REFERENCES representacio (noml, sessio, titole) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT entrada_check CHECK (preu > 0::double precision AND nespectadors > 0)
+);
+
+CREATE TABLE SeientEnRepresentacio
+(
+  columna integer NOT NULL,
+  fila integer NOT NULL,
+  noml character varying(255) NOT NULL,
+  sessio character varying(255) NOT NULL,
+  titole character varying(255) NOT NULL,
+  estat character varying(255),
+  ident character varying(255),
+  CONSTRAINT seientenrepresentacio_pkey PRIMARY KEY (columna, fila, noml, sessio, titole),
+  CONSTRAINT fkab7a3dd32174544 FOREIGN KEY (columna, fila, noml)
+      REFERENCES seient (columna, fila, noml) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT fkab7a3dd38b44ce3a FOREIGN KEY (ident)
+      REFERENCES entrada (ident) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT fkab7a3dd3c6a820c4 FOREIGN KEY (noml, sessio, titole)
+      REFERENCES representacio (noml, sessio, titole) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
 
 INSERT INTO Sessio VALUES('MATI');
 INSERT INTO Sessio VALUES('TARDA');

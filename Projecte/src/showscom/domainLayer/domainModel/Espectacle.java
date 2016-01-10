@@ -13,8 +13,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Check;
+
 @Entity
 @Table(name = "Espectacle")
+@Check(constraints = "participants > 0")
 public class Espectacle implements Serializable {
 	@Id
 	@Column(name = "titol")

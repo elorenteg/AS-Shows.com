@@ -11,15 +11,18 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Check;
+
 @Entity
 @Table(name = "Entrada")
+@Check(constraints = "preu > 0 AND nEspectadors > 0")
 public class Entrada {
 	@Id
 	@Column(name = "idEnt")
 	private String identificador;
 	@Column(name = "dniClient")
 	private String dniClient;
-	@Column(name = "nombreEspectadors")
+	@Column(name = "nEspectadors")
 	private int nombreEspectadors;
 	@Column(name = "data")
 	private Date data;

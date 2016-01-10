@@ -18,20 +18,20 @@ public class SeientEnRepresentacio {
 	@Embedded
 	private SeientEnRepresentacioPK seientEnRepresentacioPK;
 	@ManyToOne
-	@JoinColumns({ @JoinColumn(name = "nomLSEIENT_REPR", referencedColumnName = "nomLocal"),
-			@JoinColumn(name = "filaSEIENT_REPR", referencedColumnName = "fila"),
-			@JoinColumn(name = "columnaSEIENT_REPR", referencedColumnName = "columna") })
+	@JoinColumns({ @JoinColumn(name = "nomL", referencedColumnName = "nomL", insertable = false, updatable = false),
+			@JoinColumn(name = "fila", referencedColumnName = "fila", insertable = false, updatable = false),
+			@JoinColumn(name = "columna", referencedColumnName = "columna", insertable = false, updatable = false) })
 	private Seient seient;
 	@Column(name = "estat")
 	@Enumerated(EnumType.STRING)
 	private Estat estat;
 	@ManyToOne
-	@JoinColumns({ @JoinColumn(name = "sessioSEIENT_REPR", referencedColumnName = "sessio"),
-			@JoinColumn(name = "nomL", referencedColumnName = "nomL"),
-			@JoinColumn(name = "titolE", referencedColumnName = "titolE") })
+	@JoinColumns({ @JoinColumn(name = "sessio", referencedColumnName = "sessio", insertable = false, updatable = false),
+			@JoinColumn(name = "nomL", referencedColumnName = "nomL", insertable = false, updatable = false),
+			@JoinColumn(name = "titolE", referencedColumnName = "titolE", insertable = false, updatable = false) })
 	private Representacio representacio;
 	@ManyToOne
-	@JoinColumn(name = "idEnt", referencedColumnName = "idEnt", insertable = false, updatable = false)
+	@JoinColumn(name = "idEnt", referencedColumnName = "idEnt")
 	private Entrada entrada;
 
 	public SeientEnRepresentacio() {

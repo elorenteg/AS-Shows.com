@@ -11,7 +11,7 @@ public class SeientPK implements Serializable {
 	private int fila;
 	@Column(name = "columna")
 	private int columna;
-	@Column(name = "nomLocal")
+	@Column(name = "nomL")
 	private String nomLocal;
 
 	public SeientPK() {
