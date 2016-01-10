@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS Canvis;
+DROP TABLE IF EXISTS ShowsCom;
 DROP TABLE IF EXISTS SeientEnRepresentacio;
 DROP TABLE IF EXISTS Entrada;
 DROP TABLE IF EXISTS Estrena;
@@ -113,36 +115,68 @@ CREATE TABLE SeientEnRepresentacio
       ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
+CREATE TABLE ShowsCom
+(
+  id integer NOT NULL,
+  codibanc integer,
+  comissio real,
+  divisa character varying(255),
+  ncompte character varying(255),
+  idvenudes integer,
+  CONSTRAINT showscom_pkey PRIMARY KEY (id),
+  CONSTRAINT showscom_check CHECK (codibanc > 0 AND comissio > 0::double precision)
+);
 
-INSERT INTO Sessio VALUES('MATI');
-INSERT INTO Sessio VALUES('TARDA');
-INSERT INTO Sessio VALUES('NIT');
+CREATE TABLE Canvis
+(
+  showscom_id integer NOT NULL,
+  canvi character varying(255) NOT NULL,
+  CONSTRAINT fk77df6270b3be2e27 FOREIGN KEY (showscom_id)
+      REFERENCES showscom (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+);
 
-INSERT INTO Espectacle VALUES('Cisne negro', 10);
-INSERT INTO Espectacle VALUES('Lago de los cisnes', 10);
-INSERT INTO Espectacle VALUES('Giselle', 10);
-INSERT INTO Espectacle VALUES('Romeo y Julieta', 10);
-INSERT INTO Espectacle VALUES('Cascanueces', 10);
-INSERT INTO Espectacle VALUES('Cenicienta', 10);
-INSERT INTO Espectacle VALUES('Don Quijote', 10);
-INSERT INTO Espectacle VALUES('La Bella Durmiente', 10);
-INSERT INTO Espectacle VALUES('Sueño de una noche de verano', 10);
-INSERT INTO Espectacle VALUES('La Bailarina del Templo', 10);
 
-INSERT INTO Local VALUES('Gran Teatre del Liceu', 'Les Rambles, 51-59');
-INSERT INTO Local VALUES('Teatre Nacional de Catalunya', 'Plaça de les Arts, 1');
-INSERT INTO Local VALUES('Teatro Goya', 'C/ Joaquín Costa, 68');
-INSERT INTO Local VALUES('Teatre Lliure de Montjuïc', 'Plaça de Margarida Xirgu, 1');
-INSERT INTO Local VALUES('Teatre Victòria', 'Av. del Paral·lel, 67');
-INSERT INTO Local VALUES('Teatre Gaudí', 'C/ Sant Antoni Maria Claret, 120');
-INSERT INTO Local VALUES('Teatre Lliure de Gràcia', 'C/ del Monseny, 47');
-INSERT INTO Local VALUES('Almeria Teatre', 'C/ Sant Lluís, 64');
-INSERT INTO Local VALUES('Teatre Club Capitol', 'Les Rambles, 138');
+INSERT INTO Sessio VALUES ('MATI'), ('TARDA'), ('NIT');
 
-INSERT INTO Representacio VALUES('Gran Teatre del Liceu', 'MATI', 'Cenicienta', '26/01/2016', 100, 50);
-INSERT INTO Representacio VALUES('Gran Teatre del Liceu', 'TARDA', 'Cisne negro', '26/01/2016', 100, 50);
-INSERT INTO Representacio VALUES('Gran Teatre del Liceu', 'NIT', 'Cisne negro', '26/01/2016', 100, 50);
-INSERT INTO Representacio VALUES('Teatre Nacional de Catalunya', 'MATI', 'Cisne negro', '26/01/2016', 100, 50);
-INSERT INTO Representacio VALUES('Teatre Nacional de Catalunya', 'TARDA', 'Cenicienta', '26/01/2016', 100, 50);
-INSERT INTO Estrena VALUES(10, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro');
-INSERT INTO Estrena VALUES(10, 'Gran Teatre del Liceu', 'TARDA', 'Cisne negro');
+INSERT INTO Espectacle VALUES ('Cisne negro', 10),
+	('Lago de los cisnes', 10),
+	('Giselle', 10),
+	('Romeo y Julieta', 10),
+	('Cascanueces', 10),
+	('Cenicienta', 10),
+	('Don Quijote', 10), 
+	('La Bella Durmiente', 10),
+	('Sueño de una noche de verano', 10),
+	('La Bailarina del Templo', 10);
+
+INSERT INTO Local VALUES ('Gran Teatre del Liceu', 'Les Rambles, 51-59'),
+	('Teatre Nacional de Catalunya', 'Plaça de les Arts, 1'),
+	('Teatro Goya', 'C/ Joaquín Costa, 68'),
+	('Teatre Lliure de Montjuïc', 'Plaça de Margarida Xirgu, 1'),
+	('Teatre Victòria', 'Av. del Paral·lel, 67'),
+	('Teatre Gaudí', 'C/ Sant Antoni Maria Claret, 120'),
+	('Teatre Lliure de Gràcia', 'C/ del Monseny, 47'),
+	('Almeria Teatre', 'C/ Sant Lluís, 64'),
+	('Teatre Club Capitol', 'Les Rambles, 138');
+
+INSERT INTO Representacio VALUES ('Gran Teatre del Liceu', 'MATI', 'Cenicienta', '26/01/2016', 100, 50),
+	('Gran Teatre del Liceu', 'TARDA', 'Cisne negro', '26/01/2016', 100, 50),
+	('Gran Teatre del Liceu', 'NIT', 'Cisne negro', '26/01/2016', 100, 50),
+	('Teatre Nacional de Catalunya', 'MATI', 'Cisne negro', '26/01/2016', 100, 50),
+	('Teatre Nacional de Catalunya', 'TARDA', 'Cenicienta', '26/01/2016', 100, 50);
+	
+INSERT INTO Estrena VALUES (10, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro'),
+	(10, 'Gran Teatre del Liceu', 'TARDA', 'Cisne negro');
+
+INSERT INTO Seient VALUES (1, 1, 'Gran Teatre del Liceu'),
+	(1, 2, 'Gran Teatre del Liceu'),
+	(1, 3, 'Gran Teatre del Liceu'),
+	(1, 4, 'Gran Teatre del Liceu');
+
+INSERT INTO Entrada VALUES (1, '9/01/2016', '46477890L', 3, 10, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro');
+
+INSERT INTO SeientEnRepresentacio VALUES (1, 1, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro', 'OCUPAT', 1),
+	(1, 2, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro', 'OCUPAT', 1),
+	(1, 3, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro', 'OCUPAT', 1),
+	(1, 4, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro', 'OCUPAT', 1);
