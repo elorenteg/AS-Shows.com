@@ -30,6 +30,11 @@ import showscom.domainLayer.exceptions.DOSeientsNoDisp;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Check(constraints = "preu > 0 AND nSeientsLliures >= 0")
 public class Representacio implements Serializable {
+	@Id
+	@Embedded
+	private RepresentacioPK representacioPK;
+	@Column(name = "titolE")
+	private String titolE;
 	@Column(name = "preu")
 	private float preu;
 	@Column(name = "data")
@@ -45,9 +50,6 @@ public class Representacio implements Serializable {
 	@OneToMany(targetEntity = SeientEnRepresentacio.class, mappedBy = "representacio", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<SeientEnRepresentacio> seientsEnRepresentacio;
-	@Id
-	@Embedded
-	private RepresentacioPK representacioPK;
 
 	public Representacio() {
 	}
@@ -60,7 +62,9 @@ public class Representacio implements Serializable {
 		this.data = data;
 		this.nombreSeientsLliures = nombreSeientsLliures;
 
-		this.representacioPK = new RepresentacioPK(sessio.getSessio().name(), local.getNom(), titolEsp);
+		//this.representacioPK = new RepresentacioPK(sessio.getSessio().name(), local.getNom(), titolEsp);
+		this.representacioPK = new RepresentacioPK(sessio.getSessio().name(), local.getNom());
+		this.titolE = titolEsp;
 	}
 
 	public float getPreu() {
@@ -110,6 +114,8 @@ public class Representacio implements Serializable {
 	public void setRepresentacioPK(RepresentacioPK representacioPK) {
 		this.representacioPK = representacioPK;
 	}
+	
+	
 
 	/*
 	 * public List<SeientEnRepresentacio> getSeientsEnRepresentacio() { return
@@ -120,11 +126,28 @@ public class Representacio implements Serializable {
 	 * seientsEnRepresentacio; }
 	 */
 
+	public String getTitolE() {
+		return titolE;
+	}
+
+	public void setTitolE(String titolE) {
+		this.titolE = titolE;
+	}
+
+	public List<SeientEnRepresentacio> getSeientsEnRepresentacio() {
+		return seientsEnRepresentacio;
+	}
+
+	public void setSeientsEnRepresentacio(List<SeientEnRepresentacio> seientsEnRepresentacio) {
+		this.seientsEnRepresentacio = seientsEnRepresentacio;
+	}
+
 	public String toString() {
 		String s = "";
 		s += "PK.sessio: " + representacioPK.getSessio() + "\n";
 		s += "PK.local: " + representacioPK.getNomLocal() + "\n";
-		s += "PK.espectacle: " + representacioPK.getTitolEspectacle() + "\n";
+		//s += "PK.espectacle: " + representacioPK.getTitolEspectacle() + "\n";
+		s += "PK.espectacle: " +  getTitolE() + "\n";
 		s += "sessio: " + getSessio().getSessio().name() + "\n";
 		s += "local: " + getLocal().getNom() + "\n";
 		s += "preu: " + getPreu() + "\n";
@@ -164,13 +187,19 @@ public class Representacio implements Serializable {
 	public List<TuplaSeient> obteSeientsLliures(int nombreEspectadors) throws DOSeientsNoDisp {
 		if (this.nombreSeientsLliures < nombreEspectadors)
 			throw new DOSeientsNoDisp();
-		List<TuplaSeient> oc = new ArrayList<TuplaSeient>();
-		/*
-		 * for (SeientEnRepresentacio s_r : seientsEnRepresentacio) { boolean b
-		 * = s_r.getEstat().equals("lliure"); if (b) { TuplaSeient tupla = new
-		 * TuplaSeient(); tupla.setColumna(s_r.getColumna());
-		 * tupla.setFila(s_r.getFila()); oc.add(tupla); } }
-		 */
+
+		List<TuplaSeient> oc = new ArrayList<>();
+
+		for (SeientEnRepresentacio s_r : seientsEnRepresentacio) {
+			boolean esLliure = s_r.getEstat() == Estat.LLIURE;
+			if (esLliure) {
+				TuplaSeient tupla = new TuplaSeient();
+				tupla.setColumna(s_r.getColumna());
+				tupla.setFila(s_r.getFila());
+				oc.add(tupla);
+			}
+		}
+
 		return oc;
 	}
 }

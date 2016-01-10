@@ -34,6 +34,9 @@ public class Entrada {
 			@JoinColumn(name = "titolE", referencedColumnName = "titolE") })
 	private Representacio representacio;
 
+	public Entrada() {
+	}
+
 	public Entrada(String identificador, String dni, int nombreEspectadors, Date dAvui, float preuTotal,
 			Representacio r, List<TuplaSeient> seients) {
 		super();

@@ -17,7 +17,7 @@ public class CtrlConsultarRepresentacions {
 	public List<String> consultaEspectacles() throws DONoHiHaEspectacles {
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		ICtrlEspectacle ctrlEsp = ctrlDataFact.getCtrlEspectacle();
-		List<Espectacle> es = ctrlEsp.getAllEspectacles();
+		List<Espectacle> es = ctrlEsp.getAllEspectacle();
 
 		if (es.isEmpty()) {
 			throw new DONoHiHaEspectacles();

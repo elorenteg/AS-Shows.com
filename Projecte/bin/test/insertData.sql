@@ -46,11 +46,11 @@ CREATE TABLE Representacio
 (
   noml character varying(255) NOT NULL,
   sessio character varying(255) NOT NULL,
-  titole character varying(255) NOT NULL,
   data timestamp without time zone,
   nseientslliures integer,
   preu real,
-  CONSTRAINT representacio_pkey PRIMARY KEY (noml, sessio, titole),
+  titole character varying(255),
+  CONSTRAINT representacio_pkey PRIMARY KEY (noml, sessio),
   CONSTRAINT fk26128fd04a714c45 FOREIGN KEY (titole)
       REFERENCES espectacle (titol) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -61,6 +61,7 @@ CREATE TABLE Representacio
       REFERENCES local (nom) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT representacio_sessio_noml_key UNIQUE (sessio, noml),
+  CONSTRAINT representacio_sessio_noml_titole_key UNIQUE (sessio, noml, titole),
   CONSTRAINT representacio_check CHECK (preu > 0::double precision AND nseientslliures >= 0)
 );
 
@@ -69,10 +70,9 @@ CREATE TABLE Estrena
   recarrec integer,
   noml character varying(255) NOT NULL,
   sessio character varying(255) NOT NULL,
-  titole character varying(255) NOT NULL,
-  CONSTRAINT estrena_pkey PRIMARY KEY (noml, sessio, titole),
-  CONSTRAINT fkce3498cc6a820c4 FOREIGN KEY (noml, sessio, titole)
-      REFERENCES representacio (noml, sessio, titole) MATCH SIMPLE
+  CONSTRAINT estrena_pkey PRIMARY KEY (noml, sessio),
+  CONSTRAINT fkce3498cfab7eb9b FOREIGN KEY (noml, sessio)
+      REFERENCES representacio (noml, sessio) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT estrena_recarrec_check CHECK (recarrec > 0)
 );
@@ -110,8 +110,8 @@ CREATE TABLE SeientEnRepresentacio
   CONSTRAINT fkab7a3dd38b44ce3a FOREIGN KEY (ident)
       REFERENCES entrada (ident) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT fkab7a3dd3c6a820c4 FOREIGN KEY (noml, sessio, titole)
-      REFERENCES representacio (noml, sessio, titole) MATCH SIMPLE
+  CONSTRAINT fkab7a3dd3c6a820c4 FOREIGN KEY (sessio, noml, titole)
+      REFERENCES representacio (sessio, noml, titole) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
@@ -160,23 +160,30 @@ INSERT INTO Local VALUES ('Gran Teatre del Liceu', 'Les Rambles, 51-59'),
 	('Almeria Teatre', 'C/ Sant Lluís, 64'),
 	('Teatre Club Capitol', 'Les Rambles, 138');
 
-INSERT INTO Representacio VALUES ('Gran Teatre del Liceu', 'MATI', 'Cenicienta', '26/01/2016', 100, 50),
-	('Gran Teatre del Liceu', 'TARDA', 'Cisne negro', '26/01/2016', 100, 50),
-	('Gran Teatre del Liceu', 'NIT', 'Cisne negro', '26/01/2016', 100, 50),
-	('Teatre Nacional de Catalunya', 'MATI', 'Cisne negro', '26/01/2016', 100, 50),
-	('Teatre Nacional de Catalunya', 'TARDA', 'Cenicienta', '26/01/2016', 100, 50);
+INSERT INTO Representacio VALUES ('Gran Teatre del Liceu', 'MATI', '26/01/2016', 100, 50, 'Cenicienta'),
+	('Gran Teatre del Liceu', 'TARDA', '26/01/2016', 100, 50, 'Cisne negro'),
+	('Gran Teatre del Liceu', 'NIT', '26/01/2016', 100, 50, 'Cisne negro'),
+	('Teatre Nacional de Catalunya', 'MATI', '26/01/2016', 100, 50, 'Cisne negro'),
+	('Teatre Nacional de Catalunya', 'TARDA', '26/01/2016', 100, 50, 'Cenicienta');
 	
-INSERT INTO Estrena VALUES (10, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro'),
-	(10, 'Gran Teatre del Liceu', 'TARDA', 'Cisne negro');
+INSERT INTO Estrena VALUES (10, 'Gran Teatre del Liceu', 'NIT'),
+	(10, 'Gran Teatre del Liceu', 'TARDA');
 
-INSERT INTO Seient VALUES (1, 1, 'Gran Teatre del Liceu'),
-	(1, 2, 'Gran Teatre del Liceu'),
-	(1, 3, 'Gran Teatre del Liceu'),
-	(1, 4, 'Gran Teatre del Liceu');
+SELECT crea_seients('Gran Teatre del Liceu', 11, 15);
+SELECT crea_seients('Teatre Nacional de Catalunya', 11, 15);
+SELECT crea_seients('Teatro Goya', 11, 15);
+SELECT crea_seients('Teatre Lliure de Montjuïc', 11, 15);
+SELECT crea_seients('Teatre Victòria', 11, 15);
+SELECT crea_seients('Teatre Gaudí', 11, 15);
+SELECT crea_seients('Teatre Lliure de Gràcia', 11, 15);
+SELECT crea_seients('Almeria Teatre', 11, 15);
+SELECT crea_seients('Teatre Club Capitol', 11, 15);
 
 INSERT INTO Entrada VALUES (1, '9/01/2016', '46477890L', 3, 10, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro');
 
-INSERT INTO SeientEnRepresentacio VALUES (1, 1, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro', 'OCUPAT', 1),
-	(1, 2, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro', 'OCUPAT', 1),
-	(1, 3, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro', 'OCUPAT', 1),
-	(1, 4, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro', 'OCUPAT', 1);
+SELECT crea_seientsEnRepresentacio('Gran Teatre del Liceu', 'NIT', 'Cisne negro', 1, 11, 15);
+
+--INSERT INTO SeientEnRepresentacio VALUES (1, 1, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro', 'OCUPAT', 1),
+--	(1, 2, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro', 'OCUPAT', 1),
+--	(1, 3, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro', 'OCUPAT', 1),
+--	(1, 4, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro', 'OCUPAT', 1);

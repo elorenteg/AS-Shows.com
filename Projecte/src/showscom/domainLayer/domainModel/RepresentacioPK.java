@@ -11,8 +11,8 @@ public class RepresentacioPK implements Serializable {
 	String sessio;
 	@Column(name = "nomL")
 	String nomLocal;
-	@Column(name = "titolE")
-	private String titolEspectacle;
+	//@Column(name = "titolE")
+	//private String titolEspectacle;
 
 	public RepresentacioPK() {
 	}
@@ -21,13 +21,6 @@ public class RepresentacioPK implements Serializable {
 		super();
 		this.sessio = sessio;
 		this.nomLocal = nomLocal;
-	}
-
-	public RepresentacioPK(String sessio, String nomLocal, String titolE) {
-		super();
-		this.sessio = sessio;
-		this.nomLocal = nomLocal;
-		this.titolEspectacle = titolE;
 	}
 
 	public String getSessio() {
@@ -46,11 +39,14 @@ public class RepresentacioPK implements Serializable {
 		this.nomLocal = nomLocal;
 	}
 
-	public String getTitolEspectacle() {
-		return titolEspectacle;
+	/*
+	public RepresentacioPK(String sessio, String nomLocal, String titolE) {
+		super();
+		this.sessio = sessio;
+		this.nomLocal = nomLocal;
+		this.titolEspectacle = titolE;
 	}
+	*/
 
-	public void setTitolEspectacle(String titolEspectacle) {
-		this.titolEspectacle = titolEspectacle;
-	}
+	
 }

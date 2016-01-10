@@ -17,8 +17,8 @@ public class SeientEnRepresentacioPK implements Serializable {
 	private String nomLocal;
 	@Column(name = "sessio")
 	private String sessio;
-	@Column(name = "titolE")
-	private String titolE;
+	// @Column(name = "titolE")
+	// private String titolE;
 
 	/*
 	 * @JoinColumns({ @JoinColumn(name = "fila", referencedColumnName = "fila"),
@@ -40,13 +40,21 @@ public class SeientEnRepresentacioPK implements Serializable {
 	public SeientEnRepresentacioPK() {
 	}
 
+	public SeientEnRepresentacioPK(int fila, int columna, String nomLocal, String sessio) {
+		super();
+		this.fila = fila;
+		this.columna = columna;
+		this.nomLocal = nomLocal;
+		this.sessio = sessio;
+	}
+
 	public SeientEnRepresentacioPK(int fila, int columna, String nomLocal, String sessio, String titolE) {
 		super();
 		this.fila = fila;
 		this.columna = columna;
 		this.nomLocal = nomLocal;
 		this.sessio = sessio;
-		this.titolE = titolE;
+		// this.titolE = titolE;
 	}
 
 	public int getFila() {
@@ -80,14 +88,12 @@ public class SeientEnRepresentacioPK implements Serializable {
 	public void setSessio(String sessio) {
 		this.sessio = sessio;
 	}
-
-	public String getTitolE() {
-		return titolE;
-	}
-
-	public void setTitolE(String titolE) {
-		this.titolE = titolE;
-	}
+	/*
+	 * 
+	 * public String getTitolE() { return titolE; }
+	 * 
+	 * public void setTitolE(String titolE) { this.titolE = titolE; }
+	 */
 
 	/*
 	 * public SeientEnRepresentacioPK(int fila, int columna, String nomLocal,

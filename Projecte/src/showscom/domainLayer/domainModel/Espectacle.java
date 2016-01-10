@@ -25,7 +25,8 @@ public class Espectacle implements Serializable {
 	@Column(name = "participants")
 	private int participants;
 	@Column(name = "representacions")
-	@OneToMany(targetEntity = Representacio.class, mappedBy = "representacioPK.titolEspectacle", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	//@OneToMany(targetEntity = Representacio.class, mappedBy = "representacioPK.titolEspectacle", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(targetEntity = Representacio.class, mappedBy = "titolE", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Representacio> representacions;
 
 	public Espectacle() {

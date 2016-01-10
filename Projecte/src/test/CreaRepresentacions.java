@@ -195,6 +195,7 @@ public class CreaRepresentacions {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		Date d = sdf.parse("21/12/2012");
 		Representacio repr = creaRepresentacio(ses, loc, "Lago de los cisnes", 9.80f, d, 100);
+		/*
 		if (repr != null)
 			System.out.println(repr.getRepresentacioPK().getSessio() + " " + repr.getRepresentacioPK().getNomLocal()
 					+ " " + repr.getRepresentacioPK().getTitolEspectacle() + " " + repr.getPreu() + " " + repr.getData()
@@ -207,7 +208,7 @@ public class CreaRepresentacions {
 				+ repr3.getRepresentacioPK().getTitolEspectacle() + " " + repr3.getPreu() + " " + repr3.getData() + " "
 				+ repr3.getNombreSeientsLliures() + " " + repr3.getSessio().getSessio().name() + " "
 				+ repr3.getLocal().getNom());
-
+*/
 		/*
 		 * Estrena estr = creaEstrena(ses, loc2, esp.getTitol(), 9.80f, d, 100,
 		 * 10); if (estr != null)

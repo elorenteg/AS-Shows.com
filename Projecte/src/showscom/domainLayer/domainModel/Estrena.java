@@ -12,8 +12,9 @@ import org.hibernate.annotations.Check;
 
 @Entity
 @Table(name = "Estrena")
-@PrimaryKeyJoinColumns({ @PrimaryKeyJoinColumn(name = "nomL"), @PrimaryKeyJoinColumn(name = "sessio"),
-		@PrimaryKeyJoinColumn(name = "titolE") })
+//@PrimaryKeyJoinColumns({ @PrimaryKeyJoinColumn(name = "nomL"), @PrimaryKeyJoinColumn(name = "sessio"),
+//	@PrimaryKeyJoinColumn(name = "titolE") })
+@PrimaryKeyJoinColumns({ @PrimaryKeyJoinColumn(name = "nomL"), @PrimaryKeyJoinColumn(name = "sessio") })
 @Check(constraints = "recarrec > 0")
 public class Estrena extends Representacio {
 	@Column(name = "recarrec")

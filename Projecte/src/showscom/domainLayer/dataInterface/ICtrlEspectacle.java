@@ -11,6 +11,6 @@ public interface ICtrlEspectacle {
 
 	public boolean existEspectacle(String titol);
 
-	public List<Espectacle> getAllEspectacles();
+	public List<Espectacle> getAllEspectacle();
 
 }
