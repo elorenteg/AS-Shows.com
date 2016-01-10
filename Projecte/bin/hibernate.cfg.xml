@@ -10,16 +10,15 @@
 		<property name="hibernate.hbm2ddl.auto">update</property>
 
 		<!--property name="hibernate.hbm2ddl.auto">create-drop</property -->
-		<mapping class="showscom.domainLayer.domainModel.TipusSessio" />
 		<mapping class="showscom.domainLayer.domainModel.Sessio" />
 		<mapping class="showscom.domainLayer.domainModel.Espectacle" />
 		<mapping class="showscom.domainLayer.domainModel.Local" />
 		<mapping class="showscom.domainLayer.domainModel.Representacio" />
-		<mapping class="showscom.domainLayer.domainModel.RepresentacioPK" />
 		<mapping class="showscom.domainLayer.domainModel.Estrena" />
 		<mapping class="showscom.domainLayer.domainModel.Seient" />
 		<mapping class="showscom.domainLayer.domainModel.SeientEnRepresentacio" />
 		<mapping class="showscom.domainLayer.domainModel.Entrada" />
+		<mapping class="showscom.domainLayer.domainModel.ShowsCom" />
 
 	</session-factory>
 </hibernate-configuration>
