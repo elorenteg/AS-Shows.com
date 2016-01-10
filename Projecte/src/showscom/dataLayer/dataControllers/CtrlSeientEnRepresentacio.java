@@ -21,7 +21,8 @@ public class CtrlSeientEnRepresentacio implements ICtrlSeientEnRepresentacio {
 	private final SessionFactory sessionFactory = SessionFactoryAdapter.getSessionFactory();
 
 	@SuppressWarnings("unchecked")
-	public SeientEnRepresentacio getSeientEnRepresentacio(int fila, int columna, String nomL, String sessio) throws CDSeientEnRepresentacioNoExisteix {
+	public SeientEnRepresentacio getSeientEnRepresentacio(int fila, int columna, String nomL, String sessio)
+			throws CDSeientEnRepresentacioNoExisteix {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 		SeientEnRepresentacio seient = null;

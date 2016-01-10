@@ -30,7 +30,7 @@ public class Entrada {
 	private float preu;
 	@ManyToOne
 	@JoinColumns({ @JoinColumn(name = "sessio", referencedColumnName = "sessio"),
-			@JoinColumn(name = "nomL", referencedColumnName = "nomL")})
+			@JoinColumn(name = "nomL", referencedColumnName = "nomL") })
 	private Representacio representacio;
 
 	public Entrada() {

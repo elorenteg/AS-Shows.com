@@ -27,7 +27,7 @@ public class SeientEnRepresentacio {
 	private Estat estat;
 	@ManyToOne
 	@JoinColumns({ @JoinColumn(name = "sessio", referencedColumnName = "sessio", insertable = false, updatable = false),
-			@JoinColumn(name = "nomL", referencedColumnName = "nomL", insertable = false, updatable = false)})
+			@JoinColumn(name = "nomL", referencedColumnName = "nomL", insertable = false, updatable = false) })
 	private Representacio representacio;
 	@ManyToOne
 	@JoinColumn(name = "idEnt", referencedColumnName = "idEnt")

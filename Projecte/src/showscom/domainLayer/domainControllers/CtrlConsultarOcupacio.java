@@ -18,7 +18,6 @@ public class CtrlConsultarOcupacio {
 		List<TuplaSeient> oc = null;
 		try {
 			Representacio r = ctrlRepr.getRepresentacio(nomL, sessio);
-			System.out.println(nomL + " " + sessio + " " + r);
 			oc = r.obteSeientsLliures(nombreEspectadors);
 		} catch (CDRepresentacioNoExisteix e) {
 			// Do nothing. Mai s'executa

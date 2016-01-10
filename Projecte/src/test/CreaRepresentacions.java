@@ -196,19 +196,24 @@ public class CreaRepresentacions {
 		Date d = sdf.parse("21/12/2012");
 		Representacio repr = creaRepresentacio(ses, loc, "Lago de los cisnes", 9.80f, d, 100);
 		/*
-		if (repr != null)
-			System.out.println(repr.getRepresentacioPK().getSessio() + " " + repr.getRepresentacioPK().getNomLocal()
-					+ " " + repr.getRepresentacioPK().getTitolEspectacle() + " " + repr.getPreu() + " " + repr.getData()
-					+ " " + repr.getNombreSeientsLliures());
-
-		Representacio repr2 = creaRepresentacio(ses, loc2, esp.getTitol(), 9.80f, d, 100);
-		Espectacle esp2 = creaEspectacle("Lago de los cisnes 2", 10);
-		Representacio repr3 = creaRepresentacio(ses, loc, esp2.getTitol(), 9.80f, d, 100);
-		System.out.println(repr3.getRepresentacioPK().getSessio() + " " + repr3.getRepresentacioPK().getNomLocal() + " "
-				+ repr3.getRepresentacioPK().getTitolEspectacle() + " " + repr3.getPreu() + " " + repr3.getData() + " "
-				+ repr3.getNombreSeientsLliures() + " " + repr3.getSessio().getSessio().name() + " "
-				+ repr3.getLocal().getNom());
-*/
+		 * if (repr != null)
+		 * System.out.println(repr.getRepresentacioPK().getSessio() + " " +
+		 * repr.getRepresentacioPK().getNomLocal() + " " +
+		 * repr.getRepresentacioPK().getTitolEspectacle() + " " + repr.getPreu()
+		 * + " " + repr.getData() + " " + repr.getNombreSeientsLliures());
+		 * 
+		 * Representacio repr2 = creaRepresentacio(ses, loc2, esp.getTitol(),
+		 * 9.80f, d, 100); Espectacle esp2 = creaEspectacle(
+		 * "Lago de los cisnes 2", 10); Representacio repr3 =
+		 * creaRepresentacio(ses, loc, esp2.getTitol(), 9.80f, d, 100);
+		 * System.out.println(repr3.getRepresentacioPK().getSessio() + " " +
+		 * repr3.getRepresentacioPK().getNomLocal() + " " +
+		 * repr3.getRepresentacioPK().getTitolEspectacle() + " " +
+		 * repr3.getPreu() + " " + repr3.getData() + " " +
+		 * repr3.getNombreSeientsLliures() + " " +
+		 * repr3.getSessio().getSessio().name() + " " +
+		 * repr3.getLocal().getNom());
+		 */
 		/*
 		 * Estrena estr = creaEstrena(ses, loc2, esp.getTitol(), 9.80f, d, 100,
 		 * 10); if (estr != null)

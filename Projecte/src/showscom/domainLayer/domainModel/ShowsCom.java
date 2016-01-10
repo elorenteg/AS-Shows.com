@@ -35,7 +35,7 @@ public class ShowsCom {
 	private Moneda divisa;
 
 	@CollectionOfElements
-	@JoinTable(name="Canvis")
+	@JoinTable(name = "Canvis")
 	@Column(name = "canvi", nullable = false)
 	@Enumerated(EnumType.STRING)
 	private List<Moneda> canvis;

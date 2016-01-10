@@ -54,12 +54,6 @@ public class CtrlPresComprarEntrada {
 	public void prContObteRepresentacions(String titol, Date data) {
 		try {
 			List<TuplaRepr> llista = ctrlDom.obteRepresentacions(titol, data);
-
-			// Solo para probar que obtiene la informacion
-			for (TuplaRepr tr : llista) {
-				System.out.println(tr.getSessio() + " - " + tr.getLocal() + " - " + tr.getNombreSeientsLliures() + " - "
-						+ tr.getEsEstrena() + " - " + tr.getPreu());
-			}
 			vistaPres.mostraRepresentacions(llista);
 		} catch (DONoHiHaRepresentacions e) {
 			vistaPres.mostraMissatgeEndarrera("No hi ha cap representació disponible");
@@ -72,9 +66,7 @@ public class CtrlPresComprarEntrada {
 			int maxFila = marge.getFila();
 			int maxColumna = marge.getColumna();
 			List<TuplaSeient> seientsLliures = ctrlDom.obteOcupacio(nomL, sessio, nombreEspectadors);
-			
-			System.out.println(maxFila + " " + maxColumna);
-			
+
 			vistaPres.mostraOcupacio(maxFila, maxColumna, seientsLliures);
 		} catch (DOSeientsNoDisp e) {
 			vistaPres.mostraMissatgeEndarrera("El nombre d'espectadors es més gran que els seients disponibles");
@@ -84,7 +76,6 @@ public class CtrlPresComprarEntrada {
 	}
 
 	public void prContSeleccionarSeients() {
-		// vistaPres.mostraRepresentacions(llista);
 		List<String> divises = new ArrayList<>();
 		divises.add("GBP");
 		divises.add("USD");

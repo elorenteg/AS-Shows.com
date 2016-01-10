@@ -35,9 +35,6 @@ public class PanellSeients extends JPanel {
 	}
 
 	private void initComponents(int maxFila, int maxColumna, List<TuplaSeient> seientsLliures) {
-		System.out.println("Max fila: " + maxFila);
-		System.out.println("Max columna: " + maxColumna);
-		System.out.println("Seients disp: " + seientsLliures);
 		canvas = new MyCanvas(vistaPres.getWidth(), vistaPres.getHeight(), maxFila, maxColumna, seientsLliures);
 		canvas.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {

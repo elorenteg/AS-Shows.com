@@ -30,9 +30,6 @@ public class MyCanvas extends Canvas {
 
 		int marginX = 200;
 		int marginY = 130;
-		System.out.println("JPANEL: " + width + "x" + height);
-		System.out.println("CANVAS-X: " + marginX + "-" + (width - 2 * marginX));
-		System.out.println("CANVAS-Y: " + marginY + "-" + 2 * marginY);
 
 		this.amplada = width - 2 * marginX;
 		this.altura = 350;
@@ -123,7 +120,6 @@ public class MyCanvas extends Canvas {
 		int yMin = (altura - (hSeient * maxFila + sep * (maxFila - 1))) / 2;
 		int xMin = (amplada - (wSeient * maxColumna + sep * (maxColumna - 1))) / 2;
 		if (yClicked >= yMin && yClicked < altura - yMin && xClicked >= xMin && xClicked < amplada - xMin) {
-			System.out.println("Area vàlida: " + xClicked + " " + yClicked);
 
 			double ff = (double) (yClicked - yMin) / (hSeient + sep);
 			double cc = (double) (xClicked - xMin) / (wSeient + sep);
@@ -133,32 +129,21 @@ public class MyCanvas extends Canvas {
 			double decFdins = (double) wSeient / (wSeient + sep);
 			double decCdins = (double) hSeient / (hSeient + sep);
 
-			System.out.println("DEC-F: " + ff + " " + decF + " " + decFdins);
-			System.out.println("DEC-C: " + cc + " " + decC + " " + decCdins);
-
 			if (decF <= decFdins && decC <= decCdins) {
 				int f = (yClicked - yMin) / (hSeient + sep);
 				int c = (xClicked - xMin) / (wSeient + sep);
-				System.out.println("Seient: " + f + " " + c);
 
 				TuplaSeient seient = new TuplaSeient(f, c);
 				if (seientsLliures.contains(seient)) {
 					if (!seientsAssignats.contains(seient)) {
-						System.out.println("S'asigna el seient: " + f + " " + c);
 						seientsAssignats.add(seient);
 					} else {
-						System.out.println("Es desasigna el seient: " + f + " " + c);
 						seientsAssignats.remove(seient);
 					}
 					paint(this.getGraphics());
-				} else {
-					System.out.println("Seient NO disponible: " + f + " " + c);
 				}
-			} else {
-				System.out.println("Àrea vàlida, però no seient");
+
 			}
-		} else {
-			System.out.println("Àrea NO vàlida: " + xClicked + " " + yClicked);
 		}
 	}
 
