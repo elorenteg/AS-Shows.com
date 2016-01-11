@@ -26,7 +26,7 @@ import org.hibernate.annotations.FetchMode;
 import showscom.domainLayer.exceptions.DOSeientsNoDisp;
 
 @Entity
-@Table(name = "Representacio", uniqueConstraints = @UniqueConstraint(columnNames = { "sessio", "nomL" }) )
+@Table(name = "Representacio")
 @Inheritance(strategy = InheritanceType.JOINED)
 @Check(constraints = "preu > 0 AND nSeientsLliures >= 0")
 public class Representacio implements Serializable {
