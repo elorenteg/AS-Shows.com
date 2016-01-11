@@ -94,6 +94,7 @@ public class CtrlDomComprarEntrada {
 		float preu = repr.getPreu();
 		int recarrec = repr.getRecarrec();
 
+		// TODO:
 		// ShowsCom showsCom = ShowsCom.getInstance();
 		// float comissio = showsCom.getComissio();
 		// List<Moneda> canvis = showsCom.getCanvis();
@@ -102,8 +103,6 @@ public class CtrlDomComprarEntrada {
 		canvis.add(Moneda.EUR);
 		canvis.add(Moneda.USD);
 		canvis.add(Moneda.GBP);
-
-		System.out.println(canvis.get(0).name() + " " + canvis.get(1).name());
 
 		tupla.setPreu(nombreEspectadors * (preu + comissio + recarrec));
 		tupla.setCanvis(canvis);
