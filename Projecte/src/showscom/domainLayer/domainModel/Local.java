@@ -85,7 +85,7 @@ public class Local {
 		}
 		tupla.setFila(maxFila);
 		tupla.setColumna(maxCol);
-		
+
 		return tupla;
 	}
 }

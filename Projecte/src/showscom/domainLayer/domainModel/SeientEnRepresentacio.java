@@ -32,8 +32,9 @@ public class SeientEnRepresentacio {
 	@ManyToOne
 	@JoinColumn(name = "idEnt", referencedColumnName = "idEnt")
 	private Entrada entrada;
-	
-	public SeientEnRepresentacio() {}
+
+	public SeientEnRepresentacio() {
+	}
 
 	public SeientEnRepresentacio(Seient seient, Representacio representacio) {
 		seientEnRepresentacioPK = new SeientEnRepresentacioPK();
@@ -44,7 +45,7 @@ public class SeientEnRepresentacio {
 		this.seient = seient;
 		this.representacio = representacio;
 		estat = Estat.LLIURE;
-				
+
 	}
 
 	public void ocupat(Entrada entrada) {

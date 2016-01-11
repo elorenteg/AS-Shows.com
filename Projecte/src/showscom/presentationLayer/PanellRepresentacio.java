@@ -168,7 +168,8 @@ public class PanellRepresentacio extends JPanel {
 
 		try {
 			numEsp = Integer.parseInt(textField.getText());
-			if (numEsp < 1) throw new Exception();
+			if (numEsp < 1)
+				throw new Exception();
 		} catch (Exception e) {
 			vistaPres.mostraMissatgeEndarrera("No s'ha introduït un nombre d'espectadors vàlid");
 			return;

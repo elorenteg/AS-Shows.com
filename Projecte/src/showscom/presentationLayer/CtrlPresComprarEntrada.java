@@ -1,12 +1,10 @@
 package showscom.presentationLayer;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import showscom.dataLayer.exceptions.CDLocalNoExisteix;
 import showscom.domainLayer.domainControllers.CtrlDomComprarEntrada;
 import showscom.domainLayer.domainModel.Moneda;
 import showscom.domainLayer.domainModel.TuplaPreu;

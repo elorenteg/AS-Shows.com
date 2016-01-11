@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.omg.PortableServer.AdapterActivator;
-
 import showscom.dataLayer.exceptions.CDLocalNoExisteix;
 import showscom.dataLayer.exceptions.CDRepresentacioNoExisteix;
 import showscom.domainLayer.adapters.BankServiceAdapter;
@@ -95,9 +93,9 @@ public class CtrlDomComprarEntrada {
 		float preu = repr.getPreu();
 		int recarrec = repr.getRecarrec();
 
-		//ShowsCom showsCom = ShowsCom.getInstance();
-		//float comissio = showsCom.getComissio();
-		//List<Moneda> canvis = showsCom.getCanvis();
+		// ShowsCom showsCom = ShowsCom.getInstance();
+		// float comissio = showsCom.getComissio();
+		// List<Moneda> canvis = showsCom.getCanvis();
 		// TODO:
 		float comissio = 6;
 		List<Moneda> canvis = new ArrayList<>();
@@ -116,14 +114,15 @@ public class CtrlDomComprarEntrada {
 		return tupla;
 	}
 
-	public float obtePreuMoneda(Moneda moneda) throws DOServeiNoDisponible{
+	public float obtePreuMoneda(Moneda moneda) throws DOServeiNoDisponible {
 		AdapterFactory adapFact = AdapterFactory.getInstance();
 		ICurrencyConvertorAdapter adapConv = adapFact.getCurrencyConvertorAdapter();
 
 		ShowsCom showsCom = ShowsCom.getInstance();
 		Moneda divisa = showsCom.getDivisa();
 		System.out.println("Començo conversió...");
-		//float conversio = adapConv.conversorRate(divisa.name(), moneda.name());
+		// float conversio = adapConv.conversorRate(divisa.name(),
+		// moneda.name());
 		float conversio = 2;
 
 		return preuTotal * conversio;

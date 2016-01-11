@@ -22,7 +22,7 @@ public class Seient {
 
 	public Seient() {
 	}
-	
+
 	public Seient(int fila, int columna, Local local) {
 		seientPK = new SeientPK(fila, columna, local.getNom());
 		this.local = local;

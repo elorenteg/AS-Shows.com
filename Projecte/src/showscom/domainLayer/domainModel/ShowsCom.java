@@ -15,9 +15,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Check;
 import org.hibernate.annotations.CollectionOfElements;
 
-import showscom.dataLayer.dataControllers.CtrlShowsCom;
-import showscom.dataLayer.exceptions.CDShowsComNoExisteix;
-
 @Entity
 @Table(name = "ShowsCom")
 @Check(constraints = "codiBanc > 0 AND comissio > 0")

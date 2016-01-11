@@ -82,7 +82,7 @@ public class VistaComprarEntrada extends JFrame {
 
 	public void mostraOcupacio(int maxFila, int maxColumna, List<TuplaSeient> seientsLliures) {
 		System.out.println(maxFila + " " + maxColumna);
-		
+
 		panellSeients = new PanellSeients(ctrlPres, this, maxFila, maxColumna, seientsLliures);
 		getContentPane().add(panellSeients, "Seients");
 		panellRepr.setVisible(false);

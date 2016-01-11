@@ -55,8 +55,10 @@ public class Representacio implements Serializable {
 		seientsEnRepresentacio = new ArrayList<SeientEnRepresentacio>();
 		for (int i = 1; i <= fila; ++i) {
 			for (int j = 1; j <= columna; ++j) {
-				// Seient seient = CtrlSeient.obte(local.getNom(), fila, columna);
-				// seientsEnRepresentacio.add(new SeientEnRepresentacio(seient, this);
+				// Seient seient = CtrlSeient.obte(local.getNom(), fila,
+				// columna);
+				// seientsEnRepresentacio.add(new SeientEnRepresentacio(seient,
+				// this);
 			}
 		}
 	}
@@ -182,7 +184,8 @@ public class Representacio implements Serializable {
 		String nom = this.local.getNom();
 		TipusSessio sessio = this.sessio.getSessio();
 		for (TuplaSeient aux : seients) {
-			// SeientEnRepresentacio seient = CtrlSeientEnRepresentacio.obte(nom, sessio, aux.getFila(),
+			// SeientEnRepresentacio seient =
+			// CtrlSeientEnRepresentacio.obte(nom, sessio, aux.getFila(),
 			// aux.getColumna());
 			// seient.ocupat();
 		}
