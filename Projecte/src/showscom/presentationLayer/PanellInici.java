@@ -4,17 +4,11 @@ import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import showscom.domainLayer.adapters.ICurrencyConvertorAdapter;
-import showscom.domainLayer.factories.AdapterFactory;
 import showscom.domainLayer.services.CurrencyConvertor;
 
 public class PanellInici extends JPanel {
@@ -110,11 +104,16 @@ public class PanellInici extends JPanel {
 
 	private void prContinua(ActionEvent evt) {
 		CurrencyConvertor conv = new CurrencyConvertor();
-		System.out.println(conv.conversorRate("EUR","EUR"));
-		System.out.println(conv.conversorRate("EUR","USD"));
-		System.out.println(conv.conversorRate("EUR","GBP"));
-		System.out.println(conv.conversorRate("USD","EUR"));
-		System.out.println(conv.conversorRate("GBP","EUR"));
+		try {
+			System.out.println(conv.conversorRate("EUR","EUR"));
+			System.out.println(conv.conversorRate("EUR","USD"));
+			System.out.println(conv.conversorRate("EUR","GBP"));
+			System.out.println(conv.conversorRate("USD","EUR"));
+			System.out.println(conv.conversorRate("GBP","EUR"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		ctrlPres.prContObteEspectacles();
 	}

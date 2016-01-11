@@ -24,11 +24,4 @@
       </plugin>
     </plugins>
   </build>
-  <dependencies>
-  	<dependency>
-  		<groupId>com.tunyk.currencyconverter</groupId>
-  		<artifactId>currency-converter-api</artifactId>
-  		<version>1.0</version>
-  	</dependency>
-  </dependencies>
 </project>
