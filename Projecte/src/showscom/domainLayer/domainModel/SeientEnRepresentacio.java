@@ -32,6 +32,8 @@ public class SeientEnRepresentacio {
 	@ManyToOne
 	@JoinColumn(name = "idEnt", referencedColumnName = "idEnt")
 	private Entrada entrada;
+	
+	public SeientEnRepresentacio() {}
 
 	public SeientEnRepresentacio(Seient seient, Representacio representacio) {
 		seientEnRepresentacioPK = new SeientEnRepresentacioPK();
