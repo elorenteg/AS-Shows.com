@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import showscom.dataLayer.exceptions.CDLocalNoExisteix;
 import showscom.domainLayer.domainControllers.CtrlDomComprarEntrada;
+import showscom.domainLayer.domainModel.Moneda;
 import showscom.domainLayer.domainModel.TuplaPreu;
 import showscom.domainLayer.domainModel.TuplaRepr;
 import showscom.domainLayer.domainModel.TuplaSeient;
@@ -78,7 +79,13 @@ public class CtrlPresComprarEntrada {
 		vistaPres.mostraPagament(tupla.getPreu(), tupla.getCanvis());
 	}
 
-	public void prComboObtePreuMoneda() {
+	public void prComboObtePreuMoneda(Moneda moneda) {
+		try {
+			float preu = ctrlDom.obtePreuMoneda(moneda);
+			vistaPres.mostraConversio(preu);
+		} catch (DOServeiNoDisponible e) {
+			vistaPres.mostraMissatgeEndarrera("El servei no està disponible o no autoritza el pagament");
+		}
 	}
 
 	public void prContPagament(String dni, int codiB, String numCompte) {

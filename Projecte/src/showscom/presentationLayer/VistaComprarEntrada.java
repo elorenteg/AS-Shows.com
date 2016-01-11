@@ -96,6 +96,10 @@ public class VistaComprarEntrada extends JFrame {
 		panellPagam.setVisible(true);
 	}
 
+	public void mostraConversio(float preu) {
+		panellPagam.actualitzaPreu(preu);
+	}
+
 	public void mostraFinalitza() {
 		panellFi = new PanellFi(ctrlPres, this);
 		getContentPane().add(panellFi, "Confirmacio");

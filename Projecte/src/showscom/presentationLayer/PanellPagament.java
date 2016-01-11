@@ -31,6 +31,8 @@ public class PanellPagament extends JPanel {
 	private JButton btnCancela;
 	private JComboBox<String> comboBoxDivises;
 
+	private Moneda divisa;
+
 	public PanellPagament(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres) {
 		this.ctrlPres = ctrlPres;
 		this.vistaPres = vistaPres;
@@ -47,6 +49,10 @@ public class PanellPagament extends JPanel {
 	}
 
 	private void initComponents(float preu, List<Moneda> divises) {
+		divisa = divises.get(0);
+		for (Moneda m : divises) {
+			System.out.println(m.name());
+		}
 
 		JLabel labelPreu = new JLabel("Preu total:");
 		labelPreu.setFont(new Font("originalfont", Font.PLAIN, 16));
@@ -59,6 +65,14 @@ public class PanellPagament extends JPanel {
 		comboBoxDivises = new JComboBox<String>();
 		for (Moneda divisa : divises)
 			comboBoxDivises.addItem(divisa.name());
+		comboBoxDivises.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				Moneda selMoneda = Moneda.valueOf(comboBoxDivises.getSelectedItem().toString());
+				if (divisa != selMoneda)
+					divisa = selMoneda;
+				ctrlPres.prComboObtePreuMoneda(selMoneda);
+			}
+		});
 
 		JLabel labelDNI = new JLabel("DNI:");
 		labelDNI.setFont(new Font("originalfont", Font.PLAIN, 16));
@@ -170,21 +184,21 @@ public class PanellPagament extends JPanel {
 
 		DNI = DNI.replaceAll("[\\s\\-]", "");
 		if (DNI.length() > 9) {
-			vistaPres.mostraMissatgeEndarrera("La grandÃ ria del DNI Ã©s incorrecte");
+			vistaPres.mostraMissatgeEndarrera("La grandària del DNI és incorrecte");
 			return;
 		}
 
 		int valorDNI;
 		try {
 			valorDNI = Integer.parseInt(DNI.substring(0, DNI.length() - 1));
-		} catch (NumberFormatException e) {
-			vistaPres.mostraMissatgeEndarrera("El format del DNI no Ã©s correcte");
+		} catch (NumberFormatException | StringIndexOutOfBoundsException e) {
+			vistaPres.mostraMissatgeEndarrera("El format del DNI no és correcte");
 			return;
 		}
 
 		String letrasDNI = "TRWAGMYFPDXBNJZSQVHLCKE";
 		if (letrasDNI.charAt(valorDNI % 23) != DNI.charAt(DNI.length() - 1)) {
-			vistaPres.mostraMissatgeEndarrera("La lletra del DNI no Ã©s correcta");
+			vistaPres.mostraMissatgeEndarrera("La lletra del DNI no és correcta");
 			return;
 		}
 
@@ -192,19 +206,19 @@ public class PanellPagament extends JPanel {
 		try {
 			codiBanc = Integer.parseInt(textFieldCodiBanc.getText());
 		} catch (NumberFormatException e) {
-			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el Codi del banc o no Ã©s vÃ lid");
+			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el Codi del banc o no és vàlid");
 			return;
 		}
 
 		String numCompte = textFieldNumCompte.getText();
 		if (numCompte == null) {
-			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el NÃºmero de compte");
+			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el Número de compte");
 			return;
 		}
 
 		String newAccountNumber = numCompte.replaceAll("\\s", "");
 		if (newAccountNumber.length() < 15 || newAccountNumber.length() > 34) {
-			vistaPres.mostraMissatgeEndarrera("La grandÃ ria del NÃºmero de compte Ã©s incorrecte");
+			vistaPres.mostraMissatgeEndarrera("La grandària del Número de compte és incorrecte");
 			return;
 		}
 
@@ -216,7 +230,7 @@ public class PanellPagament extends JPanel {
 
 		BigInteger ibanNumber = new BigInteger(numericAccountNumber.toString());
 		if (ibanNumber.mod(new BigInteger("97")).intValue() != 1) {
-			vistaPres.mostraMissatgeEndarrera("El NÃºmero de compte no Ã©s correcte");
+			vistaPres.mostraMissatgeEndarrera("El N-umero de compte no és correcte");
 			return;
 		}
 		;
@@ -226,5 +240,9 @@ public class PanellPagament extends JPanel {
 
 	private void prCancela(ActionEvent evt) {
 		ctrlPres.prCancela();
+	}
+
+	public void actualitzaPreu(float preu) {
+		textFieldPreu.setText(Float.toString(preu));
 	}
 }
