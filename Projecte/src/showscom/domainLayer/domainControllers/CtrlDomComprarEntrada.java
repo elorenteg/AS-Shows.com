@@ -9,6 +9,7 @@ import showscom.dataLayer.exceptions.CDRepresentacioNoExisteix;
 import showscom.domainLayer.adapters.BankServiceAdapter;
 import showscom.domainLayer.adapters.IBankServiceAdapter;
 import showscom.domainLayer.adapters.ICurrencyConvertorAdapter;
+import showscom.domainLayer.dataInterface.ICtrlEntrada;
 import showscom.domainLayer.dataInterface.ICtrlLocal;
 import showscom.domainLayer.dataInterface.ICtrlRepresentacio;
 import showscom.domainLayer.domainModel.Entrada;
@@ -142,11 +143,14 @@ public class CtrlDomComprarEntrada {
 		ICtrlRepresentacio ctrlRepresentacio = ctrlDataFactory.getCtrlRepresentacio();
 		Representacio r = null;
 		try {
-			r = ctrlRepresentacio.getRepresentacio(sessio, nomL);
+			r = ctrlRepresentacio.getRepresentacio(nomL, sessio);
 		} catch (CDRepresentacioNoExisteix e) {
 			// Do nothing. Mai s'executa
 		}
-		// TODO guardar nueva instancia de Entrada
 		Entrada entrada = new Entrada(Integer.toString(v), dni, nombreEspectadors, dAvui, preuTotal, r, seients);
+		
+		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
+		ICtrlEntrada ctrlEnt = ctrlDataFact.getCtrlEntrada();
+		ctrlEnt.guardaEntrada(entrada);
 	}
 }
