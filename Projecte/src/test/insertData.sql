@@ -49,7 +49,7 @@ CREATE TABLE Representacio
   data timestamp without time zone,
   nseientslliures integer,
   preu real,
-  titole character varying(255),
+  titole character varying(255) NOT NULL,
   CONSTRAINT representacio_pkey PRIMARY KEY (noml, sessio),
   CONSTRAINT fk26128fd04a714c45 FOREIGN KEY (titole)
       REFERENCES espectacle (titol) MATCH SIMPLE
@@ -60,8 +60,6 @@ CREATE TABLE Representacio
   CONSTRAINT fk26128fd0e94353e FOREIGN KEY (noml)
       REFERENCES local (nom) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT representacio_sessio_noml_key UNIQUE (sessio, noml),
-  CONSTRAINT representacio_sessio_noml_titole_key UNIQUE (sessio, noml, titole),
   CONSTRAINT representacio_check CHECK (preu > 0::double precision AND nseientslliures >= 0)
 );
 
