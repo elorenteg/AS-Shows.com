@@ -86,10 +86,9 @@ CREATE TABLE Entrada
   preu real,
   noml character varying(255),
   sessio character varying(255),
-  titole character varying(255),
   CONSTRAINT entrada_pkey PRIMARY KEY (ident),
-  CONSTRAINT fk45afe37c6a820c4 FOREIGN KEY (noml, sessio, titole)
-      REFERENCES representacio (noml, sessio, titole) MATCH SIMPLE
+  CONSTRAINT fk45afe37fab7eb9b FOREIGN KEY (noml, sessio)
+      REFERENCES representacio (noml, sessio) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT entrada_check CHECK (preu > 0::double precision AND nespectadors > 0)
 );
@@ -100,18 +99,17 @@ CREATE TABLE SeientEnRepresentacio
   fila integer NOT NULL,
   noml character varying(255) NOT NULL,
   sessio character varying(255) NOT NULL,
-  titole character varying(255) NOT NULL,
   estat character varying(255),
   ident character varying(255),
-  CONSTRAINT seientenrepresentacio_pkey PRIMARY KEY (columna, fila, noml, sessio, titole),
+  CONSTRAINT seientenrepresentacio_pkey PRIMARY KEY (columna, fila, noml, sessio),
   CONSTRAINT fkab7a3dd32174544 FOREIGN KEY (columna, fila, noml)
       REFERENCES seient (columna, fila, noml) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT fkab7a3dd38b44ce3a FOREIGN KEY (ident)
       REFERENCES entrada (ident) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT fkab7a3dd3c6a820c4 FOREIGN KEY (sessio, noml, titole)
-      REFERENCES representacio (sessio, noml, titole) MATCH SIMPLE
+  CONSTRAINT fkab7a3dd3fab7eb9b FOREIGN KEY (noml, sessio)
+      REFERENCES representacio (noml, sessio) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
@@ -164,7 +162,8 @@ INSERT INTO Representacio VALUES ('Gran Teatre del Liceu', 'MATI', '26/01/2016',
 	('Gran Teatre del Liceu', 'TARDA', '26/01/2016', 100, 50, 'Cisne negro'),
 	('Gran Teatre del Liceu', 'NIT', '26/01/2016', 100, 50, 'Cisne negro'),
 	('Teatre Nacional de Catalunya', 'MATI', '26/01/2016', 100, 50, 'Cisne negro'),
-	('Teatre Nacional de Catalunya', 'TARDA', '26/01/2016', 100, 50, 'Cenicienta');
+	('Teatre Nacional de Catalunya', 'TARDA', '26/01/2016', 100, 50, 'Cenicienta'),
+	('Teatre Nacional de Catalunya', 'NIT', '26/01/2016', 100, 50, 'Cenicienta');
 	
 INSERT INTO Estrena VALUES (10, 'Gran Teatre del Liceu', 'NIT'),
 	(10, 'Gran Teatre del Liceu', 'TARDA');
@@ -179,9 +178,10 @@ SELECT crea_seients('Teatre Lliure de Gràcia', 11, 15);
 SELECT crea_seients('Almeria Teatre', 11, 15);
 SELECT crea_seients('Teatre Club Capitol', 11, 15);
 
-INSERT INTO Entrada VALUES (1, '9/01/2016', '46477890L', 3, 10, 'Gran Teatre del Liceu', 'NIT', 'Cisne negro');
+INSERT INTO Entrada VALUES (1, '9/01/2016', '46477890L', 3, 10, 'Gran Teatre del Liceu', 'NIT');
 
-SELECT crea_seientsEnRepresentacio('Gran Teatre del Liceu', 'NIT', 'Cisne negro', 1, 11, 15);
+SELECT crea_seientsEnRepresentacio('Gran Teatre del Liceu', 11, 15);
+SELECT crea_seientsEnRepresentacio('Teatre Nacional de Catalunya', 11, 15);
 
 INSERT INTO ShowsCom VALUES (1, '2100', '6', 'EUR', 'ES	11	2100	1111	11	11 1111 1111', 1);
 INSERT INTO Canvis VALUES (1, 'USD'), (1, 'GBP');
