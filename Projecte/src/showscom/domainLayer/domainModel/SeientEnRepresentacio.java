@@ -33,38 +33,23 @@ public class SeientEnRepresentacio {
 	@JoinColumn(name = "idEnt", referencedColumnName = "idEnt")
 	private Entrada entrada;
 
-	public SeientEnRepresentacio() {
-		super();
-	}
-
-	public SeientEnRepresentacio(Seient seient, Estat estat) {
-		super();
+	public SeientEnRepresentacio(Seient seient, Representacio representacio) {
+		seientEnRepresentacioPK = new SeientEnRepresentacioPK();
+		seientEnRepresentacioPK.setFila(seient.getFila());
+		seientEnRepresentacioPK.setColumna(seient.getColumna());
+		seientEnRepresentacioPK.setNomLocal(representacio.getLocal().getNom());
+		seientEnRepresentacioPK.setSessio(representacio.getSessio().getSessio().name());
 		this.seient = seient;
-		this.estat = estat;
-	}
-
-	public SeientEnRepresentacio(Seient seient) {
-		this.seient = seient;
-		this.estat = Estat.LLIURE;
-	}
-
-	public int getFila() {
-		return seient.getFila();
-	}
-
-	public int getColumna() {
-		return seient.getColumna();
-	}
-
-	public Estat getEstat() {
-		return estat;
+		this.representacio = representacio;
+		estat = Estat.LLIURE;
+				
 	}
 
 	public void ocupat() {
 		this.estat = Estat.OCUPAT;
 	}
 
-	public TuplaSeient getSeient() {
+	public TuplaSeient getPosicioSeient() {
 		TuplaSeient tupla = new TuplaSeient();
 		tupla.setFila(seient.getFila());
 		tupla.setColumna(seient.getColumna());

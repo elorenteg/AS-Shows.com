@@ -11,7 +11,7 @@ import org.hibernate.annotations.Check;
 
 @Entity
 @Table(name = "Seient")
-@Check(constraints = "fila >= 0 AND columna >= 0")
+@Check(constraints = "fila > 0 AND columna > 0")
 public class Seient {
 	@Id
 	@Embedded
@@ -21,6 +21,11 @@ public class Seient {
 	private Local local;
 
 	public Seient() {
+	}
+	
+	public Seient(int fila, int columna, Local local) {
+		seientPK = new SeientPK(fila, columna, local.getNom());
+		this.local = local;
 	}
 
 	public SeientPK getSeientPK() {
