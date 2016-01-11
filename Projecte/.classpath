@@ -5,5 +5,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/PostgreSQL"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate3.0"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JDatePicker-1.3.2"/>
+	<classpathentry kind="lib" path="C:/Users/Ester/git/as/Programas/Nueva carpeta/java-json.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Ester/git/as/Programas/Nueva carpeta/org.apache.commons.io.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

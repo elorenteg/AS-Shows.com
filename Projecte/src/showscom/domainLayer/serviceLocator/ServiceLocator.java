@@ -1,13 +1,16 @@
 package showscom.domainLayer.serviceLocator;
 
+
 import showscom.domainLayer.exceptions.DOServeiNoDisponible;
 import showscom.domainLayer.services.BankService;
+import showscom.domainLayer.services.CurrencyConvertor;
+import showscom.domainLayer.services.Service;
 
 public class ServiceLocator {
 	private static ServiceLocator instance = new ServiceLocator();
 	// private static List<Service> services;
 	private static BankService bank;
-	// private static CurrencyConvertor;
+	private static CurrencyConvertor conv;
 
 	private ServiceLocator() {
 		/*
@@ -21,6 +24,21 @@ public class ServiceLocator {
 
 	public static ServiceLocator getInstance() {
 		return instance;
+	}
+	
+	public static Service find (String serviceName) {
+		if (serviceName.equals("BankService")) {
+			if (bank == null)
+				bank = new BankService(); // throw new DoServeiNoDisponible();
+			return (Service) bank;
+		}
+		else if (serviceName.equals("CurrencyConvertor")) {
+			if (conv == null)
+				conv = new CurrencyConvertor(); // throw new DoServeiNoDisponible();
+			return (Service) conv;
+		}
+		
+		return null;
 	}
 
 	/*

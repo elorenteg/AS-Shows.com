@@ -109,7 +109,7 @@ public class CtrlDomComprarEntrada {
 		tupla.setCanvis(canvis);
 
 		this.seients = seients;
-		this.preuTotal = preu;
+		this.preuTotal = tupla.getPreu();
 
 		return tupla;
 	}
@@ -118,12 +118,13 @@ public class CtrlDomComprarEntrada {
 		AdapterFactory adapFact = AdapterFactory.getInstance();
 		ICurrencyConvertorAdapter adapConv = adapFact.getCurrencyConvertorAdapter();
 
-		ShowsCom showsCom = ShowsCom.getInstance();
-		Moneda divisa = showsCom.getDivisa();
+		// ShowsCom showsCom = ShowsCom.getInstance();
+		// Moneda divisa = showsCom.getDivisa();
+		Moneda divisa = Moneda.EUR;
 		System.out.println("Començo conversió...");
-		// float conversio = adapConv.conversorRate(divisa.name(),
-		// moneda.name());
-		float conversio = 2;
+		float conversio = adapConv.conversorRate(divisa.name(), moneda.name());
+		
+		System.out.println(conversio);
 
 		return preuTotal * conversio;
 	}

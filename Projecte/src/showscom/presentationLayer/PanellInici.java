@@ -9,6 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import showscom.domainLayer.adapters.ICurrencyConvertorAdapter;
+import showscom.domainLayer.factories.AdapterFactory;
+
 public class PanellInici extends JPanel {
 	private static final long serialVersionUID = 1L;
 
