@@ -51,6 +51,16 @@ public class Representacio implements Serializable {
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<SeientEnRepresentacio> seientsEnRepresentacio;
 
+	private void creaSeientsEnRepresentacio(int fila, int columna) {
+		seientsEnRepresentacio = new ArrayList<SeientEnRepresentacio>();
+		for (int i = 1; i <= fila; ++i) {
+			for (int j = 1; j <= columna; ++j) {
+				// Seient seient = CtrlSeient.obte(local.getNom(), fila, columna);
+				// seientsEnRepresentacio.add(new SeientEnRepresentacio(seient, this);
+			}
+		}
+	}
+
 	public Representacio() {
 	}
 
@@ -64,6 +74,9 @@ public class Representacio implements Serializable {
 
 		this.representacioPK = new RepresentacioPK(sessio.getSessio().name(), local.getNom());
 		this.titolE = titolEsp;
+
+		TuplaSeient max = local.getMarges();
+		creaSeientsEnRepresentacio(max.getFila(), max.getColumna());
 	}
 
 	public float getPreu() {
@@ -169,7 +182,7 @@ public class Representacio implements Serializable {
 		String nom = this.local.getNom();
 		TipusSessio sessio = this.sessio.getSessio();
 		for (TuplaSeient aux : seients) {
-			// SeientEnRepresentacio seient = obte (nom, sessio, aux.getFila(),
+			// SeientEnRepresentacio seient = CtrlSeientEnRepresentacio.obte(nom, sessio, aux.getFila(),
 			// aux.getColumna());
 			// seient.ocupat();
 		}
@@ -183,12 +196,8 @@ public class Representacio implements Serializable {
 		List<TuplaSeient> oc = new ArrayList<>();
 
 		for (SeientEnRepresentacio seient : seientsEnRepresentacio) {
-			if (seient.esSeientLliure()) {
-				TuplaSeient tupla = new TuplaSeient();
-				tupla.setColumna(seient.getColumna());
-				tupla.setFila(seient.getFila());
-				oc.add(tupla);
-			}
+			if (seient.esSeientLliure())
+				oc.add(seient.getPosicioSeient());
 		}
 
 		return oc;

@@ -39,7 +39,7 @@ CREATE TABLE Seient
   CONSTRAINT fk9362c554e94353e FOREIGN KEY (noml)
       REFERENCES local (nom) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT seient_check CHECK (fila >= 0 AND columna >= 0)
+  CONSTRAINT seient_check CHECK (fila > 0 AND columna > 0)
 );
 
 CREATE TABLE Representacio
