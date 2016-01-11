@@ -45,7 +45,8 @@ public class SeientEnRepresentacio {
 				
 	}
 
-	public void ocupat() {
+	public void ocupat(Entrada entrada) {
+		this.entrada = entrada;
 		this.estat = Estat.OCUPAT;
 	}
 
