@@ -114,6 +114,23 @@ public class CtrlSeientEnRepresentacio implements ICtrlSeientEnRepresentacio {
 		}
 
 		return listSeients;
+	}
+	
+	public void guardaSeientEnRepresentacio(SeientEnRepresentacio seientEnRepresentacio) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = null;
 
+		try {
+			tx = session.beginTransaction();
+			
+			session.save(seientEnRepresentacio);
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
 	}
 }
