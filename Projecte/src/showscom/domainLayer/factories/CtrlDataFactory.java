@@ -1,5 +1,6 @@
 package showscom.domainLayer.factories;
 
+import showscom.dataLayer.dataControllers.CtrlEntrada;
 import showscom.dataLayer.dataControllers.CtrlEspectacle;
 import showscom.dataLayer.dataControllers.CtrlLocal;
 import showscom.dataLayer.dataControllers.CtrlRepresentacio;
@@ -22,7 +23,7 @@ public class CtrlDataFactory {
 		ctrlRepr = new CtrlRepresentacio();
 		ctrlLoc = new CtrlLocal();
 		// ctrlSeientRepr = new CtrlSeientEnRepresentacio();
-		// ctrlEnt = new CtrlEntrada();
+		ctrlEnt = new CtrlEntrada();
 	}
 
 	public static CtrlDataFactory getInstance() {

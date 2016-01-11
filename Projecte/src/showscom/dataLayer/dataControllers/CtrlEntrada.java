@@ -12,9 +12,10 @@ import org.hibernate.Transaction;
 
 import showscom.dataLayer.exceptions.CDEntradaNoExisteix;
 import showscom.dataLayer.sessionFactory.SessionFactoryAdapter;
+import showscom.domainLayer.dataInterface.ICtrlEntrada;
 import showscom.domainLayer.domainModel.Entrada;
 
-public class CtrlEntrada {
+public class CtrlEntrada implements ICtrlEntrada {
 
 	private final SessionFactory sessionFactory = SessionFactoryAdapter.getSessionFactory();
 
@@ -105,6 +106,25 @@ public class CtrlEntrada {
 		}
 
 		return listEnt;
+	}
+	
+	public void guardaEntrada(Entrada entrada) {		
+		Session session = sessionFactory.openSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			
+			session.save(entrada);
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		
 	}
 
 }
