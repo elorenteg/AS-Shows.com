@@ -3,10 +3,13 @@ package showscom.domainLayer.domainControllers;
 import java.util.Date;
 import java.util.List;
 
+import org.omg.PortableServer.AdapterActivator;
+
 import showscom.dataLayer.exceptions.CDLocalNoExisteix;
 import showscom.dataLayer.exceptions.CDRepresentacioNoExisteix;
 import showscom.domainLayer.adapters.BankServiceAdapter;
 import showscom.domainLayer.adapters.IBankServiceAdapter;
+import showscom.domainLayer.adapters.ICurrencyConvertorAdapter;
 import showscom.domainLayer.dataInterface.ICtrlLocal;
 import showscom.domainLayer.dataInterface.ICtrlRepresentacio;
 import showscom.domainLayer.domainModel.Entrada;
@@ -22,6 +25,7 @@ import showscom.domainLayer.exceptions.DONoHiHaRepresentacions;
 import showscom.domainLayer.exceptions.DOPagamentNoAutoritzat;
 import showscom.domainLayer.exceptions.DOSeientsNoDisp;
 import showscom.domainLayer.exceptions.DOServeiNoDisponible;
+import showscom.domainLayer.factories.AdapterFactory;
 import showscom.domainLayer.factories.CtrlDataFactory;
 import showscom.domainLayer.factories.CtrlUseCaseFactory;
 
@@ -93,16 +97,27 @@ public class CtrlDomComprarEntrada {
 		ShowsCom showsCom = ShowsCom.getInstance();
 		float comissio = showsCom.getComissio();
 		List<Moneda> canvis = showsCom.getCanvis();
-		
+
 		System.out.println(canvis.get(0).name() + " " + canvis.get(1).name());
 
 		tupla.setPreu(nombreEspectadors * (preu + comissio + recarrec));
 		tupla.setCanvis(canvis);
-		
+
 		this.seients = seients;
 		this.preuTotal = preu;
 
 		return tupla;
+	}
+
+	public float obtePreuMoneda(String moneda) {
+		AdapterFactory adapFact = AdapterFactory.getInstance();
+		ICurrencyConvertorAdapter adapConv = adapFact.getCurrencyConvertorAdapter();
+
+		ShowsCom showsCom = ShowsCom.getInstance();
+		Moneda divisa = showsCom.getDivisa();
+		float conversio = adapConv.conversorRate(divisa.name(), moneda);
+
+		return preuTotal * conversio;
 	}
 
 	public void pagament(String dni, int codiB, String numCompte) throws DOPagamentNoAutoritzat, DOServeiNoDisponible {

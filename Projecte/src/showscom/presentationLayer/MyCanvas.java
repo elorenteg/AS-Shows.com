@@ -45,9 +45,9 @@ public class MyCanvas extends Canvas {
 		g.drawLine(0, altura - 1, amplada - 1, altura - 1);
 
 		int ySeient = (altura - (hSeient * maxFila + sep * (maxFila - 1))) / 2;
-		for (int f = 0; f < maxFila; ++f) {
+		for (int f = 1; f <= maxFila; ++f) {
 			int xSeient = (amplada - (wSeient * maxColumna + sep * (maxColumna - 1))) / 2;
-			for (int c = 0; c < maxColumna; ++c) {
+			for (int c = 1; c <= maxColumna; ++c) {
 				TuplaSeient seient = new TuplaSeient(f, c);
 
 				Color color = Color.GREEN;
@@ -65,7 +65,7 @@ public class MyCanvas extends Canvas {
 
 		int yLab = (altura - (hSeient * maxFila + sep * (maxFila - 1))) / 2 + 12;
 		int xLab = (amplada - (wSeient * maxColumna + sep * (maxColumna - 1))) / 2 - 17;
-		for (int f = 0; f < maxFila; ++f) {
+		for (int f = 1; f <= maxFila; ++f) {
 			int aux = 0;
 			if (f <= 9)
 				aux = 6;
@@ -76,7 +76,7 @@ public class MyCanvas extends Canvas {
 
 		yLab = (altura - (hSeient * maxFila + sep * (maxFila - 1))) / 2 - 4;
 		xLab = (amplada - (wSeient * maxColumna + sep * (maxColumna - 1))) / 2;
-		for (int c = 0; c < maxColumna; ++c) {
+		for (int c = 1; c <= maxColumna; ++c) {
 			int aux = 0;
 			if (c <= 9)
 				aux = 4;
@@ -130,14 +130,16 @@ public class MyCanvas extends Canvas {
 			double decCdins = (double) hSeient / (hSeient + sep);
 
 			if (decF <= decFdins && decC <= decCdins) {
-				int f = (yClicked - yMin) / (hSeient + sep);
-				int c = (xClicked - xMin) / (wSeient + sep);
+				int f = (yClicked - yMin) / (hSeient + sep) + 1;
+				int c = (xClicked - xMin) / (wSeient + sep) + 1;
 
 				TuplaSeient seient = new TuplaSeient(f, c);
 				if (seientsLliures.contains(seient)) {
 					if (!seientsAssignats.contains(seient)) {
 						seientsAssignats.add(seient);
+						System.out.println("S'assigna el seient " + f + " " + c);
 					} else {
+						System.out.println("Es desassigna el seient " + f + " " + c);
 						seientsAssignats.remove(seient);
 					}
 					paint(this.getGraphics());

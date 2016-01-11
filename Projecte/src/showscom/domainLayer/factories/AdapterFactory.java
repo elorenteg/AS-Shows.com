@@ -15,6 +15,10 @@ public class AdapterFactory {
 		currencyConvertorAdap = new CurrencyConvertorAdapter();
 	}
 
+	public static AdapterFactory getInstance() {
+		return instance;
+	}
+
 	public static IBankServiceAdapter getBankServiceAdapter() {
 		return bankServiceAdap;
 	}
