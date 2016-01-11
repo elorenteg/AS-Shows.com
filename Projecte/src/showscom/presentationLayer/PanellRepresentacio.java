@@ -31,6 +31,7 @@ public class PanellRepresentacio extends JPanel {
 	private JScrollPane scrollPane;
 	private JTable table;
 	private JTextField textField;
+	private int numEsp;
 
 	public PanellRepresentacio(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres,
 			List<TuplaRepr> infoRepr) {
@@ -155,7 +156,7 @@ public class PanellRepresentacio extends JPanel {
 	private void prContinua(ActionEvent evt) {
 		String local = null;
 		String sessio = null;
-		int numEsp = -1;
+		numEsp = -1;
 
 		int selRow = table.convertRowIndexToModel(table.getSelectedRow());
 		try {
@@ -180,5 +181,9 @@ public class PanellRepresentacio extends JPanel {
 
 	private void prCancela(ActionEvent evt) {
 		ctrlPres.prCancela();
+	}
+	
+	public int getNumEsp() {
+		return numEsp;
 	}
 }

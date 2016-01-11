@@ -9,9 +9,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingConstants;
 
 import showscom.domainLayer.domainModel.TuplaSeient;
 
@@ -22,19 +26,24 @@ public class PanellSeients extends JPanel {
 	private VistaComprarEntrada vistaPres;
 
 	private MyCanvas canvas;
+	private int numEsp;
 
 	private JButton btnContinua;
 	private JButton btnCancela;
 
 	public PanellSeients(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, int maxFila, int maxColumna,
-			List<TuplaSeient> seientsLliures) {
+			List<TuplaSeient> seientsLliures, int numEsp) {
 		this.ctrlPres = ctrlPres;
 		this.vistaPres = vistaPres;
+		this.numEsp = numEsp;
 		initComponents(maxFila, maxColumna, seientsLliures);
 		this.setVisible(true);
 	}
 
 	private void initComponents(int maxFila, int maxColumna, List<TuplaSeient> seientsLliures) {
+		JLabel label1 = new JLabel("Selecciona ");
+		JLabel label2 = new JLabel("");
+		JLabel label3 = new JLabel(" seients");
 		canvas = new MyCanvas(vistaPres.getWidth(), vistaPres.getHeight(), maxFila, maxColumna, seientsLliures);
 		canvas.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
@@ -42,9 +51,12 @@ public class PanellSeients extends JPanel {
 				int y = e.getY();
 
 				canvas.refresh(x, y);
+				label2.setText(String.valueOf(numEsp - canvas.getSeientsAssignats().size()));
 			}
 		});
 		this.add(canvas, BorderLayout.CENTER);
+
+		label2.setText(String.valueOf(numEsp - canvas.getSeientsAssignats().size()));
 
 		btnContinua = new javax.swing.JButton();
 		btnContinua.setText("Continua");
@@ -76,13 +88,16 @@ public class PanellSeients extends JPanel {
 		setLayout(new GridBagLayout());
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-		this.setLayout(layout);
 		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGroup(javax.swing.GroupLayout.Alignment.CENTER,
 						layout.createSequentialGroup().addGap(200, 200, 200).addComponent(btnContinua)
 								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
 										javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(btnCancela).addGap(200, 200, 200))
+
+				.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(layout.createSequentialGroup().addGap(200).addComponent(label1).addComponent(label2)
+								.addComponent(label3)))
 
 				.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER).addGroup(layout
 						.createSequentialGroup().addComponent(labelEspec)
@@ -96,20 +111,32 @@ public class PanellSeients extends JPanel {
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(labelSep4)
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(labelConfirm))
 						.addGap(52, 109, Short.MAX_VALUE)));
-		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup().addGap(50, 50, 50)
-						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(labelEspec).addComponent(labelRepres).addComponent(labelSeients)
-								.addComponent(labelPagam).addComponent(labelConfirm).addComponent(labelSep1)
-								.addComponent(labelSep2).addComponent(labelSep3).addComponent(labelSep4))
-				.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-				.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-				.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-						.addComponent(btnContinua).addComponent(btnCancela)).addGap(50, 50, 50).addContainerGap()));
+
+		layout.setVerticalGroup(layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addGap(50)
+						.addGroup(layout.createParallelGroup(Alignment.BASELINE).addComponent(labelEspec)
+								.addComponent(labelRepres).addComponent(labelSeients).addComponent(labelPagam)
+								.addComponent(labelConfirm).addComponent(labelSep1).addComponent(labelSep2)
+								.addComponent(labelSep3).addComponent(labelSep4))
+				.addGap(45)
+				.addGroup(layout.createParallelGroup(Alignment.CENTER).addComponent(label1).addComponent(label2)
+						.addComponent(label3)).addGap(408)
+				.addGroup(layout.createParallelGroup(Alignment.BASELINE).addComponent(btnContinua)
+						.addComponent(btnCancela)).addContainerGap()));
+		this.setLayout(layout);
 	}
 
 	private void prContinua(ActionEvent evt) {
 		List<TuplaSeient> seientsAssignats = canvas.getSeientsAssignats();
+
+		if (numEsp - seientsAssignats.size() > 0) {
+			vistaPres.mostraMissatgeEndarrera("Encara queden seients per seleccionar");
+			return;
+		} else if (numEsp - seientsAssignats.size() < 0) {
+			vistaPres.mostraMissatgeEndarrera("S'han seleccionat més seients que el número d'espectadors");
+			return;
+		}
+
 		ctrlPres.prContSeleccionarSeients(seientsAssignats);
 	}
 
