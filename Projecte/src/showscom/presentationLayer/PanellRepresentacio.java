@@ -42,7 +42,7 @@ public class PanellRepresentacio extends JPanel {
 
 	@SuppressWarnings("serial")
 	private void initComponents(List<TuplaRepr> infoRepr) {
-		JLabel label1 = new JLabel("Selecciona un espectacle i una data");
+		JLabel label1 = new JLabel("Selecciona una representació");
 
 		scrollPane = new JScrollPane();
 		String[] columnNames = { "Local", "Sessió", "Seients", "Estrena", "Preu (EUR)" };
@@ -117,7 +117,7 @@ public class PanellRepresentacio extends JPanel {
 								.addComponent(btnCancela).addGap(200, 200, 200))
 
 				.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-						.addGroup(layout.createSequentialGroup().addComponent(label1).addGap(450, 450, 450))
+						.addGroup(layout.createSequentialGroup().addComponent(label1).addGap(480, 480, 480))
 						.addGap(52, 109, Short.MAX_VALUE)
 						.addGroup(layout.createSequentialGroup().addComponent(scrollPane))
 						.addGroup(layout.createSequentialGroup().addComponent(label2).addGap(20, 20, 20)
@@ -168,6 +168,7 @@ public class PanellRepresentacio extends JPanel {
 
 		try {
 			numEsp = Integer.parseInt(textField.getText());
+			if (numEsp < 1) throw new Exception();
 		} catch (Exception e) {
 			vistaPres.mostraMissatgeEndarrera("No s'ha introduït un nombre d'espectadors vàlid");
 			return;

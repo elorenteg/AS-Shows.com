@@ -48,7 +48,7 @@ public class PanellEspectacle extends JPanel {
 
 	@SuppressWarnings("serial")
 	private void initComponents(List<String> espectacles) {
-		JLabel label1 = new JLabel("Selecciona una representació");
+		JLabel label1 = new JLabel("Selecciona un espectacle i una data");
 
 		scrollPane = new JScrollPane();
 		String[] columnNames = { "Títols" };

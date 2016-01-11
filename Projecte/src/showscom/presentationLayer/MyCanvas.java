@@ -93,7 +93,7 @@ public class MyCanvas extends Canvas {
 		g.fillRect(xPantalla, yPantalla, wPantalla, hPantalla);
 
 		g.setColor(Color.WHITE);
-		g.drawString("PANTALLA", xPantalla + (wPantalla - 50) / 2, yPantalla + (hPantalla + 8) / 2);
+		g.drawString("ESCENARI", xPantalla + (wPantalla - 50) / 2, yPantalla + (hPantalla + 8) / 2);
 
 		int xLlegenda = (amplada - (wSeient * 3 + sep * 2 + 3 * 100)) / 2;
 		int yLlegenda = altura - 30;
