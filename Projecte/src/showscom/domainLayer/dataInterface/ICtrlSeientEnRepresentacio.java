@@ -13,5 +13,6 @@ public interface ICtrlSeientEnRepresentacio {
 	public boolean existSeientEnRepresentacio(int fila, int columna, String nomL, String sessio);
 
 	public List<SeientEnRepresentacio> getAllSeientEnRepresentacio();
-
+	
+	public void guardaSeientEnRepresentacio(SeientEnRepresentacio seientEnRepresentacio);
 }
