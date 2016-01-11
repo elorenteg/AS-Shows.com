@@ -96,7 +96,6 @@ public class CtrlDomComprarEntrada {
 		// ShowsCom showsCom = ShowsCom.getInstance();
 		// float comissio = showsCom.getComissio();
 		// List<Moneda> canvis = showsCom.getCanvis();
-		// TODO:
 		float comissio = 6;
 		List<Moneda> canvis = new ArrayList<>();
 		canvis.add(Moneda.EUR);
@@ -118,6 +117,7 @@ public class CtrlDomComprarEntrada {
 		AdapterFactory adapFact = AdapterFactory.getInstance();
 		ICurrencyConvertorAdapter adapConv = adapFact.getCurrencyConvertorAdapter();
 
+		// TODO:
 		// ShowsCom showsCom = ShowsCom.getInstance();
 		// Moneda divisa = showsCom.getDivisa();
 		Moneda divisa = Moneda.EUR;
