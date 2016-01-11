@@ -32,7 +32,7 @@ public class CurrencyConvertor implements Service {
 				return Float.parseFloat(line);
 			} else
 				throw new Exception();
-		} catch (IOException | NumberFormatException e) {
+		} catch (IOException | NumberFormatException | NullPointerException e) {
 			throw e;
 		}
 	}
