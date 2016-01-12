@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import showscom.domainLayer.domainModel.Moneda;
+
 public class PanellInici extends JPanel {
 	private static final long serialVersionUID = 1L;
 
@@ -101,6 +103,7 @@ public class PanellInici extends JPanel {
 	}
 
 	private void prContinua() {
+		System.out.println(Moneda.EUR.name() + " " + Moneda.EUR.getSymbol());
 		ctrlPres.prContObteEspectacles();
 	}
 
