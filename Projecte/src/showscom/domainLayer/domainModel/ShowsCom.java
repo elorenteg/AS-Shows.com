@@ -114,12 +114,11 @@ public class ShowsCom {
 	public int incrementaVenudes() {
 		int aux = venudes;
 		++venudes;
-		
+
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		ICtrlShowsCom ctrlShows = ctrlDataFact.getCtrlShows();
 		ctrlShows.actualitzaShowsCom(instance);
-		
-		
+
 		return aux;
 	}
 

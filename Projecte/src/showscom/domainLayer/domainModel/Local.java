@@ -56,11 +56,11 @@ public class Local {
 		super();
 		this.nom = nom;
 		this.adreca = adreca;
-		
+
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		ICtrlLocal ctrlLocal = ctrlDataFact.getCtrlLocal();
 		ctrlLocal.guardaLocal(this);
-		
+
 		creaSeients(maxFila, maxColumna);
 	}
 

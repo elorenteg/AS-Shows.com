@@ -112,10 +112,8 @@ public class CtrlDomComprarEntrada {
 
 		ShowsCom showsCom = ShowsCom.getInstance();
 		Moneda divisa = showsCom.getDivisa();
-		System.out.println("Començo conversió...");
 		float conversio = adapConv.conversorRate(divisa.name(), moneda.name());
-
-		System.out.println(conversio);
+		System.out.println("Conversió " + divisa.name() + "->" + moneda.name() + ": " + conversio);
 
 		return preuTotal * conversio;
 	}

@@ -108,18 +108,18 @@ public class CtrlRepresentacio implements ICtrlRepresentacio {
 
 		return listRep;
 	}
-	
+
 	public void actualitzaRepresentacio(Representacio representacio) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
-		
+
 		try {
 			tx = session.beginTransaction();
-			
+
 			session.update(representacio);
 			tx.commit();
 		} catch (HibernateException e) {
-			if (tx != null) 
+			if (tx != null)
 				tx.rollback();
 			e.printStackTrace();
 		} finally {

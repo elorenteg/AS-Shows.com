@@ -50,9 +50,6 @@ public class PanellPagament extends JPanel {
 
 	private void initComponents(float preu, List<Moneda> divises) {
 		divisa = divises.get(0);
-		for (Moneda m : divises) {
-			System.out.println(m.name());
-		}
 
 		JLabel labelPreu = new JLabel("Preu total:");
 		labelPreu.setFont(new Font("originalfont", Font.PLAIN, 16));
@@ -204,7 +201,7 @@ public class PanellPagament extends JPanel {
 		}
 
 		int codiBanc;
-		String aux  = textFieldCodiBanc.getText();
+		String aux = textFieldCodiBanc.getText();
 		if (aux.length() != 4) {
 			vistaPres.mostraMissatgeEndarrera("El Codi del banc ha de estar format per quatre dígits");
 			return;

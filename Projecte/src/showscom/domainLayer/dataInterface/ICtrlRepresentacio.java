@@ -12,6 +12,6 @@ public interface ICtrlRepresentacio {
 	public boolean existRepresentacio(String nomL, String sessio);
 
 	public List<Representacio> getAllRepresentacio();
-	
+
 	public void actualitzaRepresentacio(Representacio representacio);
 }

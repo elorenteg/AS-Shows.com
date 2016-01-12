@@ -33,7 +33,6 @@ public class CtrlShowsCom implements ICtrlShowsCom {
 			if (listObj.size() == 1) {
 				Map row = (Map) listObj.get(0);
 				int id = (int) row.get("id");
-				System.out.println(id);
 				showsCom = (ShowsCom) session.get(ShowsCom.class, id);
 			} else
 				throw new CDShowsComNoExisteix();
@@ -48,11 +47,11 @@ public class CtrlShowsCom implements ICtrlShowsCom {
 
 		return showsCom;
 	}
-	
+
 	public void actualitzaShowsCom(ShowsCom showsCom) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
-		
+
 		try {
 			tx = session.beginTransaction();
 
@@ -65,6 +64,6 @@ public class CtrlShowsCom implements ICtrlShowsCom {
 		} finally {
 			session.close();
 		}
-		
+
 	}
 }

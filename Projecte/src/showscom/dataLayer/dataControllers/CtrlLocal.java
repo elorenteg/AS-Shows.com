@@ -106,7 +106,7 @@ public class CtrlLocal implements ICtrlLocal {
 
 		return listLoc;
 	}
-	
+
 	public void guardaLocal(Local local) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
