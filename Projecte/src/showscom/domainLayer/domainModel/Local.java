@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import showscom.domainLayer.dataInterface.ICtrlLocal;
 import showscom.domainLayer.dataInterface.ICtrlSeient;
 import showscom.domainLayer.factories.CtrlDataFactory;
 
@@ -55,10 +56,11 @@ public class Local {
 		super();
 		this.nom = nom;
 		this.adreca = adreca;
-
-		// TODO guardar esta instancia de local en la BD antes de crear los
-		// seients
-
+		
+		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
+		ICtrlLocal ctrlLocal = ctrlDataFact.getCtrlLocal();
+		ctrlLocal.guardaLocal(this);
+		
 		creaSeients(maxFila, maxColumna);
 	}
 

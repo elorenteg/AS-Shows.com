@@ -12,5 +12,7 @@ public interface ICtrlLocal {
 	public boolean existLocal(String nomL) throws CDLocalNoExisteix;
 
 	public List<Local> getAllLocal();
+	
+	public void guardaLocal(Local local);
 
 }

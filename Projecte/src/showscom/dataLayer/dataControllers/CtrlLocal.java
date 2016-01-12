@@ -106,4 +106,22 @@ public class CtrlLocal implements ICtrlLocal {
 
 		return listLoc;
 	}
+	
+	public void guardaLocal(Local local) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+
+			session.save(local);
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
 }
