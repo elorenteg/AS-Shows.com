@@ -1,7 +1,7 @@
 package showscom.domainLayer.domainModel;
 
 public enum Moneda {
-	EUR("EUR",'â‚¬'), USD("USD",'$'), GBP("GBP",'Â£');
+	EUR("EUR",'€'), USD("USD",'$'), GBP("GBP",'£');
 
 	private final String text;
 	private final char symbol;
