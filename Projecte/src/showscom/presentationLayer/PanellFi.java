@@ -48,7 +48,7 @@ public class PanellFi extends JPanel {
 		btnFinalitza.setText("Finalitza");
 		btnFinalitza.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				prFinalitza(evt);
+				prFinalitza();
 			}
 		});
 
@@ -111,7 +111,7 @@ public class PanellFi extends JPanel {
 						.addComponent(btnFinalitza)).addGap(50, 50, 50).addContainerGap()));
 	}
 
-	private void prFinalitza(ActionEvent evt) {
+	private void prFinalitza() {
 		ctrlPres.prFinalitza();
 	}
 }

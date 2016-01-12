@@ -121,7 +121,7 @@ public class PanellRepresentacio extends JPanel {
 		btnContinua.setText("Continua");
 		btnContinua.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				prContinua(evt);
+				prContinua();
 			}
 		});
 
@@ -129,7 +129,7 @@ public class PanellRepresentacio extends JPanel {
 		btnCancela.setText("Cancel·la");
 		btnCancela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				prCancela(evt);
+				prCancela();
 			}
 		});
 
@@ -191,7 +191,7 @@ public class PanellRepresentacio extends JPanel {
 						.addComponent(btnContinua).addComponent(btnCancela)).addGap(50, 50, 50).addContainerGap()));
 	}
 
-	private void prContinua(ActionEvent evt) {
+	private void prContinua() {
 		String local = null;
 		String sessio = null;
 		numEsp = -1;
@@ -217,7 +217,7 @@ public class PanellRepresentacio extends JPanel {
 		ctrlPres.prContObteOcupacio(local, sessio, numEsp);
 	}
 
-	private void prCancela(ActionEvent evt) {
+	private void prCancela() {
 		ctrlPres.prCancela();
 	}
 
