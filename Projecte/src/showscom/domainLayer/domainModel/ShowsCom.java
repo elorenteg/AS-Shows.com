@@ -24,18 +24,7 @@ import showscom.domainLayer.factories.CtrlDataFactory;
 @Table(name = "ShowsCom")
 @Check(constraints = "codiBanc > 0 AND comissio > 0")
 public class ShowsCom {
-	private static ShowsCom instance;
-
-	static {
-		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
-		ICtrlShowsCom ctrlShows = ctrlDataFact.getCtrlShows();
-		try {
-			instance = ctrlShows.getShowsCom();
-		} catch (CDShowsComNoExisteix e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	private static ShowsCom instance = null;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -68,6 +57,17 @@ public class ShowsCom {
 
 	/* Metode estatic 'instance' */
 	public static ShowsCom getInstance() {
+		if (instance == null) {
+			CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
+			ICtrlShowsCom ctrlShows = ctrlDataFact.getCtrlShows();
+			try {
+				instance = ctrlShows.getShowsCom();
+			} catch (CDShowsComNoExisteix e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
 		return instance;
 	}
 
