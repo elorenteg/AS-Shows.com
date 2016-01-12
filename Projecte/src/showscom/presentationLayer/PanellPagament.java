@@ -56,7 +56,7 @@ public class PanellPagament extends JPanel {
 
 		textFieldPreu = new JTextField();
 		textFieldPreu.setEditable(false);
-		textFieldPreu.setText(Float.toString(preu));
+		textFieldPreu.setText(String.format("%.2f", preu));
 		textFieldPreu.setColumns(10);
 
 		comboBoxDivises = new JComboBox<String>();
@@ -246,6 +246,6 @@ public class PanellPagament extends JPanel {
 	}
 
 	public void actualitzaPreu(float preu) {
-		textFieldPreu.setText(Float.toString(preu));
+		textFieldPreu.setText(String.format("%.2f", preu));
 	}
 }
