@@ -4,7 +4,7 @@ import java.util.List;
 
 public class TuplaPreu {
 	private float preu;
-	private List<Moneda> canvis;
+	private List<String> canvis;
 
 	public float getPreu() {
 		return preu;
@@ -14,11 +14,11 @@ public class TuplaPreu {
 		this.preu = preu;
 	}
 
-	public List<Moneda> getCanvis() {
+	public List<String> getCanvis() {
 		return canvis;
 	}
 
-	public void setCanvis(List<Moneda> canvis) {
+	public void setCanvis(List<String> canvis) {
 		this.canvis = canvis;
 	}
 }

@@ -77,7 +77,7 @@ public class CtrlPresComprarEntrada {
 		vistaPres.mostraPagament(tupla.getPreu(), tupla.getCanvis());
 	}
 
-	public void prComboObtePreuMoneda(Moneda moneda) {
+	public void prComboObtePreuMoneda(String moneda) {
 		try {
 			float preu = ctrlDom.obtePreuMoneda(moneda);
 			vistaPres.mostraConversio(preu);

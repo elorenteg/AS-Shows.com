@@ -1,5 +1,6 @@
 package showscom.domainLayer.domainControllers;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -93,12 +94,17 @@ public class CtrlDomComprarEntrada {
 
 		ShowsCom showsCom = ShowsCom.getInstance();
 		float comissio = showsCom.getComissio();
-		Moneda divisa = showsCom.getDivisa();
+		//Moneda divisa = showsCom.getDivisa();
 		List<Moneda> canvis = showsCom.getCanvis();
-		canvis.add(0, divisa);
+		//canvis.add(0, divisa);
+		
+		List<String> canvString = new ArrayList<>();
+		for (Moneda m: canvis) {
+			canvString.add(m.name());
+		}
 
 		tupla.setPreu(nombreEspectadors * (preu + comissio + recarrec));
-		tupla.setCanvis(canvis);
+		tupla.setCanvis(canvString);
 
 		this.seients = seients;
 		this.preuTotal = tupla.getPreu();
@@ -106,14 +112,14 @@ public class CtrlDomComprarEntrada {
 		return tupla;
 	}
 
-	public float obtePreuMoneda(Moneda moneda) throws DOServeiNoDisponible {
+	public float obtePreuMoneda(String moneda) throws DOServeiNoDisponible {
 		AdapterFactory adapFact = AdapterFactory.getInstance();
 		ICurrencyConvertorAdapter adapConv = adapFact.getCurrencyConvertorAdapter();
 
 		ShowsCom showsCom = ShowsCom.getInstance();
 		Moneda divisa = showsCom.getDivisa();
-		float conversio = adapConv.conversorRate(divisa.name(), moneda.name());
-		System.out.println("Conversió " + divisa.name() + "->" + moneda.name() + ": " + conversio);
+		float conversio = adapConv.conversorRate(divisa.name(), moneda);
+		System.out.println("Conversió " + divisa.name() + "->" + moneda + ": " + conversio);
 
 		return preuTotal * conversio;
 	}

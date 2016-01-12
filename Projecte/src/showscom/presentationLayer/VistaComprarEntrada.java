@@ -87,7 +87,7 @@ public class VistaComprarEntrada extends JFrame {
 		panellSeients.setVisible(true);
 	}
 
-	public void mostraPagament(float preu, List<Moneda> divises) {
+	public void mostraPagament(float preu, List<String> divises) {
 		panellPagam = new PanellPagament(ctrlPres, this, preu, divises);
 		getContentPane().add(panellPagam, "Pagament");
 		panellSeients.setVisible(false);

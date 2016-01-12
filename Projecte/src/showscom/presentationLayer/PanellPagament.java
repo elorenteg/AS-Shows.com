@@ -31,7 +31,7 @@ public class PanellPagament extends JPanel {
 	private JButton btnCancela;
 	private JComboBox<String> comboBoxDivises;
 
-	private Moneda divisa;
+	private String divisa;
 
 	public PanellPagament(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres) {
 		this.ctrlPres = ctrlPres;
@@ -41,14 +41,14 @@ public class PanellPagament extends JPanel {
 	}
 
 	public PanellPagament(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, float preu,
-			List<Moneda> divises) {
+			List<String> divises) {
 		this.ctrlPres = ctrlPres;
 		this.vistaPres = vistaPres;
 		initComponents(preu, divises);
 		this.setVisible(true);
 	}
 
-	private void initComponents(float preu, List<Moneda> divises) {
+	private void initComponents(float preu, List<String> divises) {
 		divisa = divises.get(0);
 
 		JLabel labelPreu = new JLabel("Preu total:");
@@ -60,11 +60,11 @@ public class PanellPagament extends JPanel {
 		textFieldPreu.setColumns(10);
 
 		comboBoxDivises = new JComboBox<String>();
-		for (Moneda divisa : divises)
-			comboBoxDivises.addItem(divisa.name());
+		for (String divisa : divises)
+			comboBoxDivises.addItem(divisa);
 		comboBoxDivises.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				Moneda selMoneda = Moneda.valueOf(comboBoxDivises.getSelectedItem().toString());
+				String selMoneda = comboBoxDivises.getSelectedItem().toString();
 				if (divisa != selMoneda) {
 					divisa = selMoneda;
 					ctrlPres.prComboObtePreuMoneda(selMoneda);
