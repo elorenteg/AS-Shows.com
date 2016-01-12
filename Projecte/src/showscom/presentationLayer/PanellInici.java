@@ -9,8 +9,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import showscom.domainLayer.domainModel.ShowsCom;
-
 public class PanellInici extends JPanel {
 	private static final long serialVersionUID = 1L;
 

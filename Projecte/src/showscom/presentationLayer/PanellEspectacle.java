@@ -27,8 +27,6 @@ import javax.swing.table.JTableHeader;
 
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.UtilDateModel;
-import showscom.domainLayer.domainModel.TipusSessio;
-import showscom.domainLayer.domainModel.TuplaRepr;
 
 public class PanellEspectacle extends JPanel {
 	private static final long serialVersionUID = 1L;

@@ -17,6 +17,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 
 import showscom.domainLayer.domainModel.TipusSessio;
@@ -65,9 +67,10 @@ public class PanellRepresentacio extends JPanel {
 		for (int i = 0; i < infoRepr.size(); ++i) {
 			TuplaRepr tupla = infoRepr.get(i);
 			data[i][0] = tupla.getLocal();
-			data[i][1] = tupla.getSessio();
+			data[i][1] = tupla.getSessio().substring(0, 1).toUpperCase() + tupla.getSessio().substring(1).toLowerCase();
 			data[i][2] = tupla.getNombreSeientsLliures();
-			data[i][3] = tupla.getEsEstrena();
+
+			data[i][3] = (String) (tupla.getEsEstrena() ? "\u2713" : "\u2717");
 			data[i][4] = tupla.getPreu();
 		}
 		table = new JTable(data, columnNames) {
@@ -87,6 +90,23 @@ public class PanellRepresentacio extends JPanel {
 		scrollPane.setViewportView(table);
 		scrollPane.setMaximumSize(new Dimension(650, 280));
 		scrollPane.setMinimumSize(new Dimension(650, 280));
+
+		for (int i = 0; i < table.getColumnCount(); ++i) {
+			int w;
+			if (columnNames[i] == "Local")
+				w = 6;
+			else
+				w = 1;
+
+			table.getColumnModel().getColumn(i).setPreferredWidth(300 / 10 * w);
+			table.getColumnModel().getColumn(i).setWidth(300 / 10 * w);
+
+			if (columnNames[i] != "Local" && columnNames[i] != "Sessió") {
+				DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+				centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+				table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+			}
+		}
 
 		JLabel label2 = new JLabel("Núm. d'espectadors:");
 		textField = new JTextField();
@@ -175,7 +195,7 @@ public class PanellRepresentacio extends JPanel {
 		int selRow = table.convertRowIndexToModel(table.getSelectedRow());
 		try {
 			local = (String) table.getModel().getValueAt(selRow, 0);
-			sessio = (String) table.getModel().getValueAt(selRow, 1);
+			sessio = ((String) table.getModel().getValueAt(selRow, 1)).toUpperCase();
 		} catch (Exception e) {
 			vistaPres.mostraMissatgeEndarrera("No s'ha seleccionat cap representació");
 			return;
