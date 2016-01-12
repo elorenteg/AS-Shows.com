@@ -59,7 +59,7 @@ public class PanellSeients extends JPanel {
 		btnContinua.setText("Continua");
 		btnContinua.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				prContinua(evt);
+				prContinua();
 			}
 		});
 
@@ -67,7 +67,7 @@ public class PanellSeients extends JPanel {
 		btnCancela.setText("Cancel·la");
 		btnCancela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				prCancela(evt);
+				prCancela();
 			}
 		});
 
@@ -117,13 +117,13 @@ public class PanellSeients extends JPanel {
 								.addComponent(labelSep3).addComponent(labelSep4))
 				.addGap(45)
 				.addGroup(layout.createParallelGroup(Alignment.CENTER).addComponent(label1).addComponent(label2)
-						.addComponent(label3)).addGap(408)
+						.addComponent(label3)).addGap(418)
 				.addGroup(layout.createParallelGroup(Alignment.BASELINE).addComponent(btnContinua)
 						.addComponent(btnCancela)).addContainerGap()));
 		this.setLayout(layout);
 	}
 
-	private void prContinua(ActionEvent evt) {
+	private void prContinua() {
 		List<TuplaSeient> seientsAssignats = canvas.getSeientsAssignats();
 
 		if (numEsp - seientsAssignats.size() > 0) {
@@ -137,7 +137,7 @@ public class PanellSeients extends JPanel {
 		ctrlPres.prContSeleccionarSeients(seientsAssignats);
 	}
 
-	private void prCancela(ActionEvent evt) {
+	private void prCancela() {
 		ctrlPres.prCancela();
 	}
 }

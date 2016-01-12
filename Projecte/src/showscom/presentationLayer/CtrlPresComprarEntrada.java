@@ -30,7 +30,7 @@ public class CtrlPresComprarEntrada {
 	}
 
 	public void prEndarrera() {
-		// no fa res
+		// Do nothing
 	}
 
 	public void prCancela() {

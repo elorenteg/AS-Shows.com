@@ -40,8 +40,8 @@ public class PanellRepresentacio extends JPanel {
 	private int numEsp;
 	private Moneda divisa;
 
-	public PanellRepresentacio(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres,
-			List<TuplaRepr> infoRepr, Moneda divisa) {
+	public PanellRepresentacio(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, List<TuplaRepr> infoRepr,
+			Moneda divisa) {
 		this.ctrlPres = ctrlPres;
 		this.vistaPres = vistaPres;
 		this.divisa = divisa;
@@ -74,7 +74,8 @@ public class PanellRepresentacio extends JPanel {
 			data[i][2] = tupla.getNombreSeientsLliures();
 
 			data[i][3] = (String) (tupla.getEsEstrena() ? "\u2713" : "\u2717");
-			data[i][4] = tupla.getPreu() + (String) (tupla.getEsEstrena() ? " (+" + tupla.getRecarrec() + ") " : " ") + divisa.getSymbol();
+			data[i][4] = tupla.getPreu() + (String) (tupla.getEsEstrena() ? " (+" + tupla.getRecarrec() + ") " : " ")
+					+ divisa.getSymbol();
 		}
 		table = new JTable(data, columnNames) {
 			public boolean isCellEditable(int row, int column) {
@@ -120,7 +121,7 @@ public class PanellRepresentacio extends JPanel {
 		btnContinua.setText("Continua");
 		btnContinua.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				prContinua(evt);
+				prContinua();
 			}
 		});
 
@@ -128,7 +129,7 @@ public class PanellRepresentacio extends JPanel {
 		btnCancela.setText("Cancel·la");
 		btnCancela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				prCancela(evt);
+				prCancela();
 			}
 		});
 
@@ -190,7 +191,7 @@ public class PanellRepresentacio extends JPanel {
 						.addComponent(btnContinua).addComponent(btnCancela)).addGap(50, 50, 50).addContainerGap()));
 	}
 
-	private void prContinua(ActionEvent evt) {
+	private void prContinua() {
 		String local = null;
 		String sessio = null;
 		numEsp = -1;
@@ -216,14 +217,14 @@ public class PanellRepresentacio extends JPanel {
 		ctrlPres.prContObteOcupacio(local, sessio, numEsp);
 	}
 
-	private void prCancela(ActionEvent evt) {
+	private void prCancela() {
 		ctrlPres.prCancela();
 	}
 
 	public int getNumEsp() {
 		return numEsp;
 	}
-	
+
 	public Moneda getDivisa() {
 		return divisa;
 	}

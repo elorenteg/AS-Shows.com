@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import showscom.domainLayer.domainModel.Moneda;
+
 public class PanellInici extends JPanel {
 	private static final long serialVersionUID = 1L;
 
@@ -31,19 +33,19 @@ public class PanellInici extends JPanel {
 		JLabel label2 = new JLabel("Sistema de Compra d'Entrades");
 		label2.setFont(new Font("originalfont", Font.PLAIN, 20));
 
-		btnContinua = new javax.swing.JButton();
+		btnContinua = new JButton();
 		btnContinua.setText("Continua");
 		btnContinua.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				prContinua(evt);
+				prContinua();
 			}
 		});
 
-		btnCancela = new javax.swing.JButton();
+		btnCancela = new JButton();
 		btnCancela.setText("Cancel·la");
 		btnCancela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				prCancela(evt);
+				prCancela();
 			}
 		});
 
@@ -100,11 +102,12 @@ public class PanellInici extends JPanel {
 						.addComponent(btnContinua).addComponent(btnCancela)).addGap(50, 50, 50).addContainerGap()));
 	}
 
-	private void prContinua(ActionEvent evt) {
+	private void prContinua() {
+		System.out.println(Moneda.EUR.name() + " " + Moneda.EUR.getSymbol());
 		ctrlPres.prContObteEspectacles();
 	}
 
-	private void prCancela(ActionEvent evt) {
+	private void prCancela() {
 		ctrlPres.prCancela();
 	}
 }

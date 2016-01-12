@@ -87,14 +87,14 @@ public class PanellPagament extends JPanel {
 		btnContinua = new JButton("Continua");
 		btnContinua.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				prContinua(evt);
+				prContinua();
 			}
 		});
 
 		btnCancela = new JButton("Cancel·la");
 		btnCancela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				prCancela(evt);
+				prCancela();
 			}
 		});
 
@@ -167,7 +167,7 @@ public class PanellPagament extends JPanel {
 						.addComponent(btnCancela)).addGap(50).addContainerGap()));
 	}
 
-	private void prContinua(ActionEvent evt) {
+	private void prContinua() {
 		String DNI = textFieldDNI.getText();
 		if (DNI == null) {
 			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el DNI");
@@ -235,7 +235,7 @@ public class PanellPagament extends JPanel {
 		ctrlPres.prContPagament(DNI, codiBanc, numCompte);
 	}
 
-	private void prCancela(ActionEvent evt) {
+	private void prCancela() {
 		ctrlPres.prCancela();
 	}
 

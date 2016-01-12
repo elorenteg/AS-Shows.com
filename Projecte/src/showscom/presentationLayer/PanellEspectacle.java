@@ -90,7 +90,7 @@ public class PanellEspectacle extends JPanel {
 		btnContinua.setText("Continua");
 		btnContinua.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				prContinua(evt);
+				prContinua();
 			}
 		});
 
@@ -98,7 +98,7 @@ public class PanellEspectacle extends JPanel {
 		btnCancela.setText("Cancel·la");
 		btnCancela.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				prCancela(evt);
+				prCancela();
 			}
 		});
 
@@ -156,7 +156,7 @@ public class PanellEspectacle extends JPanel {
 						.addComponent(btnContinua).addComponent(btnCancela)).addGap(50, 50, 50).addContainerGap()));
 	}
 
-	private void prContinua(ActionEvent evt) {
+	private void prContinua() {
 		String titol = null;
 		Date data = null;
 		int selRow = table.convertRowIndexToModel(table.getSelectedRow());
@@ -190,7 +190,7 @@ public class PanellEspectacle extends JPanel {
 		ctrlPres.prContObteRepresentacions(titol, data);
 	}
 
-	private void prCancela(ActionEvent evt) {
+	private void prCancela() {
 		ctrlPres.prCancela();
 	}
 }
