@@ -48,4 +48,23 @@ public class CtrlShowsCom implements ICtrlShowsCom {
 
 		return showsCom;
 	}
+	
+	public void actualitzaShowsCom(ShowsCom showsCom) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = null;
+		
+		try {
+			tx = session.beginTransaction();
+
+			session.update(showsCom);
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		
+	}
 }
