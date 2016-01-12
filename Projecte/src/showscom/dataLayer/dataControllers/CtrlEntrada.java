@@ -107,14 +107,14 @@ public class CtrlEntrada implements ICtrlEntrada {
 
 		return listEnt;
 	}
-	
-	public void guardaEntrada(Entrada entrada) {		
+
+	public void guardaEntrada(Entrada entrada) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 
 		try {
 			tx = session.beginTransaction();
-			
+
 			session.save(entrada);
 			tx.commit();
 		} catch (HibernateException e) {
@@ -124,7 +124,7 @@ public class CtrlEntrada implements ICtrlEntrada {
 		} finally {
 			session.close();
 		}
-		
+
 	}
 
 }

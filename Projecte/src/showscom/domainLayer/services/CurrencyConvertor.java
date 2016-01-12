@@ -25,7 +25,9 @@ public class CurrencyConvertor implements Service {
 	public float conversorRate(String from, String to) throws Exception {
 		try {
 			URL url = new URL("http://download.finance.yahoo.com/d/quotes.csv?s=" + from + to + "=X&f=l1&e=.cs");
-			//URL url2 = new URL("https://www.google.com/finance/converter?a=1&=" + from + "&to=" + to);
+			// URL url2 = new
+			// URL("https://www.google.com/finance/converter?a=1&=" + from +
+			// "&to=" + to);
 			BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
 			String line = reader.readLine();
 			if (line.length() > 0) {

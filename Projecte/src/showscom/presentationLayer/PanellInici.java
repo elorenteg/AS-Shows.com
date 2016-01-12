@@ -10,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import showscom.domainLayer.domainModel.ShowsCom;
-import showscom.domainLayer.services.CurrencyConvertor;
 
 public class PanellInici extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -107,7 +106,7 @@ public class PanellInici extends JPanel {
 		ShowsCom showscom = ShowsCom.getInstance();
 		System.out.println(showscom.getCodiBanc());
 		System.out.println(showscom.getCanvis().get(0));
-		
+
 		ctrlPres.prContObteEspectacles();
 	}
 

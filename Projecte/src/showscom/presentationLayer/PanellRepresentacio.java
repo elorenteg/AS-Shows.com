@@ -182,7 +182,7 @@ public class PanellRepresentacio extends JPanel {
 	private void prCancela(ActionEvent evt) {
 		ctrlPres.prCancela();
 	}
-	
+
 	public int getNumEsp() {
 		return numEsp;
 	}

@@ -48,11 +48,11 @@ public class Entrada {
 		this.data = dAvui;
 		preu = preuTotal;
 		representacio = r;
-		
+
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		ICtrlEntrada ctrlEnt = ctrlDataFact.getCtrlEntrada();
 		ctrlEnt.guardaEntrada(this);
-		
+
 		representacio.reservarSeients(seients, this);
 	}
 

@@ -1,15 +1,12 @@
 package showscom.domainLayer.domainControllers;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import showscom.dataLayer.exceptions.CDLocalNoExisteix;
 import showscom.dataLayer.exceptions.CDRepresentacioNoExisteix;
-import showscom.domainLayer.adapters.BankServiceAdapter;
 import showscom.domainLayer.adapters.IBankServiceAdapter;
 import showscom.domainLayer.adapters.ICurrencyConvertorAdapter;
-import showscom.domainLayer.dataInterface.ICtrlEntrada;
 import showscom.domainLayer.dataInterface.ICtrlLocal;
 import showscom.domainLayer.dataInterface.ICtrlRepresentacio;
 import showscom.domainLayer.domainModel.Entrada;
@@ -98,7 +95,7 @@ public class CtrlDomComprarEntrada {
 		float comissio = showsCom.getComissio();
 		Moneda divisa = showsCom.getDivisa();
 		List<Moneda> canvis = showsCom.getCanvis();
-		canvis.add(0,divisa);
+		canvis.add(0, divisa);
 
 		tupla.setPreu(nombreEspectadors * (preu + comissio + recarrec));
 		tupla.setCanvis(canvis);

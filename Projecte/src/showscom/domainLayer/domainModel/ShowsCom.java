@@ -1,6 +1,5 @@
 package showscom.domainLayer.domainModel;
 
-import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -14,12 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.Table;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.hibernate.annotations.Check;
 import org.hibernate.annotations.CollectionOfElements;
-import org.hibernate.cfg.AnnotationConfiguration;
 
 import showscom.dataLayer.exceptions.CDShowsComNoExisteix;
 import showscom.domainLayer.dataInterface.ICtrlShowsCom;

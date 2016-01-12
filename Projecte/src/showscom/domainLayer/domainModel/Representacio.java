@@ -17,7 +17,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.Check;
 import org.hibernate.annotations.Fetch;
@@ -25,7 +24,6 @@ import org.hibernate.annotations.FetchMode;
 
 import showscom.dataLayer.exceptions.CDSeientEnRepresentacioNoExisteix;
 import showscom.dataLayer.exceptions.CDSeientNoExisteix;
-import showscom.domainLayer.dataInterface.ICtrlEntrada;
 import showscom.domainLayer.dataInterface.ICtrlSeient;
 import showscom.domainLayer.dataInterface.ICtrlSeientEnRepresentacio;
 import showscom.domainLayer.exceptions.DOSeientsNoDisp;
@@ -59,13 +57,13 @@ public class Representacio implements Serializable {
 
 	private void creaSeientsEnRepresentacio(int maxFila, int maxColumna) {
 		seientsEnRepresentacio = new ArrayList<SeientEnRepresentacio>();
-		
+
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		ICtrlSeient ctrlSeient = ctrlDataFact.getCtrlSeient();
 		ICtrlSeientEnRepresentacio ctrlSeientEnRepr = ctrlDataFact.getCtrlSeientEnRepresentacio();
-		
+
 		Seient seient = null;
-		
+
 		for (int i = 1; i <= maxFila; ++i) {
 			for (int j = 1; j <= maxColumna; ++j) {
 				try {
@@ -73,7 +71,7 @@ public class Representacio implements Serializable {
 				} catch (CDSeientNoExisteix e) {
 					// Do nothing. Mai s'executa
 				}
-				
+
 				SeientEnRepresentacio aux = new SeientEnRepresentacio(seient, this);
 				seientsEnRepresentacio.add(aux);
 				ctrlSeientEnRepr.guardaSeientEnRepresentacio(aux);
@@ -201,10 +199,10 @@ public class Representacio implements Serializable {
 		String nom = this.local.getNom();
 		String sessio = this.sessio.getSessio().name();
 		nombreSeientsLliures -= seients.size();
-		
+
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		ICtrlSeientEnRepresentacio ctrlSeient = ctrlDataFact.getCtrlSeientEnRepresentacio();
-		
+
 		for (TuplaSeient aux : seients) {
 			SeientEnRepresentacio seient = null;
 			try {

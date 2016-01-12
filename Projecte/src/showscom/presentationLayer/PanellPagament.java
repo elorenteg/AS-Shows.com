@@ -68,9 +68,10 @@ public class PanellPagament extends JPanel {
 		comboBoxDivises.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				Moneda selMoneda = Moneda.valueOf(comboBoxDivises.getSelectedItem().toString());
-				if (divisa != selMoneda)
+				if (divisa != selMoneda) {
 					divisa = selMoneda;
-				ctrlPres.prComboObtePreuMoneda(selMoneda);
+					ctrlPres.prComboObtePreuMoneda(selMoneda);
+				}
 			}
 		});
 

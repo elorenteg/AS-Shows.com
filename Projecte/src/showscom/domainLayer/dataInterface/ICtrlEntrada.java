@@ -12,6 +12,6 @@ public interface ICtrlEntrada {
 	public boolean existEntrada(String id);
 
 	public List<Entrada> getAllEntrada();
-	
+
 	public void guardaEntrada(Entrada entrada);
 }
