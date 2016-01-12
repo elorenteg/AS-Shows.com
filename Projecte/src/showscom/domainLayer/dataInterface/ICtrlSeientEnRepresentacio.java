@@ -15,4 +15,6 @@ public interface ICtrlSeientEnRepresentacio {
 	public List<SeientEnRepresentacio> getAllSeientEnRepresentacio();
 	
 	public void guardaSeientEnRepresentacio(SeientEnRepresentacio seientEnRepresentacio);
+	
+	public void actualitzaSeientEnRepresentacio(SeientEnRepresentacio seientEnRepresentacio);
 }

@@ -23,7 +23,13 @@ import org.hibernate.annotations.Check;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import showscom.dataLayer.exceptions.CDSeientEnRepresentacioNoExisteix;
+import showscom.dataLayer.exceptions.CDSeientNoExisteix;
+import showscom.domainLayer.dataInterface.ICtrlEntrada;
+import showscom.domainLayer.dataInterface.ICtrlSeient;
+import showscom.domainLayer.dataInterface.ICtrlSeientEnRepresentacio;
 import showscom.domainLayer.exceptions.DOSeientsNoDisp;
+import showscom.domainLayer.factories.CtrlDataFactory;
 
 @Entity
 @Table(name = "Representacio")
@@ -51,14 +57,26 @@ public class Representacio implements Serializable {
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<SeientEnRepresentacio> seientsEnRepresentacio;
 
-	private void creaSeientsEnRepresentacio(int fila, int columna) {
+	private void creaSeientsEnRepresentacio(int maxFila, int maxColumna) {
 		seientsEnRepresentacio = new ArrayList<SeientEnRepresentacio>();
-		for (int i = 1; i <= fila; ++i) {
-			for (int j = 1; j <= columna; ++j) {
-				// Seient seient = CtrlSeient.obte(local.getNom(), fila,
-				// columna);
-				// seientsEnRepresentacio.add(new SeientEnRepresentacio(seient,
-				// this);
+		
+		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
+		ICtrlSeient ctrlSeient = ctrlDataFact.getCtrlSeient();
+		ICtrlSeientEnRepresentacio ctrlSeientEnRepr = ctrlDataFact.getCtrlSeientEnRepresentacio();
+		
+		Seient seient = null;
+		
+		for (int i = 1; i <= maxFila; ++i) {
+			for (int j = 1; j <= maxColumna; ++j) {
+				try {
+					seient = ctrlSeient.getSeient(local.getNom(), i, j);
+				} catch (CDSeientNoExisteix e) {
+					// Do nothing. Mai s'executa
+				}
+				
+				SeientEnRepresentacio aux = new SeientEnRepresentacio(seient, this);
+				seientsEnRepresentacio.add(aux);
+				ctrlSeientEnRepr.guardaSeientEnRepresentacio(aux);
 			}
 		}
 	}
@@ -179,17 +197,24 @@ public class Representacio implements Serializable {
 		return 0;
 	}
 
-	public void reservarSeients(List<TuplaSeient> seients) {
-		// TODO hacer mediante CtrlSeientsEnRepresentacio
+	public void reservarSeients(List<TuplaSeient> seients, Entrada entrada) {
 		String nom = this.local.getNom();
-		TipusSessio sessio = this.sessio.getSessio();
+		String sessio = this.sessio.getSessio().name();
+		nombreSeientsLliures -= seients.size();
+		
+		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
+		ICtrlSeientEnRepresentacio ctrlSeient = ctrlDataFact.getCtrlSeientEnRepresentacio();
+		
 		for (TuplaSeient aux : seients) {
-			// SeientEnRepresentacio seient =
-			// CtrlSeientEnRepresentacio.obte(nom, sessio, aux.getFila(),
-			// aux.getColumna());
-			// seient.ocupat();
+			SeientEnRepresentacio seient = null;
+			try {
+				seient = ctrlSeient.getSeientEnRepresentacio(aux.getFila(), aux.getColumna(), nom, sessio);
+			} catch (CDSeientEnRepresentacioNoExisteix e) {
+				// Do nothing. Mai s'executa
+			}
+			seient.ocupat(entrada);
+			ctrlSeient.actualitzaSeientEnRepresentacio(seient);
 		}
-
 	}
 
 	public List<TuplaSeient> obteSeientsLliures(int nombreEspectadors) throws DOSeientsNoDisp {

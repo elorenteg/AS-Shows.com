@@ -4,10 +4,13 @@ import showscom.dataLayer.dataControllers.CtrlEntrada;
 import showscom.dataLayer.dataControllers.CtrlEspectacle;
 import showscom.dataLayer.dataControllers.CtrlLocal;
 import showscom.dataLayer.dataControllers.CtrlRepresentacio;
+import showscom.dataLayer.dataControllers.CtrlSeient;
+import showscom.dataLayer.dataControllers.CtrlSeientEnRepresentacio;
 import showscom.domainLayer.dataInterface.ICtrlEntrada;
 import showscom.domainLayer.dataInterface.ICtrlEspectacle;
 import showscom.domainLayer.dataInterface.ICtrlLocal;
 import showscom.domainLayer.dataInterface.ICtrlRepresentacio;
+import showscom.domainLayer.dataInterface.ICtrlSeient;
 import showscom.domainLayer.dataInterface.ICtrlSeientEnRepresentacio;
 
 public class CtrlDataFactory {
@@ -17,13 +20,15 @@ public class CtrlDataFactory {
 	private static ICtrlLocal ctrlLoc;
 	private static ICtrlSeientEnRepresentacio ctrlSeientRepr;
 	private static ICtrlEntrada ctrlEnt;
+	private static ICtrlSeient ctrlSeient;
 
 	private CtrlDataFactory() {
 		ctrlEsp = new CtrlEspectacle();
 		ctrlRepr = new CtrlRepresentacio();
 		ctrlLoc = new CtrlLocal();
-		// ctrlSeientRepr = new CtrlSeientEnRepresentacio();
+		ctrlSeientRepr = new CtrlSeientEnRepresentacio();
 		ctrlEnt = new CtrlEntrada();
+		ctrlSeient = new CtrlSeient();
 	}
 
 	public static CtrlDataFactory getInstance() {
@@ -48,6 +53,10 @@ public class CtrlDataFactory {
 
 	public static ICtrlEntrada getCtrlEntrada() {
 		return ctrlEnt;
+	}
+	
+	public static ICtrlSeient getCtrlSeient() {
+		return ctrlSeient;
 	}
 
 }

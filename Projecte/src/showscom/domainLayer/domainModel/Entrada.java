@@ -13,6 +13,9 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Check;
 
+import showscom.domainLayer.dataInterface.ICtrlEntrada;
+import showscom.domainLayer.factories.CtrlDataFactory;
+
 @Entity
 @Table(name = "Entrada")
 @Check(constraints = "preu > 0 AND nEspectadors > 0")
@@ -45,7 +48,12 @@ public class Entrada {
 		this.data = dAvui;
 		preu = preuTotal;
 		representacio = r;
-		representacio.reservarSeients(seients);
+		
+		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
+		ICtrlEntrada ctrlEnt = ctrlDataFact.getCtrlEntrada();
+		ctrlEnt.guardaEntrada(this);
+		
+		representacio.reservarSeients(seients, this);
 	}
 
 }

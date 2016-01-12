@@ -1,5 +1,6 @@
 package showscom.domainLayer.domainModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,9 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+
+import showscom.domainLayer.dataInterface.ICtrlSeient;
+import showscom.domainLayer.factories.CtrlDataFactory;
 
 @Entity
 @Table(name = "Local")
@@ -29,13 +33,33 @@ public class Local {
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Seient> seients;
 
+	private void creaSeients(int maxFila, int maxColumna) {
+		seients = new ArrayList<Seient>();
+
+		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
+		ICtrlSeient ctrlSeient = ctrlDataFact.getCtrlSeient();
+
+		for (int i = 1; i <= maxFila; ++i) {
+			for (int j = 1; j <= maxColumna; ++j) {
+				Seient seient = new Seient(i, j, this);
+				seients.add(seient);
+				ctrlSeient.guardaSeient(seient);
+			}
+		}
+	}
+
 	public Local() {
 	}
 
-	public Local(String nom, String adreca) {
+	public Local(String nom, String adreca, int maxFila, int maxColumna) {
 		super();
 		this.nom = nom;
 		this.adreca = adreca;
+
+		// TODO guardar esta instancia de local en la BD antes de crear los
+		// seients
+
+		creaSeients(maxFila, maxColumna);
 	}
 
 	public String getNom() {

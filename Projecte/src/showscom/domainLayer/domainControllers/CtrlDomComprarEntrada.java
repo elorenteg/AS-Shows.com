@@ -123,7 +123,7 @@ public class CtrlDomComprarEntrada {
 		Moneda divisa = Moneda.EUR;
 		System.out.println("Començo conversió...");
 		float conversio = adapConv.conversorRate(divisa.name(), moneda.name());
-		
+
 		System.out.println(conversio);
 
 		return preuTotal * conversio;
@@ -135,12 +135,12 @@ public class CtrlDomComprarEntrada {
 		String n = showsCom.getNumeroCompte();
 		int v = showsCom.incrementaVenudes();
 		Date dAvui = new Date();
-		
+
 		AdapterFactory adapFact = AdapterFactory.getInstance();
 		IBankServiceAdapter adap = adapFact.getBankServiceAdapter();
 		if (!adap.autoritza(dni, codiB, numCompte, preuTotal, c, n, dAvui))
 			throw new DOPagamentNoAutoritzat();
-		
+
 		CtrlDataFactory ctrlDataFactory = CtrlDataFactory.getInstance();
 		ICtrlRepresentacio ctrlRepresentacio = ctrlDataFactory.getCtrlRepresentacio();
 		Representacio r = null;
@@ -150,9 +150,13 @@ public class CtrlDomComprarEntrada {
 			// Do nothing. Mai s'executa
 		}
 		Entrada entrada = new Entrada(Integer.toString(v), dni, nombreEspectadors, dAvui, preuTotal, r, seients);
+
+		// No se puede hacer el guardarEntrada desde aquí ya que en la creadora
+		// de entrada se reservan los asientos y para reservar el asiento (con
+		// foreign key a Entrada) tiene que estar guardada la entrada en la bd
 		
-		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
-		ICtrlEntrada ctrlEnt = ctrlDataFact.getCtrlEntrada();
-		ctrlEnt.guardaEntrada(entrada);
+		// CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
+		// ICtrlEntrada ctrlEnt = ctrlDataFact.getCtrlEntrada();
+		// ctrlEnt.guardaEntrada(entrada);
 	}
 }

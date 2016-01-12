@@ -28,7 +28,7 @@ public class CtrlEntrada implements ICtrlEntrada {
 		try {
 			tx = session.beginTransaction();
 
-			String sql = "SELECT * FROM Entrada WHERE Entrada.ident = :ident AND Representacio.sessio = :sessio";
+			String sql = "SELECT * FROM Entrada WHERE Entrada.ident = :ident";
 			List<Object> listObj = session.createSQLQuery(sql).setParameter("ident", id)
 					.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
 
@@ -58,7 +58,7 @@ public class CtrlEntrada implements ICtrlEntrada {
 		try {
 			tx = session.beginTransaction();
 
-			String sql = "SELECT * FROM Entrada WHERE Entrada.ident = :ident AND Representacio.sessio = :sessio";
+			String sql = "SELECT * FROM Entrada WHERE Entrada.ident = :ident";
 			List<Object> listObj = session.createSQLQuery(sql).setParameter("ident", id)
 					.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
 
