@@ -32,7 +32,8 @@ public class CtrlShowsCom implements ICtrlShowsCom {
 
 			if (listObj.size() == 1) {
 				Map row = (Map) listObj.get(0);
-				String id = row.get("id").toString();
+				int id = (int) row.get("id");
+				System.out.println(id);
 				showsCom = (ShowsCom) session.get(ShowsCom.class, id);
 			} else
 				throw new CDShowsComNoExisteix();

@@ -118,9 +118,9 @@ public class CtrlDomComprarEntrada {
 		ICurrencyConvertorAdapter adapConv = adapFact.getCurrencyConvertorAdapter();
 
 		// TODO:
-		// ShowsCom showsCom = ShowsCom.getInstance();
-		// Moneda divisa = showsCom.getDivisa();
-		Moneda divisa = Moneda.EUR;
+		ShowsCom showsCom = ShowsCom.getInstance();
+		Moneda divisa = showsCom.getDivisa();
+		//Moneda divisa = Moneda.EUR;
 		System.out.println("Començo conversió...");
 		float conversio = adapConv.conversorRate(divisa.name(), moneda.name());
 

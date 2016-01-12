@@ -6,29 +6,33 @@ import showscom.dataLayer.dataControllers.CtrlLocal;
 import showscom.dataLayer.dataControllers.CtrlRepresentacio;
 import showscom.dataLayer.dataControllers.CtrlSeient;
 import showscom.dataLayer.dataControllers.CtrlSeientEnRepresentacio;
+import showscom.dataLayer.dataControllers.CtrlShowsCom;
 import showscom.domainLayer.dataInterface.ICtrlEntrada;
 import showscom.domainLayer.dataInterface.ICtrlEspectacle;
 import showscom.domainLayer.dataInterface.ICtrlLocal;
 import showscom.domainLayer.dataInterface.ICtrlRepresentacio;
 import showscom.domainLayer.dataInterface.ICtrlSeient;
 import showscom.domainLayer.dataInterface.ICtrlSeientEnRepresentacio;
+import showscom.domainLayer.dataInterface.ICtrlShowsCom;
 
 public class CtrlDataFactory {
 	private static CtrlDataFactory instance = new CtrlDataFactory();
 	private static ICtrlEspectacle ctrlEsp;
-	private static ICtrlRepresentacio ctrlRepr;
 	private static ICtrlLocal ctrlLoc;
-	private static ICtrlSeientEnRepresentacio ctrlSeientRepr;
-	private static ICtrlEntrada ctrlEnt;
 	private static ICtrlSeient ctrlSeient;
+	private static ICtrlSeientEnRepresentacio ctrlSeientRepr;
+	private static ICtrlRepresentacio ctrlRepr;
+	private static ICtrlEntrada ctrlEnt;
+	private static ICtrlShowsCom ctrlShows;
 
 	private CtrlDataFactory() {
 		ctrlEsp = new CtrlEspectacle();
-		ctrlRepr = new CtrlRepresentacio();
 		ctrlLoc = new CtrlLocal();
-		ctrlSeientRepr = new CtrlSeientEnRepresentacio();
-		ctrlEnt = new CtrlEntrada();
 		ctrlSeient = new CtrlSeient();
+		ctrlSeientRepr = new CtrlSeientEnRepresentacio();
+		ctrlRepr = new CtrlRepresentacio();
+		ctrlEnt = new CtrlEntrada();
+		ctrlShows = new CtrlShowsCom();
 	}
 
 	public static CtrlDataFactory getInstance() {
@@ -39,24 +43,28 @@ public class CtrlDataFactory {
 		return ctrlEsp;
 	}
 
-	public static ICtrlRepresentacio getCtrlRepresentacio() {
-		return ctrlRepr;
-	}
-
 	public ICtrlLocal getCtrlLocal() {
 		return ctrlLoc;
+	}
+
+	public static ICtrlSeient getCtrlSeient() {
+		return ctrlSeient;
 	}
 
 	public static ICtrlSeientEnRepresentacio getCtrlSeientEnRepresentacio() {
 		return ctrlSeientRepr;
 	}
 
+	public static ICtrlRepresentacio getCtrlRepresentacio() {
+		return ctrlRepr;
+	}
+
 	public static ICtrlEntrada getCtrlEntrada() {
 		return ctrlEnt;
 	}
-	
-	public static ICtrlSeient getCtrlSeient() {
-		return ctrlSeient;
+
+	public static ICtrlShowsCom getCtrlShows() {
+		return ctrlShows;
 	}
 
 }

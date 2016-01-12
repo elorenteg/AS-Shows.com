@@ -93,7 +93,7 @@ public class CreaRepresentacions {
 			List<Local> listLoc = session.createCriteria(Local.class).add(Restrictions.eq("nom", nom))
 					.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 			if (listLoc.size() == 0) {
-				local = new Local(nom, adreca);
+				local = new Local(nom, adreca, 1, 1);
 				session.save(local);
 			} else {
 				System.out.println("Local ja esta a la BD");

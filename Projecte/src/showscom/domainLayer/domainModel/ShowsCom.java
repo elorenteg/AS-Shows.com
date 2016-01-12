@@ -1,5 +1,6 @@
 package showscom.domainLayer.domainModel;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,18 +13,37 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.Table;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.hibernate.annotations.Check;
 import org.hibernate.annotations.CollectionOfElements;
+import org.hibernate.cfg.AnnotationConfiguration;
+
+import showscom.dataLayer.exceptions.CDShowsComNoExisteix;
+import showscom.domainLayer.dataInterface.ICtrlShowsCom;
+import showscom.domainLayer.factories.CtrlDataFactory;
 
 @Entity
 @Table(name = "ShowsCom")
 @Check(constraints = "codiBanc > 0 AND comissio > 0")
 public class ShowsCom {
+	private static ShowsCom instance;
+
+	static {
+		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
+		ICtrlShowsCom ctrlShows = ctrlDataFact.getCtrlShows();
+		try {
+			instance = ctrlShows.getShowsCom();
+		} catch (CDShowsComNoExisteix e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-
-	private static ShowsCom instance = new ShowsCom();
 
 	@Column(name = "codiBanc")
 	private int codiBanc;
