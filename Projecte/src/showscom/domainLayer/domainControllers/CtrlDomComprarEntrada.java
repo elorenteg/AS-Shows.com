@@ -96,7 +96,9 @@ public class CtrlDomComprarEntrada {
 
 		ShowsCom showsCom = ShowsCom.getInstance();
 		float comissio = showsCom.getComissio();
+		Moneda divisa = showsCom.getDivisa();
 		List<Moneda> canvis = showsCom.getCanvis();
+		canvis.add(0,divisa);
 
 		tupla.setPreu(nombreEspectadors * (preu + comissio + recarrec));
 		tupla.setCanvis(canvis);
