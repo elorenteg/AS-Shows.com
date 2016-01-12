@@ -24,6 +24,7 @@ import org.hibernate.annotations.FetchMode;
 
 import showscom.dataLayer.exceptions.CDSeientEnRepresentacioNoExisteix;
 import showscom.dataLayer.exceptions.CDSeientNoExisteix;
+import showscom.domainLayer.dataInterface.ICtrlRepresentacio;
 import showscom.domainLayer.dataInterface.ICtrlSeient;
 import showscom.domainLayer.dataInterface.ICtrlSeientEnRepresentacio;
 import showscom.domainLayer.exceptions.DOSeientsNoDisp;
