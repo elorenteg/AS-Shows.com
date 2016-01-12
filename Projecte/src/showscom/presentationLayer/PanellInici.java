@@ -103,18 +103,6 @@ public class PanellInici extends JPanel {
 	}
 
 	private void prContinua(ActionEvent evt) {
-		CurrencyConvertor conv = new CurrencyConvertor();
-		try {
-			System.out.println(conv.conversorRate("EUR","EUR"));
-			System.out.println(conv.conversorRate("EUR","USD"));
-			System.out.println(conv.conversorRate("EUR","GBP"));
-			System.out.println(conv.conversorRate("USD","EUR"));
-			System.out.println(conv.conversorRate("GBP","EUR"));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		ctrlPres.prContObteEspectacles();
 	}
 
