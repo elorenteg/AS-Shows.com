@@ -21,6 +21,7 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.JTableHeader;
 
+import showscom.domainLayer.domainModel.Moneda;
 import showscom.domainLayer.domainModel.TipusSessio;
 import showscom.domainLayer.domainModel.TuplaRepr;
 
@@ -37,11 +38,13 @@ public class PanellRepresentacio extends JPanel {
 	private JTable table;
 	private JTextField textField;
 	private int numEsp;
+	private Moneda divisa;
 
 	public PanellRepresentacio(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres,
-			List<TuplaRepr> infoRepr) {
+			List<TuplaRepr> infoRepr, Moneda divisa) {
 		this.ctrlPres = ctrlPres;
 		this.vistaPres = vistaPres;
+		this.divisa = divisa;
 		initComponents(infoRepr);
 		this.setVisible(true);
 	}
@@ -62,7 +65,7 @@ public class PanellRepresentacio extends JPanel {
 					return (int) p1.getLocal().compareTo(p2.getLocal());
 			}
 		});
-		String[] columnNames = { "Local", "Sessió", "Seients", "Estrena", "Preu (EUR)" };
+		String[] columnNames = { "Local", "Sessió", "Seients", "Estrena", "Preu" };
 		Object[][] data = new Object[infoRepr.size()][5];
 		for (int i = 0; i < infoRepr.size(); ++i) {
 			TuplaRepr tupla = infoRepr.get(i);
@@ -71,7 +74,7 @@ public class PanellRepresentacio extends JPanel {
 			data[i][2] = tupla.getNombreSeientsLliures();
 
 			data[i][3] = (String) (tupla.getEsEstrena() ? "\u2713" : "\u2717");
-			data[i][4] = tupla.getPreu();
+			data[i][4] = tupla.getPreu() + (String) (tupla.getEsEstrena() ? " (+" + tupla.getRecarrec() + ") " : " ") + divisa.getSymbol();
 		}
 		table = new JTable(data, columnNames) {
 			public boolean isCellEditable(int row, int column) {
@@ -219,5 +222,9 @@ public class PanellRepresentacio extends JPanel {
 
 	public int getNumEsp() {
 		return numEsp;
+	}
+	
+	public Moneda getDivisa() {
+		return divisa;
 	}
 }

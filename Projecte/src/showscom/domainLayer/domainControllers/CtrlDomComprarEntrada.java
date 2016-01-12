@@ -41,6 +41,12 @@ public class CtrlDomComprarEntrada {
 		CtrlConsultarRepresentacions ctrlConsRepr = ctrlUseCaseFact.getCtrlConsultarRepresentacions();
 		return ctrlConsRepr.consultaEspectacles();
 	}
+	
+	public Moneda obteDivisa() {
+		ShowsCom showsCom = ShowsCom.getInstance();
+		Moneda divisa = showsCom.getDivisa();
+		return divisa;
+	}
 
 	public List<TuplaRepr> obteRepresentacions(String titol, Date data) throws DONoHiHaRepresentacions {
 		CtrlUseCaseFactory ctrlUseCaseFact = CtrlUseCaseFactory.getInstance();

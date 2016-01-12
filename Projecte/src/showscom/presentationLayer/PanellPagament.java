@@ -31,43 +31,37 @@ public class PanellPagament extends JPanel {
 	private JButton btnCancela;
 	private JComboBox<String> comboBoxDivises;
 
-	private String divisa;
-
-	public PanellPagament(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres) {
-		this.ctrlPres = ctrlPres;
-		this.vistaPres = vistaPres;
-		// initComponents(preu, divises);
-		this.setVisible(true);
-	}
+	private Moneda divisaAct;
 
 	public PanellPagament(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, float preu,
-			List<String> divises) {
+			List<String> canvis, Moneda divisa) {
 		this.ctrlPres = ctrlPres;
 		this.vistaPres = vistaPres;
-		initComponents(preu, divises);
+		initComponents(preu, canvis, divisa);
 		this.setVisible(true);
 	}
 
-	private void initComponents(float preu, List<String> divises) {
-		divisa = divises.get(0);
+	private void initComponents(float preu, List<String> canvis, Moneda divisa) {
+		this.divisaAct = divisa;
 
 		JLabel labelPreu = new JLabel("Preu total:");
 		labelPreu.setFont(new Font("originalfont", Font.PLAIN, 16));
 
 		textFieldPreu = new JTextField();
 		textFieldPreu.setEditable(false);
-		textFieldPreu.setText(String.format("%.2f", preu));
+		actualitzaPreu(preu);
 		textFieldPreu.setColumns(10);
 
 		comboBoxDivises = new JComboBox<String>();
-		for (String divisa : divises)
-			comboBoxDivises.addItem(divisa);
+		comboBoxDivises.addItem(divisa.name());
+		for (String canv : canvis)
+			comboBoxDivises.addItem(canv);
 		comboBoxDivises.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				String selMoneda = comboBoxDivises.getSelectedItem().toString();
-				if (divisa != selMoneda) {
-					divisa = selMoneda;
-					ctrlPres.prComboObtePreuMoneda(selMoneda);
+				Moneda selMoneda = Moneda.valueOf(comboBoxDivises.getSelectedItem().toString());
+				if (divisaAct != selMoneda) {
+					divisaAct = selMoneda;
+					ctrlPres.prComboObtePreuMoneda(selMoneda.name());
 				}
 			}
 		});
@@ -246,6 +240,6 @@ public class PanellPagament extends JPanel {
 	}
 
 	public void actualitzaPreu(float preu) {
-		textFieldPreu.setText(String.format("%.2f", preu));
+		textFieldPreu.setText(String.format("%.2f", preu) + " " + divisaAct.getSymbol());
 	}
 }

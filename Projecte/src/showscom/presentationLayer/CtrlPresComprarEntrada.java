@@ -54,7 +54,8 @@ public class CtrlPresComprarEntrada {
 	public void prContObteRepresentacions(String titol, Date data) {
 		try {
 			List<TuplaRepr> llista = ctrlDom.obteRepresentacions(titol, data);
-			vistaPres.mostraRepresentacions(llista);
+			Moneda divisa = ctrlDom.obteDivisa();
+			vistaPres.mostraRepresentacions(llista, divisa);
 		} catch (DONoHiHaRepresentacions e) {
 			vistaPres.mostraMissatgeEndarrera("No hi ha cap representació disponible");
 		}

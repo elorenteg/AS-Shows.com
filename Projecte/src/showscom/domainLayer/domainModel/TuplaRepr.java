@@ -6,6 +6,7 @@ public class TuplaRepr {
 	private int nombreSeientsLliures;
 	private boolean esEstrena;
 	private float preu;
+	private int recarrec;
 
 	public String getSessio() {
 		return sessio;
@@ -46,4 +47,13 @@ public class TuplaRepr {
 	public void setPreu(float preu) {
 		this.preu = preu;
 	}
+
+	public int getRecarrec() {
+		return recarrec;
+	}
+
+	public void setRecarrec(int recarrec) {
+		this.recarrec = recarrec;
+	}
+
 }

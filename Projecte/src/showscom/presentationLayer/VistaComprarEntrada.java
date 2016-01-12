@@ -73,8 +73,8 @@ public class VistaComprarEntrada extends JFrame {
 		panellEsp.setVisible(true);
 	}
 
-	public void mostraRepresentacions(List<TuplaRepr> llista) {
-		panellRepr = new PanellRepresentacio(ctrlPres, this, llista);
+	public void mostraRepresentacions(List<TuplaRepr> llista, Moneda divisa) {
+		panellRepr = new PanellRepresentacio(ctrlPres, this, llista, divisa);
 		getContentPane().add(panellRepr, "Representacio");
 		panellEsp.setVisible(false);
 		panellRepr.setVisible(true);
@@ -87,8 +87,8 @@ public class VistaComprarEntrada extends JFrame {
 		panellSeients.setVisible(true);
 	}
 
-	public void mostraPagament(float preu, List<String> divises) {
-		panellPagam = new PanellPagament(ctrlPres, this, preu, divises);
+	public void mostraPagament(float preu, List<String> canvis) {
+		panellPagam = new PanellPagament(ctrlPres, this, preu, canvis, panellRepr.getDivisa());
 		getContentPane().add(panellPagam, "Pagament");
 		panellSeients.setVisible(false);
 		panellPagam.setVisible(true);

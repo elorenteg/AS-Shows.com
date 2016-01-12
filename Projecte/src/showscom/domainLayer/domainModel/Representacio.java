@@ -184,6 +184,7 @@ public class Representacio implements Serializable {
 		tupla.setNombreSeientsLliures(nombreSeientsLliures);
 		tupla.setEsEstrena(esEstrena());
 		tupla.setPreu(preu);
+		tupla.setRecarrec(getRecarrec());
 
 		return tupla;
 	}
