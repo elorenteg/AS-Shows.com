@@ -59,7 +59,6 @@ public class PanellRepresentacio extends JPanel {
 				} else
 					return (int) p1.getLocal().compareTo(p2.getLocal());
 			}
-
 		});
 		String[] columnNames = { "Local", "Sessió", "Seients", "Estrena", "Preu (EUR)" };
 		Object[][] data = new Object[infoRepr.size()][5];

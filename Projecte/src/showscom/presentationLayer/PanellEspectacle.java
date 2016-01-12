@@ -12,6 +12,8 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -25,6 +27,8 @@ import javax.swing.table.JTableHeader;
 
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.UtilDateModel;
+import showscom.domainLayer.domainModel.TipusSessio;
+import showscom.domainLayer.domainModel.TuplaRepr;
 
 public class PanellEspectacle extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -51,6 +55,12 @@ public class PanellEspectacle extends JPanel {
 		JLabel label1 = new JLabel("Selecciona un espectacle i una data");
 
 		scrollPane = new JScrollPane();
+		Collections.sort(espectacles, new Comparator<String>() {
+			@Override
+			public int compare(String p1, String p2) {
+				return (int) p1.compareTo(p2);
+			}
+		});
 		String[] columnNames = { "Títols" };
 		Object[][] data = new Object[espectacles.size()][1];
 		for (int i = 0; i < espectacles.size(); ++i) {
