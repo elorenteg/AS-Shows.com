@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -17,6 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.JTableHeader;
 
+import showscom.domainLayer.domainModel.TipusSessio;
 import showscom.domainLayer.domainModel.TuplaRepr;
 
 public class PanellRepresentacio extends JPanel {
@@ -46,6 +49,18 @@ public class PanellRepresentacio extends JPanel {
 		JLabel label1 = new JLabel("Selecciona una representació");
 
 		scrollPane = new JScrollPane();
+		Collections.sort(infoRepr, new Comparator<TuplaRepr>() {
+			@Override
+			public int compare(TuplaRepr p1, TuplaRepr p2) {
+				if (p1.getLocal() == p2.getLocal()) {
+					boolean b = TipusSessio.valueOf(p1.getSessio()).ordinal() < TipusSessio.valueOf(p2.getSessio())
+							.ordinal();
+					return (b) ? 1 : 0;
+				} else
+					return (int) p1.getLocal().compareTo(p2.getLocal());
+			}
+
+		});
 		String[] columnNames = { "Local", "Sessió", "Seients", "Estrena", "Preu (EUR)" };
 		Object[][] data = new Object[infoRepr.size()][5];
 		for (int i = 0; i < infoRepr.size(); ++i) {

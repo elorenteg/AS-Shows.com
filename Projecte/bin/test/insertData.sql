@@ -52,7 +52,7 @@ SELECT crea_seients('Teatre Lliure de Gràcia', 11, 15);
 SELECT crea_seients('Almeria Teatre', 11, 15);
 SELECT crea_seients('Teatre Club Capitol', 11, 15);
 
-INSERT INTO Entrada VALUES (1, '9/01/2016', '46477890L', 3, 10, 'Gran Teatre del Liceu', 'NIT');
+--INSERT INTO Entrada VALUES (1, '9/01/2016', '46477890L', 3, 10, 'Gran Teatre del Liceu', 'NIT');
 
 SELECT crea_seientsEnRepresentacio('Gran Teatre del Liceu', 11, 15);
 SELECT crea_seientsEnRepresentacio('Teatre Nacional de Catalunya', 11, 15);
