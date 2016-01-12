@@ -117,7 +117,7 @@ public class ShowsCom {
 
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		ICtrlShowsCom ctrlShows = ctrlDataFact.getCtrlShows();
-		ctrlShows.actualitzaShowsCom(instance);
+		ctrlShows.updateShowsCom(instance);
 
 		return aux;
 	}

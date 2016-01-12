@@ -44,7 +44,7 @@ public class Local {
 			for (int j = 1; j <= maxColumna; ++j) {
 				Seient seient = new Seient(i, j, this);
 				seients.add(seient);
-				ctrlSeient.guardaSeient(seient);
+				ctrlSeient.insertSeient(seient);
 			}
 		}
 	}
@@ -59,7 +59,7 @@ public class Local {
 
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		ICtrlLocal ctrlLocal = ctrlDataFact.getCtrlLocal();
-		ctrlLocal.guardaLocal(this);
+		ctrlLocal.insertLocal(this);
 
 		creaSeients(maxFila, maxColumna);
 	}

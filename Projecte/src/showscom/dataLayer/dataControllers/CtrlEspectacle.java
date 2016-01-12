@@ -15,11 +15,23 @@ import showscom.dataLayer.sessionFactory.SessionFactoryAdapter;
 import showscom.domainLayer.dataInterface.ICtrlEspectacle;
 import showscom.domainLayer.domainModel.Espectacle;
 
+/**
+ * Controlador de la classe Espectacle. Gestiona els accessos amb la BD
+ */
 public class CtrlEspectacle implements ICtrlEspectacle {
 
+	/**
+	 * Instancia de la SessionFactory per connectar-se amb la BD
+	 */
 	private final SessionFactory sessionFactory = SessionFactoryAdapter.getSessionFactory();
 
-	@SuppressWarnings("unchecked")
+	/**
+	 * Selecciona un Espectacle identificat pel seu títol guardat a la BD
+	 * @param titol títol de l'Espectacle
+	 * @return Espectacle identificat per títol
+	 * @throws CDEspectacleNoExisteix si no existeix l'Espectacle identificat
+	 *         per títol
+	 */
 	public Espectacle getEspectacle(String titol) throws CDEspectacleNoExisteix {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
@@ -48,35 +60,10 @@ public class CtrlEspectacle implements ICtrlEspectacle {
 		return esp;
 	}
 
-	@SuppressWarnings("unchecked")
-	public boolean existEspectacle(String titol) {
-		Session session = sessionFactory.openSession();
-		Transaction tx = null;
-		boolean exist = false;
-
-		try {
-			tx = session.beginTransaction();
-
-			String sql = "SELECT * FROM Espectacle WHERE Espectacle.titol = :titol";
-			List<Object> listObj = session.createSQLQuery(sql).setParameter("titol", titol)
-					.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
-
-			if (listObj.size() == 1) {
-				exist = true;
-			}
-			tx.commit();
-		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-
-		return exist;
-	}
-
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	/**
+	 * Selecciona tots els Espectacles guardats a la BD
+	 * @return Llista amb tots els Espectacles
+	 */
 	public List<Espectacle> getAllEspectacle() {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;

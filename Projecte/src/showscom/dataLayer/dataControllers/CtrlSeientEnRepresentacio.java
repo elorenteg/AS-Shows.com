@@ -1,8 +1,6 @@
 package showscom.dataLayer.dataControllers;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -16,11 +14,30 @@ import showscom.domainLayer.dataInterface.ICtrlSeientEnRepresentacio;
 import showscom.domainLayer.domainModel.SeientEnRepresentacio;
 import showscom.domainLayer.domainModel.SeientEnRepresentacioPK;
 
+/**
+ * Controlador de la classe SeientEnRepresentacio. Gestiona els accessos amb la
+ * BD
+ */
 public class CtrlSeientEnRepresentacio implements ICtrlSeientEnRepresentacio {
 
+	/**
+	 * Instancia de la SessionFactory per connectar-se amb la BD
+	 */
 	private final SessionFactory sessionFactory = SessionFactoryAdapter.getSessionFactory();
 
-	@SuppressWarnings("unchecked")
+	/**
+	 * Selecciona un SeientEnRepresentacio identificat pel seu Seient (local +
+	 * fila + columna) i la seva Representacio (sessio + local) guardat a la BD
+	 * @param fila fila del Seient
+	 * @param columna columna del Seient
+	 * @param nomL nom del Local
+	 * @param sessio sessio de la Representacio
+	 * @return SeientEnRepresentacio identificat per fila, columna, nomL i
+	 *         sessio
+	 * @throws CDSeientEnRepresentacioNoExisteix si no existeix el
+	 *         SeientEnRepresentacio identificat per fila, columna, nomL i
+	 *         sessio
+	 */
 	public SeientEnRepresentacio getSeientEnRepresentacio(int fila, int columna, String nomL, String sessio)
 			throws CDSeientEnRepresentacioNoExisteix {
 		Session session = sessionFactory.openSession();
@@ -53,70 +70,11 @@ public class CtrlSeientEnRepresentacio implements ICtrlSeientEnRepresentacio {
 
 	}
 
-	@SuppressWarnings("unchecked")
-	public boolean existSeientEnRepresentacio(int fila, int columna, String nomL, String sessio) {
-		Session session = sessionFactory.openSession();
-		Transaction tx = null;
-		boolean exist = false;
-
-		try {
-			tx = session.beginTransaction();
-
-			String sql = "SELECT * FROM SeientEnRepresentacio WHERE SeientEnRepresentacio.noml = :nomL AND SeientEnRepresentacio.sessio = :sessio AND SeientEnRepresentacio.fila = :fila AND SeientEnRepresentacio.columna = :columna";
-			List<Object> listObj = session.createSQLQuery(sql).setParameter("nomL", nomL).setParameter("sessio", sessio)
-					.setParameter("fila", fila).setParameter("columna", columna)
-					.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
-
-			if (listObj.size() == 1)
-				exist = true;
-			tx.commit();
-		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-
-		return exist;
-	}
-
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public List<SeientEnRepresentacio> getAllSeientEnRepresentacio() {
-		Session session = sessionFactory.openSession();
-		Transaction tx = null;
-		List<SeientEnRepresentacio> listSeients = new ArrayList<>();
-
-		try {
-			tx = session.beginTransaction();
-
-			String sql = "SELECT * FROM SeientEnRepresentacio";
-			List<Object> listObj = session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP)
-					.list();
-
-			for (Object obj : listObj) {
-				Map row = (Map) obj;
-				int fila = (int) row.get("fila");
-				int columna = (int) row.get("columna");
-				String nomL = row.get("noml").toString();
-				String sessio = row.get("sessio").toString();
-				SeientEnRepresentacio seient = (SeientEnRepresentacio) session.get(SeientEnRepresentacio.class,
-						new SeientEnRepresentacioPK(fila, columna, nomL, sessio));
-				listSeients.add(seient);
-			}
-
-		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-
-		return listSeients;
-	}
-
-	public void guardaSeientEnRepresentacio(SeientEnRepresentacio seientEnRepresentacio) {
+	/**
+	 * Inserta un SeientEnRepresentacio a la BD
+	 * @param seientEnRepresentacio SeientEnRepresentació a insertar
+	 */
+	public void insertSeientEnRepresentacio(SeientEnRepresentacio seientEnRepresentacio) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 
@@ -134,7 +92,11 @@ public class CtrlSeientEnRepresentacio implements ICtrlSeientEnRepresentacio {
 		}
 	}
 
-	public void actualitzaSeientEnRepresentacio(SeientEnRepresentacio seientEnRepresentacio) {
+	/**
+	 * Actualitza un SeientEnRepresentacio a la BD
+	 * @param seientEnRepresentacio SeientEnRepresentació a actualitzar
+	 */
+	public void updateSeientEnRepresentacio(SeientEnRepresentacio seientEnRepresentacio) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 

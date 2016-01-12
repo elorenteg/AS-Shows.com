@@ -51,7 +51,7 @@ public class Entrada {
 
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		ICtrlEntrada ctrlEnt = ctrlDataFact.getCtrlEntrada();
-		ctrlEnt.guardaEntrada(this);
+		ctrlEnt.insertEntrada(this);
 
 		representacio.reservarSeients(seients, this);
 	}

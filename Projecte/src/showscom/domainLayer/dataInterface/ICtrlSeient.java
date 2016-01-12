@@ -7,6 +7,6 @@ public interface ICtrlSeient {
 
 	public Seient getSeient(String nomL, int fila, int columna) throws CDSeientNoExisteix;
 
-	public void guardaSeient(Seient seient);
+	public void insertSeient(Seient seient);
 
 }
