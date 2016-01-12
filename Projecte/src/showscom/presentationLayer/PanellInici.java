@@ -103,10 +103,6 @@ public class PanellInici extends JPanel {
 	}
 
 	private void prContinua(ActionEvent evt) {
-		//ShowsCom showscom = ShowsCom.getInstance();
-		//System.out.println(showscom.getCodiBanc());
-		//System.out.println(showscom.getCanvis().get(0));
-
 		ctrlPres.prContObteEspectacles();
 	}
 
