@@ -94,15 +94,9 @@ public class CtrlDomComprarEntrada {
 		float preu = repr.getPreu();
 		int recarrec = repr.getRecarrec();
 
-		// TODO:
-		// ShowsCom showsCom = ShowsCom.getInstance();
-		// float comissio = showsCom.getComissio();
-		// List<Moneda> canvis = showsCom.getCanvis();
-		float comissio = 6;
-		List<Moneda> canvis = new ArrayList<>();
-		canvis.add(Moneda.EUR);
-		canvis.add(Moneda.USD);
-		canvis.add(Moneda.GBP);
+		ShowsCom showsCom = ShowsCom.getInstance();
+		float comissio = showsCom.getComissio();
+		List<Moneda> canvis = showsCom.getCanvis();
 
 		tupla.setPreu(nombreEspectadors * (preu + comissio + recarrec));
 		tupla.setCanvis(canvis);
@@ -117,10 +111,8 @@ public class CtrlDomComprarEntrada {
 		AdapterFactory adapFact = AdapterFactory.getInstance();
 		ICurrencyConvertorAdapter adapConv = adapFact.getCurrencyConvertorAdapter();
 
-		// TODO:
 		ShowsCom showsCom = ShowsCom.getInstance();
 		Moneda divisa = showsCom.getDivisa();
-		//Moneda divisa = Moneda.EUR;
 		System.out.println("Començo conversió...");
 		float conversio = adapConv.conversorRate(divisa.name(), moneda.name());
 
@@ -154,7 +146,7 @@ public class CtrlDomComprarEntrada {
 		// No se puede hacer el guardarEntrada desde aquí ya que en la creadora
 		// de entrada se reservan los asientos y para reservar el asiento (con
 		// foreign key a Entrada) tiene que estar guardada la entrada en la bd
-		
+
 		// CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		// ICtrlEntrada ctrlEnt = ctrlDataFact.getCtrlEntrada();
 		// ctrlEnt.guardaEntrada(entrada);
