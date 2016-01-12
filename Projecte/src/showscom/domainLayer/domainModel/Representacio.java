@@ -199,10 +199,13 @@ public class Representacio implements Serializable {
 		String nom = this.local.getNom();
 		String sessio = this.sessio.getSessio().name();
 		nombreSeientsLliures -= seients.size();
-
+		
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		ICtrlSeientEnRepresentacio ctrlSeient = ctrlDataFact.getCtrlSeientEnRepresentacio();
-
+		ICtrlRepresentacio ctrlRepresentacio = ctrlDataFact.getCtrlRepresentacio();
+		
+		ctrlRepresentacio.actualitzaRepresentacio(this);
+		
 		for (TuplaSeient aux : seients) {
 			SeientEnRepresentacio seient = null;
 			try {
