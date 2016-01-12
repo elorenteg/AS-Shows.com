@@ -40,8 +40,8 @@ public class PanellRepresentacio extends JPanel {
 	private int numEsp;
 	private Moneda divisa;
 
-	public PanellRepresentacio(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres,
-			List<TuplaRepr> infoRepr, Moneda divisa) {
+	public PanellRepresentacio(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, List<TuplaRepr> infoRepr,
+			Moneda divisa) {
 		this.ctrlPres = ctrlPres;
 		this.vistaPres = vistaPres;
 		this.divisa = divisa;
@@ -74,7 +74,8 @@ public class PanellRepresentacio extends JPanel {
 			data[i][2] = tupla.getNombreSeientsLliures();
 
 			data[i][3] = (String) (tupla.getEsEstrena() ? "\u2713" : "\u2717");
-			data[i][4] = tupla.getPreu() + (String) (tupla.getEsEstrena() ? " (+" + tupla.getRecarrec() + ") " : " ") + divisa.getSymbol();
+			data[i][4] = tupla.getPreu() + (String) (tupla.getEsEstrena() ? " (+" + tupla.getRecarrec() + ") " : " ")
+					+ divisa.getSymbol();
 		}
 		table = new JTable(data, columnNames) {
 			public boolean isCellEditable(int row, int column) {
@@ -223,7 +224,7 @@ public class PanellRepresentacio extends JPanel {
 	public int getNumEsp() {
 		return numEsp;
 	}
-	
+
 	public Moneda getDivisa() {
 		return divisa;
 	}

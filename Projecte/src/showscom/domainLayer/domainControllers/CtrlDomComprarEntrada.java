@@ -41,7 +41,7 @@ public class CtrlDomComprarEntrada {
 		CtrlConsultarRepresentacions ctrlConsRepr = ctrlUseCaseFact.getCtrlConsultarRepresentacions();
 		return ctrlConsRepr.consultaEspectacles();
 	}
-	
+
 	public Moneda obteDivisa() {
 		ShowsCom showsCom = ShowsCom.getInstance();
 		Moneda divisa = showsCom.getDivisa();
@@ -100,12 +100,10 @@ public class CtrlDomComprarEntrada {
 
 		ShowsCom showsCom = ShowsCom.getInstance();
 		float comissio = showsCom.getComissio();
-		//Moneda divisa = showsCom.getDivisa();
 		List<Moneda> canvis = showsCom.getCanvis();
-		//canvis.add(0, divisa);
-		
+
 		List<String> canvString = new ArrayList<>();
-		for (Moneda m: canvis) {
+		for (Moneda m : canvis) {
 			canvString.add(m.name());
 		}
 

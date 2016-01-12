@@ -34,6 +34,7 @@ public class VistaComprarEntrada extends JFrame {
 	private void initComponents() {
 		setMinimumSize(new Dimension(900, 650));
 		setPreferredSize(new Dimension(900, 650));
+		setResizable(false);
 		getContentPane().setLayout(new CardLayout());
 
 		panellIni = new PanellInici(ctrlPres, this);

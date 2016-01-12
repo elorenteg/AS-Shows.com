@@ -162,20 +162,6 @@ public class Representacio implements Serializable {
 		this.seientsEnRepresentacio = seientsEnRepresentacio;
 	}
 
-	public String toString() {
-		String s = "";
-		s += "PK.sessio: " + representacioPK.getSessio() + "\n";
-		s += "PK.local: " + representacioPK.getNomLocal() + "\n";
-		// s += "PK.espectacle: " + representacioPK.getTitolEspectacle() + "\n";
-		s += "PK.espectacle: " + getTitolE() + "\n";
-		s += "sessio: " + getSessio().getSessio().name() + "\n";
-		s += "local: " + getLocal().getNom() + "\n";
-		s += "preu: " + getPreu() + "\n";
-		s += "data: " + getData() + "\n";
-		s += "nSeientsLliures: " + getNombreSeientsLliures() + "\n";
-		return s;
-	}
-
 	public TuplaRepr obteInformacio() {
 		TuplaRepr tupla = new TuplaRepr();
 
@@ -200,7 +186,7 @@ public class Representacio implements Serializable {
 	public void reservarSeients(List<TuplaSeient> seients, Entrada entrada) {
 		String nom = this.local.getNom();
 		String sessio = this.sessio.getSessio().name();
-		nombreSeientsLliures -= seients.size();
+		this.nombreSeientsLliures -= seients.size();
 
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		ICtrlSeientEnRepresentacio ctrlSeient = ctrlDataFact.getCtrlSeientEnRepresentacio();
@@ -208,10 +194,10 @@ public class Representacio implements Serializable {
 
 		ctrlRepresentacio.actualitzaRepresentacio(this);
 
-		for (TuplaSeient aux : seients) {
+		for (TuplaSeient tupla : seients) {
 			SeientEnRepresentacio seient = null;
 			try {
-				seient = ctrlSeient.getSeientEnRepresentacio(aux.getFila(), aux.getColumna(), nom, sessio);
+				seient = ctrlSeient.getSeientEnRepresentacio(tupla.getFila(), tupla.getColumna(), nom, sessio);
 			} catch (CDSeientEnRepresentacioNoExisteix e) {
 				// Do nothing. Mai s'executa
 			}

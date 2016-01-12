@@ -43,11 +43,11 @@ public class Entrada {
 			Representacio r, List<TuplaSeient> seients) {
 		super();
 		this.identificador = identificador;
-		dniClient = dni;
+		this.dniClient = dni;
 		this.nombreEspectadors = nombreEspectadors;
 		this.data = dAvui;
-		preu = preuTotal;
-		representacio = r;
+		this.preu = preuTotal;
+		this.representacio = r;
 
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		ICtrlEntrada ctrlEnt = ctrlDataFact.getCtrlEntrada();

@@ -37,14 +37,11 @@ public class SeientEnRepresentacio {
 	}
 
 	public SeientEnRepresentacio(Seient seient, Representacio representacio) {
-		seientEnRepresentacioPK = new SeientEnRepresentacioPK();
-		seientEnRepresentacioPK.setFila(seient.getFila());
-		seientEnRepresentacioPK.setColumna(seient.getColumna());
-		seientEnRepresentacioPK.setNomLocal(representacio.getLocal().getNom());
-		seientEnRepresentacioPK.setSessio(representacio.getSessio().getSessio().name());
+		this.seientEnRepresentacioPK = new SeientEnRepresentacioPK(seient.getFila(), seient.getColumna(),
+				representacio.getLocal().getNom(), representacio.getSessio().getSessio().name());
 		this.seient = seient;
 		this.representacio = representacio;
-		estat = Estat.LLIURE;
+		this.estat = Estat.LLIURE;
 
 	}
 

@@ -12,16 +12,6 @@ public class CurrencyConvertor implements Service {
 		return name;
 	}
 
-	/*
-	 * public float conversorRateEXT(String from, String to) throws
-	 * CurrencyConverterException {
-	 * 
-	 * CurrencyConverter currencyConverter; try { currencyConverter = new
-	 * BankUaCom(Currency.valueOf(from), Currency.valueOf(to)); return
-	 * currencyConverter.convertCurrency(1f); } catch
-	 * (CurrencyConverterException e) { throw e; } }
-	 */
-
 	public float conversorRate(String from, String to) throws Exception {
 		try {
 			URL url = new URL("http://download.finance.yahoo.com/d/quotes.csv?s=" + from + to + "=X&f=l1&e=.cs");
