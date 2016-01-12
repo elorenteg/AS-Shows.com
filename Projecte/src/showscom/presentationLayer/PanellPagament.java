@@ -204,8 +204,13 @@ public class PanellPagament extends JPanel {
 		}
 
 		int codiBanc;
+		String aux  = textFieldCodiBanc.getText();
+		if (aux.length() != 4) {
+			vistaPres.mostraMissatgeEndarrera("El Codi del banc ha de estar format per quatre dígits");
+			return;
+		}
 		try {
-			codiBanc = Integer.parseInt(textFieldCodiBanc.getText());
+			codiBanc = Integer.parseInt(aux);
 		} catch (NumberFormatException e) {
 			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el Codi del banc o no és vàlid");
 			return;
