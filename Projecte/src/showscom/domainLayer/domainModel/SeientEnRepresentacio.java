@@ -79,9 +79,7 @@ public class SeientEnRepresentacio {
 	 * @return Tupla amb la fila i columna del seient al local
 	 */
 	public TuplaSeient getPosicioSeient() {
-		TuplaSeient tupla = new TuplaSeient();
-		tupla.setFila(seient.getFila());
-		tupla.setColumna(seient.getColumna());
+		TuplaSeient tupla = new TuplaSeient(seient.getFila(), seient.getColumna());
 		return tupla;
 	}
 

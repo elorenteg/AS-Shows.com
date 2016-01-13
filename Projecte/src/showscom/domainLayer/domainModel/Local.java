@@ -79,8 +79,6 @@ public class Local {
 	 * @return Tupla amb la fila i columna màxima
 	 */
 	public TuplaSeient getMarges() {
-		TuplaSeient tupla = new TuplaSeient();
-
 		int maxCol = 0;
 		int maxFila = 0;
 		for (Seient s : seients) {
@@ -91,8 +89,8 @@ public class Local {
 			if (fila > maxFila)
 				maxFila = fila;
 		}
-		tupla.setFila(maxFila);
-		tupla.setColumna(maxCol);
+
+		TuplaSeient tupla = new TuplaSeient(maxFila, maxCol);
 
 		return tupla;
 	}
