@@ -1,8 +1,6 @@
 package showscom.dataLayer.dataControllers;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -16,11 +14,25 @@ import showscom.domainLayer.dataInterface.ICtrlRepresentacio;
 import showscom.domainLayer.domainModel.Representacio;
 import showscom.domainLayer.domainModel.RepresentacioPK;
 
+/**
+ * Controlador de la classe Representació. Gestiona els accessos amb la BD
+ */
 public class CtrlRepresentacio implements ICtrlRepresentacio {
 
+	/**
+	 * Instancia de la SessionFactory per connectar-se amb la BD
+	 */
 	private final SessionFactory sessionFactory = SessionFactoryAdapter.getSessionFactory();
 
-	@SuppressWarnings("unchecked")
+	/**
+	 * Selecciona una Representació identificada per una sessió i un local
+	 * guardada a la BD
+	 * @param nomL nom de local de la Representació
+	 * @param sessio sessio de la Representació
+	 * @return Representació identificada per nomL i sessio
+	 * @throws CDRepresentacioNoExisteix si no existeix la Representació
+	 *         identificada per nomL i sessio
+	 */
 	public Representacio getRepresentacio(String nomL, String sessio) throws CDRepresentacioNoExisteix {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
@@ -50,66 +62,11 @@ public class CtrlRepresentacio implements ICtrlRepresentacio {
 
 	}
 
-	@SuppressWarnings("unchecked")
-	public boolean existRepresentacio(String nomL, String sessio) {
-		Session session = sessionFactory.openSession();
-		Transaction tx = null;
-		boolean exist = false;
-
-		try {
-			tx = session.beginTransaction();
-
-			String sql = "SELECT * FROM Representacio WHERE Representacio.noml = :nomL AND Representacio.sessio = :sessio";
-			List<Object> listObj = session.createSQLQuery(sql).setParameter("nomL", nomL).setParameter("sessio", sessio)
-					.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
-
-			if (listObj.size() == 1)
-				exist = true;
-			tx.commit();
-		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-
-		return exist;
-	}
-
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public List<Representacio> getAllRepresentacio() {
-		Session session = sessionFactory.openSession();
-		Transaction tx = null;
-		List<Representacio> listRep = new ArrayList<>();
-
-		try {
-			tx = session.beginTransaction();
-
-			String sql = "SELECT * FROM Representacio";
-			List<Object> listObj = session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP)
-					.list();
-
-			for (Object obj : listObj) {
-				Map row = (Map) obj;
-				String nomL = row.get("noml").toString();
-				String sessio = row.get("sessio").toString();
-				Representacio rep = (Representacio) session.get(Representacio.class, new RepresentacioPK(sessio, nomL));
-				listRep.add(rep);
-			}
-
-		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-
-		return listRep;
-	}
-
-	public void actualitzaRepresentacio(Representacio representacio) {
+	/**
+	 * Actualitza una Representació a la BD
+	 * @param representacio Representació a actualitzar
+	 */
+	public void updateRepresentacio(Representacio representacio) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 

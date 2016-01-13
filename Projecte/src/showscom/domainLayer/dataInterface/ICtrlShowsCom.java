@@ -7,6 +7,6 @@ public interface ICtrlShowsCom {
 
 	public ShowsCom getShowsCom() throws CDShowsComNoExisteix;
 
-	public void actualitzaShowsCom(ShowsCom showsCom);
+	public void updateShowsCom(ShowsCom showsCom);
 
 }

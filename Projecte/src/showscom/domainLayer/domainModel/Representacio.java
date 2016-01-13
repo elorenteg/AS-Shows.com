@@ -75,7 +75,7 @@ public class Representacio implements Serializable {
 
 				SeientEnRepresentacio aux = new SeientEnRepresentacio(seient, this);
 				seientsEnRepresentacio.add(aux);
-				ctrlSeientEnRepr.guardaSeientEnRepresentacio(aux);
+				ctrlSeientEnRepr.insertSeientEnRepresentacio(aux);
 			}
 		}
 	}
@@ -192,7 +192,7 @@ public class Representacio implements Serializable {
 		ICtrlSeientEnRepresentacio ctrlSeient = ctrlDataFact.getCtrlSeientEnRepresentacio();
 		ICtrlRepresentacio ctrlRepresentacio = ctrlDataFact.getCtrlRepresentacio();
 
-		ctrlRepresentacio.actualitzaRepresentacio(this);
+		ctrlRepresentacio.updateRepresentacio(this);
 
 		for (TuplaSeient tupla : seients) {
 			SeientEnRepresentacio seient = null;
@@ -202,7 +202,7 @@ public class Representacio implements Serializable {
 				// Do nothing. Mai s'executa
 			}
 			seient.ocupat(entrada);
-			ctrlSeient.actualitzaSeientEnRepresentacio(seient);
+			ctrlSeient.updateSeientEnRepresentacio(seient);
 		}
 	}
 

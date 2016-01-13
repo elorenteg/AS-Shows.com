@@ -9,15 +9,22 @@ import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
+/**
+ * Gestiona la creació de la sessió per connectar-nos amb la BD
+ */
 @SuppressWarnings("unchecked")
 public class SessionFactoryAdapter {
 
+	/**
+	 * Instancia de la SessionFactory
+	 */
 	private static final SessionFactory sessionFact;
 
-	private static List<Logger> loggers;
-
+	/**
+	 * Inicialització estàtica de la instància de la SessionFactory
+	 */
 	static {
-		loggers = Collections.<Logger> list(LogManager.getCurrentLoggers());
+		List<Logger> loggers = Collections.<Logger> list(LogManager.getCurrentLoggers());
 		loggers.add(LogManager.getRootLogger());
 		for (Logger logger : loggers) {
 			logger.setLevel(Level.OFF);
@@ -31,6 +38,10 @@ public class SessionFactoryAdapter {
 		}
 	}
 
+	/**
+	 * Consulta la instància de la SessionFactory
+	 * @return instància de SessionFactory
+	 */
 	public static SessionFactory getSessionFactory() {
 		return sessionFact;
 	}

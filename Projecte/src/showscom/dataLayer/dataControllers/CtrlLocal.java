@@ -1,8 +1,6 @@
 package showscom.dataLayer.dataControllers;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -15,11 +13,23 @@ import showscom.dataLayer.sessionFactory.SessionFactoryAdapter;
 import showscom.domainLayer.dataInterface.ICtrlLocal;
 import showscom.domainLayer.domainModel.Local;
 
+/**
+ * Controlador de la classe Local. Gestiona els accessos amb la BD
+ */
 public class CtrlLocal implements ICtrlLocal {
 
+	/**
+	 * Instancia de la SessionFactory per connectar-se amb la BD
+	 */
 	private final SessionFactory sessionFactory = SessionFactoryAdapter.getSessionFactory();
 
-	@SuppressWarnings("unchecked")
+	/**
+	 * Selecciona un Local identificat pel seu nom guardat a la BD
+	 * @param nomLocal nom del Local
+	 * @return Local identificat per nomLocal
+	 * @throws CDLocalNoExisteix si no existeix el Local identificat per
+	 *         nomLocal
+	 */
 	public Local getLocal(String nomLocal) throws CDLocalNoExisteix {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
@@ -48,66 +58,11 @@ public class CtrlLocal implements ICtrlLocal {
 		return loc;
 	}
 
-	@SuppressWarnings("unchecked")
-	public boolean existLocal(String nomLocal) {
-		Session session = sessionFactory.openSession();
-		Transaction tx = null;
-		boolean exist = false;
-
-		try {
-			tx = session.beginTransaction();
-
-			String sql = "SELECT * FROM Local WHERE Local.nom = :nom";
-			List<Object> listObj = session.createSQLQuery(sql).setParameter("nom", nomLocal)
-					.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
-
-			if (listObj.size() == 1) {
-				exist = true;
-			}
-			tx.commit();
-		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-
-		return exist;
-	}
-
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public List<Local> getAllLocal() {
-		Session session = sessionFactory.openSession();
-		Transaction tx = null;
-		List<Local> listLoc = new ArrayList<>();
-
-		try {
-			tx = session.beginTransaction();
-
-			String sql = "SELECT * FROM Local";
-			List<Object> listObj = session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP)
-					.list();
-
-			for (Object obj : listObj) {
-				Map row = (Map) obj;
-				String nomLocal = row.get("nom").toString();
-				Local loc = (Local) session.get(Local.class, nomLocal);
-				listLoc.add(loc);
-			}
-
-		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-
-		return listLoc;
-	}
-
-	public void guardaLocal(Local local) {
+	/**
+	 * Inserta un Local a la BD
+	 * @param local Local a insertar
+	 */
+	public void insertLocal(Local local) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 

@@ -1,8 +1,6 @@
 package showscom.dataLayer.dataControllers;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -15,11 +13,23 @@ import showscom.dataLayer.sessionFactory.SessionFactoryAdapter;
 import showscom.domainLayer.dataInterface.ICtrlEntrada;
 import showscom.domainLayer.domainModel.Entrada;
 
+/**
+ * Controlador de la classe Entrada. Gestiona els accessos amb la BD
+ */
 public class CtrlEntrada implements ICtrlEntrada {
 
+	/**
+	 * Instancia de la SessionFactory per connectar-se amb la BD
+	 */
 	private final SessionFactory sessionFactory = SessionFactoryAdapter.getSessionFactory();
 
-	@SuppressWarnings("unchecked")
+	/**
+	 * Selecciona una Entrada identificada pel seu identificador guardada a la
+	 * BD
+	 * @param id identificador de l'Entrada
+	 * @return Entrada identificada per id
+	 * @throws CDEntradaNoExisteix si no existeix l'Entrada identificada per id
+	 */
 	public Entrada getEntrada(String id) throws CDEntradaNoExisteix {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
@@ -46,69 +56,13 @@ public class CtrlEntrada implements ICtrlEntrada {
 		}
 
 		return ent;
-
 	}
 
-	@SuppressWarnings("unchecked")
-	public boolean existEntrada(String id) {
-		Session session = sessionFactory.openSession();
-		Transaction tx = null;
-		boolean exist = false;
-
-		try {
-			tx = session.beginTransaction();
-
-			String sql = "SELECT * FROM Entrada WHERE Entrada.ident = :ident";
-			List<Object> listObj = session.createSQLQuery(sql).setParameter("ident", id)
-					.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP).list();
-
-			if (listObj.size() == 1) {
-				exist = false;
-			}
-			tx.commit();
-		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-
-		return exist;
-	}
-
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public List<Entrada> getAllEntrada() {
-		Session session = sessionFactory.openSession();
-		Transaction tx = null;
-		List<Entrada> listEnt = new ArrayList<>();
-
-		try {
-			tx = session.beginTransaction();
-
-			String sql = "SELECT * FROM Entrada";
-			List<Object> listObj = session.createSQLQuery(sql).setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP)
-					.list();
-
-			for (Object obj : listObj) {
-				Map row = (Map) obj;
-				String id = row.get("idEnt").toString();
-				Entrada rep = (Entrada) session.get(Entrada.class, id);
-				listEnt.add(rep);
-			}
-
-		} catch (HibernateException e) {
-			if (tx != null)
-				tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
-		}
-
-		return listEnt;
-	}
-
-	public void guardaEntrada(Entrada entrada) {
+	/**
+	 * Inserta una Entrada a la BD
+	 * @param entrada Entrada a insertar
+	 */
+	public void insertEntrada(Entrada entrada) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 
@@ -124,7 +78,6 @@ public class CtrlEntrada implements ICtrlEntrada {
 		} finally {
 			session.close();
 		}
-
 	}
 
 }
