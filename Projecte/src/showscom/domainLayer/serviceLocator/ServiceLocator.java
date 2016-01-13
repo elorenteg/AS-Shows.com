@@ -29,16 +29,16 @@ public class ServiceLocator {
 	}
 
 	/**
-	 * Consulta la inst√†ncia del ServiceLocator
+	 * Consulta la inst‡ncia del ServiceLocator
 	 * 
-	 * @return inst√†ncia de ServiceLocator
+	 * @return inst‡ncia de ServiceLocator
 	 */
 	public static ServiceLocator getInstance() {
 		return instance;
 	}
 
 	/**
-	 * Consulta la inst√†ncia d'un servei
+	 * Consulta la inst‡ncia d'un servei
 	 * 
 	 * @param serviceName el nom del servei
 	 * @return instancia del servei demanat

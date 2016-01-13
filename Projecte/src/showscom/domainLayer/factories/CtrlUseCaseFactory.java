@@ -5,7 +5,7 @@ import showscom.domainLayer.domainControllers.CtrlConsultarRepresentacions;
 import showscom.domainLayer.domainControllers.CtrlDomComprarEntrada;
 
 /**
- * Gestiona la creaci√≥ dels controladors de cas d'√∫s
+ * Gestiona la creaciÛ dels controladors de cas d'˙s
  *
  */
 public class CtrlUseCaseFactory {
@@ -33,36 +33,36 @@ public class CtrlUseCaseFactory {
 	}
 
 	/**
-	 * Consulta la inst√†ncia del CtrlUseCaseFactory
+	 * Consulta la inst‡ncia del CtrlUseCaseFactory
 	 * 
-	 * @return inst√†ncia de CtrlUseCaseFactory
+	 * @return inst‡ncia de CtrlUseCaseFactory
 	 */
 	public static CtrlUseCaseFactory getInstance() {
 		return instance;
 	}
 
 	/**
-	 * Consulta la inst√†ncia del CtrlDomComprarEntrada
+	 * Consulta la inst‡ncia del CtrlDomComprarEntrada
 	 * 
-	 * @return inst√†ncia de CtrlDomComprarEntrada
+	 * @return inst‡ncia de CtrlDomComprarEntrada
 	 */
 	public static CtrlDomComprarEntrada getCtrlDomCompEnt() {
 		return new CtrlDomComprarEntrada();
 	}
 
 	/**
-	 * Consulta la inst√†ncia del CtrlConsultarRepresentacions
+	 * Consulta la inst‡ncia del CtrlConsultarRepresentacions
 	 * 
-	 * @return inst√†ncia de CtrlConsultarRepresentacions
+	 * @return inst‡ncia de CtrlConsultarRepresentacions
 	 */
 	public CtrlConsultarRepresentacions getCtrlConsultarRepresentacions() {
 		return new CtrlConsultarRepresentacions();
 	}
 
 	/**
-	 * Consulta la inst√†ncia del CtrlConsultarOcupacio
+	 * Consulta la inst‡ncia del CtrlConsultarOcupacio
 	 * 
-	 * @return inst√†ncia de CtrlConsultarOcupacio
+	 * @return inst‡ncia de CtrlConsultarOcupacio
 	 */
 	public CtrlConsultarOcupacio getCtrlConsultarOcupacio() {
 		return new CtrlConsultarOcupacio();

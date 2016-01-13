@@ -16,7 +16,7 @@ import showscom.domainLayer.dataInterface.ICtrlSeientEnRepresentacio;
 import showscom.domainLayer.dataInterface.ICtrlShowsCom;
 
 /**
- * Gestiona la creaci√≥ dels controladors de la capa de dades per accedir a la
+ * Gestiona la creaciÛ dels controladors de la capa de dades per accedir a la
  * persistencia
  *
  */
@@ -55,7 +55,7 @@ public class CtrlDataFactory {
 	private static ICtrlShowsCom ctrlShows;
 
 	/**
-	 * M√®tode creador de la classe que crea tots els controladors de la capa de
+	 * MËtode creador de la classe que crea tots els controladors de la capa de
 	 * dades
 	 */
 	private CtrlDataFactory() {
@@ -69,72 +69,72 @@ public class CtrlDataFactory {
 	}
 
 	/**
-	 * Consulta la inst√†ncia del CtrlDataFactory
+	 * Consulta la inst‡ncia del CtrlDataFactory
 	 * 
-	 * @return inst√†ncia de CtrlDataFactory
+	 * @return inst‡ncia de CtrlDataFactory
 	 */
 	public static CtrlDataFactory getInstance() {
 		return instance;
 	}
 
 	/**
-	 * Consulta la inst√†ncia del CtrlEspectacle
+	 * Consulta la inst‡ncia del CtrlEspectacle
 	 * 
-	 * @return inst√†ncia de CtrlEspectacle
+	 * @return inst‡ncia de CtrlEspectacle
 	 */
 	public static ICtrlEspectacle getCtrlEspectacle() {
 		return ctrlEsp;
 	}
 
 	/**
-	 * Consulta la inst√†ncia del CtrlLocal
+	 * Consulta la inst‡ncia del CtrlLocal
 	 * 
-	 * @return inst√†ncia de CtrlLocal
+	 * @return inst‡ncia de CtrlLocal
 	 */
 	public ICtrlLocal getCtrlLocal() {
 		return ctrlLoc;
 	}
 
 	/**
-	 * Consulta la inst√†ncia del CtrlSeient
+	 * Consulta la inst‡ncia del CtrlSeient
 	 * 
-	 * @return inst√†ncia de CtrlSeient
+	 * @return inst‡ncia de CtrlSeient
 	 */
 	public static ICtrlSeient getCtrlSeient() {
 		return ctrlSeient;
 	}
 
 	/**
-	 * Consulta la inst√†ncia del CtrlSeientEnRepresentacio
+	 * Consulta la inst‡ncia del CtrlSeientEnRepresentacio
 	 * 
-	 * @return inst√†ncia de CtrlSeientEnRepresentacio
+	 * @return inst‡ncia de CtrlSeientEnRepresentacio
 	 */
 	public static ICtrlSeientEnRepresentacio getCtrlSeientEnRepresentacio() {
 		return ctrlSeientRepr;
 	}
 
 	/**
-	 * Consulta la inst√†ncia del CtrlRepresentacio
+	 * Consulta la inst‡ncia del CtrlRepresentacio
 	 * 
-	 * @return inst√†ncia de CtrlRepresentacio
+	 * @return inst‡ncia de CtrlRepresentacio
 	 */
 	public static ICtrlRepresentacio getCtrlRepresentacio() {
 		return ctrlRepr;
 	}
 
 	/**
-	 * Consulta la inst√†ncia del CtrlEntrada
+	 * Consulta la inst‡ncia del CtrlEntrada
 	 * 
-	 * @return inst√†ncia de CtrlEntrada
+	 * @return inst‡ncia de CtrlEntrada
 	 */
 	public static ICtrlEntrada getCtrlEntrada() {
 		return ctrlEnt;
 	}
 
 	/**
-	 * Consulta la inst√†ncia del CtrlShowsCom
+	 * Consulta la inst‡ncia del CtrlShowsCom
 	 * 
-	 * @return inst√†ncia de CtrlShowsCom
+	 * @return inst‡ncia de CtrlShowsCom
 	 */
 	public static ICtrlShowsCom getCtrlShows() {
 		return ctrlShows;

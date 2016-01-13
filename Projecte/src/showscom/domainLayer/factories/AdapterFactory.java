@@ -6,7 +6,7 @@ import showscom.domainLayer.adapters.IBankServiceAdapter;
 import showscom.domainLayer.adapters.ICurrencyConvertorAdapter;
 
 /**
- * Gestiona la creaci√≥ dels adapters per connectar-nos amb els serveis
+ * Gestiona la creaciÛ dels adapters per connectar-nos amb els serveis
  *
  */
 public class AdapterFactory {
@@ -26,7 +26,7 @@ public class AdapterFactory {
 	private static ICurrencyConvertorAdapter currencyConvertorAdap;
 
 	/**
-	 * M√®tode creador de la classe que crea els dos adapters dels serveis
+	 * MËtode creador de la classe que crea els dos adapters dels serveis
 	 */
 	private AdapterFactory() {
 		bankServiceAdap = new BankServiceAdapter();
@@ -34,27 +34,27 @@ public class AdapterFactory {
 	}
 
 	/**
-	 * Consulta la inst√†ncia del AdapterFactory
+	 * Consulta la inst‡ncia del AdapterFactory
 	 * 
-	 * @return inst√†ncia de AdapterFactory
+	 * @return inst‡ncia de AdapterFactory
 	 */
 	public static AdapterFactory getInstance() {
 		return instance;
 	}
 
 	/**
-	 * Consulta la inst√†ncia del BankServiceAdapter
+	 * Consulta la inst‡ncia del BankServiceAdapter
 	 * 
-	 * @return inst√†ncia de BankServiceAdapter
+	 * @return inst‡ncia de BankServiceAdapter
 	 */
 	public static IBankServiceAdapter getBankServiceAdapter() {
 		return bankServiceAdap;
 	}
 
 	/**
-	 * Consulta la inst√†ncia del CurrencyConvertorAdapter
+	 * Consulta la inst‡ncia del CurrencyConvertorAdapter
 	 * 
-	 * @return inst√†ncia de CurrencyConvertorAdapter
+	 * @return inst‡ncia de CurrencyConvertorAdapter
 	 */
 	public static ICurrencyConvertorAdapter getCurrencyConvertorAdapter() {
 		return currencyConvertorAdap;
