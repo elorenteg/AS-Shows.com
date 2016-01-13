@@ -4,18 +4,45 @@ import showscom.domainLayer.services.BankService;
 import showscom.domainLayer.services.CurrencyConvertor;
 import showscom.domainLayer.services.Service;
 
+/**
+ * Gestiona la creacio dels serveis
+ *
+ */
 public class ServiceLocator {
+	/**
+	 * Instancia del ServiceLocator
+	 */
 	private static ServiceLocator instance = new ServiceLocator();
+	/**
+	 * Instancia del BankService
+	 */
 	private static BankService bank;
+	/**
+	 * Instancia del CurrencyConvertor
+	 */
 	private static CurrencyConvertor conv;
 
+	/*
+	 * Un Constructor privat preveu que una altra classe instancii la classe
+	 */
 	private ServiceLocator() {
 	}
 
+	/**
+	 * Consulta la instància del ServiceLocator
+	 * 
+	 * @return instància de ServiceLocator
+	 */
 	public static ServiceLocator getInstance() {
 		return instance;
 	}
 
+	/**
+	 * Consulta la instància d'un servei
+	 * 
+	 * @param serviceName el nom del servei
+	 * @return instancia del servei demanat
+	 */
 	public static Service find(String serviceName) {
 		if (serviceName.equals("BankService")) {
 			if (bank == null)
