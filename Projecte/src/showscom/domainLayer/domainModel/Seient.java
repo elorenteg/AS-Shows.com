@@ -9,54 +9,52 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Check;
 
+/**
+ * Representació d'un Seient d'un Local
+ */
 @Entity
 @Table(name = "Seient")
 @Check(constraints = "fila > 0 AND columna > 0")
 public class Seient {
+	// Identificador del seient
 	@Id
 	@Embedded
 	private SeientPK seientPK;
+	// Local del seient
 	@ManyToOne
 	@JoinColumn(name = "nomL", referencedColumnName = "nom", insertable = false, updatable = false)
 	private Local local;
 
+	/**
+	 * Constructor per defecte
+	 */
 	public Seient() {
 	}
 
+	/**
+	 * Constructor amb inicialització d'atributs
+	 * @param fila fila del seient al local
+	 * @param columna columna del seient al local
+	 * @param local local del seient
+	 */
 	public Seient(int fila, int columna, Local local) {
 		seientPK = new SeientPK(fila, columna, local.getNom());
 		this.local = local;
 	}
 
-	public SeientPK getSeientPK() {
-		return seientPK;
-	}
-
-	public void setSeientPK(SeientPK seientPK) {
-		this.seientPK = seientPK;
-	}
-
+	/**
+	 * Consultora de la fila del seient al local
+	 * @return fila del seient al local
+	 */
 	public int getFila() {
 		return seientPK.getFila();
 	}
 
-	public void setFila(int fila) {
-		seientPK.setFila(fila);
-	}
-
+	/**
+	 * Consultora de la columna del seient al local
+	 * @return columna del seient al local
+	 */
 	public int getColumna() {
 		return seientPK.getColumna();
-	}
-
-	public void setColumna(int columna) {
-		seientPK.setColumna(columna);
-	}
-
-	public Local getLocal() {
-		return local;
-	}
-
-	public void setLocal(Local local) {
-		this.local = local;
 	}
 }
