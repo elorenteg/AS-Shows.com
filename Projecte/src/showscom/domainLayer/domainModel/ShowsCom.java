@@ -10,10 +10,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Check;
+import org.hibernate.annotations.CollectionId;
 import org.hibernate.annotations.CollectionOfElements;
 
 import showscom.dataLayer.exceptions.CDShowsComNoExisteix;
@@ -41,8 +43,8 @@ public class ShowsCom {
 	private Moneda divisa;
 
 	@CollectionOfElements(fetch = FetchType.EAGER)
-	@JoinTable(name = "Canvis")
-	@Column(name = "canvi", nullable = false)
+	@JoinTable(name = "Canvis", joinColumns = {@JoinColumn(name = "id")})
+	@Column(name = "canvi", nullable = false, unique=true)
 	@Enumerated(EnumType.STRING)
 	private List<Moneda> canvis;
 
