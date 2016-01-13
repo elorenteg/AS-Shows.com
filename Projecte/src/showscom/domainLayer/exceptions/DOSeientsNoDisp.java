@@ -1,14 +1,14 @@
 package showscom.domainLayer.exceptions;
 
 /**
- * Classe de gestiÃ³ d'Excepcions. Gestiona l'excepciÃ³ que el nombre
- * dâ€™espectadors Ã©s mÃ©s gran que el nombre de seients lliures.
+ * Classe de gestió d'Excepcions. Gestiona l'excepció que el nombre
+ * d'espectadors és més gran que el nombre de seients lliures.
  */
 public class DOSeientsNoDisp extends Exception {
 	public static final long serialVersionUID = 1L;
 
 	/**
-	 * MÃ¨tode creador de la classe que invoca a la constructora de la classe
+	 * Mètode creador de la classe que invoca a la constructora de la classe
 	 * Exception
 	 */
 	public DOSeientsNoDisp() {

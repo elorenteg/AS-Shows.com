@@ -1,14 +1,14 @@
 package showscom.domainLayer.exceptions;
 
 /**
- * Classe de gestiÃ³ d'Excepcions. Gestiona l'excepciÃ³ de no existÃ¨ncia de cap
+ * Classe de gestió d'Excepcions. Gestiona l'excepció de no existència de cap
  * Espectacle.
  */
 public class DONoHiHaEspectacles extends Exception {
 	public static final long serialVersionUID = 1L;
 
 	/**
-	 * MÃ¨tode creador de la classe que invoca a la constructora de la classe
+	 * Mètode creador de la classe que invoca a la constructora de la classe
 	 * Exception
 	 */
 	public DONoHiHaEspectacles() {
