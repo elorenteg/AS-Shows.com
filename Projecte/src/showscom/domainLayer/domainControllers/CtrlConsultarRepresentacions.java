@@ -12,8 +12,16 @@ import showscom.domainLayer.exceptions.DONoHiHaEspectacles;
 import showscom.domainLayer.exceptions.DONoHiHaRepresentacions;
 import showscom.domainLayer.factories.CtrlDataFactory;
 
+/**
+ * Controlador de la Capa de Domini del Cas d'Ús de Consultar Representacions
+ */
 public class CtrlConsultarRepresentacions {
 
+	/**
+	 * Obté els espectacles disponibles al sistema
+	 * @return llista amb els títols de tots els espectacles
+	 * @throws DONoHiHaEspectacles si no hi ha cap espectacle
+	 */
 	public List<String> consultaEspectacles() throws DONoHiHaEspectacles {
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		ICtrlEspectacle ctrlEsp = ctrlDataFact.getCtrlEspectacle();
@@ -31,6 +39,14 @@ public class CtrlConsultarRepresentacions {
 		return titols;
 	}
 
+	/**
+	 * Obté la informació de les representacions per a un espectacle en una data
+	 * @param titol títol de l'espectacle de la representació
+	 * @param data data de la representació
+	 * @return llista amb la informació de totes les representacions de
+	 *         l'espectacle a la data
+	 * @throws DONoHiHaRepresentacions si no hi ha representacions
+	 */
 	public List<TuplaRepr> consultaRepresentacions(String titol, Date data) throws DONoHiHaRepresentacions {
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
 		ICtrlEspectacle ctrlEsp = ctrlDataFact.getCtrlEspectacle();

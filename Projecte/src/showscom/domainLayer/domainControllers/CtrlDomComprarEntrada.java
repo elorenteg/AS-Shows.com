@@ -27,6 +27,9 @@ import showscom.domainLayer.factories.AdapterFactory;
 import showscom.domainLayer.factories.CtrlDataFactory;
 import showscom.domainLayer.factories.CtrlUseCaseFactory;
 
+/**
+ * Controlador de la Capa de Domini del Cas d'Ús de Comprar Entrada
+ */
 public class CtrlDomComprarEntrada {
 	private String titol;
 	private Date data;
