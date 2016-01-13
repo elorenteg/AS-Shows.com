@@ -48,7 +48,7 @@ public class PanellRepresentacio extends JPanel {
 	// TextField per indicar el núm. d'entrades a comprar
 	private JTextField textField;
 
-	// Núm. d'entrades a comprar
+	// Núm. d'espectadors de l'entrada a comprar
 	private int numEsp;
 	// Moneda del preu de les representacions
 	private Moneda divisa;
