@@ -5,13 +5,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
+/**
+ * Servei de canvi de divisa per a realitzar el pagament
+ */
 public class CurrencyConvertor implements Service {
 	// nom del servei
 	private static final String name = "CurrencyConvertor";
 
 	/**
 	 * Consulta el nom del servei
-	 * 
 	 * @return nom del servei
 	 */
 	public String getName() {
@@ -19,10 +21,11 @@ public class CurrencyConvertor implements Service {
 	}
 
 	/**
-	 * @param from
-	 * @param to
-	 * @return
-	 * @throws Exception
+	 * Obté la conversió d'una divisa a una altra
+	 * @param from divisa que volem canviar
+	 * @param to divisa a la que volem canviar
+	 * @return conversió de les divises
+	 * @throws Exception si no s'ha trobat el servei o la resposta és errònia
 	 */
 	public float conversorRate(String from, String to) throws Exception {
 		try {
