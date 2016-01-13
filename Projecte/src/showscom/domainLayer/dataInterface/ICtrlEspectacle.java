@@ -8,16 +8,15 @@ import showscom.domainLayer.domainModel.Espectacle;
 /**
  * Interface del controlador de la classe Espectacle. Ens permet definir que
  * metodes ha d'implementar qualsevol CtrlEspectacle
- *
  */
 public interface ICtrlEspectacle {
 
 	/**
-	 * Selecciona un Espectacle identificat pel seu tÃ­tol guardat a la BD
-	 * @param titol tÃ­tol de l'Espectacle
-	 * @return Espectacle identificat per tÃ­tol
+	 * Selecciona un Espectacle identificat pel seu títol guardat a la BD
+	 * @param titol títol de l'Espectacle
+	 * @return Espectacle identificat per títol
 	 * @throws CDEspectacleNoExisteix si no existeix l'Espectacle identificat
-	 *         per tÃ­tol
+	 *         per títol
 	 */
 	public Espectacle getEspectacle(String titol) throws CDEspectacleNoExisteix;
 

@@ -6,7 +6,6 @@ import showscom.domainLayer.domainModel.Entrada;
 /**
  * Interface del controlador de la classe Entrada. Ens permet definir que
  * metodes ha d'implementar qualsevol CtrlEntrada
- *
  */
 public interface ICtrlEntrada {
 

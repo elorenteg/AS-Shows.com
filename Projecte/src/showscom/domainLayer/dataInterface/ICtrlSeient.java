@@ -6,7 +6,6 @@ import showscom.domainLayer.domainModel.Seient;
 /**
  * Interface del controlador de la classe Seient. Ens permet definir que metodes
  * ha d'implementar qualsevol CtrlSeient
- *
  */
 public interface ICtrlSeient {
 

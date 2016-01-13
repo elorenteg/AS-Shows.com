@@ -6,7 +6,6 @@ import showscom.domainLayer.domainModel.SeientEnRepresentacio;
 /**
  * Interface del controlador de la classe SeientEnRepresentacio. Ens permet
  * definir que metodes ha d'implementar qualsevol CtrlSeientEnRepresentacio
- *
  */
 public interface ICtrlSeientEnRepresentacio {
 
@@ -28,13 +27,13 @@ public interface ICtrlSeientEnRepresentacio {
 
 	/**
 	 * Inserta un SeientEnRepresentacio a la BD
-	 * @param seientEnRepresentacio SeientEnRepresentaciÃ³ a insertar
+	 * @param seientEnRepresentacio SeientEnRepresentació a insertar
 	 */
 	public void insertSeientEnRepresentacio(SeientEnRepresentacio seientEnRepresentacio);
 
 	/**
 	 * Actualitza un SeientEnRepresentacio a la BD
-	 * @param seientEnRepresentacio SeientEnRepresentaciÃ³ a actualitzar
+	 * @param seientEnRepresentacio SeientEnRepresentació a actualitzar
 	 */
 	public void updateSeientEnRepresentacio(SeientEnRepresentacio seientEnRepresentacio);
 }
