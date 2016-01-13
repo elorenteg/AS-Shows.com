@@ -7,26 +7,18 @@ import showscom.domainLayer.adapters.ICurrencyConvertorAdapter;
 
 /**
  * Gestiona la creació dels adapters per connectar-nos amb els serveis
- *
  */
 public class AdapterFactory {
-	/**
-	 * Instancia del AdapterFactory
-	 */
+	// Instancia del AdapterFactory
 	private static AdapterFactory instance = new AdapterFactory();
-
-	/**
-	 * Instancia del BankServiceAdapter
-	 */
+	// Instancia del BankServiceAdapter
 	private static IBankServiceAdapter bankServiceAdap;
-
-	/**
-	 * Instancia del CurrencyConvertorAdapter
-	 */
+	// Instancia del CurrencyConvertorAdapter
 	private static ICurrencyConvertorAdapter currencyConvertorAdap;
 
 	/**
-	 * Mètode creador de la classe que crea els dos adapters dels serveis
+	 * Constructor per defecte privat. Evita que altres classes puguin instanciar
+	 * la classe. Crea els dos adapters dels serveis
 	 */
 	private AdapterFactory() {
 		bankServiceAdap = new BankServiceAdapter();
@@ -35,7 +27,6 @@ public class AdapterFactory {
 
 	/**
 	 * Consulta la instància del AdapterFactory
-	 * 
 	 * @return instància de AdapterFactory
 	 */
 	public static AdapterFactory getInstance() {
@@ -44,7 +35,6 @@ public class AdapterFactory {
 
 	/**
 	 * Consulta la instància del BankServiceAdapter
-	 * 
 	 * @return instància de BankServiceAdapter
 	 */
 	public static IBankServiceAdapter getBankServiceAdapter() {
@@ -53,7 +43,6 @@ public class AdapterFactory {
 
 	/**
 	 * Consulta la instància del CurrencyConvertorAdapter
-	 * 
 	 * @return instància de CurrencyConvertorAdapter
 	 */
 	public static ICurrencyConvertorAdapter getCurrencyConvertorAdapter() {

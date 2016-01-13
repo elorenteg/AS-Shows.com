@@ -18,45 +18,28 @@ import showscom.domainLayer.dataInterface.ICtrlShowsCom;
 /**
  * Gestiona la creació dels controladors de la capa de dades per accedir a la
  * persistencia
- *
  */
 public class CtrlDataFactory {
-	/**
-	 * Instancia del CtrlDataFactory
-	 */
+	// Instancia del CtrlDataFactory
 	private static CtrlDataFactory instance = new CtrlDataFactory();
-	/**
-	 * Instancia del CtrlEspectacle
-	 */
+	// Instancia del CtrlEspectacle
 	private static ICtrlEspectacle ctrlEsp;
-	/**
-	 * Instancia del CtrlLocal
-	 */
+	// Instancia del CtrlLocal
 	private static ICtrlLocal ctrlLoc;
-	/**
-	 * Instancia del CtrlSeient
-	 */
+	// Instancia del CtrlSeient
 	private static ICtrlSeient ctrlSeient;
-	/**
-	 * Instancia del CtrlSeientEnRepresentacio
-	 */
+	// Instancia del CtrlSeientEnRepresentacio
 	private static ICtrlSeientEnRepresentacio ctrlSeientRepr;
-	/**
-	 * Instancia del CtrlRepresentacio
-	 */
+	// Instancia del CtrlRepresentacio
 	private static ICtrlRepresentacio ctrlRepr;
-	/**
-	 * Instancia del CtrlEntrada
-	 */
+	// Instancia del CtrlEntrada
 	private static ICtrlEntrada ctrlEnt;
-	/**
-	 * Instancia del CtrlShowsCom
-	 */
+	// Instancia del CtrlShowsCom
 	private static ICtrlShowsCom ctrlShows;
 
 	/**
-	 * Mètode creador de la classe que crea tots els controladors de la capa de
-	 * dades
+	 * Constructor per defecte privat. Evita que altres classes puguin
+	 * instanciar la classe. Crea tots els controladors de la capa de dades
 	 */
 	private CtrlDataFactory() {
 		ctrlEsp = new CtrlEspectacle();
@@ -70,7 +53,6 @@ public class CtrlDataFactory {
 
 	/**
 	 * Consulta la instància del CtrlDataFactory
-	 * 
 	 * @return instància de CtrlDataFactory
 	 */
 	public static CtrlDataFactory getInstance() {
@@ -79,7 +61,6 @@ public class CtrlDataFactory {
 
 	/**
 	 * Consulta la instància del CtrlEspectacle
-	 * 
 	 * @return instància de CtrlEspectacle
 	 */
 	public static ICtrlEspectacle getCtrlEspectacle() {
@@ -88,7 +69,6 @@ public class CtrlDataFactory {
 
 	/**
 	 * Consulta la instància del CtrlLocal
-	 * 
 	 * @return instància de CtrlLocal
 	 */
 	public ICtrlLocal getCtrlLocal() {
@@ -97,7 +77,6 @@ public class CtrlDataFactory {
 
 	/**
 	 * Consulta la instància del CtrlSeient
-	 * 
 	 * @return instància de CtrlSeient
 	 */
 	public static ICtrlSeient getCtrlSeient() {
@@ -106,7 +85,6 @@ public class CtrlDataFactory {
 
 	/**
 	 * Consulta la instància del CtrlSeientEnRepresentacio
-	 * 
 	 * @return instància de CtrlSeientEnRepresentacio
 	 */
 	public static ICtrlSeientEnRepresentacio getCtrlSeientEnRepresentacio() {
@@ -115,7 +93,6 @@ public class CtrlDataFactory {
 
 	/**
 	 * Consulta la instància del CtrlRepresentacio
-	 * 
 	 * @return instància de CtrlRepresentacio
 	 */
 	public static ICtrlRepresentacio getCtrlRepresentacio() {
@@ -124,7 +101,6 @@ public class CtrlDataFactory {
 
 	/**
 	 * Consulta la instància del CtrlEntrada
-	 * 
 	 * @return instància de CtrlEntrada
 	 */
 	public static ICtrlEntrada getCtrlEntrada() {
@@ -133,7 +109,6 @@ public class CtrlDataFactory {
 
 	/**
 	 * Consulta la instància del CtrlShowsCom
-	 * 
 	 * @return instància de CtrlShowsCom
 	 */
 	public static ICtrlShowsCom getCtrlShows() {

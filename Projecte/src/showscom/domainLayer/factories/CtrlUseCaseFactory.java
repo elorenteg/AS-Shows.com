@@ -6,27 +6,18 @@ import showscom.domainLayer.domainControllers.CtrlDomComprarEntrada;
 
 /**
  * Gestiona la creació dels controladors de cas d'ús
- *
  */
 public class CtrlUseCaseFactory {
-	/**
-	 * Instancia del CtrlUseCaseFactory
-	 */
+	// Instancia del CtrlUseCaseFactory
 	private static CtrlUseCaseFactory instance = new CtrlUseCaseFactory();
-	/**
-	 * Instancia del CtrlDomComprarEntrada
-	 */
+	// Instancia del CtrlDomComprarEntrada
 	private static CtrlDomComprarEntrada ctrlDomCompEnt;
-	/**
-	 * Instancia del CtrlConsultarRepresentacions
-	 */
+	// Instancia del CtrlConsultarRepresentacions
 	private static CtrlConsultarRepresentacions ctrlConsRepr;
-	/**
-	 * Instancia del CtrlConsultarOcupacio
-	 */
+	// Instancia del CtrlConsultarOcupacio
 	private static CtrlConsultarOcupacio ctrlConsOcup;
 
-	/*
+	/**
 	 * Un Constructor privat preveu que una altra classe instancii la classe
 	 */
 	private CtrlUseCaseFactory() {
@@ -34,7 +25,6 @@ public class CtrlUseCaseFactory {
 
 	/**
 	 * Consulta la instància del CtrlUseCaseFactory
-	 * 
 	 * @return instància de CtrlUseCaseFactory
 	 */
 	public static CtrlUseCaseFactory getInstance() {
@@ -43,7 +33,6 @@ public class CtrlUseCaseFactory {
 
 	/**
 	 * Consulta la instància del CtrlDomComprarEntrada
-	 * 
 	 * @return instància de CtrlDomComprarEntrada
 	 */
 	public static CtrlDomComprarEntrada getCtrlDomCompEnt() {
@@ -52,7 +41,6 @@ public class CtrlUseCaseFactory {
 
 	/**
 	 * Consulta la instància del CtrlConsultarRepresentacions
-	 * 
 	 * @return instància de CtrlConsultarRepresentacions
 	 */
 	public CtrlConsultarRepresentacions getCtrlConsultarRepresentacions() {
@@ -61,7 +49,6 @@ public class CtrlUseCaseFactory {
 
 	/**
 	 * Consulta la instància del CtrlConsultarOcupacio
-	 * 
 	 * @return instància de CtrlConsultarOcupacio
 	 */
 	public CtrlConsultarOcupacio getCtrlConsultarOcupacio() {
