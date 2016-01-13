@@ -8,20 +8,66 @@ import java.util.List;
 
 import showscom.domainLayer.domainModel.TuplaSeient;
 
+/**
+ * Controlador de la part gràfica de selecció de Seients. És una extensió del
+ * Canvas de Java que mostra una graella de seients de FxC seients
+ */
 public class MyCanvas extends Canvas {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Amplada del canvas
+	 */
 	private int amplada;
+
+	/**
+	 * Altura del canvas
+	 */
 	private int altura;
+
+	/**
+	 * Màxim núm. de files a la graella dels seients
+	 */
 	private int maxFila;
+
+	/**
+	 * Màxim núm. de columnes a la graella dels seients
+	 */
 	private int maxColumna;
+
+	/**
+	 * Seients lliures del Local representat
+	 */
 	private List<TuplaSeient> seientsLliures;
+
+	/**
+	 * Seients assignats que han sigut seleccionats per l'usuari al Local
+	 */
 	private List<TuplaSeient> seientsAssignats;
 
+	/**
+	 * Amplada en píxels del seient dibuixat
+	 */
 	private int wSeient = 15;
+
+	/**
+	 * Altura en píxels del seient dibuixat
+	 */
 	private int hSeient = 15;
+
+	/**
+	 * Separació en píxels entre els seients dibuixats
+	 */
 	private int sep = 5;
 
+	/**
+	 * Constructora del Canvas dels seients.
+	 * @param width amplada del panell on està el canvas
+	 * @param height altura del panell on està el canvas
+	 * @param maxFila màxim núm. de files del Local
+	 * @param maxColumna màxim núm. de columnes del Local
+	 * @param seients seients lliures del Local
+	 */
 	public MyCanvas(int width, int height, int maxFila, int maxColumna, List<TuplaSeient> seients) {
 		this.maxFila = maxFila;
 		this.maxColumna = maxColumna;
@@ -37,6 +83,13 @@ public class MyCanvas extends Canvas {
 		setBounds(marginX, marginY, amplada, altura);
 	}
 
+	/**
+	 * S'encarrega de pintar el canvas. Pinta l'escenari i una graella amb FxC
+	 * seients indicant el seu núm de fila i columna. També pinta una llegenda
+	 * per diferencia els seients lliures (verds), assignats (grocs) i no
+	 * disponibles (grisos)
+	 * @param g Graphics on es pinta el canvas
+	 */
 	public void paint(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.drawLine(0, 0, amplada - 1, 0);
@@ -116,6 +169,13 @@ public class MyCanvas extends Canvas {
 		g.drawString("No disponible", xLlegenda + wSeient + 5, yLlegenda + hSeient - 3);
 	}
 
+	/**
+	 * Calcula si s'ha premut en algun seient del Local. Si es prem un seient
+	 * lliure, es posa com assignat i si estava assignat, es deixa lliure.
+	 * Altrament, no fa res
+	 * @param xClicked coordenada de l'eix de les X on s'ha premut
+	 * @param yClicked coordenada de l'eix de les Y on s'ha premut
+	 */
 	void refresh(int xClicked, int yClicked) {
 		int yMin = (altura - (hSeient * maxFila + sep * (maxFila - 1))) / 2;
 		int xMin = (amplada - (wSeient * maxColumna + sep * (maxColumna - 1))) / 2;
@@ -149,6 +209,10 @@ public class MyCanvas extends Canvas {
 		}
 	}
 
+	/**
+	 * Consultora dels seients assignats al canvas
+	 * @return llista amb els seients assignats
+	 */
 	public List<TuplaSeient> getSeientsAssignats() {
 		return seientsAssignats;
 	}
