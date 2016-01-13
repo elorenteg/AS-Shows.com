@@ -9,15 +9,38 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Controla la visualització gràfica del Panell Inicial
+ */
 public class PanellInici extends JPanel {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Instància del Controlador de la Capa de Presentació
+	 */
 	private CtrlPresComprarEntrada ctrlPres;
+
+	/**
+	 * Instància de la Vista de la Capa de Presentació
+	 */
 	private VistaComprarEntrada vistaPres;
 
+	/**
+	 * Instància del botó Continua al panell
+	 */
 	private JButton btnContinua;
+
+	/**
+	 * Instància del botó Cancel·la al panell
+	 */
 	private JButton btnCancela;
 
+	/**
+	 * Constructora del Panell d'Inici. Inicialitza la visualizació gràfica del
+	 * panell i els seus atributs i comportaments
+	 * @param ctrlPres instància del Controlador de la Capa de Presentació
+	 * @param vistaPres instància de la Vista de la Capa de Presentació
+	 */
 	public PanellInici(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres) {
 		this.ctrlPres = ctrlPres;
 		this.vistaPres = vistaPres;
@@ -25,6 +48,9 @@ public class PanellInici extends JPanel {
 		this.setVisible(true);
 	}
 
+	/**
+	 * Inicialitza els components visuals del panell i els seus comportaments
+	 */
 	private void initComponents() {
 		JLabel label1 = new JLabel("Benvinguts al");
 		label1.setFont(new Font("originalfont", Font.PLAIN, 20));
@@ -100,10 +126,18 @@ public class PanellInici extends JPanel {
 						.addComponent(btnContinua).addComponent(btnCancela)).addGap(50, 50, 50).addContainerGap()));
 	}
 
+	/**
+	 * S'acciona quan es prem el botó Continua al panell. La seva acció és la de
+	 * mostrar el panell d'Espectacles
+	 */
 	private void prContinua() {
 		ctrlPres.prContObteEspectacles();
 	}
 
+	/**
+	 * S'acciona quan es prem el botó Cancel·la al panell. La seva acció és la
+	 * de cancel·lar el flux de l'aplicació
+	 */
 	private void prCancela() {
 		ctrlPres.prCancela();
 	}

@@ -8,7 +8,8 @@ import showscom.presentationLayer.CtrlPresComprarEntrada;
 public class Main {
 
 	/**
-	 * Funció principal que crida al Ctrl de Presentació per executar el Cas d'Ús de Compra d'Entrades
+	 * Funció principal que crida al Ctrl de Presentació per executar el Cas
+	 * d'Ús de Compra d'Entrades
 	 * @param args Command-Line Arguments
 	 */
 	public static void main(String args[]) {

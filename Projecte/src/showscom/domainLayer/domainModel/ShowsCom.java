@@ -44,8 +44,8 @@ public class ShowsCom {
 	private Moneda divisa;
 
 	@CollectionOfElements(fetch = FetchType.EAGER)
-	@JoinTable(name = "Canvis", joinColumns = {@JoinColumn(name = "id")})
-	@Column(name = "canvi", nullable = false, unique=true)
+	@JoinTable(name = "Canvis", joinColumns = { @JoinColumn(name = "id") })
+	@Column(name = "canvi", nullable = false, unique = true)
 	@Enumerated(EnumType.STRING)
 	private List<Moneda> canvis;
 
