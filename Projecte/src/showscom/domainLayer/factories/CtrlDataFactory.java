@@ -16,7 +16,8 @@ import showscom.domainLayer.dataInterface.ICtrlSeientEnRepresentacio;
 import showscom.domainLayer.dataInterface.ICtrlShowsCom;
 
 /**
- * Gestiona la creació dels controladors de la capa de dades per accedir a la persistencia
+ * Gestiona la creació dels controladors de la capa de dades per accedir a la
+ * persistencia
  *
  */
 public class CtrlDataFactory {
@@ -54,7 +55,8 @@ public class CtrlDataFactory {
 	private static ICtrlShowsCom ctrlShows;
 
 	/**
-	 * Mètode creador de la classe que crea tots els controladors de la capa de dades
+	 * Mètode creador de la classe que crea tots els controladors de la capa de
+	 * dades
 	 */
 	private CtrlDataFactory() {
 		ctrlEsp = new CtrlEspectacle();
@@ -134,7 +136,7 @@ public class CtrlDataFactory {
 	 * 
 	 * @return instància de CtrlShowsCom
 	 */
-	 public static ICtrlShowsCom getCtrlShows() {
+	public static ICtrlShowsCom getCtrlShows() {
 		return ctrlShows;
 	}
 

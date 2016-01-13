@@ -28,19 +28,54 @@ import javax.swing.table.JTableHeader;
 import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.UtilDateModel;
 
+/**
+ * Controla la visualització gràfica del Panell d'Espectacles
+ */
 public class PanellEspectacle extends JPanel {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Instància del Controlador de la Capa de Presentació
+	 */
 	private CtrlPresComprarEntrada ctrlPres;
+
+	/**
+	 * Instància de la Vista de la Capa de Presentació
+	 */
 	private VistaComprarEntrada vistaPres;
 
+	/**
+	 * Instància del botó Continua al panell
+	 */
 	private JButton btnContinua;
+
+	/**
+	 * Instància del botó Cancel·la al panell
+	 */
 	private JButton btnCancela;
 
+	/**
+	 * ScrollPane on se situa la llista d'espectacles
+	 */
 	private JScrollPane scrollPane;
+
+	/**
+	 * Conté la llista d'espectacles
+	 */
 	private JTable table;
+
+	/**
+	 * DatePanel per escollir la data
+	 */
 	private JDatePanelImpl datePanel;
 
+	/**
+	 * Constructora del Panell d'Espectacles. Inicialitza la visualizació
+	 * gràfica del panell i els seus atributs i comportaments
+	 * @param ctrlPres instància del Controlador de la Capa de Presentació
+	 * @param vistaPres instància de la Vista de la Capa de Presentació
+	 * @param espectacles llista amb els espectacles a mostrar
+	 */
 	public PanellEspectacle(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, List<String> espectacles) {
 		this.ctrlPres = ctrlPres;
 		this.vistaPres = vistaPres;
@@ -48,7 +83,10 @@ public class PanellEspectacle extends JPanel {
 		this.setVisible(true);
 	}
 
-	@SuppressWarnings("serial")
+	/**
+	 * Inicialitza els components visuals del panell i els seus comportaments
+	 * @param espectacles llista amb els espectacles a mostrar
+	 */
 	private void initComponents(List<String> espectacles) {
 		JLabel label1 = new JLabel("Selecciona un espectacle i una data");
 
@@ -156,6 +194,11 @@ public class PanellEspectacle extends JPanel {
 						.addComponent(btnContinua).addComponent(btnCancela)).addGap(50, 50, 50).addContainerGap()));
 	}
 
+	/**
+	 * S'acciona quan es prem el botó Continua al panell. La seva acció és la
+	 * d'avaluar els components del panell i la de mostrar el panell de
+	 * Representacions
+	 */
 	private void prContinua() {
 		String titol = null;
 		Date data = null;
@@ -190,6 +233,10 @@ public class PanellEspectacle extends JPanel {
 		ctrlPres.prContObteRepresentacions(titol, data);
 	}
 
+	/**
+	 * S'acciona quan es prem el botó Cancel·la al panell. La seva acció és la
+	 * de cancel·lar el flux de l'aplicació
+	 */
 	private void prCancela() {
 		ctrlPres.prCancela();
 	}

@@ -25,21 +25,65 @@ import showscom.domainLayer.domainModel.Moneda;
 import showscom.domainLayer.domainModel.TipusSessio;
 import showscom.domainLayer.domainModel.TuplaRepr;
 
+/**
+ * Controla la visualització gràfica del Panell de Representacions
+ */
 public class PanellRepresentacio extends JPanel {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Instància del Controlador de la Capa de Presentació
+	 */
 	private CtrlPresComprarEntrada ctrlPres;
+
+	/**
+	 * Instància de la Vista de la Capa de Presentació
+	 */
 	private VistaComprarEntrada vistaPres;
 
+	/**
+	 * Instància del botó Continua al panell
+	 */
 	private JButton btnContinua;
+
+	/**
+	 * Instància del botó Cancel·la al panell
+	 */
 	private JButton btnCancela;
 
+	/**
+	 * ScrollPane on se situa la llista de representacions
+	 */
 	private JScrollPane scrollPane;
+
+	/**
+	 * Llista amb la informació de les representacions
+	 */
 	private JTable table;
+
+	/**
+	 * TextField per indicar el núm. d'entrades a comprar
+	 */
 	private JTextField textField;
+
+	/**
+	 * Núm. d'entrades a comprar
+	 */
 	private int numEsp;
+
+	/**
+	 * Moneda del preu de les representacions
+	 */
 	private Moneda divisa;
 
+	/**
+	 * Constructora del Panell de Representacions. Inicialitza la visualizació
+	 * gràfica del panell i els seus atributs i comportaments
+	 * @param ctrlPres instància del Controlador de la Capa de Presentació
+	 * @param vistaPres instància de la Vista de la Capa de Presentació
+	 * @param infoRepr llista de les representacions a mostrar
+	 * @param divisa moneda en la que estan els preus de les representacions
+	 */
 	public PanellRepresentacio(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, List<TuplaRepr> infoRepr,
 			Moneda divisa) {
 		this.ctrlPres = ctrlPres;
@@ -49,7 +93,10 @@ public class PanellRepresentacio extends JPanel {
 		this.setVisible(true);
 	}
 
-	@SuppressWarnings("serial")
+	/**
+	 * Inicialitza els components visuals del panell i els seus comportaments
+	 * @param infoRepr llista de les representacions a mostrar
+	 */
 	private void initComponents(List<TuplaRepr> infoRepr) {
 		JLabel label1 = new JLabel("Selecciona una representació");
 
@@ -191,6 +238,10 @@ public class PanellRepresentacio extends JPanel {
 						.addComponent(btnContinua).addComponent(btnCancela)).addGap(50, 50, 50).addContainerGap()));
 	}
 
+	/**
+	 * S'acciona quan es prem el botó Continua al panell. La seva acció és la
+	 * d'avaluar els components del panell i la de mostrar el panell de Seients
+	 */
 	private void prContinua() {
 		String local = null;
 		String sessio = null;
@@ -217,14 +268,26 @@ public class PanellRepresentacio extends JPanel {
 		ctrlPres.prContObteOcupacio(local, sessio, numEsp);
 	}
 
+	/**
+	 * S'acciona quan es prem el botó Cancel·la al panell. La seva acció és la
+	 * de cancel·lar el flux de l'aplicació
+	 */
 	private void prCancela() {
 		ctrlPres.prCancela();
 	}
 
+	/**
+	 * Consultora del núm d'espectadors a comprar
+	 * @return núm. d'espectadors
+	 */
 	public int getNumEsp() {
 		return numEsp;
 	}
 
+	/**
+	 * Consultora de la divisa dels preus del sistema
+	 * @return
+	 */
 	public Moneda getDivisa() {
 		return divisa;
 	}

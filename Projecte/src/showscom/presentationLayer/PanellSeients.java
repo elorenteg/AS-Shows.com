@@ -16,18 +16,52 @@ import javax.swing.JPanel;
 
 import showscom.domainLayer.domainModel.TuplaSeient;
 
+/**
+ * Controla la visualització gràfica del Panell de Seients
+ */
 public class PanellSeients extends JPanel {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Instància del Controlador de la Capa de Presentació
+	 */
 	private CtrlPresComprarEntrada ctrlPres;
+
+	/**
+	 * Instància de la Vista de la Capa de Presentació
+	 */
 	private VistaComprarEntrada vistaPres;
 
-	private MyCanvas canvas;
-	private int numEsp;
-
+	/**
+	 * Instància del botó Continua al panell
+	 */
 	private JButton btnContinua;
+
+	/**
+	 * Instància del botó Cancel·la al panell
+	 */
 	private JButton btnCancela;
 
+	/**
+	 * Canvas per visualitzar els seients del local
+	 */
+	private MyCanvas canvas;
+
+	/**
+	 * Número d'entrades que es volen comprar
+	 */
+	private int numEsp;
+
+	/**
+	 * Constructora del Panell de Seients. Inicialitza la visualizació gràfica
+	 * del panell i els seus atributs i comportaments
+	 * @param ctrlPres instància del Controlador de la Capa de Presentació
+	 * @param vistaPres instància de la Vista de la Capa de Presentació
+	 * @param maxFila màxim número de files del local
+	 * @param maxColumna màxim número de columnes del local
+	 * @param seientsLliures seients disponibles del local
+	 * @param numEsp núm. d'entrades que es volen comprar
+	 */
 	public PanellSeients(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, int maxFila, int maxColumna,
 			List<TuplaSeient> seientsLliures, int numEsp) {
 		this.ctrlPres = ctrlPres;
@@ -37,6 +71,12 @@ public class PanellSeients extends JPanel {
 		this.setVisible(true);
 	}
 
+	/**
+	 * Inicialitza els components visuals del panell i els seus comportaments
+	 * @param maxFila màxim número de files del local
+	 * @param maxColumna màxim número de columnes del local
+	 * @param seientsLliures seients disponibles del local
+	 */
 	private void initComponents(int maxFila, int maxColumna, List<TuplaSeient> seientsLliures) {
 		JLabel label1 = new JLabel("Selecciona ");
 		JLabel label2 = new JLabel("");
@@ -123,6 +163,10 @@ public class PanellSeients extends JPanel {
 		this.setLayout(layout);
 	}
 
+	/**
+	 * S'acciona quan es prem el botó Continua al panell. La seva acció és la
+	 * d'avaluar els components del panell i la de mostrar el panell de Pagament
+	 */
 	private void prContinua() {
 		List<TuplaSeient> seientsAssignats = canvas.getSeientsAssignats();
 
@@ -137,6 +181,10 @@ public class PanellSeients extends JPanel {
 		ctrlPres.prContSeleccionarSeients(seientsAssignats);
 	}
 
+	/**
+	 * S'acciona quan es prem el botó Cancel·la al panell. La seva acció és la
+	 * de cancel·lar el flux de l'aplicació
+	 */
 	private void prCancela() {
 		ctrlPres.prCancela();
 	}

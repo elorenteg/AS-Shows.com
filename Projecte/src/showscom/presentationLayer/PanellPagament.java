@@ -17,22 +17,73 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 import showscom.domainLayer.domainModel.Moneda;
 
+/**
+ * Controla la visualització gràfica del Panell de Pagament
+ */
 public class PanellPagament extends JPanel {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Instància del Controlador de la Capa de Presentació
+	 */
 	private CtrlPresComprarEntrada ctrlPres;
+
+	/**
+	 * Instància de la Vista de la Capa de Presentació
+	 */
 	private VistaComprarEntrada vistaPres;
 
-	private JTextField textFieldPreu;
-	private JTextField textFieldDNI;
-	private JTextField textFieldCodiBanc;
-	private JTextField textFieldNumCompte;
+	/**
+	 * Instància del botó Continua al panell
+	 */
 	private JButton btnContinua;
+
+	/**
+	 * Instància del botó Cancel·la al panell
+	 */
 	private JButton btnCancela;
+
+	/**
+	 * Textfield on indica el preu total de les entrades en la moneda que indica
+	 * divisaAct
+	 */
+	private JTextField textFieldPreu;
+
+	/**
+	 * TextField que permet indicar el DNI de compra
+	 */
+	private JTextField textFieldDNI;
+
+	/**
+	 * Textfield que permet indicar el codi del banc de la compra
+	 */
+	private JTextField textFieldCodiBanc;
+
+	/**
+	 * Textfield que permet indicar el núm. de compte de la compra
+	 */
+	private JTextField textFieldNumCompte;
+
+	/**
+	 * ComboBox que permet seleccionar la moneda en la que es vol realitzar el
+	 * pagament
+	 */
 	private JComboBox<String> comboBoxDivises;
 
+	/**
+	 * Divisa actual en la que es veu el preu
+	 */
 	private Moneda divisaAct;
 
+	/**
+	 * Constructora del Panell de Pagament. Inicialitza la visualizació gràfica
+	 * del panell i els seus atributs i comportaments
+	 * @param ctrlPres instància del Controlador de la Capa de Presentació
+	 * @param vistaPres instància de la Vista de la Capa de Presentació
+	 * @param preu preu total de les entrades en la moneda divisa
+	 * @param canvis divises en les que podem realitzar el pagament
+	 * @param divisa divisa actual en la que veiem el preu
+	 */
 	public PanellPagament(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, float preu,
 			List<String> canvis, Moneda divisa) {
 		this.ctrlPres = ctrlPres;
@@ -41,6 +92,12 @@ public class PanellPagament extends JPanel {
 		this.setVisible(true);
 	}
 
+	/**
+	 * Inicialitza els components visuals del panell i els seus comportaments
+	 * @param preu preu total de les entrades en la moneda divisa
+	 * @param canvis divises en les que podem realitzar el pagament
+	 * @param divisa divisa actual en la que veiem el preu
+	 */
 	private void initComponents(float preu, List<String> canvis, Moneda divisa) {
 		this.divisaAct = divisa;
 
@@ -167,6 +224,11 @@ public class PanellPagament extends JPanel {
 						.addComponent(btnCancela)).addGap(50).addContainerGap()));
 	}
 
+	/**
+	 * S'acciona quan es prem el botó Continua al panell. La seva acció és la
+	 * d'avaluar els components del panell i la de mostrar el panell de
+	 * Finalització
+	 */
 	private void prContinua() {
 		String DNI = textFieldDNI.getText();
 		if (DNI == null) {
@@ -235,10 +297,18 @@ public class PanellPagament extends JPanel {
 		ctrlPres.prContPagament(DNI, codiBanc, numCompte);
 	}
 
+	/**
+	 * S'acciona quan es prem el botó Cancel·la al panell. La seva acció és la
+	 * de cancel·lar el flux de l'aplicació
+	 */
 	private void prCancela() {
 		ctrlPres.prCancela();
 	}
 
+	/**
+	 * Actualitza el preu total de les entrades en una altra moneda
+	 * @param preu nou preu total
+	 */
 	public void actualitzaPreu(float preu) {
 		textFieldPreu.setText(String.format("%.2f", preu) + " " + divisaAct.getSymbol());
 	}
