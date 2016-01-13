@@ -3,7 +3,7 @@ package showscom;
 import showscom.presentationLayer.CtrlPresComprarEntrada;
 
 /**
- * Programa principal
+ * Programa principal 
  */
 public class Main {
 
