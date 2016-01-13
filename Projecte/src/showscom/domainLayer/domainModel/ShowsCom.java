@@ -22,7 +22,7 @@ import showscom.domainLayer.factories.CtrlDataFactory;
 
 @Entity
 @Table(name = "ShowsCom")
-@Check(constraints = "codiBanc > 0 AND comissio > 0 AND id = 1 AND divisa IN ('EUR','USD','GBP')")
+@Check(constraints = "codiBanc > 0 AND comissio > 0 AND id = 1 AND divisa = 'EUR'")
 public class ShowsCom {
 	private static ShowsCom instance = null;
 
