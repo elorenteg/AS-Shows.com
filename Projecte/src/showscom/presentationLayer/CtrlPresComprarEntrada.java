@@ -20,14 +20,9 @@ import showscom.domainLayer.exceptions.DOServeiNoDisponible;
  * Controlador de la Capa de Presentació
  */
 public class CtrlPresComprarEntrada {
-	/**
-	 * Instància del Controlador de la Capa de Domini
-	 */
+	// Instància del Controlador de la Capa de Domini
 	CtrlDomComprarEntrada ctrlDom;
-
-	/**
-	 * Instància de la Vista de la Capa de Presentació
-	 */
+	// Instància de la Vista de la Capa de Presentació
 	VistaComprarEntrada vistaPres;
 
 	/**

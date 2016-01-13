@@ -15,9 +15,7 @@ import org.hibernate.cfg.AnnotationConfiguration;
 @SuppressWarnings("unchecked")
 public class SessionFactoryAdapter {
 
-	/**
-	 * Instancia de la SessionFactory
-	 */
+	// Instancia de la SessionFactory
 	private static final SessionFactory sessionFact;
 
 	/**

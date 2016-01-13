@@ -34,39 +34,21 @@ import net.sourceforge.jdatepicker.impl.UtilDateModel;
 public class PanellEspectacle extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instància del Controlador de la Capa de Presentació
-	 */
-	private CtrlPresComprarEntrada ctrlPres;
+	// Instància del Controlador de la Capa de Domini
+	CtrlPresComprarEntrada ctrlPres;
+	// Instància de la Vista de la Capa de Presentació
+	VistaComprarEntrada vistaPres;
 
-	/**
-	 * Instància de la Vista de la Capa de Presentació
-	 */
-	private VistaComprarEntrada vistaPres;
-
-	/**
-	 * Instància del botó Continua al panell
-	 */
+	// Instància del botó Continua al panell
 	private JButton btnContinua;
-
-	/**
-	 * Instància del botó Cancel·la al panell
-	 */
+	// Instància del botó Cancel·la al panell
 	private JButton btnCancela;
 
-	/**
-	 * ScrollPane on se situa la llista d'espectacles
-	 */
+	// ScrollPane on se situa la llista d'espectacles
 	private JScrollPane scrollPane;
-
-	/**
-	 * Conté la llista d'espectacles
-	 */
+	// Conté la llista d'espectacles
 	private JTable table;
-
-	/**
-	 * DatePanel per escollir la data
-	 */
+	// DatePanel per escollir la data
 	private JDatePanelImpl datePanel;
 
 	/**

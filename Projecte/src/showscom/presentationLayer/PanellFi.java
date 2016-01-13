@@ -15,19 +15,12 @@ import javax.swing.JPanel;
 public class PanellFi extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instància del Controlador de la Capa de Presentació
-	 */
-	private CtrlPresComprarEntrada ctrlPres;
+	// Instància del Controlador de la Capa de Domini
+	CtrlPresComprarEntrada ctrlPres;
+	// Instància de la Vista de la Capa de Presentació
+	VistaComprarEntrada vistaPres;
 
-	/**
-	 * Instància de la Vista de la Capa de Presentació
-	 */
-	private VistaComprarEntrada vistaPres;
-
-	/**
-	 * Instància del botó de Finalització del Panell de Finalització
-	 */
+	// Instància del botó de Finalització del Panell de Finalització
 	private JButton btnFinalitza;
 
 	/**

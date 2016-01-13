@@ -15,49 +15,31 @@ import showscom.domainLayer.domainModel.TuplaSeient;
 public class MyCanvas extends Canvas {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Amplada del canvas
-	 */
+	// Amplada del canvas
 	private int amplada;
 
-	/**
-	 * Altura del canvas
-	 */
+	// Altura del canvas
 	private int altura;
 
-	/**
-	 * Màxim núm. de files a la graella dels seients
-	 */
+	// Màxim núm. de files a la graella dels seients
 	private int maxFila;
 
-	/**
-	 * Màxim núm. de columnes a la graella dels seients
-	 */
+	// Màxim núm. de columnes a la graella dels seients
 	private int maxColumna;
 
-	/**
-	 * Seients lliures del Local representat
-	 */
+	// Seients lliures del Local representat
 	private List<TuplaSeient> seientsLliures;
 
-	/**
-	 * Seients assignats que han sigut seleccionats per l'usuari al Local
-	 */
+	// Seients assignats que han sigut seleccionats per l'usuari al Local
 	private List<TuplaSeient> seientsAssignats;
 
-	/**
-	 * Amplada en píxels del seient dibuixat
-	 */
+	// Amplada en píxels del seient dibuixat
 	private int wSeient = 15;
 
-	/**
-	 * Altura en píxels del seient dibuixat
-	 */
+	// Altura en píxels del seient dibuixat
 	private int hSeient = 15;
 
-	/**
-	 * Separació en píxels entre els seients dibuixats
-	 */
+	// Separació en píxels entre els seients dibuixats
 	private int sep = 5;
 
 	/**

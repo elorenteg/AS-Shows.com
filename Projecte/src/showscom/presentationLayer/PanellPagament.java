@@ -23,56 +23,30 @@ import showscom.domainLayer.domainModel.Moneda;
 public class PanellPagament extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instància del Controlador de la Capa de Presentació
-	 */
-	private CtrlPresComprarEntrada ctrlPres;
+	// Instància del Controlador de la Capa de Domini
+	CtrlPresComprarEntrada ctrlPres;
+	// Instància de la Vista de la Capa de Presentació
+	VistaComprarEntrada vistaPres;
 
-	/**
-	 * Instància de la Vista de la Capa de Presentació
-	 */
-	private VistaComprarEntrada vistaPres;
-
-	/**
-	 * Instància del botó Continua al panell
-	 */
+	// Instància del botó Continua al panell
 	private JButton btnContinua;
-
-	/**
-	 * Instància del botó Cancel·la al panell
-	 */
+	// Instància del botó Cancel·la al panell
 	private JButton btnCancela;
 
-	/**
-	 * Textfield on indica el preu total de les entrades en la moneda que indica
-	 * divisaAct
-	 */
+	// Textfield on indica el preu total de les entrades en la moneda que indica
+	// divisaAct
 	private JTextField textFieldPreu;
-
-	/**
-	 * TextField que permet indicar el DNI de compra
-	 */
+	// TextField que permet indicar el DNI de compra
 	private JTextField textFieldDNI;
-
-	/**
-	 * Textfield que permet indicar el codi del banc de la compra
-	 */
+	// Textfield que permet indicar el codi del banc de la compra
 	private JTextField textFieldCodiBanc;
-
-	/**
-	 * Textfield que permet indicar el núm. de compte de la compra
-	 */
+	// Textfield que permet indicar el núm. de compte de la compra
 	private JTextField textFieldNumCompte;
-
-	/**
-	 * ComboBox que permet seleccionar la moneda en la que es vol realitzar el
-	 * pagament
-	 */
+	// ComboBox que permet seleccionar la moneda en la que es vol realitzar el
+	// pagament
 	private JComboBox<String> comboBoxDivises;
 
-	/**
-	 * Divisa actual en la que es veu el preu
-	 */
+	// Divisa actual en la que es veu el preu
 	private Moneda divisaAct;
 
 	/**

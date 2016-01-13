@@ -31,49 +31,26 @@ import showscom.domainLayer.domainModel.TuplaRepr;
 public class PanellRepresentacio extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instància del Controlador de la Capa de Presentació
-	 */
-	private CtrlPresComprarEntrada ctrlPres;
+	// Instància del Controlador de la Capa de Domini
+	CtrlPresComprarEntrada ctrlPres;
+	// Instància de la Vista de la Capa de Presentació
+	VistaComprarEntrada vistaPres;
 
-	/**
-	 * Instància de la Vista de la Capa de Presentació
-	 */
-	private VistaComprarEntrada vistaPres;
-
-	/**
-	 * Instància del botó Continua al panell
-	 */
+	// Instància del botó Continua al panell
 	private JButton btnContinua;
-
-	/**
-	 * Instància del botó Cancel·la al panell
-	 */
+	// Instància del botó Cancel·la al panell
 	private JButton btnCancela;
 
-	/**
-	 * ScrollPane on se situa la llista de representacions
-	 */
+	// ScrollPane on se situa la llista de representacions
 	private JScrollPane scrollPane;
-
-	/**
-	 * Llista amb la informació de les representacions
-	 */
+	// Llista amb la informació de les representacions
 	private JTable table;
-
-	/**
-	 * TextField per indicar el núm. d'entrades a comprar
-	 */
+	// TextField per indicar el núm. d'entrades a comprar
 	private JTextField textField;
 
-	/**
-	 * Núm. d'entrades a comprar
-	 */
+	// Núm. d'entrades a comprar
 	private int numEsp;
-
-	/**
-	 * Moneda del preu de les representacions
-	 */
+	// Moneda del preu de les representacions
 	private Moneda divisa;
 
 	/**

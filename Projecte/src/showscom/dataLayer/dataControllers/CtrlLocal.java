@@ -18,7 +18,7 @@ import showscom.domainLayer.domainModel.Local;
  */
 public class CtrlLocal implements ICtrlLocal {
 
-	//Instancia de la SessionFactory per connectar-se amb la BD
+	// Instancia de la SessionFactory per connectar-se amb la BD
 	private final SessionFactory sessionFactory = SessionFactoryAdapter.getSessionFactory();
 
 	/**

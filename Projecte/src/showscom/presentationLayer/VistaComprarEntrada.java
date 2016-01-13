@@ -19,39 +19,20 @@ import showscom.domainLayer.domainModel.TuplaSeient;
 public class VistaComprarEntrada extends JFrame {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instància de la Capa de Presentació
-	 */
+	// Instància de la Capa de Presentació
 	private CtrlPresComprarEntrada ctrlPres;
 
-	/**
-	 * Instància del Panell d'Inici
-	 */
+	// Instància del Panell d'Inici
 	private PanellInici panellIni;
-
-	/**
-	 * Instància del Panell d'Espectacles
-	 */
+	// Instància del Panell d'Espectacles
 	private PanellEspectacle panellEsp;
-
-	/**
-	 * Instància del Panell de Representacions
-	 */
+	// Instància del Panell de Representacions
 	private PanellRepresentacio panellRepr;
-
-	/**
-	 * Instància del Panell de Seients
-	 */
+	// Instància del Panell de Seients
 	private PanellSeients panellSeients;
-
-	/**
-	 * Instància del Panell de Pagament
-	 */
+	// Instància del Panell de Pagament
 	private PanellPagament panellPagam;
-
-	/**
-	 * Instància del Panell de Finalizació
-	 */
+	// Instància del Panell de Finalizació
 	private PanellFi panellFi;
 
 	/**

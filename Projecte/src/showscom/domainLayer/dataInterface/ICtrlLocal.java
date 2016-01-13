@@ -4,8 +4,8 @@ import showscom.dataLayer.exceptions.CDLocalNoExisteix;
 import showscom.domainLayer.domainModel.Local;
 
 /**
- * Interface del controlador de la classe Local. Ens permet definir que
- * metodes ha d'implementar qualsevol CtrlLocal
+ * Interface del controlador de la classe Local. Ens permet definir que metodes
+ * ha d'implementar qualsevol CtrlLocal
  *
  */
 public interface ICtrlLocal {

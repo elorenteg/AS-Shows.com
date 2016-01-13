@@ -22,34 +22,19 @@ import showscom.domainLayer.domainModel.TuplaSeient;
 public class PanellSeients extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instància del Controlador de la Capa de Presentació
-	 */
-	private CtrlPresComprarEntrada ctrlPres;
+	// Instància del Controlador de la Capa de Domini
+	CtrlPresComprarEntrada ctrlPres;
+	// Instància de la Vista de la Capa de Presentació
+	VistaComprarEntrada vistaPres;
 
-	/**
-	 * Instància de la Vista de la Capa de Presentació
-	 */
-	private VistaComprarEntrada vistaPres;
-
-	/**
-	 * Instància del botó Continua al panell
-	 */
+	// Instància del botó Continua al panell
 	private JButton btnContinua;
-
-	/**
-	 * Instància del botó Cancel·la al panell
-	 */
+	// Instància del botó Cancel·la al panell
 	private JButton btnCancela;
 
-	/**
-	 * Canvas per visualitzar els seients del local
-	 */
+	// Canvas per visualitzar els seients del local
 	private MyCanvas canvas;
-
-	/**
-	 * Número d'entrades que es volen comprar
-	 */
+	// Número d'entrades que es volen comprar
 	private int numEsp;
 
 	/**
