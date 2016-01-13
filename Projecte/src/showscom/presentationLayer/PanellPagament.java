@@ -227,7 +227,7 @@ public class PanellPagament extends JPanel {
 
 		BigInteger ibanNumber = new BigInteger(numericAccountNumber.toString());
 		if (ibanNumber.mod(new BigInteger("97")).intValue() != 1) {
-			vistaPres.mostraMissatgeEndarrera("El N-umero de compte no és correcte");
+			vistaPres.mostraMissatgeEndarrera("El Número de compte no és correcte");
 			return;
 		}
 		;
