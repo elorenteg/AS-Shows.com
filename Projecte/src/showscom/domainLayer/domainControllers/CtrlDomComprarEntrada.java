@@ -28,7 +28,7 @@ import showscom.domainLayer.factories.CtrlDataFactory;
 import showscom.domainLayer.factories.CtrlUseCaseFactory;
 
 /**
- * Controlador de la Capa de Domini del Cas d'Us de Comprar Entrada
+ * Controlador de la Capa de Domini del Cas d'Us de Comprar Entrada 
  */
 public class CtrlDomComprarEntrada {
 	// Titol de l'espectacle de la representacio
