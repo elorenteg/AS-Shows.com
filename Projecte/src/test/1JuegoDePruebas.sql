@@ -62,5 +62,15 @@ SELECT crea_seientsEnRepresentacio('Teatre Lliure de Montjuïc', 4, 4);
 INSERT INTO Entrada VALUES (1, '9/01/2016', '38477456C', 4, 144, 'Teatre Lliure de Montjuïc', 'NIT');
 INSERT INTO Entrada VALUES (2, '12/01/2016', '28447486M', 8, 288, 'Teatre Lliure de Montjuïc', 'NIT');
 
+UPDATE SeientEnRepresentacio
+SET estat='OCUPAT', idEnt=1
+WHERE noml='Teatre Lliure de Montjuïc' AND sessio='NIT'
+AND fila=2;
+
+UPDATE SeientEnRepresentacio
+SET estat='OCUPAT', idEnt=2
+WHERE noml='Teatre Lliure de Montjuïc' AND sessio='NIT'
+AND fila IN (3,4);
+
 INSERT INTO ShowsCom VALUES (1, '2100', '6', 'EUR', 'ES6600190020961234567890', 3);
 INSERT INTO Canvis VALUES (1, 'USD'), (1, 'GBP');
