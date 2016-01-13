@@ -6,7 +6,7 @@ import showscom.domainLayer.adapters.IBankServiceAdapter;
 import showscom.domainLayer.adapters.ICurrencyConvertorAdapter;
 
 /**
- * Gestiona la creació dels adapters per connectar-nos amb els serveis
+ * Gestiona la creacio dels adapters per connectar-nos amb els serveis
  */
 public class AdapterFactory {
 	// Instancia del AdapterFactory
@@ -26,24 +26,24 @@ public class AdapterFactory {
 	}
 
 	/**
-	 * Consulta la instància del AdapterFactory
-	 * @return instància de AdapterFactory
+	 * Consulta la instancia del AdapterFactory
+	 * @return instancia de AdapterFactory
 	 */
 	public static AdapterFactory getInstance() {
 		return instance;
 	}
 
 	/**
-	 * Consulta la instància del BankServiceAdapter
-	 * @return instància de BankServiceAdapter
+	 * Consulta la instancia del BankServiceAdapter
+	 * @return instancia de BankServiceAdapter
 	 */
 	public static IBankServiceAdapter getBankServiceAdapter() {
 		return bankServiceAdap;
 	}
 
 	/**
-	 * Consulta la instància del CurrencyConvertorAdapter
-	 * @return instància de CurrencyConvertorAdapter
+	 * Consulta la instancia del CurrencyConvertorAdapter
+	 * @return instancia de CurrencyConvertorAdapter
 	 */
 	public static ICurrencyConvertorAdapter getCurrencyConvertorAdapter() {
 		return currencyConvertorAdap;

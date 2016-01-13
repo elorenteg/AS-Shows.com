@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Check;
 
 /**
- * Representació d'un Seient d'un Local
+ * Representacio d'un Seient d'un Local
  */
 @Entity
 @Table(name = "Seient")
@@ -32,7 +32,7 @@ public class Seient {
 	}
 
 	/**
-	 * Constructor amb inicialització d'atributs
+	 * Constructor amb inicialitzacio d'atributs
 	 * @param fila fila del seient al local
 	 * @param columna columna del seient al local
 	 * @param local local del seient

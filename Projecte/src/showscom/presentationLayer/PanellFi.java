@@ -10,24 +10,24 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * Controla la visualització gràfica del Panell de Finalització
+ * Controla la visualitzacio grafica del Panell de Finalitzacio
  */
 public class PanellFi extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	// Instància del Controlador de la Capa de Domini
+	// Instancia del Controlador de la Capa de Domini
 	CtrlPresComprarEntrada ctrlPres;
-	// Instància de la Vista de la Capa de Presentació
+	// Instancia de la Vista de la Capa de Presentacio
 	VistaComprarEntrada vistaPres;
 
-	// Instància del botó de Finalització del Panell de Finalització
+	// Instancia del boto de Finalitzacio del Panell de Finalitzacio
 	private JButton btnFinalitza;
 
 	/**
-	 * Constructora del Panell de Finalització. Inicialitza la visualizació
-	 * gràfica del panell i els seus atributs i comportaments
-	 * @param ctrlPres instància del Controlador de la Capa de Presentació
-	 * @param vistaPres instància de la Vista de la Capa de Presentació
+	 * Constructora del Panell de Finalitzacio. Inicialitza la visualizacio
+	 * grafica del panell i els seus atributs i comportaments
+	 * @param ctrlPres instancia del Controlador de la Capa de Presentacio
+	 * @param vistaPres instancia de la Vista de la Capa de Presentacio
 	 */
 	public PanellFi(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres) {
 		this.ctrlPres = ctrlPres;
@@ -44,7 +44,7 @@ public class PanellFi extends JPanel {
 		label1.setText("Pagament realitzat correctament");
 		label1.setFont(new Font("originalfont", Font.PLAIN, 16));
 		JLabel label2 = new JLabel();
-		label2.setText("Podrà recollir les seves entrades a la seva entitat bancària");
+		label2.setText("Podra recollir les seves entrades a la seva entitat bancaria");
 		label2.setFont(new Font("originalfont", Font.PLAIN, 16));
 
 		btnFinalitza = new javax.swing.JButton();
@@ -58,13 +58,13 @@ public class PanellFi extends JPanel {
 		JLabel labelEspec = new JLabel();
 		labelEspec.setText("Espectacles");
 		JLabel labelRepres = new JLabel();
-		labelRepres.setText("Representació");
+		labelRepres.setText("Representacio");
 		JLabel labelSeients = new JLabel();
 		labelSeients.setText("Seients");
 		JLabel labelPagam = new JLabel();
 		labelPagam.setText("Pagament");
 		JLabel labelConfirm = new JLabel();
-		labelConfirm.setText("Confirmació");
+		labelConfirm.setText("Confirmacio");
 		JLabel labelSep1 = new JLabel();
 		labelSep1.setText(">>");
 		JLabel labelSep2 = new JLabel();
@@ -115,8 +115,8 @@ public class PanellFi extends JPanel {
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Finalitza al panell. La seva acció és la
-	 * de tancar l'aplicació
+	 * S'acciona quan es prem el boto Finalitza al panell. La seva accio es la
+	 * de tancar l'aplicacio
 	 */
 	private void prFinalitza() {
 		ctrlPres.prFinalitza();

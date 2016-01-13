@@ -9,7 +9,7 @@ import java.util.List;
 import showscom.domainLayer.domainModel.TuplaSeient;
 
 /**
- * Controlador de la part gràfica de selecció de Seients. És una extensió del
+ * Controlador de la part grafica de seleccio de Seients. es una extensio del
  * Canvas de Java que mostra una graella de seients de FxC seients
  */
 public class MyCanvas extends Canvas {
@@ -21,10 +21,10 @@ public class MyCanvas extends Canvas {
 	// Altura del canvas
 	private int altura;
 
-	// Màxim núm. de files a la graella dels seients
+	// Maxim num. de files a la graella dels seients
 	private int maxFila;
 
-	// Màxim núm. de columnes a la graella dels seients
+	// Maxim num. de columnes a la graella dels seients
 	private int maxColumna;
 
 	// Seients lliures del Local representat
@@ -33,21 +33,21 @@ public class MyCanvas extends Canvas {
 	// Seients assignats que han sigut seleccionats per l'usuari al Local
 	private List<TuplaSeient> seientsAssignats;
 
-	// Amplada en píxels del seient dibuixat
+	// Amplada en pixels del seient dibuixat
 	private int wSeient = 15;
 
-	// Altura en píxels del seient dibuixat
+	// Altura en pixels del seient dibuixat
 	private int hSeient = 15;
 
-	// Separació en píxels entre els seients dibuixats
+	// Separacio en pixels entre els seients dibuixats
 	private int sep = 5;
 
 	/**
 	 * Constructora del Canvas dels seients.
-	 * @param width amplada del panell on està el canvas
-	 * @param height altura del panell on està el canvas
-	 * @param maxFila màxim núm. de files del Local
-	 * @param maxColumna màxim núm. de columnes del Local
+	 * @param width amplada del panell on esta el canvas
+	 * @param height altura del panell on esta el canvas
+	 * @param maxFila maxim num. de files del Local
+	 * @param maxColumna maxim num. de columnes del Local
 	 * @param seients seients lliures del Local
 	 */
 	public MyCanvas(int width, int height, int maxFila, int maxColumna, List<TuplaSeient> seients) {
@@ -67,7 +67,7 @@ public class MyCanvas extends Canvas {
 
 	/**
 	 * S'encarrega de pintar el canvas. Pinta l'escenari i una graella amb FxC
-	 * seients indicant el seu núm de fila i columna. També pinta una llegenda
+	 * seients indicant el seu num de fila i columna. Tambe pinta una llegenda
 	 * per diferencia els seients lliures (verds), assignats (grocs) i no
 	 * disponibles (grisos)
 	 * @param g Graphics on es pinta el canvas

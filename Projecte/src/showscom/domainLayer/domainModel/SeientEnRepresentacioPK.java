@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 /**
- * Representa la clau primària d'un Seient en un Local per a una Representació
+ * Representa la clau primaria d'un Seient en un Local per a una Representacio
  */
 @Embeddable
 public class SeientEnRepresentacioPK implements Serializable {
@@ -16,10 +16,10 @@ public class SeientEnRepresentacioPK implements Serializable {
 	// Columna del seient al local
 	@Column(name = "columna")
 	private int columna;
-	// Nom del local del seient i de la representació
+	// Nom del local del seient i de la representacio
 	@Column(name = "nomL")
 	private String nomLocal;
-	// Sessió de la representació
+	// Sessio de la representacio
 	@Column(name = "sessio")
 	private String sessio;
 
@@ -30,12 +30,12 @@ public class SeientEnRepresentacioPK implements Serializable {
 	}
 
 	/**
-	 * Constructora amb inicialització d'atributs
-	 * @param fila fila del seient en representació
-	 * @param columna columna del seient en representació
-	 * @param nomLocal nom del local del seient en representació i de la
-	 *        representació
-	 * @param sessio sessió de la representació
+	 * Constructora amb inicialitzacio d'atributs
+	 * @param fila fila del seient en representacio
+	 * @param columna columna del seient en representacio
+	 * @param nomLocal nom del local del seient en representacio i de la
+	 *        representacio
+	 * @param sessio sessio de la representacio
 	 */
 	public SeientEnRepresentacioPK(int fila, int columna, String nomLocal, String sessio) {
 		super();

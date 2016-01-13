@@ -20,26 +20,26 @@ import showscom.domainLayer.dataInterface.ICtrlShowsCom;
 import showscom.domainLayer.factories.CtrlDataFactory;
 
 /*
- * Representació del sistema de Shows.com amb la seva informació
+ * Representacio del sistema de Shows.com amb la seva informacio
  */
 @Entity
 @Table(name = "ShowsCom")
 @Check(constraints = "codiBanc > 0 AND comissio > 0 AND divisa = 'EUR'")
 public class ShowsCom {
-	// Instància de Shows.com
+	// Instancia de Shows.com
 	private static ShowsCom instance = null;
 
-	// Identificador de la instància
+	// Identificador de la instancia
 	@Id
 	private int id = 1;
 
 	// Codi del banc del sistema de Shows.com
 	@Column(name = "codiBanc")
 	private int codiBanc;
-	// Número del compte del sistema de Shows.com
+	// Numero del compte del sistema de Shows.com
 	@Column(name = "nCompte")
 	private String numeroCompte;
-	// Comissió de pagament
+	// Comissio de pagament
 	@Column(name = "comissio")
 	private float comissio;
 	// Divisa dels preus del sistema de Shows.com
@@ -66,10 +66,10 @@ public class ShowsCom {
 	}
 
 	/**
-	 * Consultor de la instància de Shows.com. Si no s'havia instancia, es
-	 * s'inicialitza la instància. Evita que hi hagi més d'1 instància de
+	 * Consultor de la instancia de Shows.com. Si no s'havia instancia, es
+	 * s'inicialitza la instancia. Evita que hi hagi mes d'1 instancia de
 	 * Shows.com
-	 * @return instància del sistema de Shows.com
+	 * @return instancia del sistema de Shows.com
 	 */
 	public static ShowsCom getInstance() {
 		if (instance == null) {
@@ -94,16 +94,16 @@ public class ShowsCom {
 	}
 
 	/**
-	 * Consultora del núm. de compte del sistema de Shows.com
-	 * @return núm. de compte del banc
+	 * Consultora del num. de compte del sistema de Shows.com
+	 * @return num. de compte del banc
 	 */
 	public String getNumeroCompte() {
 		return numeroCompte;
 	}
 
 	/**
-	 * Consultora de la comissió del sistema de Shows.com
-	 * @return comissió
+	 * Consultora de la comissio del sistema de Shows.com
+	 * @return comissio
 	 */
 	public float getComissio() {
 		return comissio;
@@ -126,7 +126,7 @@ public class ShowsCom {
 	}
 
 	/**
-	 * Obté l'identificador de l'entrada que es vol comprar i incrementa
+	 * Obte l'identificador de l'entrada que es vol comprar i incrementa
 	 * l'identificador de la següent entrada
 	 * @return l'identificador de l'entrada comprada
 	 */

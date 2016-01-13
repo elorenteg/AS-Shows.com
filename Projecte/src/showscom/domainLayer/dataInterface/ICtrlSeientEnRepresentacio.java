@@ -27,13 +27,13 @@ public interface ICtrlSeientEnRepresentacio {
 
 	/**
 	 * Inserta un SeientEnRepresentacio a la BD
-	 * @param seientEnRepresentacio SeientEnRepresentació a insertar
+	 * @param seientEnRepresentacio SeientEnRepresentacio a insertar
 	 */
 	public void insertSeientEnRepresentacio(SeientEnRepresentacio seientEnRepresentacio);
 
 	/**
 	 * Actualitza un SeientEnRepresentacio a la BD
-	 * @param seientEnRepresentacio SeientEnRepresentació a actualitzar
+	 * @param seientEnRepresentacio SeientEnRepresentacio a actualitzar
 	 */
 	public void updateSeientEnRepresentacio(SeientEnRepresentacio seientEnRepresentacio);
 }

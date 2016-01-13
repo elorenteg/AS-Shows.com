@@ -3,7 +3,7 @@ package showscom.domainLayer.services;
 import java.util.Date;
 
 /**
- * Servei bancari per realitzar transferències
+ * Servei bancari per realitzar transferencies
  */
 public class BankService implements Service {
 	// nom del servei
@@ -18,16 +18,16 @@ public class BankService implements Service {
 	}
 
 	/**
-	 * Realitza la transferència de la quantitat monetaria establerta del compte
-	 * bancari del comprador al de l'agrupació
+	 * Realitza la transferencia de la quantitat monetaria establerta del compte
+	 * bancari del comprador al de l'agrupacio
 	 * @param dni DNI del comprador de l'entrada
 	 * @param codiB codi del banc del comprador
-	 * @param numCompte número de compte bancari del comprador
-	 * @param preu quantitat monetària a transferir
-	 * @param codiBShows codi del banc de l'agrupació
-	 * @param numCompteShows número de compte bancari de l'agrupació
-	 * @param dAvui data de realització de la transferencia
-	 * @return true si s'ha autoritzat la transferència, false altrament
+	 * @param numCompte numero de compte bancari del comprador
+	 * @param preu quantitat monetaria a transferir
+	 * @param codiBShows codi del banc de l'agrupacio
+	 * @param numCompteShows numero de compte bancari de l'agrupacio
+	 * @param dAvui data de realitzacio de la transferencia
+	 * @return true si s'ha autoritzat la transferencia, false altrament
 	 */
 	public boolean autoritza(String dni, int codiB, String numCompte, float preu, int codiBShows, String numCompteShows,
 			Date dAvui) {

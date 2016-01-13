@@ -10,7 +10,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
 /**
- * Gestiona la creació de la sessió per connectar-nos amb la BD
+ * Gestiona la creacio de la sessio per connectar-nos amb la BD
  */
 @SuppressWarnings("unchecked")
 public class SessionFactoryAdapter {
@@ -19,7 +19,7 @@ public class SessionFactoryAdapter {
 	private static final SessionFactory sessionFact;
 
 	/**
-	 * Inicialització estàtica de la instància de la SessionFactory
+	 * Inicialitzacio estatica de la instancia de la SessionFactory
 	 */
 	static {
 		List<Logger> loggers = Collections.<Logger> list(LogManager.getCurrentLoggers());
@@ -37,8 +37,8 @@ public class SessionFactoryAdapter {
 	}
 
 	/**
-	 * Consulta la instància de la SessionFactory
-	 * @return instància de SessionFactory
+	 * Consulta la instancia de la SessionFactory
+	 * @return instancia de SessionFactory
 	 */
 	public static SessionFactory getSessionFactory() {
 		return sessionFact;

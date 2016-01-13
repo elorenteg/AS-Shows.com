@@ -31,38 +31,38 @@ import showscom.domainLayer.exceptions.DOSeientsNoDisp;
 import showscom.domainLayer.factories.CtrlDataFactory;
 
 /**
- * Representació d'una Representació d'espectacle
+ * Representacio d'una Representacio d'espectacle
  */
 @Entity
 @Table(name = "Representacio")
 @Inheritance(strategy = InheritanceType.JOINED)
 @Check(constraints = "preu > 0 AND nSeientsLliures >= 0")
 public class Representacio implements Serializable {
-	// Identificador de la Representació
+	// Identificador de la Representacio
 	@Id
 	@Embedded
 	private RepresentacioPK representacioPK;
-	// Títol de l'espectacle de la representació
+	// Titol de l'espectacle de la representacio
 	@Column(name = "titolE", nullable = false)
 	private String titolE;
-	// Preu de la representació
+	// Preu de la representacio
 	@Column(name = "preu")
 	private float preu;
-	// Data de la representació
+	// Data de la representacio
 	@Column(name = "data")
 	private Date data;
-	// Núm. de seients lliures de la representació
+	// Num. de seients lliures de la representacio
 	@Column(name = "nSeientsLliures")
 	private int nombreSeientsLliures;
-	// Sessió de la representació
+	// Sessio de la representacio
 	@ManyToOne
 	@JoinColumn(name = "sessio", referencedColumnName = "sessio", insertable = false, updatable = false)
 	private Sessio sessio;
-	// Local de la representació
+	// Local de la representacio
 	@ManyToOne
 	@JoinColumn(name = "nomL", referencedColumnName = "nom", insertable = false, updatable = false)
 	private Local local;
-	// Seients de la representació
+	// Seients de la representacio
 	@OneToMany(targetEntity = SeientEnRepresentacio.class, mappedBy = "representacio", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<SeientEnRepresentacio> seientsEnRepresentacio;
@@ -74,13 +74,13 @@ public class Representacio implements Serializable {
 	}
 
 	/**
-	 * Creadora amb inicialització d'atributs
-	 * @param sessio sessió de la representació
-	 * @param local local de la representació
-	 * @param titolEsp títol de l'espectacle de la representació
-	 * @param preu preu base de la representació
-	 * @param data data de la represntació
-	 * @param nombreSeientsLliures núm. de seients lliures de la representació
+	 * Creadora amb inicialitzacio d'atributs
+	 * @param sessio sessio de la representacio
+	 * @param local local de la representacio
+	 * @param titolEsp titol de l'espectacle de la representacio
+	 * @param preu preu base de la representacio
+	 * @param data data de la represntacio
+	 * @param nombreSeientsLliures num. de seients lliures de la representacio
 	 */
 	public Representacio(Sessio sessio, Local local, String titolEsp, float preu, Date data, int nombreSeientsLliures) {
 		super();
@@ -98,57 +98,57 @@ public class Representacio implements Serializable {
 	}
 
 	/**
-	 * Consultora del preu de la representació
-	 * @return preu de la representació
+	 * Consultora del preu de la representacio
+	 * @return preu de la representacio
 	 */
 	public float getPreu() {
 		return preu;
 	}
 
 	/**
-	 * Consultora de la data de la representació
-	 * @return data de la representació
+	 * Consultora de la data de la representacio
+	 * @return data de la representacio
 	 */
 	public Date getData() {
 		return data;
 	}
 
 	/**
-	 * Consultora de la sessió de la representació
-	 * @return sessió de la representació
+	 * Consultora de la sessio de la representacio
+	 * @return sessio de la representacio
 	 */
 	public Sessio getSessio() {
 		return sessio;
 	}
 
 	/**
-	 * Consultora del local de la representació
-	 * @return local de la representació
+	 * Consultora del local de la representacio
+	 * @return local de la representacio
 	 */
 	public Local getLocal() {
 		return local;
 	}
 
 	/**
-	 * Comprova si la representació és una estrena
-	 * @return retorna que no és una estrena
+	 * Comprova si la representacio es una estrena
+	 * @return retorna que no es una estrena
 	 */
 	public boolean esEstrena() {
 		return false;
 	}
 
 	/**
-	 * Consultora del recàrrec de la representació
-	 * @return si no és una estrena, el recàrrec és de 0
+	 * Consultora del recarrec de la representacio
+	 * @return si no es una estrena, el recarrec es de 0
 	 */
 	public int getRecarrec() {
 		return 0;
 	}
 
 	/**
-	 * Obté la informació de la representació
-	 * @return Tupla amb la sessió, local, núm. de seients lliures, si és
-	 *         estrena, preu i recàrrec
+	 * Obte la informacio de la representacio
+	 * @return Tupla amb la sessio, local, num. de seients lliures, si es
+	 *         estrena, preu i recarrec
 	 */
 	public TuplaRepr obteInformacio() {
 		TuplaRepr tupla = new TuplaRepr();
@@ -192,9 +192,9 @@ public class Representacio implements Serializable {
 	}
 
 	/**
-	 * Obté els seients disponibles per la representació
-	 * @param nombreEspectadors núm. d'espectadors que es volen seure
-	 * @return llista amb els seients disponibles al local de la representació
+	 * Obte els seients disponibles per la representacio
+	 * @param nombreEspectadors num. d'espectadors que es volen seure
+	 * @return llista amb els seients disponibles al local de la representacio
 	 * @throws DOSeientsNoDisp si no hi ha suficients seients pels espectadors
 	 */
 	public List<TuplaSeient> obteSeientsLliures(int nombreEspectadors) throws DOSeientsNoDisp {
@@ -212,9 +212,9 @@ public class Representacio implements Serializable {
 	}
 
 	/**
-	 * Creadora de seients de la representació
-	 * @param maxFila núm màxim de files del local de la representació
-	 * @param maxColumna núm màxim de columnes del local de la representació
+	 * Creadora de seients de la representacio
+	 * @param maxFila num maxim de files del local de la representacio
+	 * @param maxColumna num maxim de columnes del local de la representacio
 	 */
 	private void creaSeientsEnRepresentacio(int maxFila, int maxColumna) {
 		seientsEnRepresentacio = new ArrayList<SeientEnRepresentacio>();

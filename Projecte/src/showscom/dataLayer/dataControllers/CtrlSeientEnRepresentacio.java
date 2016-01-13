@@ -70,7 +70,7 @@ public class CtrlSeientEnRepresentacio implements ICtrlSeientEnRepresentacio {
 
 	/**
 	 * Inserta un SeientEnRepresentacio a la BD
-	 * @param seientEnRepresentacio SeientEnRepresentació a insertar
+	 * @param seientEnRepresentacio SeientEnRepresentacio a insertar
 	 */
 	public void insertSeientEnRepresentacio(SeientEnRepresentacio seientEnRepresentacio) {
 		Session session = sessionFactory.openSession();
@@ -92,7 +92,7 @@ public class CtrlSeientEnRepresentacio implements ICtrlSeientEnRepresentacio {
 
 	/**
 	 * Actualitza un SeientEnRepresentacio a la BD
-	 * @param seientEnRepresentacio SeientEnRepresentació a actualitzar
+	 * @param seientEnRepresentacio SeientEnRepresentacio a actualitzar
 	 */
 	public void updateSeientEnRepresentacio(SeientEnRepresentacio seientEnRepresentacio) {
 		Session session = sessionFactory.openSession();

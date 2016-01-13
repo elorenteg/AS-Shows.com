@@ -10,19 +10,19 @@ import showscom.domainLayer.domainModel.Representacio;
 public interface ICtrlRepresentacio {
 
 	/**
-	 * Selecciona una Representació identificada per una sessió i un local
+	 * Selecciona una Representacio identificada per una sessio i un local
 	 * guardada a la BD
-	 * @param nomL nom de local de la Representació
-	 * @param sessio sessio de la Representació
-	 * @return Representació identificada per nomL i sessio
-	 * @throws CDRepresentacioNoExisteix si no existeix la Representació
+	 * @param nomL nom de local de la Representacio
+	 * @param sessio sessio de la Representacio
+	 * @return Representacio identificada per nomL i sessio
+	 * @throws CDRepresentacioNoExisteix si no existeix la Representacio
 	 *         identificada per nomL i sessio
 	 */
 	public Representacio getRepresentacio(String nomL, String sessio) throws CDRepresentacioNoExisteix;
 
 	/**
-	 * Actualitza una Representació a la BD
-	 * @param representacio Representació a actualitzar
+	 * Actualitza una Representacio a la BD
+	 * @param representacio Representacio a actualitzar
 	 */
 	public void updateRepresentacio(Representacio representacio);
 }

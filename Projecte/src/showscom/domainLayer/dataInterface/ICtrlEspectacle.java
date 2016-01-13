@@ -12,11 +12,11 @@ import showscom.domainLayer.domainModel.Espectacle;
 public interface ICtrlEspectacle {
 
 	/**
-	 * Selecciona un Espectacle identificat pel seu títol guardat a la BD
-	 * @param titol títol de l'Espectacle
-	 * @return Espectacle identificat per títol
+	 * Selecciona un Espectacle identificat pel seu titol guardat a la BD
+	 * @param titol titol de l'Espectacle
+	 * @return Espectacle identificat per titol
 	 * @throws CDEspectacleNoExisteix si no existeix l'Espectacle identificat
-	 *         per títol
+	 *         per titol
 	 */
 	public Espectacle getEspectacle(String titol) throws CDEspectacleNoExisteix;
 

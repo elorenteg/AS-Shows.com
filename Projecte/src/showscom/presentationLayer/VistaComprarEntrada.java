@@ -14,30 +14,30 @@ import showscom.domainLayer.domainModel.TuplaRepr;
 import showscom.domainLayer.domainModel.TuplaSeient;
 
 /**
- * Controlador de la Vista de la Capa de Presentació
+ * Controlador de la Vista de la Capa de Presentacio
  */
 public class VistaComprarEntrada extends JFrame {
 	private static final long serialVersionUID = 1L;
 
-	// Instància de la Capa de Presentació
+	// Instancia de la Capa de Presentacio
 	private CtrlPresComprarEntrada ctrlPres;
 
-	// Instància del Panell d'Inici
+	// Instancia del Panell d'Inici
 	private PanellInici panellIni;
-	// Instància del Panell d'Espectacles
+	// Instancia del Panell d'Espectacles
 	private PanellEspectacle panellEsp;
-	// Instància del Panell de Representacions
+	// Instancia del Panell de Representacions
 	private PanellRepresentacio panellRepr;
-	// Instància del Panell de Seients
+	// Instancia del Panell de Seients
 	private PanellSeients panellSeients;
-	// Instància del Panell de Pagament
+	// Instancia del Panell de Pagament
 	private PanellPagament panellPagam;
-	// Instància del Panell de Finalizació
+	// Instancia del Panell de Finalizacio
 	private PanellFi panellFi;
 
 	/**
-	 * Constructora de la Vista de la Capa de Presentació
-	 * @param ctrlPres intància del Controlador de la Capa de Presentació
+	 * Constructora de la Vista de la Capa de Presentacio
+	 * @param ctrlPres intancia del Controlador de la Capa de Presentacio
 	 */
 	public VistaComprarEntrada(final CtrlPresComprarEntrada ctrlPres) {
 		this.ctrlPres = ctrlPres;
@@ -71,13 +71,13 @@ public class VistaComprarEntrada extends JFrame {
 	}
 
 	/**
-	 * Mostra el missatge extern de finalització de l'aplicació
+	 * Mostra el missatge extern de finalitzacio de l'aplicacio
 	 * @param text missatge a mostrar
 	 */
 	public void mostraMissatgeFinalitza(String text) {
 		Object[] choices = { "Finalitza" };
 		Object defaultChoice = choices[0];
-		JOptionPane.showOptionDialog(this, text, "Atenció", JOptionPane.ERROR_MESSAGE, JOptionPane.ERROR_MESSAGE, null,
+		JOptionPane.showOptionDialog(this, text, "Atencio", JOptionPane.ERROR_MESSAGE, JOptionPane.ERROR_MESSAGE, null,
 				choices, defaultChoice);
 		ctrlPres.prFinalitza();
 	}
@@ -89,7 +89,7 @@ public class VistaComprarEntrada extends JFrame {
 	public void mostraMissatgeEndarrera(String text) {
 		Object[] choices = { "Endarrera" };
 		Object defaultChoice = choices[0];
-		JOptionPane.showOptionDialog(this, text, "Atenció", JOptionPane.ERROR_MESSAGE, JOptionPane.ERROR_MESSAGE, null,
+		JOptionPane.showOptionDialog(this, text, "Atencio", JOptionPane.ERROR_MESSAGE, JOptionPane.ERROR_MESSAGE, null,
 				choices, defaultChoice);
 		ctrlPres.prEndarrera();
 	}
@@ -107,9 +107,9 @@ public class VistaComprarEntrada extends JFrame {
 	}
 
 	/**
-	 * Inicialitza el Panell de Representació i mostra les representacions d'un
+	 * Inicialitza el Panell de Representacio i mostra les representacions d'un
 	 * espectacle i una data selecciona anteriorment
-	 * @param llista llista amb la informació de les representacions
+	 * @param llista llista amb la informacio de les representacions
 	 * @param divisa moneda en la que es mostren els preus de les
 	 *        representacions
 	 */
@@ -122,9 +122,9 @@ public class VistaComprarEntrada extends JFrame {
 
 	/**
 	 * Inicialitza el Panell de Seients i mostra els seients del local de la
-	 * representació selecciona
-	 * @param maxFila màxim número de files del local
-	 * @param maxColumna màxim número de columnes del local
+	 * representacio selecciona
+	 * @param maxFila maxim numero de files del local
+	 * @param maxColumna maxim numero de columnes del local
 	 * @param seientsLliures llista amb els seients disponibles al local
 	 */
 	public void mostraOcupacio(int maxFila, int maxColumna, List<TuplaSeient> seientsLliures) {
@@ -156,7 +156,7 @@ public class VistaComprarEntrada extends JFrame {
 	}
 
 	/**
-	 * Inicialitza el Panell de Finalització i mostra un avís confirmant que
+	 * Inicialitza el Panell de Finalitzacio i mostra un avis confirmant que
 	 * s'ha realitzat correctament el pagament
 	 */
 	public void mostraFinalitza() {

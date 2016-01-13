@@ -17,7 +17,7 @@ import showscom.domainLayer.dataInterface.ICtrlEntrada;
 import showscom.domainLayer.factories.CtrlDataFactory;
 
 /**
- * Representació d'una Entrada a comprar
+ * Representacio d'una Entrada a comprar
  */
 @Entity
 @Table(name = "Entrada")
@@ -30,7 +30,7 @@ public class Entrada {
 	// DNI del client que compra l'entrada
 	@Column(name = "dniClient")
 	private String dniClient;
-	// Núm. d'espectadors de l'entrada
+	// Num. d'espectadors de l'entrada
 	@Column(name = "nEspectadors")
 	private int nombreEspectadors;
 	// Data de compra de l'entrada
@@ -39,7 +39,7 @@ public class Entrada {
 	// Preu total de l'entrada
 	@Column(name = "preu")
 	private float preu;
-	// Representació de l'entrada
+	// Representacio de l'entrada
 	@ManyToOne
 	@JoinColumns({ @JoinColumn(name = "sessio", referencedColumnName = "sessio"),
 			@JoinColumn(name = "nomL", referencedColumnName = "nomL") })
@@ -52,13 +52,13 @@ public class Entrada {
 	}
 
 	/**
-	 * Constructor amb inicialització d'atributs
+	 * Constructor amb inicialitzacio d'atributs
 	 * @param identificador identificador de l'entrada
 	 * @param dni DNI del client que compra l'entrada
-	 * @param nombreEspectadors núm. d'espectadors de l'entrada
+	 * @param nombreEspectadors num. d'espectadors de l'entrada
 	 * @param dAvui data de la compra de l'entrada
 	 * @param preuTotal preu total de l'entrada
-	 * @param r representació de l'entrada
+	 * @param r representacio de l'entrada
 	 * @param seients seients que volen comprar
 	 */
 	public Entrada(String identificador, String dni, int nombreEspectadors, Date dAvui, float preuTotal,

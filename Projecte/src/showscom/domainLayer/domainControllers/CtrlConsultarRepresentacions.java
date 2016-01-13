@@ -13,13 +13,13 @@ import showscom.domainLayer.exceptions.DONoHiHaRepresentacions;
 import showscom.domainLayer.factories.CtrlDataFactory;
 
 /**
- * Controlador de la Capa de Domini del Cas d'Ús de Consultar Representacions
+ * Controlador de la Capa de Domini del Cas d'Us de Consultar Representacions
  */
 public class CtrlConsultarRepresentacions {
 
 	/**
-	 * Obté els espectacles disponibles al sistema
-	 * @return llista amb els títols de tots els espectacles
+	 * Obte els espectacles disponibles al sistema
+	 * @return llista amb els titols de tots els espectacles
 	 * @throws DONoHiHaEspectacles si no hi ha cap espectacle
 	 */
 	public List<String> consultaEspectacles() throws DONoHiHaEspectacles {
@@ -40,10 +40,10 @@ public class CtrlConsultarRepresentacions {
 	}
 
 	/**
-	 * Obté la informació de les representacions per a un espectacle en una data
-	 * @param titol títol de l'espectacle de la representació
-	 * @param data data de la representació
-	 * @return llista amb la informació de totes les representacions de
+	 * Obte la informacio de les representacions per a un espectacle en una data
+	 * @param titol titol de l'espectacle de la representacio
+	 * @param data data de la representacio
+	 * @return llista amb la informacio de totes les representacions de
 	 *         l'espectacle a la data
 	 * @throws DONoHiHaRepresentacions si no hi ha representacions
 	 */

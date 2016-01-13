@@ -10,15 +10,15 @@ import showscom.domainLayer.exceptions.DOSeientsNoDisp;
 import showscom.domainLayer.factories.CtrlDataFactory;
 
 /**
- * Controlador de la Capa de Domini del Cas d'Ús Consultar Ocupació
+ * Controlador de la Capa de Domini del Cas d'Us Consultar Ocupacio
  */
 public class CtrlConsultarOcupacio {
 
 	/**
-	 * Obté els seients disponibles al local d'una representació
-	 * @param nomL nom del local de la representació
-	 * @param sessio sessió de la representació
-	 * @param nombreEspectadors núm. d'espectadors a veure la representació
+	 * Obte els seients disponibles al local d'una representacio
+	 * @param nomL nom del local de la representacio
+	 * @param sessio sessio de la representacio
+	 * @param nombreEspectadors num. d'espectadors a veure la representacio
 	 * @return llista amb els seients disponibles del local
 	 * @throws DOSeientsNoDisp si no hi ha suficients seients disponibles al
 	 *         local

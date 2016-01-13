@@ -23,15 +23,15 @@ public class ServiceLocator {
 	}
 
 	/**
-	 * Consulta la instància del ServiceLocator
-	 * @return instància de ServiceLocator
+	 * Consulta la instancia del ServiceLocator
+	 * @return instancia de ServiceLocator
 	 */
 	public static ServiceLocator getInstance() {
 		return instance;
 	}
 
 	/**
-	 * Consulta la instància d'un servei
+	 * Consulta la instancia d'un servei
 	 * @param serviceName el nom del servei
 	 * @return instancia del servei demanat
 	 */

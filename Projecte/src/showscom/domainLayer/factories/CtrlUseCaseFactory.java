@@ -5,7 +5,7 @@ import showscom.domainLayer.domainControllers.CtrlConsultarRepresentacions;
 import showscom.domainLayer.domainControllers.CtrlDomComprarEntrada;
 
 /**
- * Gestiona la creació dels controladors de cas d'ús
+ * Gestiona la creacio dels controladors de cas d'Us
  */
 public class CtrlUseCaseFactory {
 	// Instancia del CtrlUseCaseFactory
@@ -24,32 +24,32 @@ public class CtrlUseCaseFactory {
 	}
 
 	/**
-	 * Consulta la instància del CtrlUseCaseFactory
-	 * @return instància de CtrlUseCaseFactory
+	 * Consulta la instancia del CtrlUseCaseFactory
+	 * @return instancia de CtrlUseCaseFactory
 	 */
 	public static CtrlUseCaseFactory getInstance() {
 		return instance;
 	}
 
 	/**
-	 * Consulta la instància del CtrlDomComprarEntrada
-	 * @return instància de CtrlDomComprarEntrada
+	 * Consulta la instancia del CtrlDomComprarEntrada
+	 * @return instancia de CtrlDomComprarEntrada
 	 */
 	public static CtrlDomComprarEntrada getCtrlDomCompEnt() {
 		return new CtrlDomComprarEntrada();
 	}
 
 	/**
-	 * Consulta la instància del CtrlConsultarRepresentacions
-	 * @return instància de CtrlConsultarRepresentacions
+	 * Consulta la instancia del CtrlConsultarRepresentacions
+	 * @return instancia de CtrlConsultarRepresentacions
 	 */
 	public CtrlConsultarRepresentacions getCtrlConsultarRepresentacions() {
 		return new CtrlConsultarRepresentacions();
 	}
 
 	/**
-	 * Consulta la instància del CtrlConsultarOcupacio
-	 * @return instància de CtrlConsultarOcupacio
+	 * Consulta la instancia del CtrlConsultarOcupacio
+	 * @return instancia de CtrlConsultarOcupacio
 	 */
 	public CtrlConsultarOcupacio getCtrlConsultarOcupacio() {
 		return new CtrlConsultarOcupacio();

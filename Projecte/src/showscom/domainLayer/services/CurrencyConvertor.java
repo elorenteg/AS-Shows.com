@@ -21,11 +21,11 @@ public class CurrencyConvertor implements Service {
 	}
 
 	/**
-	 * Obté la conversió d'una divisa a una altra
+	 * Obte la conversio d'una divisa a una altra
 	 * @param from divisa que volem canviar
 	 * @param to divisa a la que volem canviar
-	 * @return conversió de les divises
-	 * @throws Exception si no s'ha trobat el servei o la resposta és errònia
+	 * @return conversio de les divises
+	 * @throws Exception si no s'ha trobat el servei o la resposta es erronia
 	 */
 	public float conversorRate(String from, String to) throws Exception {
 		try {

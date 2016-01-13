@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 /**
- * Representa la clau primària d'un Seient en un Local
+ * Representa la clau primaria d'un Seient en un Local
  */
 @Embeddable
 public class SeientPK implements Serializable {
@@ -27,7 +27,7 @@ public class SeientPK implements Serializable {
 	}
 
 	/**
-	 * Constructora amb inicialització d'atributs
+	 * Constructora amb inicialitzacio d'atributs
 	 * @param fila fila del seient
 	 * @param columna columna del seient
 	 * @param nomLocal nom del local del seient

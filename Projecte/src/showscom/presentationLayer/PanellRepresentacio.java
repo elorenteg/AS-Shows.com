@@ -26,38 +26,38 @@ import showscom.domainLayer.domainModel.TipusSessio;
 import showscom.domainLayer.domainModel.TuplaRepr;
 
 /**
- * Controla la visualització gràfica del Panell de Representacions
+ * Controla la visualitzacio grafica del Panell de Representacions
  */
 public class PanellRepresentacio extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	// Instància del Controlador de la Capa de Domini
+	// Instancia del Controlador de la Capa de Domini
 	CtrlPresComprarEntrada ctrlPres;
-	// Instància de la Vista de la Capa de Presentació
+	// Instancia de la Vista de la Capa de Presentacio
 	VistaComprarEntrada vistaPres;
 
-	// Instància del botó Continua al panell
+	// Instancia del boto Continua al panell
 	private JButton btnContinua;
-	// Instància del botó Cancel·la al panell
+	// Instancia del boto Cancel·la al panell
 	private JButton btnCancela;
 
 	// ScrollPane on se situa la llista de representacions
 	private JScrollPane scrollPane;
-	// Llista amb la informació de les representacions
+	// Llista amb la informacio de les representacions
 	private JTable table;
-	// TextField per indicar el núm. d'entrades a comprar
+	// TextField per indicar el num. d'entrades a comprar
 	private JTextField textField;
 
-	// Núm. d'espectadors de l'entrada a comprar
+	// Num. d'espectadors de l'entrada a comprar
 	private int numEsp;
 	// Moneda del preu de les representacions
 	private Moneda divisa;
 
 	/**
-	 * Constructora del Panell de Representacions. Inicialitza la visualizació
-	 * gràfica del panell i els seus atributs i comportaments
-	 * @param ctrlPres instància del Controlador de la Capa de Presentació
-	 * @param vistaPres instància de la Vista de la Capa de Presentació
+	 * Constructora del Panell de Representacions. Inicialitza la visualizacio
+	 * grafica del panell i els seus atributs i comportaments
+	 * @param ctrlPres instancia del Controlador de la Capa de Presentacio
+	 * @param vistaPres instancia de la Vista de la Capa de Presentacio
 	 * @param infoRepr llista de les representacions a mostrar
 	 * @param divisa moneda en la que estan els preus de les representacions
 	 */
@@ -75,7 +75,7 @@ public class PanellRepresentacio extends JPanel {
 	 * @param infoRepr llista de les representacions a mostrar
 	 */
 	private void initComponents(List<TuplaRepr> infoRepr) {
-		JLabel label1 = new JLabel("Selecciona una representació");
+		JLabel label1 = new JLabel("Selecciona una representacio");
 
 		scrollPane = new JScrollPane();
 		Collections.sort(infoRepr, new Comparator<TuplaRepr>() {
@@ -89,7 +89,7 @@ public class PanellRepresentacio extends JPanel {
 					return (int) p1.getLocal().compareTo(p2.getLocal());
 			}
 		});
-		String[] columnNames = { "Local", "Sessió", "Seients", "Estrena", "Preu" };
+		String[] columnNames = { "Local", "Sessio", "Seients", "Estrena", "Preu" };
 		Object[][] data = new Object[infoRepr.size()][5];
 		for (int i = 0; i < infoRepr.size(); ++i) {
 			TuplaRepr tupla = infoRepr.get(i);
@@ -129,14 +129,14 @@ public class PanellRepresentacio extends JPanel {
 			table.getColumnModel().getColumn(i).setPreferredWidth(300 / 10 * w);
 			table.getColumnModel().getColumn(i).setWidth(300 / 10 * w);
 
-			if (columnNames[i] != "Local" && columnNames[i] != "Sessió") {
+			if (columnNames[i] != "Local" && columnNames[i] != "Sessio") {
 				DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 				centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
 				table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
 			}
 		}
 
-		JLabel label2 = new JLabel("Núm. d'espectadors:");
+		JLabel label2 = new JLabel("Num. d'espectadors:");
 		textField = new JTextField();
 		textField.setMaximumSize(new Dimension(100, 20));
 		textField.setMinimumSize(new Dimension(100, 20));
@@ -158,11 +158,11 @@ public class PanellRepresentacio extends JPanel {
 		});
 
 		JLabel labelEspec = new JLabel("Espectacles");
-		JLabel labelRepres = new JLabel("Representació");
+		JLabel labelRepres = new JLabel("Representacio");
 		labelRepres.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
 		JLabel labelSeients = new JLabel("Seients");
 		JLabel labelPagam = new JLabel("Pagament");
-		JLabel labelConfirm = new JLabel("Confirmació");
+		JLabel labelConfirm = new JLabel("Confirmacio");
 		JLabel labelSep1 = new JLabel(">>");
 		JLabel labelSep2 = new JLabel(">>");
 		JLabel labelSep3 = new JLabel(">>");
@@ -216,7 +216,7 @@ public class PanellRepresentacio extends JPanel {
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Continua al panell. La seva acció és la
+	 * S'acciona quan es prem el boto Continua al panell. La seva accio es la
 	 * d'avaluar els components del panell i la de mostrar el panell de Seients
 	 */
 	private void prContinua() {
@@ -229,7 +229,7 @@ public class PanellRepresentacio extends JPanel {
 			local = (String) table.getModel().getValueAt(selRow, 0);
 			sessio = ((String) table.getModel().getValueAt(selRow, 1)).toUpperCase();
 		} catch (Exception e) {
-			vistaPres.mostraMissatgeEndarrera("No s'ha seleccionat cap representació");
+			vistaPres.mostraMissatgeEndarrera("No s'ha seleccionat cap representacio");
 			return;
 		}
 
@@ -238,7 +238,7 @@ public class PanellRepresentacio extends JPanel {
 			if (numEsp < 1)
 				throw new Exception();
 		} catch (Exception e) {
-			vistaPres.mostraMissatgeEndarrera("No s'ha introduït un nombre d'espectadors vàlid");
+			vistaPres.mostraMissatgeEndarrera("No s'ha introduït un nombre d'espectadors valid");
 			return;
 		}
 
@@ -246,16 +246,16 @@ public class PanellRepresentacio extends JPanel {
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Cancel·la al panell. La seva acció és la
-	 * de cancel·lar el flux de l'aplicació
+	 * S'acciona quan es prem el boto Cancel·la al panell. La seva accio es la
+	 * de cancel·lar el flux de l'aplicacio
 	 */
 	private void prCancela() {
 		ctrlPres.prCancela();
 	}
 
 	/**
-	 * Consultora del núm d'espectadors a comprar
-	 * @return núm. d'espectadors
+	 * Consultora del num d'espectadors a comprar
+	 * @return num. d'espectadors
 	 */
 	public int getNumEsp() {
 		return numEsp;

@@ -28,18 +28,18 @@ import showscom.domainLayer.factories.CtrlDataFactory;
 import showscom.domainLayer.factories.CtrlUseCaseFactory;
 
 /**
- * Controlador de la Capa de Domini del Cas d'Ús de Comprar Entrada
+ * Controlador de la Capa de Domini del Cas d'Us de Comprar Entrada
  */
 public class CtrlDomComprarEntrada {
-	// Títol de l'espectacle de la representació
+	// Titol de l'espectacle de la representacio
 	private String titol;
-	// Data de la representació de l'espectacle
+	// Data de la representacio de l'espectacle
 	private Date data;
-	// Sessió de la representació
+	// Sessio de la representacio
 	private String sessio;
-	// Nom del local de la representació
+	// Nom del local de la representacio
 	private String nomL;
-	// Núm. d'espectadors a comprar l'entrada
+	// Num. d'espectadors a comprar l'entrada
 	private int nombreEspectadors;
 	// Preu total de la compra de l'entrada
 	private float preuTotal;
@@ -47,8 +47,8 @@ public class CtrlDomComprarEntrada {
 	private List<TuplaSeient> seients;
 
 	/**
-	 * Obté els espectacles disponibles al sistema
-	 * @return llista amb els títols de tots els espectacles
+	 * Obte els espectacles disponibles al sistema
+	 * @return llista amb els titols de tots els espectacles
 	 * @throws DONoHiHaEspectacles si no hi ha cap espectacle
 	 */
 	public List<String> obteEspectacles() throws DONoHiHaEspectacles {
@@ -58,10 +58,10 @@ public class CtrlDomComprarEntrada {
 	}
 
 	/**
-	 * Obté la informació de les representacions per a un espectacle en una data
-	 * @param titol títol de l'espectacle de la representació
-	 * @param data data de la representació
-	 * @return llista amb la informació de totes les representacions de
+	 * Obte la informacio de les representacions per a un espectacle en una data
+	 * @param titol titol de l'espectacle de la representacio
+	 * @param data data de la representacio
+	 * @return llista amb la informacio de totes les representacions de
 	 *         l'espectacle a la data
 	 * @throws DONoHiHaRepresentacions si no hi ha representacions
 	 */
@@ -80,7 +80,7 @@ public class CtrlDomComprarEntrada {
 	}
 
 	/**
-	 * Obté la divisa principal de pagament del sistema
+	 * Obte la divisa principal de pagament del sistema
 	 * @return divisa principal
 	 */
 	public Moneda obteDivisa() {
@@ -90,9 +90,9 @@ public class CtrlDomComprarEntrada {
 	}
 
 	/**
-	 * Obté la fila i columna màxima d'un local
+	 * Obte la fila i columna maxima d'un local
 	 * @param nomL nom del local
-	 * @return fila i columna màxima
+	 * @return fila i columna maxima
 	 */
 	public TuplaSeient obteMarges(String nomL) {
 		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
@@ -108,10 +108,10 @@ public class CtrlDomComprarEntrada {
 	}
 
 	/**
-	 * Obté els seients disponibles per a una representació
-	 * @param nomL nom del local de la representació
-	 * @param sessio sessió de la representació
-	 * @param nombreEspectadors núm d'espectadors a veure la representació
+	 * Obte els seients disponibles per a una representacio
+	 * @param nomL nom del local de la representacio
+	 * @param sessio sessio de la representacio
+	 * @param nombreEspectadors num d'espectadors a veure la representacio
 	 * @return llista amb els seients disponibles al local
 	 * @throws DOSeientsNoDisp si no hi ha suficients seients al local
 	 */
@@ -126,7 +126,7 @@ public class CtrlDomComprarEntrada {
 	}
 
 	/**
-	 * Obté el preu dels seients i les divises de canvi de moneda
+	 * Obte el preu dels seients i les divises de canvi de moneda
 	 * @param seients seients a comprar
 	 * @return preu total dels seients i divises alternatives de pagament
 	 */
@@ -162,10 +162,10 @@ public class CtrlDomComprarEntrada {
 	}
 
 	/**
-	 * Obté el preu total de l'entrada en una altra divisa
+	 * Obte el preu total de l'entrada en una altra divisa
 	 * @param moneda divisa alternativa de pagament
 	 * @return preu en la nova divisa
-	 * @throws DOServeiNoDisponible si el servei de conversió no està disponible
+	 * @throws DOServeiNoDisponible si el servei de conversio no esta disponible
 	 */
 	public float obtePreuMoneda(String moneda) throws DOServeiNoDisponible {
 		AdapterFactory adapFact = AdapterFactory.getInstance();
@@ -174,7 +174,7 @@ public class CtrlDomComprarEntrada {
 		ShowsCom showsCom = ShowsCom.getInstance();
 		Moneda divisa = showsCom.getDivisa();
 		float conversio = adapConv.conversorRate(divisa.name(), moneda);
-		System.out.println("Conversió " + divisa.name() + "->" + moneda + ": " + conversio);
+		System.out.println("Conversio " + divisa.name() + "->" + moneda + ": " + conversio);
 
 		return preuTotal * conversio;
 	}
@@ -183,9 +183,9 @@ public class CtrlDomComprarEntrada {
 	 * Realitza el pagament de l'entrada
 	 * @param dni DNI del client que paga
 	 * @param codiB codi del banc del client
-	 * @param numCompte núm. del compte del client
+	 * @param numCompte num. del compte del client
 	 * @throws DOPagamentNoAutoritzat si el pagament no s'ha autoritzat
-	 * @throws DOServeiNoDisponible si el servei no està disponible
+	 * @throws DOServeiNoDisponible si el servei no esta disponible
 	 */
 	public void pagament(String dni, int codiB, String numCompte) throws DOPagamentNoAutoritzat, DOServeiNoDisponible {
 		ShowsCom showsCom = ShowsCom.getInstance();

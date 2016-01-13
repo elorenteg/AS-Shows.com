@@ -16,13 +16,13 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Check;
 
 /**
- * Representació d'un Espectacle
+ * Representacio d'un Espectacle
  */
 @Entity
 @Table(name = "Espectacle")
 @Check(constraints = "participants > 0")
 public class Espectacle implements Serializable {
-	// Títol de l'espectacle (identificador)
+	// Titol de l'espectacle (identificador)
 	@Id
 	@Column(name = "titol")
 	private String titol;
@@ -41,9 +41,9 @@ public class Espectacle implements Serializable {
 	}
 
 	/**
-	 * Constructor amb inicialització d'atributs
-	 * @param titol títol de l'espectacle
-	 * @param participants núm. de participants de l'espectacle
+	 * Constructor amb inicialitzacio d'atributs
+	 * @param titol titol de l'espectacle
+	 * @param participants num. de participants de l'espectacle
 	 */
 	public Espectacle(String titol, int participants) {
 		super();
@@ -52,17 +52,17 @@ public class Espectacle implements Serializable {
 	}
 
 	/**
-	 * Consultora del títol de l'espectacle
-	 * @return títol de l'espectacle
+	 * Consultora del titol de l'espectacle
+	 * @return titol de l'espectacle
 	 */
 	public String getTitol() {
 		return titol;
 	}
 
 	/**
-	 * Obté la informació de les representacions de l'espectacle en una data
+	 * Obte la informacio de les representacions de l'espectacle en una data
 	 * @param data data de les representacions
-	 * @return llista amb la informació de les representacions
+	 * @return llista amb la informacio de les representacions
 	 */
 	public List<TuplaRepr> obteInformacio(Date data) {
 		List<TuplaRepr> rs = new ArrayList<TuplaRepr>();

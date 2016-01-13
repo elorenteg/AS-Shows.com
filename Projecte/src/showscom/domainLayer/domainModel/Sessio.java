@@ -12,13 +12,13 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Check;
 
 /**
- * Representació d'un Sessió
+ * Representacio d'un Sessio
  */
 @Entity
 @Table(name = "Sessio")
 @Check(constraints = "sessio IN ('MATI','TARDA','NIT')")
 public class Sessio implements Serializable {
-	// Tipus de sessió de la sessió
+	// Tipus de sessio de la sessio
 	@Id
 	@Column(name = "sessio")
 	@Enumerated(EnumType.STRING)
@@ -31,8 +31,8 @@ public class Sessio implements Serializable {
 	}
 
 	/**
-	 * Constructora amb inicialització d'atributs
-	 * @param sessio tipus de sessió de la sessió
+	 * Constructora amb inicialitzacio d'atributs
+	 * @param sessio tipus de sessio de la sessio
 	 */
 	public Sessio(TipusSessio sessio) {
 		super();
@@ -40,8 +40,8 @@ public class Sessio implements Serializable {
 	}
 
 	/**
-	 * Consultora del tipus de sessió
-	 * @return tipus de sessió de la sessió
+	 * Consultora del tipus de sessio
+	 * @return tipus de sessio de la sessio
 	 */
 	public TipusSessio getSessio() {
 		return sessio;

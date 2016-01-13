@@ -18,19 +18,19 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import showscom.domainLayer.domainModel.Moneda;
 
 /**
- * Controla la visualització gràfica del Panell de Pagament
+ * Controla la visualitzacio grafica del Panell de Pagament
  */
 public class PanellPagament extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	// Instància del Controlador de la Capa de Domini
+	// Instancia del Controlador de la Capa de Domini
 	CtrlPresComprarEntrada ctrlPres;
-	// Instància de la Vista de la Capa de Presentació
+	// Instancia de la Vista de la Capa de Presentacio
 	VistaComprarEntrada vistaPres;
 
-	// Instància del botó Continua al panell
+	// Instancia del boto Continua al panell
 	private JButton btnContinua;
-	// Instància del botó Cancel·la al panell
+	// Instancia del boto Cancel·la al panell
 	private JButton btnCancela;
 
 	// Textfield on indica el preu total de les entrades en la moneda que indica
@@ -40,7 +40,7 @@ public class PanellPagament extends JPanel {
 	private JTextField textFieldDNI;
 	// Textfield que permet indicar el codi del banc de la compra
 	private JTextField textFieldCodiBanc;
-	// Textfield que permet indicar el núm. de compte de la compra
+	// Textfield que permet indicar el num. de compte de la compra
 	private JTextField textFieldNumCompte;
 	// ComboBox que permet seleccionar la moneda en la que es vol realitzar el
 	// pagament
@@ -50,10 +50,10 @@ public class PanellPagament extends JPanel {
 	private Moneda divisaAct;
 
 	/**
-	 * Constructora del Panell de Pagament. Inicialitza la visualizació gràfica
+	 * Constructora del Panell de Pagament. Inicialitza la visualizacio grafica
 	 * del panell i els seus atributs i comportaments
-	 * @param ctrlPres instància del Controlador de la Capa de Presentació
-	 * @param vistaPres instància de la Vista de la Capa de Presentació
+	 * @param ctrlPres instancia del Controlador de la Capa de Presentacio
+	 * @param vistaPres instancia de la Vista de la Capa de Presentacio
 	 * @param preu preu total de les entrades en la moneda divisa
 	 * @param canvis divises en les que podem realitzar el pagament
 	 * @param divisa divisa actual en la que veiem el preu
@@ -109,7 +109,7 @@ public class PanellPagament extends JPanel {
 		textFieldCodiBanc = new JTextField();
 		textFieldCodiBanc.setColumns(10);
 
-		JLabel labelNumCompte = new JLabel("Núm. Compte:");
+		JLabel labelNumCompte = new JLabel("Num. Compte:");
 		labelNumCompte.setFont(new Font("originalfont", Font.PLAIN, 16));
 
 		textFieldNumCompte = new JTextField();
@@ -130,11 +130,11 @@ public class PanellPagament extends JPanel {
 		});
 
 		JLabel labelEspec = new JLabel("Espectacles");
-		JLabel labelRepres = new JLabel("Representació");
+		JLabel labelRepres = new JLabel("Representacio");
 		JLabel labelSeients = new JLabel("Seients");
 		JLabel labelPagam = new JLabel("Pagament");
 		labelPagam.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
-		JLabel labelConfirm = new JLabel("Confirmació");
+		JLabel labelConfirm = new JLabel("Confirmacio");
 		JLabel labelSep1 = new JLabel(">>");
 		JLabel labelSep2 = new JLabel(">>");
 		JLabel labelSep3 = new JLabel(">>");
@@ -199,9 +199,9 @@ public class PanellPagament extends JPanel {
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Continua al panell. La seva acció és la
+	 * S'acciona quan es prem el boto Continua al panell. La seva accio es la
 	 * d'avaluar els components del panell i la de mostrar el panell de
-	 * Finalització
+	 * Finalitzacio
 	 */
 	private void prContinua() {
 		String DNI = textFieldDNI.getText();
@@ -212,7 +212,7 @@ public class PanellPagament extends JPanel {
 
 		DNI = DNI.replaceAll("[\\s\\-]", "");
 		if (DNI.length() > 9) {
-			vistaPres.mostraMissatgeEndarrera("La grandària del DNI és incorrecte");
+			vistaPres.mostraMissatgeEndarrera("La grandaria del DNI es incorrecte");
 			return;
 		}
 
@@ -220,38 +220,38 @@ public class PanellPagament extends JPanel {
 		try {
 			valorDNI = Integer.parseInt(DNI.substring(0, DNI.length() - 1));
 		} catch (NumberFormatException | StringIndexOutOfBoundsException e) {
-			vistaPres.mostraMissatgeEndarrera("El format del DNI no és correcte");
+			vistaPres.mostraMissatgeEndarrera("El format del DNI no es correcte");
 			return;
 		}
 
 		String letrasDNI = "TRWAGMYFPDXBNJZSQVHLCKE";
 		if (letrasDNI.charAt(valorDNI % 23) != DNI.charAt(DNI.length() - 1)) {
-			vistaPres.mostraMissatgeEndarrera("La lletra del DNI no és correcta");
+			vistaPres.mostraMissatgeEndarrera("La lletra del DNI no es correcta");
 			return;
 		}
 
 		int codiBanc;
 		String aux = textFieldCodiBanc.getText();
 		if (aux.length() != 4) {
-			vistaPres.mostraMissatgeEndarrera("El Codi del banc ha de estar format per quatre dígits");
+			vistaPres.mostraMissatgeEndarrera("El Codi del banc ha de estar format per quatre digits");
 			return;
 		}
 		try {
 			codiBanc = Integer.parseInt(aux);
 		} catch (NumberFormatException e) {
-			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el Codi del banc o no és vàlid");
+			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el Codi del banc o no es valid");
 			return;
 		}
 
 		String numCompte = textFieldNumCompte.getText();
 		if (numCompte == null) {
-			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el Número de compte");
+			vistaPres.mostraMissatgeEndarrera("No s'ha introduit el Numero de compte");
 			return;
 		}
 
 		String newAccountNumber = numCompte.replaceAll("\\s", "");
 		if (newAccountNumber.length() < 15 || newAccountNumber.length() > 34) {
-			vistaPres.mostraMissatgeEndarrera("La grandària del Número de compte és incorrecte");
+			vistaPres.mostraMissatgeEndarrera("La grandaria del Numero de compte es incorrecte");
 			return;
 		}
 
@@ -263,7 +263,7 @@ public class PanellPagament extends JPanel {
 
 		BigInteger ibanNumber = new BigInteger(numericAccountNumber.toString());
 		if (ibanNumber.mod(new BigInteger("97")).intValue() != 1) {
-			vistaPres.mostraMissatgeEndarrera("El Número de compte no és correcte");
+			vistaPres.mostraMissatgeEndarrera("El Numero de compte no es correcte");
 			return;
 		}
 		;
@@ -272,8 +272,8 @@ public class PanellPagament extends JPanel {
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Cancel·la al panell. La seva acció és la
-	 * de cancel·lar el flux de l'aplicació
+	 * S'acciona quan es prem el boto Cancel·la al panell. La seva accio es la
+	 * de cancel·lar el flux de l'aplicacio
 	 */
 	private void prCancela() {
 		ctrlPres.prCancela();

@@ -10,7 +10,7 @@ public class TuplaSeient {
 	private int columna;
 
 	/**
-	 * Constructora amb inicialització d'atributs
+	 * Constructora amb inicialitzacio d'atributs
 	 * @param fila fila del seient al local
 	 * @param columna columna dle seient al local
 	 */
@@ -36,7 +36,7 @@ public class TuplaSeient {
 	}
 
 	/**
-	 * Comprova si dos seients són els mateixos mirant si la fila i columna són
+	 * Comprova si dos seients son els mateixos mirant si la fila i columna son
 	 * les mateixes entre elles
 	 */
 	@Override

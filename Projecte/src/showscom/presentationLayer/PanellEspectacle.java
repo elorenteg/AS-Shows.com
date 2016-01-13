@@ -29,33 +29,33 @@ import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
 import net.sourceforge.jdatepicker.impl.UtilDateModel;
 
 /**
- * Controla la visualització gràfica del Panell d'Espectacles
+ * Controla la visualitzacio grafica del Panell d'Espectacles
  */
 public class PanellEspectacle extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	// Instància del Controlador de la Capa de Domini
+	// Instancia del Controlador de la Capa de Domini
 	CtrlPresComprarEntrada ctrlPres;
-	// Instància de la Vista de la Capa de Presentació
+	// Instancia de la Vista de la Capa de Presentacio
 	VistaComprarEntrada vistaPres;
 
-	// Instància del botó Continua al panell
+	// Instancia del boto Continua al panell
 	private JButton btnContinua;
-	// Instància del botó Cancel·la al panell
+	// Instancia del boto Cancel·la al panell
 	private JButton btnCancela;
 
 	// ScrollPane on se situa la llista d'espectacles
 	private JScrollPane scrollPane;
-	// Conté la llista d'espectacles
+	// Conte la llista d'espectacles
 	private JTable table;
 	// DatePanel per escollir la data
 	private JDatePanelImpl datePanel;
 
 	/**
-	 * Constructora del Panell d'Espectacles. Inicialitza la visualizació
-	 * gràfica del panell i els seus atributs i comportaments
-	 * @param ctrlPres instància del Controlador de la Capa de Presentació
-	 * @param vistaPres instància de la Vista de la Capa de Presentació
+	 * Constructora del Panell d'Espectacles. Inicialitza la visualizacio
+	 * grafica del panell i els seus atributs i comportaments
+	 * @param ctrlPres instancia del Controlador de la Capa de Presentacio
+	 * @param vistaPres instancia de la Vista de la Capa de Presentacio
 	 * @param espectacles llista amb els espectacles a mostrar
 	 */
 	public PanellEspectacle(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, List<String> espectacles) {
@@ -79,7 +79,7 @@ public class PanellEspectacle extends JPanel {
 				return (int) p1.compareTo(p2);
 			}
 		});
-		String[] columnNames = { "Títols" };
+		String[] columnNames = { "Titols" };
 		Object[][] data = new Object[espectacles.size()][1];
 		for (int i = 0; i < espectacles.size(); ++i) {
 			data[i][0] = espectacles.get(i);
@@ -124,10 +124,10 @@ public class PanellEspectacle extends JPanel {
 
 		JLabel labelEspec = new JLabel("Espectacles");
 		labelEspec.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
-		JLabel labelRepres = new JLabel("Representació");
+		JLabel labelRepres = new JLabel("Representacio");
 		JLabel labelSeients = new JLabel("Seients");
 		JLabel labelPagam = new JLabel("Pagament");
-		JLabel labelConfirm = new JLabel("Confirmació");
+		JLabel labelConfirm = new JLabel("Confirmacio");
 		JLabel labelSep1 = new JLabel(">>");
 		JLabel labelSep2 = new JLabel(">>");
 		JLabel labelSep3 = new JLabel(">>");
@@ -177,7 +177,7 @@ public class PanellEspectacle extends JPanel {
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Continua al panell. La seva acció és la
+	 * S'acciona quan es prem el boto Continua al panell. La seva accio es la
 	 * d'avaluar els components del panell i la de mostrar el panell de
 	 * Representacions
 	 */
@@ -208,7 +208,7 @@ public class PanellEspectacle extends JPanel {
 		Instant instant = LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
 		Date dAvui = Date.from(instant);
 		if (data.before(dAvui)) {
-			vistaPres.mostraMissatgeEndarrera("La data selecciona no és vàlida");
+			vistaPres.mostraMissatgeEndarrera("La data selecciona no es valida");
 			return;
 		}
 
@@ -216,8 +216,8 @@ public class PanellEspectacle extends JPanel {
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Cancel·la al panell. La seva acció és la
-	 * de cancel·lar el flux de l'aplicació
+	 * S'acciona quan es prem el boto Cancel·la al panell. La seva accio es la
+	 * de cancel·lar el flux de l'aplicacio
 	 */
 	private void prCancela() {
 		ctrlPres.prCancela();

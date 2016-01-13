@@ -10,26 +10,26 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * Controla la visualització gràfica del Panell Inicial
+ * Controla la visualitzacio grafica del Panell Inicial
  */
 public class PanellInici extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	// Instància del Controlador de la Capa de Domini
+	// Instancia del Controlador de la Capa de Domini
 	CtrlPresComprarEntrada ctrlPres;
-	// Instància de la Vista de la Capa de Presentació
+	// Instancia de la Vista de la Capa de Presentacio
 	VistaComprarEntrada vistaPres;
 
-	// Instància del botó Continua al panell
+	// Instancia del boto Continua al panell
 	private JButton btnContinua;
-	// Instància del botó Cancel·la al panell
+	// Instancia del boto Cancel·la al panell
 	private JButton btnCancela;
 
 	/**
-	 * Constructora del Panell d'Inici. Inicialitza la visualizació gràfica del
+	 * Constructora del Panell d'Inici. Inicialitza la visualizacio grafica del
 	 * panell i els seus atributs i comportaments
-	 * @param ctrlPres instància del Controlador de la Capa de Presentació
-	 * @param vistaPres instància de la Vista de la Capa de Presentació
+	 * @param ctrlPres instancia del Controlador de la Capa de Presentacio
+	 * @param vistaPres instancia de la Vista de la Capa de Presentacio
 	 */
 	public PanellInici(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres) {
 		this.ctrlPres = ctrlPres;
@@ -64,10 +64,10 @@ public class PanellInici extends JPanel {
 		});
 
 		JLabel labelEspec = new JLabel("Espectacles");
-		JLabel labelRepres = new JLabel("Representació");
+		JLabel labelRepres = new JLabel("Representacio");
 		JLabel labelSeients = new JLabel("Seients");
 		JLabel labelPagam = new JLabel("Pagament");
-		JLabel labelConfirm = new JLabel("Confirmació");
+		JLabel labelConfirm = new JLabel("Confirmacio");
 		JLabel labelSep1 = new JLabel(">>");
 		JLabel labelSep2 = new JLabel(">>");
 		JLabel labelSep3 = new JLabel(">>");
@@ -117,7 +117,7 @@ public class PanellInici extends JPanel {
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Continua al panell. La seva acció és la de
+	 * S'acciona quan es prem el boto Continua al panell. La seva accio es la de
 	 * mostrar el panell d'Espectacles
 	 */
 	private void prContinua() {
@@ -125,8 +125,8 @@ public class PanellInici extends JPanel {
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Cancel·la al panell. La seva acció és la
-	 * de cancel·lar el flux de l'aplicació
+	 * S'acciona quan es prem el boto Cancel·la al panell. La seva accio es la
+	 * de cancel·lar el flux de l'aplicacio
 	 */
 	private void prCancela() {
 		ctrlPres.prCancela();

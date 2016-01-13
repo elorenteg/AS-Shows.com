@@ -17,17 +17,17 @@ import showscom.domainLayer.exceptions.DOSeientsNoDisp;
 import showscom.domainLayer.exceptions.DOServeiNoDisponible;
 
 /**
- * Controlador de la Capa de Presentació
+ * Controlador de la Capa de Presentacio
  */
 public class CtrlPresComprarEntrada {
-	// Instància del Controlador de la Capa de Domini
+	// Instancia del Controlador de la Capa de Domini
 	CtrlDomComprarEntrada ctrlDom;
-	// Instància de la Vista de la Capa de Presentació
+	// Instancia de la Vista de la Capa de Presentacio
 	VistaComprarEntrada vistaPres;
 
 	/**
-	 * Constructora del Contorlador de la Capa de Presentació. Inicialitza el
-	 * Controlador de la Capa de Domini i la Vista de la Capa de Presentació
+	 * Constructora del Contorlador de la Capa de Presentacio. Inicialitza el
+	 * Controlador de la Capa de Domini i la Vista de la Capa de Presentacio
 	 */
 	public CtrlPresComprarEntrada() {
 		vistaPres = new VistaComprarEntrada(this);
@@ -35,23 +35,23 @@ public class CtrlPresComprarEntrada {
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Finalitza. La seva acció és la de tancar
-	 * l'aplicació.
+	 * S'acciona quan es prem el boto Finalitza. La seva accio es la de tancar
+	 * l'aplicacio.
 	 */
 	public void prFinalitza() {
 		System.exit(0);
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Endarrera. No fa res.
+	 * S'acciona quan es prem el boto Endarrera. No fa res.
 	 */
 	public void prEndarrera() {
 		// Do nothing
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Cancel·la. La seva acció és la de mostrar
-	 * un avís preguntant si es vol tancar l'aplicació.
+	 * S'acciona quan es prem el boto Cancel·la. La seva accio es la de mostrar
+	 * un avis preguntant si es vol tancar l'aplicacio.
 	 */
 	public void prCancela() {
 		String ObjButtons[] = { "Si", "No" };
@@ -63,8 +63,8 @@ public class CtrlPresComprarEntrada {
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Continua al Panell Inicial. Obté els
-	 * espectacles del sistema i els mostra a la Vista de la Capa de Presentació
+	 * S'acciona quan es prem el boto Continua al Panell Inicial. Obte els
+	 * espectacles del sistema i els mostra a la Vista de la Capa de Presentacio
 	 */
 	public void prContObteEspectacles() {
 		try {
@@ -76,9 +76,9 @@ public class CtrlPresComprarEntrada {
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Continua al Panell d'Espectacles. Obté les
+	 * S'acciona quan es prem el boto Continua al Panell d'Espectacles. Obte les
 	 * representacions del sistema i les mostra a la Vista de la Capa de
-	 * Presentació
+	 * Presentacio
 	 * @param titol titol de l'Espectacle
 	 * @param data data de l'Espectacle
 	 */
@@ -88,17 +88,17 @@ public class CtrlPresComprarEntrada {
 			Moneda divisa = ctrlDom.obteDivisa();
 			vistaPres.mostraRepresentacions(llista, divisa);
 		} catch (DONoHiHaRepresentacions e) {
-			vistaPres.mostraMissatgeEndarrera("No hi ha cap representació disponible");
+			vistaPres.mostraMissatgeEndarrera("No hi ha cap representacio disponible");
 		}
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Continua al Panell de Representacions.
-	 * Obté els seients disponibles de la representacio seleccionada del sistema
-	 * i els mostra a la Vista de la Capa de Presentació
-	 * @param nomL nom del Local de la Representació
-	 * @param sessio sessió de la Representació
-	 * @param nombreEspectadors núm. d'entrades que es volen comprar
+	 * S'acciona quan es prem el boto Continua al Panell de Representacions.
+	 * Obte els seients disponibles de la representacio seleccionada del sistema
+	 * i els mostra a la Vista de la Capa de Presentacio
+	 * @param nomL nom del Local de la Representacio
+	 * @param sessio sessio de la Representacio
+	 * @param nombreEspectadors num. d'entrades que es volen comprar
 	 */
 	public void prContObteOcupacio(String nomL, String sessio, int nombreEspectadors) {
 		try {
@@ -108,14 +108,14 @@ public class CtrlPresComprarEntrada {
 			List<TuplaSeient> seientsLliures = ctrlDom.obteOcupacio(nomL, sessio, nombreEspectadors);
 			vistaPres.mostraOcupacio(maxFila, maxColumna, seientsLliures);
 		} catch (DOSeientsNoDisp e) {
-			vistaPres.mostraMissatgeEndarrera("El nombre d'espectadors es més gran que els seients disponibles");
+			vistaPres.mostraMissatgeEndarrera("El nombre d'espectadors es mes gran que els seients disponibles");
 		}
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Continua al Panell de Seients. Obté el
-	 * preu total de les entrades de la representació i el mostra a la Vista de
-	 * la Capa de Presentació
+	 * S'acciona quan es prem el boto Continua al Panell de Seients. Obte el
+	 * preu total de les entrades de la representacio i el mostra a la Vista de
+	 * la Capa de Presentacio
 	 * @param seients seients seleccionats per l'usuari a comprar
 	 */
 	public void prContSeleccionarSeients(List<TuplaSeient> seients) {
@@ -124,9 +124,9 @@ public class CtrlPresComprarEntrada {
 	}
 
 	/**
-	 * S'acciona quan es canvia la moneda per pagar al Panell de Pagament. Obté
-	 * el preu total de les entrades aplicant-li una conversió per canvi de
-	 * moneda i el mostra a la Vista de la Capa de Presentació
+	 * S'acciona quan es canvia la moneda per pagar al Panell de Pagament. Obte
+	 * el preu total de les entrades aplicant-li una conversio per canvi de
+	 * moneda i el mostra a la Vista de la Capa de Presentacio
 	 * @param moneda moneda en la que es vol obtenir el preu
 	 */
 	public void prComboObtePreuMoneda(String moneda) {
@@ -134,21 +134,21 @@ public class CtrlPresComprarEntrada {
 			float preu = ctrlDom.obtePreuMoneda(moneda);
 			vistaPres.mostraConversio(preu);
 		} catch (DOServeiNoDisponible e) {
-			vistaPres.mostraMissatgeEndarrera("El servei no està disponible o no autoritza el pagament");
+			vistaPres.mostraMissatgeEndarrera("El servei no esta disponible o no autoritza el pagament");
 		}
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Continua al Panell de Pagament. Realitza
-	 * el pagament de les entrades i mostra un avís de finalització de la compra
-	 * a la Vista de la Capa de Presentació
+	 * S'acciona quan es prem el boto Continua al Panell de Pagament. Realitza
+	 * el pagament de les entrades i mostra un avis de finalitzacio de la compra
+	 * a la Vista de la Capa de Presentacio
 	 */
 	public void prContPagament(String dni, int codiB, String numCompte) {
 		try {
 			ctrlDom.pagament(dni, codiB, numCompte);
 			vistaPres.mostraFinalitza();
 		} catch (DOServeiNoDisponible e) {
-			vistaPres.mostraMissatgeEndarrera("El servei no està disponible o no autoritza el pagament");
+			vistaPres.mostraMissatgeEndarrera("El servei no esta disponible o no autoritza el pagament");
 		} catch (DOPagamentNoAutoritzat e) {
 			vistaPres.mostraMissatgeEndarrera("El pagament no s'autoritza");
 		}

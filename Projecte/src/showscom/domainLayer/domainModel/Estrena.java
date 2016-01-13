@@ -11,14 +11,14 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Check;
 
 /**
- * Representació d'una Estrena d'una Representació
+ * Representacio d'una Estrena d'una Representacio
  */
 @Entity
 @Table(name = "Estrena")
 @PrimaryKeyJoinColumns({ @PrimaryKeyJoinColumn(name = "nomL"), @PrimaryKeyJoinColumn(name = "sessio") })
 @Check(constraints = "recarrec > 0")
 public class Estrena extends Representacio {
-	// Recàrrec extra en el preu per ser estrena
+	// Recarrec extra en el preu per ser estrena
 	@Column(name = "recarrec")
 	private int recarrec;
 
@@ -29,14 +29,14 @@ public class Estrena extends Representacio {
 	}
 
 	/**
-	 * Constructor amb inicialització d'atributs
-	 * @param sessio sessió de la representació
-	 * @param local local de la representació
-	 * @param titolE títol de l'espectacle
-	 * @param preu preu base de la representació
-	 * @param data data de la representació
-	 * @param nombreSeientsLliures núm. de seients lliures de la representació
-	 * @param recarrec recàrrec extra per ser estrena
+	 * Constructor amb inicialitzacio d'atributs
+	 * @param sessio sessio de la representacio
+	 * @param local local de la representacio
+	 * @param titolE titol de l'espectacle
+	 * @param preu preu base de la representacio
+	 * @param data data de la representacio
+	 * @param nombreSeientsLliures num. de seients lliures de la representacio
+	 * @param recarrec recarrec extra per ser estrena
 	 */
 	public Estrena(Sessio sessio, Local local, String titolE, float preu, Date data, int nombreSeientsLliures,
 			int recarrec) {
@@ -45,15 +45,15 @@ public class Estrena extends Representacio {
 	}
 
 	/**
-	 * Consultora del recàrrec
+	 * Consultora del recarrec
 	 */
 	public int getRecarrec() {
 		return recarrec;
 	}
 
 	/**
-	 * Comprova si és una Estrena
-	 * @return retorna que és una Estrena
+	 * Comprova si es una Estrena
+	 * @return retorna que es una Estrena
 	 */
 	public boolean esEstrena() {
 		return true;

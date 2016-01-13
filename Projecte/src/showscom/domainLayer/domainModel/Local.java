@@ -19,7 +19,7 @@ import showscom.domainLayer.dataInterface.ICtrlSeient;
 import showscom.domainLayer.factories.CtrlDataFactory;
 
 /**
- * Representació d'un Local
+ * Representacio d'un Local
  */
 @Entity
 @Table(name = "Local")
@@ -48,11 +48,11 @@ public class Local {
 	}
 
 	/**
-	 * Constructora amb inicialització d'atributs
+	 * Constructora amb inicialitzacio d'atributs
 	 * @param nom nom del local
 	 * @param adreca adreça del local
-	 * @param maxFila núm. màxim de files del local
-	 * @param maxColumna núm. màxim de columnes del local
+	 * @param maxFila num. maxim de files del local
+	 * @param maxColumna num. maxim de columnes del local
 	 */
 	public Local(String nom, String adreca, int maxFila, int maxColumna) {
 		super();
@@ -75,8 +75,8 @@ public class Local {
 	}
 
 	/**
-	 * Obté el núm. màxim de fila i columna del local
-	 * @return Tupla amb la fila i columna màxima
+	 * Obte el num. maxim de fila i columna del local
+	 * @return Tupla amb la fila i columna maxima
 	 */
 	public TuplaSeient getMarges() {
 		int maxCol = 0;
@@ -97,8 +97,8 @@ public class Local {
 
 	/**
 	 * Creadora de seients del local
-	 * @param maxFila núm. màxim de files de seients a crear
-	 * @param maxColumna núm. màxim de columnes de seients a crear
+	 * @param maxFila num. maxim de files de seients a crear
+	 * @param maxColumna num. maxim de columnes de seients a crear
 	 */
 	private void creaSeients(int maxFila, int maxColumna) {
 		seients = new ArrayList<Seient>();

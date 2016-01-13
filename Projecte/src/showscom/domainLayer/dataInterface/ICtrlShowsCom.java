@@ -10,14 +10,14 @@ import showscom.domainLayer.domainModel.ShowsCom;
 public interface ICtrlShowsCom {
 
 	/**
-	 * Selecciona la instància de Showscom guardada a la BD
-	 * @return ShowsCom instància de ShowsCom
-	 * @throws CDShowsComNoExisteix si no existeix la instància de ShowsCom
+	 * Selecciona la instancia de Showscom guardada a la BD
+	 * @return ShowsCom instancia de ShowsCom
+	 * @throws CDShowsComNoExisteix si no existeix la instancia de ShowsCom
 	 */
 	public ShowsCom getShowsCom() throws CDShowsComNoExisteix;
 
 	/**
-	 * Actualitza la instància de ShowsCom a la BD
+	 * Actualitza la instancia de ShowsCom a la BD
 	 * @param showsCom ShowsCom a actualizar
 	 */
 	public void updateShowsCom(ShowsCom showsCom);

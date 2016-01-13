@@ -17,35 +17,35 @@ import javax.swing.JPanel;
 import showscom.domainLayer.domainModel.TuplaSeient;
 
 /**
- * Controla la visualització gràfica del Panell de Seients
+ * Controla la visualitzacio grafica del Panell de Seients
  */
 public class PanellSeients extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	// Instància del Controlador de la Capa de Domini
+	// Instancia del Controlador de la Capa de Domini
 	CtrlPresComprarEntrada ctrlPres;
-	// Instància de la Vista de la Capa de Presentació
+	// Instancia de la Vista de la Capa de Presentacio
 	VistaComprarEntrada vistaPres;
 
-	// Instància del botó Continua al panell
+	// Instancia del boto Continua al panell
 	private JButton btnContinua;
-	// Instància del botó Cancel·la al panell
+	// Instancia del boto Cancel·la al panell
 	private JButton btnCancela;
 
 	// Canvas per visualitzar els seients del local
 	private MyCanvas canvas;
-	// Número d'entrades que es volen comprar
+	// Numero d'entrades que es volen comprar
 	private int numEsp;
 
 	/**
-	 * Constructora del Panell de Seients. Inicialitza la visualizació gràfica
+	 * Constructora del Panell de Seients. Inicialitza la visualizacio grafica
 	 * del panell i els seus atributs i comportaments
-	 * @param ctrlPres instància del Controlador de la Capa de Presentació
-	 * @param vistaPres instància de la Vista de la Capa de Presentació
-	 * @param maxFila màxim número de files del local
-	 * @param maxColumna màxim número de columnes del local
+	 * @param ctrlPres instancia del Controlador de la Capa de Presentacio
+	 * @param vistaPres instancia de la Vista de la Capa de Presentacio
+	 * @param maxFila maxim numero de files del local
+	 * @param maxColumna maxim numero de columnes del local
 	 * @param seientsLliures seients disponibles del local
-	 * @param numEsp núm. d'entrades que es volen comprar
+	 * @param numEsp num. d'entrades que es volen comprar
 	 */
 	public PanellSeients(CtrlPresComprarEntrada ctrlPres, VistaComprarEntrada vistaPres, int maxFila, int maxColumna,
 			List<TuplaSeient> seientsLliures, int numEsp) {
@@ -58,8 +58,8 @@ public class PanellSeients extends JPanel {
 
 	/**
 	 * Inicialitza els components visuals del panell i els seus comportaments
-	 * @param maxFila màxim número de files del local
-	 * @param maxColumna màxim número de columnes del local
+	 * @param maxFila maxim numero de files del local
+	 * @param maxColumna maxim numero de columnes del local
 	 * @param seientsLliures seients disponibles del local
 	 */
 	private void initComponents(int maxFila, int maxColumna, List<TuplaSeient> seientsLliures) {
@@ -97,11 +97,11 @@ public class PanellSeients extends JPanel {
 		});
 
 		JLabel labelEspec = new JLabel("Espectacles");
-		JLabel labelRepres = new JLabel("Representació");
+		JLabel labelRepres = new JLabel("Representacio");
 		JLabel labelSeients = new JLabel("Seients");
 		labelSeients.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
 		JLabel labelPagam = new JLabel("Pagament");
-		JLabel labelConfirm = new JLabel("Confirmació");
+		JLabel labelConfirm = new JLabel("Confirmacio");
 		JLabel labelSep1 = new JLabel(">>");
 		JLabel labelSep2 = new JLabel(">>");
 		JLabel labelSep3 = new JLabel(">>");
@@ -149,7 +149,7 @@ public class PanellSeients extends JPanel {
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Continua al panell. La seva acció és la
+	 * S'acciona quan es prem el boto Continua al panell. La seva accio es la
 	 * d'avaluar els components del panell i la de mostrar el panell de Pagament
 	 */
 	private void prContinua() {
@@ -159,7 +159,7 @@ public class PanellSeients extends JPanel {
 			vistaPres.mostraMissatgeEndarrera("Encara queden seients per seleccionar");
 			return;
 		} else if (numEsp - seientsAssignats.size() < 0) {
-			vistaPres.mostraMissatgeEndarrera("S'han seleccionat més seients que el número d'espectadors");
+			vistaPres.mostraMissatgeEndarrera("S'han seleccionat mes seients que el numero d'espectadors");
 			return;
 		}
 
@@ -167,8 +167,8 @@ public class PanellSeients extends JPanel {
 	}
 
 	/**
-	 * S'acciona quan es prem el botó Cancel·la al panell. La seva acció és la
-	 * de cancel·lar el flux de l'aplicació
+	 * S'acciona quan es prem el boto Cancel·la al panell. La seva accio es la
+	 * de cancel·lar el flux de l'aplicacio
 	 */
 	private void prCancela() {
 		ctrlPres.prCancela();
