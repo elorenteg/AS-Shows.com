@@ -38,7 +38,7 @@ public class Representacio implements Serializable {
 	@Id
 	@Embedded
 	private RepresentacioPK representacioPK;
-	@Column(name = "titolE")
+	@Column(name = "titolE", nullable = false)
 	private String titolE;
 	@Column(name = "preu")
 	private float preu;

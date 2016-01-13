@@ -11,8 +11,11 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Check;
+
 @Entity
 @Table(name = "SeientEnRepresentacio")
+@Check(constraints = "estat IN ('LLIURE','OCUPAT')")
 public class SeientEnRepresentacio {
 	@Id
 	@Embedded

@@ -9,8 +9,11 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Check;
+
 @Entity
 @Table(name = "Sessio")
+@Check(constraints = "sessio IN ('MATI','TARDA','NIT')")
 public class Sessio implements Serializable {
 	@Id
 	@Column(name = "sessio")

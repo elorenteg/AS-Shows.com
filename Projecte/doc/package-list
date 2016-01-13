@@ -1,0 +1,13 @@
+showscom
+showscom.dataLayer.dataControllers
+showscom.dataLayer.exceptions
+showscom.dataLayer.sessionFactory
+showscom.domainLayer.adapters
+showscom.domainLayer.dataInterface
+showscom.domainLayer.domainControllers
+showscom.domainLayer.domainModel
+showscom.domainLayer.exceptions
+showscom.domainLayer.factories
+showscom.domainLayer.serviceLocator
+showscom.domainLayer.services
+showscom.presentationLayer

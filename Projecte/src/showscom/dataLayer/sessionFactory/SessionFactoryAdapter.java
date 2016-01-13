@@ -32,6 +32,7 @@ public class SessionFactoryAdapter {
 
 		try {
 			sessionFact = new AnnotationConfiguration().configure().buildSessionFactory();
+			
 		} catch (Throwable e) {
 			System.err.println("Initial SessionFactory creation failed " + e);
 			throw new ExceptionInInitializerError(e);
