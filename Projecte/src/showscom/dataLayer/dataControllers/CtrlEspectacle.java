@@ -20,9 +20,7 @@ import showscom.domainLayer.domainModel.Espectacle;
  */
 public class CtrlEspectacle implements ICtrlEspectacle {
 
-	/**
-	 * Instancia de la SessionFactory per connectar-se amb la BD
-	 */
+	//Instancia de la SessionFactory per connectar-se amb la BD
 	private final SessionFactory sessionFactory = SessionFactoryAdapter.getSessionFactory();
 
 	/**

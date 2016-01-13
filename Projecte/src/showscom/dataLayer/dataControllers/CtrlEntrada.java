@@ -18,9 +18,7 @@ import showscom.domainLayer.domainModel.Entrada;
  */
 public class CtrlEntrada implements ICtrlEntrada {
 
-	/**
-	 * Instancia de la SessionFactory per connectar-se amb la BD
-	 */
+	// Instancia de la SessionFactory per connectar-se amb la BD
 	private final SessionFactory sessionFactory = SessionFactoryAdapter.getSessionFactory();
 
 	/**

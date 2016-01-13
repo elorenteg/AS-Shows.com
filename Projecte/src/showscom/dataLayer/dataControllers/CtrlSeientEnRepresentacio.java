@@ -20,9 +20,7 @@ import showscom.domainLayer.domainModel.SeientEnRepresentacioPK;
  */
 public class CtrlSeientEnRepresentacio implements ICtrlSeientEnRepresentacio {
 
-	/**
-	 * Instancia de la SessionFactory per connectar-se amb la BD
-	 */
+	// Instancia de la SessionFactory per connectar-se amb la BD
 	private final SessionFactory sessionFactory = SessionFactoryAdapter.getSessionFactory();
 
 	/**

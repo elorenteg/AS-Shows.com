@@ -19,9 +19,7 @@ import showscom.domainLayer.domainModel.RepresentacioPK;
  */
 public class CtrlRepresentacio implements ICtrlRepresentacio {
 
-	/**
-	 * Instancia de la SessionFactory per connectar-se amb la BD
-	 */
+	//Instancia de la SessionFactory per connectar-se amb la BD
 	private final SessionFactory sessionFactory = SessionFactoryAdapter.getSessionFactory();
 
 	/**

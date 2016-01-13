@@ -19,9 +19,7 @@ import showscom.domainLayer.domainModel.ShowsCom;
  */
 public class CtrlShowsCom implements ICtrlShowsCom {
 
-	/**
-	 * Instancia de la SessionFactory per connectar-se amb la BD
-	 */
+	// Instancia de la SessionFactory per connectar-se amb la BD
 	private final static SessionFactory sessionFactory = SessionFactoryAdapter.getSessionFactory();
 
 	/**

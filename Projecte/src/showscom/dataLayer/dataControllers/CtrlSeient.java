@@ -19,9 +19,7 @@ import showscom.domainLayer.domainModel.SeientPK;
  */
 public class CtrlSeient implements ICtrlSeient {
 
-	/**
-	 * Instancia de la SessionFactory per connectar-se amb la BD
-	 */
+	// Instancia de la SessionFactory per connectar-se amb la BD
 	private final SessionFactory sessionFactory = SessionFactoryAdapter.getSessionFactory();
 
 	/**
