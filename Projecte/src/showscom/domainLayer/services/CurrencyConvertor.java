@@ -19,7 +19,7 @@ public class CurrencyConvertor implements Service {
 	}
 
 	/**
-	 * @param from 
+	 * @param from
 	 * @param to
 	 * @return
 	 * @throws Exception

@@ -4,8 +4,8 @@ import showscom.dataLayer.exceptions.CDSeientEnRepresentacioNoExisteix;
 import showscom.domainLayer.domainModel.SeientEnRepresentacio;
 
 /**
- * Interface del controlador de la classe SeientEnRepresentacio. Ens permet definir que
- * metodes ha d'implementar qualsevol CtrlSeientEnRepresentacio
+ * Interface del controlador de la classe SeientEnRepresentacio. Ens permet
+ * definir que metodes ha d'implementar qualsevol CtrlSeientEnRepresentacio
  *
  */
 public interface ICtrlSeientEnRepresentacio {
