@@ -10,16 +10,16 @@ public class MonedaConverter implements AttributeConverter<String, Moneda> {
 	public Moneda convertToDatabaseColumn(String value) {
 		if (value == null) {
 			return null;
-		}
-		else return Moneda.valueOf(value);
+		} else
+			return Moneda.valueOf(value);
 	}
 
 	@Override
 	public String convertToEntityAttribute(Moneda moneda) {
 		if (moneda == null) {
 			return null;
-		}
-		else return moneda.name();
+		} else
+			return moneda.name();
 	}
-	
+
 }
