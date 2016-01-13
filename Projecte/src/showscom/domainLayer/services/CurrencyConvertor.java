@@ -6,12 +6,24 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 public class CurrencyConvertor implements Service {
+	// nom del servei
 	private static final String name = "CurrencyConvertor";
 
+	/**
+	 * Consulta el nom del servei
+	 * 
+	 * @return nom del servei
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * @param from 
+	 * @param to
+	 * @return
+	 * @throws Exception
+	 */
 	public float conversorRate(String from, String to) throws Exception {
 		try {
 			URL url = new URL("http://download.finance.yahoo.com/d/quotes.csv?s=" + from + to + "=X&f=l1&e=.cs");
