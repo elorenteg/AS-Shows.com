@@ -15,6 +15,10 @@ import showscom.domainLayer.dataInterface.ICtrlSeient;
 import showscom.domainLayer.dataInterface.ICtrlSeientEnRepresentacio;
 import showscom.domainLayer.dataInterface.ICtrlShowsCom;
 
+/**
+ * Gestiona la creació dels controladors de la capa de dades per accedir a la persistencia
+ *
+ */
 public class CtrlDataFactory {
 	/**
 	 * Instancia del CtrlDataFactory
