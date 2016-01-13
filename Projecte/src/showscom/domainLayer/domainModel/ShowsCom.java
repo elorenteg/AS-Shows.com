@@ -59,8 +59,8 @@ public class ShowsCom {
 	private int venudes;
 
 	/**
-	 * Constructor per defecte privat. Evita que altres classes puguin instanciar
-	 * la classe
+	 * Constructor per defecte privat. Evita que altres classes puguin
+	 * instanciar la classe
 	 */
 	private ShowsCom() {
 	}

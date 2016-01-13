@@ -17,8 +17,8 @@ public class AdapterFactory {
 	private static ICurrencyConvertorAdapter currencyConvertorAdap;
 
 	/**
-	 * Constructor per defecte privat. Evita que altres classes puguin instanciar
-	 * la classe. Crea els dos adapters dels serveis
+	 * Constructor per defecte privat. Evita que altres classes puguin
+	 * instanciar la classe. Crea els dos adapters dels serveis
 	 */
 	private AdapterFactory() {
 		bankServiceAdap = new BankServiceAdapter();

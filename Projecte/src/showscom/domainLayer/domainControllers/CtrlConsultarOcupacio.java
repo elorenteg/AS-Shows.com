@@ -20,7 +20,8 @@ public class CtrlConsultarOcupacio {
 	 * @param sessio sessió de la representació
 	 * @param nombreEspectadors núm. d'espectadors a veure la representació
 	 * @return llista amb els seients disponibles del local
-	 * @throws DOSeientsNoDisp si no hi ha suficients seients disponibles al local
+	 * @throws DOSeientsNoDisp si no hi ha suficients seients disponibles al
+	 *         local
 	 */
 	public List<TuplaSeient> consultaOcupacio(String nomL, String sessio, int nombreEspectadors)
 			throws DOSeientsNoDisp {
