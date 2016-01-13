@@ -18,40 +18,42 @@ import showscom.domainLayer.dataInterface.ICtrlLocal;
 import showscom.domainLayer.dataInterface.ICtrlSeient;
 import showscom.domainLayer.factories.CtrlDataFactory;
 
+/**
+ * Representació d'un Local
+ */
 @Entity
 @Table(name = "Local")
 public class Local {
+	// Nom del local
 	@Id
 	@Column(name = "nom")
 	private String nom;
+	// Adreça del local
 	@Column(name = "adreca")
 	private String adreca;
+	// Representacions que es realitzen al local
 	@Column(name = "representacions")
 	@OneToMany(targetEntity = Representacio.class, mappedBy = "local", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
+	// Seients dels que disposa el local
 	private List<Representacio> representacions;
 	@OneToMany(targetEntity = Seient.class, mappedBy = "local", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Seient> seients;
 
-	private void creaSeients(int maxFila, int maxColumna) {
-		seients = new ArrayList<Seient>();
-
-		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
-		ICtrlSeient ctrlSeient = ctrlDataFact.getCtrlSeient();
-
-		for (int i = 1; i <= maxFila; ++i) {
-			for (int j = 1; j <= maxColumna; ++j) {
-				Seient seient = new Seient(i, j, this);
-				seients.add(seient);
-				ctrlSeient.insertSeient(seient);
-			}
-		}
-	}
-
+	/**
+	 * Constructora per defecte
+	 */
 	public Local() {
 	}
 
+	/**
+	 * Constructora amb inicialització d'atributs
+	 * @param nom nom del local
+	 * @param adreca adreça del local
+	 * @param maxFila núm. màxim de files del local
+	 * @param maxColumna núm. màxim de columnes del local
+	 */
 	public Local(String nom, String adreca, int maxFila, int maxColumna) {
 		super();
 		this.nom = nom;
@@ -64,38 +66,18 @@ public class Local {
 		creaSeients(maxFila, maxColumna);
 	}
 
+	/**
+	 * Consultora del nom del local
+	 * @return nom del local
+	 */
 	public String getNom() {
 		return nom;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public String getAdreca() {
-		return adreca;
-	}
-
-	public void setAdreca(String adreca) {
-		this.adreca = adreca;
-	}
-
-	public List<Representacio> getRepresentacions() {
-		return representacions;
-	}
-
-	public void setRepresentacions(List<Representacio> representacions) {
-		this.representacions = representacions;
-	}
-
-	public List<Seient> getSeients() {
-		return seients;
-	}
-
-	public void setSeients(List<Seient> seients) {
-		this.seients = seients;
-	}
-
+	/**
+	 * Obté el núm. màxim de fila i columna del local
+	 * @return Tupla amb la fila i columna màxima
+	 */
 	public TuplaSeient getMarges() {
 		TuplaSeient tupla = new TuplaSeient();
 
@@ -113,5 +95,25 @@ public class Local {
 		tupla.setColumna(maxCol);
 
 		return tupla;
+	}
+
+	/**
+	 * Creadora de seients del local
+	 * @param maxFila núm. màxim de files de seients a crear
+	 * @param maxColumna núm. màxim de columnes de seients a crear
+	 */
+	private void creaSeients(int maxFila, int maxColumna) {
+		seients = new ArrayList<Seient>();
+
+		CtrlDataFactory ctrlDataFact = CtrlDataFactory.getInstance();
+		ICtrlSeient ctrlSeient = ctrlDataFact.getCtrlSeient();
+
+		for (int i = 1; i <= maxFila; ++i) {
+			for (int j = 1; j <= maxColumna; ++j) {
+				Seient seient = new Seient(i, j, this);
+				seients.add(seient);
+				ctrlSeient.insertSeient(seient);
+			}
+		}
 	}
 }
