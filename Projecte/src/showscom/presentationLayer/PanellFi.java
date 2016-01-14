@@ -44,10 +44,10 @@ public class PanellFi extends JPanel {
 	private void initComponents() {
 		JLabel label1 = new JLabel();
 		label1.setText("Pagament realitzat correctament");
-		label1.setFont(new Font("originalfont", Font.PLAIN, 16));
+		label1.setFont(new Font("originalfont", Font.PLAIN, 20));
 		JLabel label2 = new JLabel();
 		label2.setText("Podra recollir les seves entrades a la seva entitat bancaria");
-		label2.setFont(new Font("originalfont", Font.PLAIN, 16));
+		label2.setFont(new Font("originalfont", Font.PLAIN, 20));
 
 		btnFinalitza = new javax.swing.JButton();
 		btnFinalitza.setText("Finalitza");
