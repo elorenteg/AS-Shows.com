@@ -191,13 +191,14 @@ public class CtrlDomComprarEntrada {
 		ShowsCom showsCom = ShowsCom.getInstance();
 		int c = showsCom.getCodiBanc();
 		String n = showsCom.getNumeroCompte();
-		int v = showsCom.incrementaVenudes();
 		Date dAvui = new Date();
 
 		AdapterFactory adapFact = AdapterFactory.getInstance();
 		IBankServiceAdapter adap = adapFact.getBankServiceAdapter();
 		if (!adap.autoritza(dni, codiB, numCompte, preuTotal, c, n, dAvui))
 			throw new DOPagamentNoAutoritzat();
+
+		int v = showsCom.incrementaVenudes();
 
 		CtrlDataFactory ctrlDataFactory = CtrlDataFactory.getInstance();
 		ICtrlRepresentacio ctrlRepresentacio = ctrlDataFactory.getCtrlRepresentacio();
