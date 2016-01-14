@@ -128,7 +128,7 @@ public class PanellEspectacle extends JPanel {
 		labelEspec.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
 		Font font = labelEspec.getFont();
 		Map attributes = font.getAttributes();
-		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
 		labelEspec.setFont(font.deriveFont(attributes));
 
 		JLabel labelRepres = new JLabel("Representacio");
