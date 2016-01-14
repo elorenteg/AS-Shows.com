@@ -1,1 +1,5 @@
+/hibernate.cfg.xml
+/log4j.properties
 /showscom/
+/showscom.hbm.xml
+/test/

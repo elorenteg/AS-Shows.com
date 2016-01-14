@@ -54,7 +54,7 @@ public class ShowsCom {
 	@Enumerated(EnumType.STRING)
 	private List<Moneda> canvis;
 
-	// Identificador de la següent entrada a vendre
+	// Identificador de la seguent entrada a vendre
 	@Column(name = "idVenudes")
 	private int venudes;
 
@@ -127,7 +127,7 @@ public class ShowsCom {
 
 	/**
 	 * Obte l'identificador de l'entrada que es vol comprar i incrementa
-	 * l'identificador de la següent entrada
+	 * l'identificador de la seguent entrada
 	 * @return l'identificador de l'entrada comprada
 	 */
 	public int incrementaVenudes() {
