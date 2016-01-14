@@ -142,6 +142,9 @@ public class CtrlPresComprarEntrada {
 	 * S'acciona quan es prem el boto Continua al Panell de Pagament. Realitza
 	 * el pagament de les entrades i mostra un avis de finalitzacio de la compra
 	 * a la Vista de la Capa de Presentacio
+	 * @param dni DNI del client que compra
+	 * @param codiB codi del banc del client
+	 * @param numCompte núm. de compte del client
 	 */
 	public void prContPagament(String dni, int codiB, String numCompte) {
 		try {

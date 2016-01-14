@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.font.TextAttribute;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,6 +17,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -124,6 +126,11 @@ public class PanellEspectacle extends JPanel {
 
 		JLabel labelEspec = new JLabel("Espectacles");
 		labelEspec.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
+		Font font = labelEspec.getFont();
+		Map attributes = font.getAttributes();
+		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
+		labelEspec.setFont(font.deriveFont(attributes));
+
 		JLabel labelRepres = new JLabel("Representacio");
 		JLabel labelSeients = new JLabel("Seients");
 		JLabel labelPagam = new JLabel("Pagament");
