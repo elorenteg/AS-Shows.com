@@ -15,7 +15,7 @@ public class CurrencyConvertorAdapter implements ICurrencyConvertorAdapter {
 	 * Obté la conversió d'una divisa a una altra
 	 * @param divisa divisa que volem canviar
 	 * @param moneda divisa a la que volem canviar
-	 * @return conversió de les divises 
+	 * @return conversió de les divises
 	 * @throws DOServeiNoDisponible si no s'ha trobat el servei o la resposta és errònia
 	 */
 	public float conversorRate(String divisa, String moneda) throws DOServeiNoDisponible {
