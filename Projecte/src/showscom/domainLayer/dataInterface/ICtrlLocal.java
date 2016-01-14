@@ -11,7 +11,7 @@ public interface ICtrlLocal {
 
 	/**
 	 * Selecciona un Local identificat pel seu nom guardat a la BD
-	 * @param nomLocal nom del Local
+	 * @param nomL nom del Local
 	 * @return Local identificat per nomLocal
 	 * @throws CDLocalNoExisteix si no existeix el Local identificat per
 	 *         nomLocal
