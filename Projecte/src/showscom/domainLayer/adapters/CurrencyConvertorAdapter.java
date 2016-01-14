@@ -13,10 +13,10 @@ public class CurrencyConvertorAdapter implements ICurrencyConvertorAdapter {
 
 	/**
 	 * Obté la conversió d'una divisa a una altra
-	 * @param from divisa que volem canviar
-	 * @param to divisa a la que volem canviar
+	 * @param divisa divisa que volem canviar
+	 * @param moneda divisa a la que volem canviar
 	 * @return conversió de les divises
-	 * @throws Exception si no s'ha trobat el servei o la resposta és errònia
+	 * @throws DOServeiNoDisponible si no s'ha trobat el servei o la resposta és errònia
 	 */
 	public float conversorRate(String divisa, String moneda) throws DOServeiNoDisponible {
 		ServiceLocator servLoc = ServiceLocator.getInstance();
