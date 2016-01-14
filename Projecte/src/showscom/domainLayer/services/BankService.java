@@ -1,13 +1,17 @@
 package showscom.domainLayer.services;
 
 import java.util.Date;
+import java.util.Random;
 
 /**
  * Servei bancari per realitzar transferencies
  */
 public class BankService implements Service {
-	// nom del servei
+	// Nom del servei
 	private static final String name = "BankService";
+
+	// Generador de nombres random
+	private Random random = new Random();
 
 	/**
 	 * Consulta el nom del servei
@@ -31,7 +35,8 @@ public class BankService implements Service {
 	 */
 	public boolean autoritza(String dni, int codiB, String numCompte, float preu, int codiBShows, String numCompteShows,
 			Date dAvui) {
-		return true;
+		return random.nextBoolean();
+		//return true;
 	}
 
 }
