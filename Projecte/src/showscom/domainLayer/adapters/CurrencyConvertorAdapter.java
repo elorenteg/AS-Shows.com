@@ -6,8 +6,8 @@ import showscom.domainLayer.services.CurrencyConvertor;
 
 /**
  * Adapter del servei de canvi de divisa per a realitzar el pagament. Permet
- * desacoblar la implementacio de les operacions d’un servei extern del nostre
- * cas d’us.
+ * desacoblar la implementacio de les operacions d'un servei extern del nostre
+ * cas d'us.
  */
 public class CurrencyConvertorAdapter implements ICurrencyConvertorAdapter {
 

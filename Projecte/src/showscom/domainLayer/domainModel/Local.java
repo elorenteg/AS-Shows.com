@@ -28,7 +28,7 @@ public class Local {
 	@Id
 	@Column(name = "nom")
 	private String nom;
-	// Adreça del local
+	// Adreca del local
 	@Column(name = "adreca")
 	private String adreca;
 	// Representacions que es realitzen al local
@@ -50,7 +50,7 @@ public class Local {
 	/**
 	 * Constructora amb inicialitzacio d'atributs
 	 * @param nom nom del local
-	 * @param adreca adreça del local
+	 * @param adreca adreca del local
 	 * @param maxFila num. maxim de files del local
 	 * @param maxColumna num. maxim de columnes del local
 	 */
