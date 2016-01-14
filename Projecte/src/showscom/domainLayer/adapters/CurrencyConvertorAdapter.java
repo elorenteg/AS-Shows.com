@@ -6,18 +6,18 @@ import showscom.domainLayer.services.CurrencyConvertor;
 
 /**
  * Adapter del servei de canvi de divisa per a realitzar el pagament. Permet
- * desacoblar la implementació de les operacions d’un servei extern del nostre
- * cas d’ús.
+ * desacoblar la implementacio de les operacions d’un servei extern del nostre
+ * cas d’us.
  */
 public class CurrencyConvertorAdapter implements ICurrencyConvertorAdapter {
 
 	/**
-	 * Obté la conversió d'una divisa a una altra
+	 * Obte la conversio d'una divisa a una altra
 	 * @param divisa divisa que volem canviar
 	 * @param moneda divisa a la que volem canviar
-	 * @return conversió de les divises
-	 * @throws DOServeiNoDisponible si no s'ha trobat el servei o la resposta és
-	 *         errònia
+	 * @return conversio de les divises
+	 * @throws DOServeiNoDisponible si no s'ha trobat el servei o la resposta es
+	 *         erronia
 	 */
 	public float conversorRate(String divisa, String moneda) throws DOServeiNoDisponible {
 		ServiceLocator servLoc = ServiceLocator.getInstance();

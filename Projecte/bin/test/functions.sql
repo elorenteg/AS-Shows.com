@@ -22,7 +22,7 @@ CREATE FUNCTION crea_seientsEnRepresentacio (nomL text, maxFila int, maxColumna 
 	
 CREATE FUNCTION update_seientsEnRepresentacio (local text, ses text, minFila int, maxFila int, minCol int, maxCol int, id int) RETURNS void AS $$
 	BEGIN
-		FOR f IN minFila .. maxFila LOOP 
+		FOR f IN minFila .. maxFila LOOP
             FOR c IN minCol .. maxCol LOOP
 	            UPDATE SeientEnRepresentacio
 				SET estat = 'OCUPAT', idEnt = id
