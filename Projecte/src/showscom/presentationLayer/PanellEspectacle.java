@@ -73,6 +73,7 @@ public class PanellEspectacle extends JPanel {
 	 */
 	private void initComponents(List<String> espectacles) {
 		JLabel label1 = new JLabel("Selecciona un espectacle i una data");
+		label1.setFont(new Font("originalfont", Font.BOLD, 14));
 
 		scrollPane = new JScrollPane();
 		Collections.sort(espectacles, new Comparator<String>() {
@@ -92,11 +93,12 @@ public class PanellEspectacle extends JPanel {
 			}
 		};
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setFont(new Font("originalfont", Font.PLAIN, 14));
 
 		Color headerColor = Color.decode("#99B4D1");
 		JTableHeader header = table.getTableHeader();
 		header.setBackground(headerColor);
-		header.setFont(new Font("originalfont", Font.BOLD, 12));
+		header.setFont(new Font("originalfont", Font.BOLD, 14));
 		table.setShowGrid(false);
 		Color separatorColor = Color.decode("#C0C0C0");
 		table.setGridColor(separatorColor);
@@ -152,7 +154,7 @@ public class PanellEspectacle extends JPanel {
 								.addComponent(btnCancela).addGap(200, 200, 200))
 
 				.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-						.addGroup(layout.createSequentialGroup().addComponent(label1).addGap(420, 420, 420))
+						.addGroup(layout.createSequentialGroup().addComponent(label1).addGap(370))
 						.addGap(52, 109, Short.MAX_VALUE).addGroup(layout.createSequentialGroup()
 								.addComponent(scrollPane).addGap(170, 170, 170).addComponent(datePanel)))
 

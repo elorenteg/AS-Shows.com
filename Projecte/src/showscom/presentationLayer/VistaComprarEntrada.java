@@ -166,4 +166,21 @@ public class VistaComprarEntrada extends JFrame {
 		panellFi.setVisible(true);
 	}
 
+
+	public void visibleEspectacle() {
+		panellEsp.setVisible(true);
+		panellRepr.setVisible(false);
+	}
+	
+	public void visibleRepresentacio() {
+		panellRepr.setVisible(true);
+		panellSeients.setVisible(false);
+	}
+	
+	public void visibleSeients() {
+		panellSeients.setVisible(true);
+		panellPagam.setVisible(false);
+	}
+	
+	
 }

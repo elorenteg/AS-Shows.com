@@ -78,7 +78,7 @@ public class PanellPagament extends JPanel {
 		this.divisaAct = divisa;
 
 		JLabel labelPreu = new JLabel("Preu total:");
-		labelPreu.setFont(new Font("originalfont", Font.PLAIN, 16));
+		labelPreu.setFont(new Font("originalfont", Font.BOLD, 14));
 
 		textFieldPreu = new JTextField();
 		textFieldPreu.setEditable(false);
@@ -100,19 +100,19 @@ public class PanellPagament extends JPanel {
 		});
 
 		JLabel labelDNI = new JLabel("DNI:");
-		labelDNI.setFont(new Font("originalfont", Font.PLAIN, 16));
+		labelDNI.setFont(new Font("originalfont", Font.BOLD, 14));
 
 		textFieldDNI = new JTextField();
 		textFieldDNI.setColumns(10);
 
 		JLabel labelCodiBanc = new JLabel("Codi banc:");
-		labelCodiBanc.setFont(new Font("originalfont", Font.PLAIN, 16));
+		labelCodiBanc.setFont(new Font("originalfont", Font.BOLD, 14));
 
 		textFieldCodiBanc = new JTextField();
 		textFieldCodiBanc.setColumns(10);
 
 		JLabel labelNumCompte = new JLabel("Num. Compte:");
-		labelNumCompte.setFont(new Font("originalfont", Font.PLAIN, 16));
+		labelNumCompte.setFont(new Font("originalfont", Font.BOLD, 14));
 
 		textFieldNumCompte = new JTextField();
 		textFieldNumCompte.setColumns(10);
@@ -283,6 +283,7 @@ public class PanellPagament extends JPanel {
 	 * de cancelar el flux de l'aplicacio
 	 */
 	private void prCancela() {
+		//vistaPres.visibleSeients();
 		ctrlPres.prCancela();
 	}
 

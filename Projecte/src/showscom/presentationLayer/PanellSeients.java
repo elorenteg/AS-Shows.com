@@ -68,6 +68,9 @@ public class PanellSeients extends JPanel {
 		JLabel label1 = new JLabel("Selecciona ");
 		JLabel label2 = new JLabel("");
 		JLabel label3 = new JLabel(" seients");
+		label1.setFont(new Font("originalfont", Font.BOLD, 14));
+		label2.setFont(new Font("originalfont", Font.BOLD, 14));
+		label3.setFont(new Font("originalfont", Font.BOLD, 14));
 		canvas = new MyCanvas(vistaPres.getWidth(), vistaPres.getHeight(), maxFila, maxColumna, seientsLliures);
 		canvas.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {

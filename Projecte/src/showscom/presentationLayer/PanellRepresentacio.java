@@ -78,6 +78,7 @@ public class PanellRepresentacio extends JPanel {
 	 */
 	private void initComponents(List<TuplaRepr> infoRepr) {
 		JLabel label1 = new JLabel("Selecciona una representacio");
+		label1.setFont(new Font("originalfont", Font.BOLD, 14));
 
 		scrollPane = new JScrollPane();
 		Collections.sort(infoRepr, new Comparator<TuplaRepr>() {
@@ -109,11 +110,12 @@ public class PanellRepresentacio extends JPanel {
 			}
 		};
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setFont(new Font("originalfont", Font.PLAIN, 14));
 
 		Color headerColor = Color.decode("#99B4D1");
 		JTableHeader header = table.getTableHeader();
 		header.setBackground(headerColor);
-		header.setFont(new Font("originalfont", Font.BOLD, 12));
+		header.setFont(new Font("originalfont", Font.BOLD, 14));
 		table.setShowGrid(false);
 		Color separatorColor = Color.decode("#C0C0C0");
 		table.setGridColor(separatorColor);
@@ -139,6 +141,7 @@ public class PanellRepresentacio extends JPanel {
 		}
 
 		JLabel label2 = new JLabel("Num. d'espectadors:");
+		label2.setFont(new Font("originalfont", Font.BOLD, 14));
 		textField = new JTextField();
 		textField.setMaximumSize(new Dimension(100, 20));
 		textField.setMinimumSize(new Dimension(100, 20));
@@ -187,7 +190,7 @@ public class PanellRepresentacio extends JPanel {
 								.addComponent(btnCancela).addGap(200, 200, 200))
 
 				.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-						.addGroup(layout.createSequentialGroup().addComponent(label1).addGap(480, 480, 480))
+						.addGroup(layout.createSequentialGroup().addComponent(label1).addGap(440))
 						.addGap(52, 109, Short.MAX_VALUE)
 						.addGroup(layout.createSequentialGroup().addComponent(scrollPane))
 						.addGroup(layout.createSequentialGroup().addComponent(label2).addGap(20, 20, 20)
