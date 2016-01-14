@@ -273,7 +273,7 @@ public class PanellRepresentacio extends JPanel {
 
 	/**
 	 * Consultora de la divisa dels preus del sistema
-	 * @return
+	 * @return divisa principal
 	 */
 	public Moneda getDivisa() {
 		return divisa;
