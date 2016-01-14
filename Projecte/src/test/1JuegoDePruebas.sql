@@ -43,7 +43,13 @@ INSERT INTO Local VALUES
 	('Teatre Gaudí', 'C/ Sant Antoni Maria Claret, 120'),
 	('Teatre Lliure de Gràcia', 'C/ del Monseny, 47'),
 	('Almeria Teatre', 'C/ Sant Lluís, 64'),
-	('Teatre Club Capitol', 'Les Rambles, 138');
+	('Teatre Club Capitol', 'Les Rambles, 138'),
+	('Teatre Coliseum', 'Gran Via de les Corts Catalanes, 595'),
+	('Teatre La Villarroel', 'C/ Villarroel, 87'),
+	('Joan Teatre Regina', 'C/ Sèneca, 22'),
+	('Teatre Tantarantana', 'C/ Flors, 22'),
+	('Teatre Romea', 'C/ Hospital, 51'),
+	('Teatre Tívoli', 'C/ Casp, 8');
 
 INSERT INTO Representacio VALUES
 	('Gran Teatre del Liceu', 'MATI', '26/01/2016', 60, 23, 'Cenicienta'),
@@ -68,11 +74,29 @@ INSERT INTO Representacio VALUES
 	('Teatre Lliure de Gràcia', 'TARDA', '26/01/2016', 70, 22, 'Cisne Negro'),
 	('Teatre Lliure de Gràcia', 'NIT', '26/01/2016', 70, 28, 'Cisne Negro'),
 	('Almeria Teatre', 'MATI', '26/01/2016', 96, 13, 'Cisne Negro'),
-	('Almeria Teatre', 'TARDA', '26/01/2016', 96, 20, 'Cisne Negro'),
-	('Almeria Teatre', 'NIT', '26/01/2016', 96, 20, 'Cisne Negro'),
+	('Almeria Teatre', 'TARDA', '26/01/2016', 96, 20, 'Don Quijote'),
+	('Almeria Teatre', 'NIT', '26/01/2016', 96, 20, 'Don Quijote'),
 	('Teatre Club Capitol', 'MATI', '26/01/2016', 165, 18, 'Cisne Negro'),
 	('Teatre Club Capitol', 'TARDA', '26/01/2016', 165, 25, 'Cisne Negro'),
-	('Teatre Club Capitol', 'NIT', '26/01/2016', 165, 27, 'Cisne Negro');
+	('Teatre Club Capitol', 'NIT', '26/01/2016', 165, 27, 'Cenicienta'),
+	('Teatre Coliseum', 'MATI', '26/01/2016', 120, 18, 'Cisne Negro'),
+	('Teatre Coliseum', 'TARDA', '26/01/2016', 120, 25, 'Cisne Negro'),
+	('Teatre Coliseum', 'NIT', '26/01/2016', 120, 27, 'Cenicienta'),
+	('Teatre La Villarroel', 'MATI', '26/01/2016', 120, 18, 'Cenicienta'),
+	('Teatre La Villarroel', 'TARDA', '26/01/2016', 120, 25, 'Don Quijote'),
+	('Teatre La Villarroel', 'NIT', '26/01/2016', 120, 27, 'Cisne Negro'),
+	('Joan Teatre Regina', 'MATI', '26/01/2016', 32, 18, 'Cisne Negro'),
+	('Joan Teatre Regina', 'TARDA', '26/01/2016', 32, 25, 'Cisne Negro'),
+	('Joan Teatre Regina', 'NIT', '26/01/2016', 32, 27, 'Don Quijote'),
+	('Teatre Tantarantana', 'MATI', '26/01/2016', 165, 18, 'Cisne Negro'),
+	('Teatre Tantarantana', 'TARDA', '26/01/2016', 165, 25, 'Cenicienta'),
+	('Teatre Tantarantana', 'NIT', '26/01/2016', 165, 27, 'Cisne Negro'),
+	('Teatre Romea', 'MATI', '26/01/2016', 90, 18, 'Cenicienta'),
+	('Teatre Romea', 'TARDA', '26/01/2016', 90, 25, 'Don Quijote'),
+	('Teatre Romea', 'NIT', '26/01/2016', 90, 27, 'Don Quijote'),
+	('Teatre Tívoli', 'MATI', '26/01/2016', 54, 18, 'Cisne Negro'),
+	('Teatre Tívoli', 'TARDA', '26/01/2016', 54, 25, 'Cenicienta'),
+	('Teatre Tívoli', 'NIT', '26/01/2016', 54, 27, 'Don Quijote');
 	
 INSERT INTO Estrena VALUES
 	(15, 'Gran Teatre del Liceu', 'NIT'),
@@ -83,7 +107,13 @@ INSERT INTO Estrena VALUES
 	(12.5, 'Teatre Gaudí', 'TARDA'),
 	(5, 'Teatre Lliure de Gràcia', 'NIT'),
 	(5, 'Teatre Lliure de Gràcia', 'TARDA'),
-	(8.5, 'Teatre Nacional de Catalunya', 'TARDA');
+	(8.5, 'Teatre Coliseum', 'TARDA'),
+	(8.5, 'Teatre Romea', 'TARDA'),
+	(8.5, 'Teatre Romea', 'NIT'),
+	(8.5, 'Teatre Tívoli', 'TARDA'),
+	(8.5, 'Teatre Tívoli', 'NIT'),
+	(8.5, 'Joan Teatre Regina', 'TARDA'),
+	(8.5, 'Teatre La Villarroel', 'NIT');
 
 SELECT crea_seients('Gran Teatre del Liceu', 4, 15);
 SELECT crea_seients('Teatre Nacional de Catalunya', 10, 15);
@@ -94,6 +124,12 @@ SELECT crea_seients('Teatre Gaudí', 12, 12);
 SELECT crea_seients('Teatre Lliure de Gràcia', 7, 10);
 SELECT crea_seients('Almeria Teatre', 12, 8);
 SELECT crea_seients('Teatre Club Capitol', 11, 15);
+SELECT crea_seients('Teatre Coliseum', 10, 12);
+SELECT crea_seients('Teatre La Villarroel', 10, 12);
+SELECT crea_seients('Joan Teatre Regina', 4, 8);
+SELECT crea_seients('Teatre Tantarantana', 11, 15);
+SELECT crea_seients('Teatre Romea', 15, 6);
+SELECT crea_seients('Teatre Tívoli', 9, 6);
 
 SELECT crea_seientsEnRepresentacio('Gran Teatre del Liceu', 4, 15);
 SELECT crea_seientsEnRepresentacio('Teatre Nacional de Catalunya', 10, 15);
