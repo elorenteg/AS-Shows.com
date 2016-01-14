@@ -6,9 +6,11 @@ import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.font.TextAttribute;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -160,6 +162,11 @@ public class PanellRepresentacio extends JPanel {
 		JLabel labelEspec = new JLabel("Espectacles");
 		JLabel labelRepres = new JLabel("Representacio");
 		labelRepres.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
+		Font font = labelRepres.getFont();
+		Map attributes = font.getAttributes();
+		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
+		labelRepres.setFont(font.deriveFont(attributes));
+		
 		JLabel labelSeients = new JLabel("Seients");
 		JLabel labelPagam = new JLabel("Pagament");
 		JLabel labelConfirm = new JLabel("Confirmacio");

@@ -7,7 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.font.TextAttribute;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
@@ -100,6 +102,10 @@ public class PanellSeients extends JPanel {
 		JLabel labelRepres = new JLabel("Representacio");
 		JLabel labelSeients = new JLabel("Seients");
 		labelSeients.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
+		Font font = labelSeients.getFont();
+		Map attributes = font.getAttributes();
+		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
+		labelSeients.setFont(font.deriveFont(attributes));
 		JLabel labelPagam = new JLabel("Pagament");
 		JLabel labelConfirm = new JLabel("Confirmacio");
 		JLabel labelSep1 = new JLabel(">>");
