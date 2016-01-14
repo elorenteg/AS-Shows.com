@@ -77,7 +77,7 @@ public class VistaComprarEntrada extends JFrame {
 	public void mostraMissatgeFinalitza(String text) {
 		Object[] choices = { "Finalitza" };
 		Object defaultChoice = choices[0];
-		JOptionPane.showOptionDialog(this, text, "Atencio", JOptionPane.ERROR_MESSAGE, JOptionPane.ERROR_MESSAGE, null,
+		JOptionPane.showOptionDialog(this, text, "Atenció", JOptionPane.ERROR_MESSAGE, JOptionPane.ERROR_MESSAGE, null,
 				choices, defaultChoice);
 		ctrlPres.prFinalitza();
 	}
@@ -89,7 +89,7 @@ public class VistaComprarEntrada extends JFrame {
 	public void mostraMissatgeEndarrera(String text) {
 		Object[] choices = { "Endarrera" };
 		Object defaultChoice = choices[0];
-		JOptionPane.showOptionDialog(this, text, "Atencio", JOptionPane.ERROR_MESSAGE, JOptionPane.ERROR_MESSAGE, null,
+		JOptionPane.showOptionDialog(this, text, "Atenció", JOptionPane.ERROR_MESSAGE, JOptionPane.ERROR_MESSAGE, null,
 				choices, defaultChoice);
 		ctrlPres.prEndarrera();
 	}

@@ -46,7 +46,7 @@ public class PanellFi extends JPanel {
 		label1.setText("Pagament realitzat correctament");
 		label1.setFont(new Font("originalfont", Font.PLAIN, 20));
 		JLabel label2 = new JLabel();
-		label2.setText("Podra recollir les seves entrades a la seva entitat bancaria");
+		label2.setText("Podrà recollir les seves entrades a la seva entitat bancària");
 		label2.setFont(new Font("originalfont", Font.PLAIN, 20));
 
 		btnFinalitza = new javax.swing.JButton();
@@ -60,13 +60,13 @@ public class PanellFi extends JPanel {
 		JLabel labelEspec = new JLabel();
 		labelEspec.setText("Espectacles");
 		JLabel labelRepres = new JLabel();
-		labelRepres.setText("Representacio");
+		labelRepres.setText("Representació");
 		JLabel labelSeients = new JLabel();
 		labelSeients.setText("Seients");
 		JLabel labelPagam = new JLabel();
 		labelPagam.setText("Pagament");
 		JLabel labelConfirm = new JLabel();
-		labelConfirm.setText("Confirmacio");
+		labelConfirm.setText("Confirmació");
 		labelConfirm.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
 		Font font = labelConfirm.getFont();
 		Map attributes = font.getAttributes();

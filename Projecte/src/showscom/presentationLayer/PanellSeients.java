@@ -102,7 +102,7 @@ public class PanellSeients extends JPanel {
 		});
 
 		JLabel labelEspec = new JLabel("Espectacles");
-		JLabel labelRepres = new JLabel("Representacio");
+		JLabel labelRepres = new JLabel("Representació");
 		JLabel labelSeients = new JLabel("Seients");
 		labelSeients.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
 		Font font = labelSeients.getFont();
@@ -110,7 +110,7 @@ public class PanellSeients extends JPanel {
 		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
 		labelSeients.setFont(font.deriveFont(attributes));
 		JLabel labelPagam = new JLabel("Pagament");
-		JLabel labelConfirm = new JLabel("Confirmacio");
+		JLabel labelConfirm = new JLabel("Confirmació");
 		JLabel labelSep1 = new JLabel(">>");
 		JLabel labelSep2 = new JLabel(">>");
 		JLabel labelSep3 = new JLabel(">>");
@@ -168,7 +168,7 @@ public class PanellSeients extends JPanel {
 			vistaPres.mostraMissatgeEndarrera("Encara queden seients per seleccionar");
 			return;
 		} else if (numEsp - seientsAssignats.size() < 0) {
-			vistaPres.mostraMissatgeEndarrera("S'han seleccionat mes seients que el numero d'espectadors");
+			vistaPres.mostraMissatgeEndarrera("S'han seleccionat més seients que el número d'espectadors");
 			return;
 		}
 

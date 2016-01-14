@@ -64,10 +64,10 @@ public class PanellInici extends JPanel {
 		});
 
 		JLabel labelEspec = new JLabel("Espectacles");
-		JLabel labelRepres = new JLabel("Representacio");
+		JLabel labelRepres = new JLabel("Representació");
 		JLabel labelSeients = new JLabel("Seients");
 		JLabel labelPagam = new JLabel("Pagament");
-		JLabel labelConfirm = new JLabel("Confirmacio");
+		JLabel labelConfirm = new JLabel("Confirmació");
 		JLabel labelSep1 = new JLabel(">>");
 		JLabel labelSep2 = new JLabel(">>");
 		JLabel labelSep3 = new JLabel(">>");

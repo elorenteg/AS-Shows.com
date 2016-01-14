@@ -77,7 +77,7 @@ public class PanellRepresentacio extends JPanel {
 	 * @param infoRepr llista de les representacions a mostrar
 	 */
 	private void initComponents(List<TuplaRepr> infoRepr) {
-		JLabel label1 = new JLabel("Selecciona una representacio");
+		JLabel label1 = new JLabel("Selecciona una representació");
 		label1.setFont(new Font("originalfont", Font.BOLD, 14));
 
 		scrollPane = new JScrollPane();
@@ -92,7 +92,7 @@ public class PanellRepresentacio extends JPanel {
 					return (int) p1.getLocal().compareTo(p2.getLocal());
 			}
 		});
-		String[] columnNames = { "Local", "Sessio", "Seients", "Estrena", "Preu" };
+		String[] columnNames = { "Local", "Sessió", "Seients", "Estrena", "Preu" };
 		Object[][] data = new Object[infoRepr.size()][5];
 		for (int i = 0; i < infoRepr.size(); ++i) {
 			TuplaRepr tupla = infoRepr.get(i);
@@ -133,14 +133,14 @@ public class PanellRepresentacio extends JPanel {
 			table.getColumnModel().getColumn(i).setPreferredWidth(300 / 10 * w);
 			table.getColumnModel().getColumn(i).setWidth(300 / 10 * w);
 
-			if (columnNames[i] != "Local" && columnNames[i] != "Sessio") {
+			if (columnNames[i] != "Local" && columnNames[i] != "Sessió") {
 				DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 				centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
 				table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
 			}
 		}
 
-		JLabel label2 = new JLabel("Num. d'espectadors:");
+		JLabel label2 = new JLabel("Núm. d'espectadors:");
 		label2.setFont(new Font("originalfont", Font.BOLD, 14));
 		textField = new JTextField();
 		textField.setMaximumSize(new Dimension(100, 20));
@@ -163,7 +163,7 @@ public class PanellRepresentacio extends JPanel {
 		});
 
 		JLabel labelEspec = new JLabel("Espectacles");
-		JLabel labelRepres = new JLabel("Representacio");
+		JLabel labelRepres = new JLabel("Representació");
 		labelRepres.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
 		Font font = labelRepres.getFont();
 		Map attributes = font.getAttributes();
@@ -172,7 +172,7 @@ public class PanellRepresentacio extends JPanel {
 
 		JLabel labelSeients = new JLabel("Seients");
 		JLabel labelPagam = new JLabel("Pagament");
-		JLabel labelConfirm = new JLabel("Confirmacio");
+		JLabel labelConfirm = new JLabel("Confirmació");
 		JLabel labelSep1 = new JLabel(">>");
 		JLabel labelSep2 = new JLabel(">>");
 		JLabel labelSep3 = new JLabel(">>");
@@ -239,7 +239,7 @@ public class PanellRepresentacio extends JPanel {
 			local = (String) table.getModel().getValueAt(selRow, 0);
 			sessio = ((String) table.getModel().getValueAt(selRow, 1)).toUpperCase();
 		} catch (Exception e) {
-			vistaPres.mostraMissatgeEndarrera("No s'ha seleccionat cap representacio");
+			vistaPres.mostraMissatgeEndarrera("No s'ha seleccionat cap representació");
 			return;
 		}
 
@@ -248,7 +248,7 @@ public class PanellRepresentacio extends JPanel {
 			if (numEsp < 1)
 				throw new Exception();
 		} catch (Exception e) {
-			vistaPres.mostraMissatgeEndarrera("No s'ha introduït un nombre d'espectadors valid");
+			vistaPres.mostraMissatgeEndarrera("No s'ha introduït un nombre d'espectadors vàlid");
 			return;
 		}
 

@@ -82,7 +82,7 @@ public class PanellEspectacle extends JPanel {
 				return (int) p1.compareTo(p2);
 			}
 		});
-		String[] columnNames = { "Titols" };
+		String[] columnNames = { "Títols" };
 		Object[][] data = new Object[espectacles.size()][1];
 		for (int i = 0; i < espectacles.size(); ++i) {
 			data[i][0] = espectacles.get(i);
@@ -133,10 +133,10 @@ public class PanellEspectacle extends JPanel {
 		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
 		labelEspec.setFont(font.deriveFont(attributes));
 
-		JLabel labelRepres = new JLabel("Representacio");
+		JLabel labelRepres = new JLabel("Representació");
 		JLabel labelSeients = new JLabel("Seients");
 		JLabel labelPagam = new JLabel("Pagament");
-		JLabel labelConfirm = new JLabel("Confirmacio");
+		JLabel labelConfirm = new JLabel("Confirmació");
 		JLabel labelSep1 = new JLabel(">>");
 		JLabel labelSep2 = new JLabel(">>");
 		JLabel labelSep3 = new JLabel(">>");
@@ -217,7 +217,7 @@ public class PanellEspectacle extends JPanel {
 		Instant instant = LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
 		Date dAvui = Date.from(instant);
 		if (data.before(dAvui)) {
-			vistaPres.mostraMissatgeEndarrera("La data selecciona no es valida");
+			vistaPres.mostraMissatgeEndarrera("La data selecciona no és valida");
 			return;
 		}
 
