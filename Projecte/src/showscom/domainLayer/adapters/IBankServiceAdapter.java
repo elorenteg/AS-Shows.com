@@ -22,6 +22,7 @@ public interface IBankServiceAdapter {
 	 * @param numCompteShows número de compte bancari de l'agrupació
 	 * @param dAvui data de realització de la transferencia
 	 * @return true si s'ha autoritzat la transferència, false altrament
+	 * @throws DOServeiNoDisponible si no esta disponible el servei
 	 */
 	public boolean autoritza(String dni, int codiB, String numCompte, float preu, int codiBShows, String numCompteShows,
 			Date dAvui) throws DOServeiNoDisponible;
