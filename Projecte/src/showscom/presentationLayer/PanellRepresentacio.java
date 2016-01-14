@@ -167,9 +167,9 @@ public class PanellRepresentacio extends JPanel {
 		labelRepres.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
 		Font font = labelRepres.getFont();
 		Map attributes = font.getAttributes();
-		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
+		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
 		labelRepres.setFont(font.deriveFont(attributes));
-		
+
 		JLabel labelSeients = new JLabel("Seients");
 		JLabel labelPagam = new JLabel("Pagament");
 		JLabel labelConfirm = new JLabel("Confirmacio");

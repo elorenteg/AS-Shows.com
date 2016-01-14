@@ -14,7 +14,8 @@ public interface ICurrencyConvertorAdapter {
 	 * @param divisa divisa que volem canviar
 	 * @param moneda divisa a la que volem canviar
 	 * @return conversió de les divises
-	 * @throws DOServeiNoDisponible si no s'ha trobat el servei o la resposta és errònia
+	 * @throws DOServeiNoDisponible si no s'ha trobat el servei o la resposta és
+	 *         errònia
 	 */
 	public float conversorRate(String divisa, String moneda) throws DOServeiNoDisponible;
 

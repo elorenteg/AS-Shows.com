@@ -70,7 +70,7 @@ public class PanellFi extends JPanel {
 		labelConfirm.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
 		Font font = labelConfirm.getFont();
 		Map attributes = font.getAttributes();
-		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
+		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
 		labelConfirm.setFont(font.deriveFont(attributes));
 		JLabel labelSep1 = new JLabel();
 		labelSep1.setText(">>");

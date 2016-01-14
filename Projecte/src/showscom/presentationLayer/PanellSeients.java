@@ -107,7 +107,7 @@ public class PanellSeients extends JPanel {
 		labelSeients.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
 		Font font = labelSeients.getFont();
 		Map attributes = font.getAttributes();
-		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
+		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
 		labelSeients.setFont(font.deriveFont(attributes));
 		JLabel labelPagam = new JLabel("Pagament");
 		JLabel labelConfirm = new JLabel("Confirmacio");

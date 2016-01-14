@@ -138,9 +138,9 @@ public class PanellPagament extends JPanel {
 		labelPagam.setFont(new Font("originalfont", Font.ITALIC | Font.BOLD, 12));
 		Font font = labelPagam.getFont();
 		Map attributes = font.getAttributes();
-		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON); 
+		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
 		labelPagam.setFont(font.deriveFont(attributes));
-		
+
 		JLabel labelConfirm = new JLabel("Confirmacio");
 		JLabel labelSep1 = new JLabel(">>");
 		JLabel labelSep2 = new JLabel(">>");
@@ -283,7 +283,7 @@ public class PanellPagament extends JPanel {
 	 * de cancelar el flux de l'aplicacio
 	 */
 	private void prCancela() {
-		//vistaPres.visibleSeients();
+		// vistaPres.visibleSeients();
 		ctrlPres.prCancela();
 	}
 
