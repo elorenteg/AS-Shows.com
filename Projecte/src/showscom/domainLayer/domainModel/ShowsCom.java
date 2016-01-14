@@ -119,7 +119,7 @@ public class ShowsCom {
 
 	/**
 	 * Divises alternatives del sistema de Shows.com
-	 * @return
+	 * @return divises alternatives
 	 */
 	public List<Moneda> getCanvis() {
 		return canvis;
