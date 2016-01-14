@@ -108,18 +108,18 @@ INSERT INTO Estrena VALUES
 	(5, 'Teatre Lliure de Gràcia', 'NIT'),
 	(5, 'Teatre Lliure de Gràcia', 'TARDA'),
 	(8.5, 'Teatre Coliseum', 'TARDA'),
-	(8.5, 'Teatre Romea', 'TARDA'),
-	(8.5, 'Teatre Romea', 'NIT'),
-	(8.5, 'Teatre Tívoli', 'TARDA'),
-	(8.5, 'Teatre Tívoli', 'NIT'),
-	(8.5, 'Joan Teatre Regina', 'TARDA'),
-	(8.5, 'Teatre La Villarroel', 'NIT');
+	(10, 'Teatre Romea', 'TARDA'),
+	(10, 'Teatre Romea', 'NIT'),
+	(12, 'Teatre Tívoli', 'TARDA'),
+	(12, 'Teatre Tívoli', 'NIT'),
+	(4.5, 'Joan Teatre Regina', 'TARDA'),
+	(5.5, 'Teatre La Villarroel', 'NIT');
 
 SELECT crea_seients('Gran Teatre del Liceu', 4, 15);
 SELECT crea_seients('Teatre Nacional de Catalunya', 10, 15);
 SELECT crea_seients('Teatro Goya', 10, 10);
 SELECT crea_seients('Teatre Lliure de Montjuïc', 4, 4);
-SELECT crea_seients('Teatre Victòria', 15, 5);
+SELECT crea_seients('Teatre Victòria', 5, 15);
 SELECT crea_seients('Teatre Gaudí', 12, 12);
 SELECT crea_seients('Teatre Lliure de Gràcia', 7, 10);
 SELECT crea_seients('Almeria Teatre', 12, 8);
@@ -128,18 +128,24 @@ SELECT crea_seients('Teatre Coliseum', 10, 12);
 SELECT crea_seients('Teatre La Villarroel', 10, 12);
 SELECT crea_seients('Joan Teatre Regina', 4, 8);
 SELECT crea_seients('Teatre Tantarantana', 11, 15);
-SELECT crea_seients('Teatre Romea', 15, 6);
+SELECT crea_seients('Teatre Romea', 6, 15);
 SELECT crea_seients('Teatre Tívoli', 9, 6);
 
 SELECT crea_seientsEnRepresentacio('Gran Teatre del Liceu', 4, 15);
 SELECT crea_seientsEnRepresentacio('Teatre Nacional de Catalunya', 10, 15);
 SELECT crea_seientsEnRepresentacio('Teatre Lliure de Montjuïc', 4, 4);
 SELECT crea_seientsEnRepresentacio('Teatro Goya', 10, 10);
-SELECT crea_seientsEnRepresentacio('Teatre Victòria', 15, 5);
+SELECT crea_seientsEnRepresentacio('Teatre Victòria', 5, 15);
 SELECT crea_seientsEnRepresentacio('Teatre Gaudí', 12, 12);
 SELECT crea_seientsEnRepresentacio('Teatre Lliure de Gràcia', 7, 10);
 SELECT crea_seientsEnRepresentacio('Almeria Teatre', 12, 8);
 SELECT crea_seientsEnRepresentacio('Teatre Club Capitol', 11, 15);
+SELECT crea_seientsEnRepresentacio('Teatre Coliseum', 10, 12);
+SELECT crea_seientsEnRepresentacio('Teatre La Villarroel', 10, 12);
+SELECT crea_seientsEnRepresentacio('Joan Teatre Regina', 4, 8);
+SELECT crea_seientsEnRepresentacio('Teatre Tantarantana', 11, 15);
+SELECT crea_seientsEnRepresentacio('Teatre Romea', 6, 15);
+SELECT crea_seientsEnRepresentacio('Teatre Tívoli', 9, 6);
 
 INSERT INTO Entrada VALUES (1, '9/01/2016', '38477456C', 4, 144, 'Teatre Lliure de Montjuïc', 'NIT');
 INSERT INTO Entrada VALUES (2, '12/01/2016', '28447486M', 8, 288, 'Teatre Lliure de Montjuïc', 'NIT');
