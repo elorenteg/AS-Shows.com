@@ -3,8 +3,9 @@ package showscom.domainLayer.adapters;
 import showscom.domainLayer.exceptions.DOServeiNoDisponible;
 
 /**
- * Interface del adapter del servei de canvi de divisa per a realitzar el pagament. Ens permet
- * definir que metodes ha d'implementar qualsevol CurrencyConvertorAdapter
+ * Interface del adapter del servei de canvi de divisa per a realitzar el
+ * pagament. Ens permet definir que metodes ha d'implementar qualsevol
+ * CurrencyConvertorAdapter
  */
 public interface ICurrencyConvertorAdapter {
 

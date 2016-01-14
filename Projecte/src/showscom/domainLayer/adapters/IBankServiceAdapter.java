@@ -5,8 +5,9 @@ import java.util.Date;
 import showscom.domainLayer.exceptions.DOServeiNoDisponible;
 
 /**
- * Interface del adapter del servei bancari per realitzar transferències. Ens permet
- * definir que metodes ha d'implementar qualsevol CurrencyConvertorAdapter
+ * Interface del adapter del servei bancari per realitzar transferències. Ens
+ * permet definir que metodes ha d'implementar qualsevol
+ * CurrencyConvertorAdapter
  */
 public interface IBankServiceAdapter {
 

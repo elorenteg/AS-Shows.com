@@ -7,9 +7,8 @@ import showscom.domainLayer.serviceLocator.ServiceLocator;
 import showscom.domainLayer.services.BankService;
 
 /**
- * Adapter del servei bancari per realitzar transferències. Permet
- * desacoblar la implementació de les operacions d’un servei extern del nostre
- * cas d’ús.
+ * Adapter del servei bancari per realitzar transferències. Permet desacoblar la
+ * implementació de les operacions d’un servei extern del nostre cas d’ús.
  */
 public class BankServiceAdapter implements IBankServiceAdapter {
 

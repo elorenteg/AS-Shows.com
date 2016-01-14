@@ -50,8 +50,8 @@ public class CtrlPresComprarEntrada {
 	}
 
 	/**
-	 * S'acciona quan es prem el boto Cancel·la. La seva accio es la de mostrar
-	 * un avis preguntant si es vol tancar l'aplicacio.
+	 * S'acciona quan es prem el boto Cancela. La seva accio es la de mostrar un
+	 * avis preguntant si es vol tancar l'aplicacio.
 	 */
 	public void prCancela() {
 		String ObjButtons[] = { "Si", "No" };

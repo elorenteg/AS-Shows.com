@@ -247,7 +247,7 @@ public class PanellRepresentacio extends JPanel {
 
 	/**
 	 * S'acciona quan es prem el boto Cancel·la al panell. La seva accio es la
-	 * de cancel·lar el flux de l'aplicacio
+	 * de cancelar el flux de l'aplicacio
 	 */
 	private void prCancela() {
 		ctrlPres.prCancela();
