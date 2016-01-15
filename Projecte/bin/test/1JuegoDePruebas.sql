@@ -77,7 +77,7 @@ INSERT INTO Representacio VALUES
 	('Almeria Teatre', 'TARDA', '26/01/2016', 96, 20, 'Don Quijote'),
 	('Almeria Teatre', 'NIT', '26/01/2016', 96, 20, 'Don Quijote'),
 	('Teatre Club Capitol', 'MATI', '26/01/2016', 165, 18, 'Cisne Negro'),
-	('Teatre Club Capitol', 'TARDA', '26/01/2016', 15, 25, 'Cisne Negro'),
+	('Teatre Club Capitol', 'TARDA', '26/01/2016', 6, 25, 'Cisne Negro'),
 	('Teatre Club Capitol', 'NIT', '26/01/2016', 165, 27, 'Cenicienta'),
 	('Teatre Coliseum', 'MATI', '26/01/2016', 120, 18, 'Cisne Negro'),
 	('Teatre Coliseum', 'TARDA', '26/01/2016', 120, 25, 'Cisne Negro'),
@@ -149,12 +149,11 @@ SELECT crea_seientsEnRepresentacio('Teatre Tívoli', 9, 6);
 
 INSERT INTO Entrada VALUES (1, '9/01/2016', '38477456C', 4, 144, 'Teatre Lliure de Montjuïc', 'NIT');
 INSERT INTO Entrada VALUES (2, '12/01/2016', '28447486M', 8, 288, 'Teatre Lliure de Montjuïc', 'NIT');
-INSERT INTO Entrada VALUES (3, '12/01/2016', '81234298T', 30, 930, 'Teatre Club Capitol', 'TARDA');
-INSERT INTO Entrada VALUES (4, '12/01/2016', '24275965V', 15, 465, 'Teatre Club Capitol', 'TARDA');
+INSERT INTO Entrada VALUES (3, '12/01/2016', '81234298T', 24, 744, 'Teatre Club Capitol', 'TARDA');
+INSERT INTO Entrada VALUES (4, '12/01/2016', '24275965V', 30, 930, 'Teatre Club Capitol', 'TARDA');
 INSERT INTO Entrada VALUES (5, '12/01/2016', '44315046A', 30, 930, 'Teatre Club Capitol', 'TARDA');
 INSERT INTO Entrada VALUES (6, '12/01/2016', '27992431M', 30, 930, 'Teatre Club Capitol', 'TARDA');
-INSERT INTO Entrada VALUES (7, '12/01/2016', '70810662X', 30, 930, 'Teatre Club Capitol', 'TARDA');
-INSERT INTO Entrada VALUES (8, '12/01/2016', '61150579L', 15, 465, 'Teatre Club Capitol', 'TARDA');
+INSERT INTO Entrada VALUES (7, '12/01/2016', '70810662X', 45, 1395, 'Teatre Club Capitol', 'TARDA');
 
 UPDATE SeientEnRepresentacio SET estat='OCUPAT', idEnt=1
 	WHERE noml='Teatre Lliure de Montjuïc' AND sessio='NIT' AND fila=2;
@@ -162,18 +161,18 @@ UPDATE SeientEnRepresentacio SET estat='OCUPAT', idEnt=2
 	WHERE noml='Teatre Lliure de Montjuïc' AND sessio='NIT' AND fila IN (3,4);
 
 UPDATE SeientEnRepresentacio SET estat='OCUPAT', idEnt=3
-	WHERE noml='Teatre Club Capitol' AND sessio='TARDA' AND fila IN (2,3);
+	WHERE noml='Teatre Club Capitol' AND sessio='TARDA' AND fila=1 AND columna IN (3,13);
+UPDATE SeientEnRepresentacio SET estat='OCUPAT', idEnt=3
+	WHERE noml='Teatre Club Capitol' AND sessio='TARDA' AND fila=2 AND columna IN (2,14);
 UPDATE SeientEnRepresentacio SET estat='OCUPAT', idEnt=4
-	WHERE noml='Teatre Club Capitol' AND sessio='TARDA' AND fila=4;
+	WHERE noml='Teatre Club Capitol' AND sessio='TARDA' AND fila IN (3,4);
 UPDATE SeientEnRepresentacio SET estat='OCUPAT', idEnt=5
 	WHERE noml='Teatre Club Capitol' AND sessio='TARDA' AND fila IN (5,6);
 UPDATE SeientEnRepresentacio SET estat='OCUPAT', idEnt=6
 	WHERE noml='Teatre Club Capitol' AND sessio='TARDA' AND fila IN (7,8);
 UPDATE SeientEnRepresentacio SET estat='OCUPAT', idEnt=7
-	WHERE noml='Teatre Club Capitol' AND sessio='TARDA' AND fila IN (9,10);
-UPDATE SeientEnRepresentacio SET estat='OCUPAT', idEnt=8
-	WHERE noml='Teatre Club Capitol' AND sessio='TARDA' AND fila=11;
+	WHERE noml='Teatre Club Capitol' AND sessio='TARDA' AND fila IN (9,10,11);
 
 
-INSERT INTO ShowsCom VALUES (1, '2100', '6', 'EUR', 'ES6600190020961234567890', 9);
+INSERT INTO ShowsCom VALUES (1, '2100', '6', 'EUR', 'ES6600190020961234567890', 8);
 INSERT INTO Canvis VALUES (1, 'USD'), (1, 'GBP');
