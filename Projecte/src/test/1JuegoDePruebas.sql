@@ -77,7 +77,7 @@ INSERT INTO Representacio VALUES
 	('Almeria Teatre', 'TARDA', '26/01/2016', 96, 20, 'Don Quijote'),
 	('Almeria Teatre', 'NIT', '26/01/2016', 96, 20, 'Don Quijote'),
 	('Teatre Club Capitol', 'MATI', '26/01/2016', 165, 18, 'Cisne Negro'),
-	('Teatre Club Capitol', 'TARDA', '26/01/2016', 165, 25, 'Cisne Negro'),
+	('Teatre Club Capitol', 'TARDA', '26/01/2016', 15, 25, 'Cisne Negro'),
 	('Teatre Club Capitol', 'NIT', '26/01/2016', 165, 27, 'Cenicienta'),
 	('Teatre Coliseum', 'MATI', '26/01/2016', 120, 18, 'Cisne Negro'),
 	('Teatre Coliseum', 'TARDA', '26/01/2016', 120, 25, 'Cisne Negro'),
