@@ -36,7 +36,7 @@ public class BankService implements Service {
 	public boolean autoritza(String dni, int codiB, String numCompte, float preu, int codiBShows, String numCompteShows,
 			Date dAvui) {
 		return random.nextBoolean();
-		//return true;
+		// return true;
 	}
 
 }
