@@ -161,9 +161,9 @@ UPDATE SeientEnRepresentacio SET estat='OCUPAT', idEnt=2
 	WHERE noml='Teatre Lliure de Montjuïc' AND sessio='NIT' AND fila IN (3,4);
 
 UPDATE SeientEnRepresentacio SET estat='OCUPAT', idEnt=3
-	WHERE noml='Teatre Club Capitol' AND sessio='TARDA' AND fila=1 AND columna IN (3,13);
+	WHERE noml='Teatre Club Capitol' AND sessio='TARDA' AND fila=1 AND columna IN (3,4,5,6,7,8,9,10,11,12,13);
 UPDATE SeientEnRepresentacio SET estat='OCUPAT', idEnt=3
-	WHERE noml='Teatre Club Capitol' AND sessio='TARDA' AND fila=2 AND columna IN (2,14);
+	WHERE noml='Teatre Club Capitol' AND sessio='TARDA' AND fila=2 AND columna IN (2,3,4,5,6,7,8,9,10,11,12,13,14);
 UPDATE SeientEnRepresentacio SET estat='OCUPAT', idEnt=4
 	WHERE noml='Teatre Club Capitol' AND sessio='TARDA' AND fila IN (3,4);
 UPDATE SeientEnRepresentacio SET estat='OCUPAT', idEnt=5
